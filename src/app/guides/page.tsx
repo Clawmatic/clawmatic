@@ -447,7 +447,7 @@ export default function GuidesPage() {
                 textDecoration: 'none',
               }}
             >
-              suggest_a_guide →
+              Suggest a guide →
             </a>
           </div>
         </div>
