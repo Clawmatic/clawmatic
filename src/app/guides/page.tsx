@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import React from 'react';
 
 
 const guides = [
@@ -126,6 +127,11 @@ const guides = [
 const categories = ['ALL', 'SETUP', 'INTEGRATIONS', 'SKILLS', 'AUTOMATION'];
 
 export default function GuidesPage() {
+  const [activeCategory, setActiveCategory] = React.useState('ALL');
+  const filteredGuides = activeCategory === 'ALL'
+    ? guides
+    : guides.filter((g) => g.category === activeCategory);
+
   return (
     <div style={{ background: '#0F0F0F', minHeight: '100vh' }}>
       {/* Header */}
@@ -200,7 +206,7 @@ export default function GuidesPage() {
             }}
           >
             {[
-              { n: guides.length, label: 'guide' },
+              { n: guides.length, label: 'guides' },
               { n: 'More', label: 'coming soon' },
               { n: 'Free', label: 'always' },
             ].map((s) => (
@@ -251,13 +257,14 @@ export default function GuidesPage() {
           {categories.map((cat) => (
             <button
               key={cat}
+              onClick={() => setActiveCategory(cat)}
               style={{
                 fontFamily: 'Courier New, monospace',
                 fontSize: '0.75rem',
-                color: cat === 'ALL' ? '#4ECCA3' : '#555555',
+                color: cat === activeCategory ? '#4ECCA3' : '#555555',
                 background: 'none',
                 border: 'none',
-                borderBottom: cat === 'ALL' ? '2px solid #4ECCA3' : '2px solid transparent',
+                borderBottom: cat === activeCategory ? '2px solid #4ECCA3' : '2px solid transparent',
                 padding: '1rem 1.25rem',
                 cursor: 'pointer',
                 letterSpacing: '0.05em',
@@ -281,7 +288,7 @@ export default function GuidesPage() {
               gap: '1.25rem',
             }}
           >
-            {guides.map((guide) => (
+            {filteredGuides.map((guide) => (
               <article
                 key={guide.id}
                 className="card-hover pixel-border"

@@ -5,12 +5,12 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 const navLinks = [
-  { href: '/', label: 'home' },
-  { href: '/guides', label: 'guides' },
-  { href: '/skills', label: 'skill packs' },
-  { href: '/about', label: 'about' },
-  { href: '/faq', label: 'faq' },
-  { href: '/contact', label: 'contact' },
+  { href: '/', label: 'Home' },
+  { href: '/guides', label: 'Guides' },
+  { href: '/skills', label: 'Skill Packs' },
+  { href: '/about', label: 'About' },
+  { href: '/faq', label: 'FAQ' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 export default function Navbar() {
@@ -99,7 +99,7 @@ export default function Navbar() {
               display: 'inline-block',
             }}
           >
-            shop →
+            Shop →
           </a>
         </div>
 
