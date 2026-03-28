@@ -54,6 +54,9 @@ export const metadata: Metadata = {
       'Guides, skill packs, and automation ideas for OpenClaw AI. Get your agent doing more in minutes.',
     images: ['/openclaw-starter-kit-cover.png'],
   },
+  verification: {
+    google: '1BrDFXRyGpSZma0ZDFkbfUtoWvsudjsU2kdbWBjfU68',
+  },
   robots: {
     index: true,
     follow: true,
