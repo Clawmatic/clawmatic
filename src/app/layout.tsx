@@ -87,6 +87,13 @@ export default function RootLayout({
         <Navbar />
         <main style={{ flex: 1 }}>{children}</main>
         <Footer />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-891L4C43V7" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-891L4C43V7');
+        `}</Script>
         <Script src="https://gumroad.com/js/gumroad.js" strategy="lazyOnload" />
       </body>
     </html>
