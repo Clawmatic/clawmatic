@@ -1,3 +1,15 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Skill Packs',
+  description:
+    'Ready-to-install OpenClaw skill packs. Extend your AI agent with WhatsApp, Google Calendar, GitHub, smart home, and more. From €5, one-time payment.',
+  openGraph: {
+    title: 'OpenClaw Skill Packs — ClawMatic',
+    description: 'Pre-built skill bundles for OpenClaw AI. Drop in and instantly unlock new superpowers for your agent.',
+  },
+};
+
 const skillPacks = [
   {
     id: 1,

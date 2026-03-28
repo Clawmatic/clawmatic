@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 
+
 const guides = [
   {
     id: 1,
