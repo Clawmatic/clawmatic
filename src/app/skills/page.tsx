@@ -1,30 +1,30 @@
-import Link from 'next/link';
-
 const skillPacks = [
   {
     id: 1,
-    name: 'WhatsApp Command Center',
-    slug: 'whatsapp-command-center',
-    emoji: '💬',
-    badge: 'POPULAR',
+    name: 'OpenClaw Starter Kit',
+    slug: 'openclaw-starter-kit',
+    emoji: '🚀',
+    badge: 'NEW',
     badgeColor: '#4ECCA3',
-    price: '€7',
+    price: '€9',
     originalPrice: null,
-    description: 'Turn WhatsApp into a full OpenClaw command interface. Send messages, receive AI summaries, manage groups, and run skills — all from chat.',
+    description: 'Everything you need to hit the ground running with OpenClaw. 10 essential skills covering messaging, productivity, search, and automation — pre-configured and ready to drop in.',
     features: [
-      'Two-way WhatsApp bridge',
-      'Message summarization',
-      'Group broadcast commands',
-      'Media handling & forwarding',
-      'Smart reply suggestions',
+      '10 curated essential skills',
+      'Step-by-step setup guide',
+      'WhatsApp + Telegram basics',
+      'Web search & summarization',
+      'Task & calendar automation',
+      'Lifetime updates included',
     ],
-    skills: 8,
-    version: '1.3.2',
-    updated: '2026-03-15',
-    category: 'Messaging',
+    skills: 10,
+    version: '1.0.0',
+    updated: '2026-03-28',
+    category: 'Starter',
     categoryColor: '#4ECCA3',
-    gumroadUrl: 'https://gumroad.com',
-    downloads: '340+',
+    gumroadUrl: 'https://clawmatic.gumroad.com/l/starter-kit',
+    gumroadId: 'starter-kit',
+    downloads: '0+',
   },
   {
     id: 2,
@@ -49,7 +49,8 @@ const skillPacks = [
     updated: '2026-03-10',
     category: 'Productivity',
     categoryColor: '#5E6AD2',
-    gumroadUrl: 'https://gumroad.com',
+    gumroadUrl: 'https://clawmatic.gumroad.com',
+    gumroadId: '',
     downloads: '520+',
   },
   {
@@ -57,7 +58,7 @@ const skillPacks = [
     name: 'Dev Toolkit',
     slug: 'dev-toolkit',
     emoji: '🛠️',
-    badge: 'NEW',
+    badge: 'COMING SOON',
     badgeColor: '#FF6B6B',
     price: '€8',
     originalPrice: null,
@@ -75,7 +76,8 @@ const skillPacks = [
     updated: '2026-03-20',
     category: 'Development',
     categoryColor: '#FF6B6B',
-    gumroadUrl: 'https://gumroad.com',
+    gumroadUrl: 'https://clawmatic.gumroad.com',
+    gumroadId: '',
     downloads: '180+',
   },
   {
@@ -83,7 +85,7 @@ const skillPacks = [
     name: 'Finance Tracker Pack',
     slug: 'finance-tracker',
     emoji: '💰',
-    badge: 'FREE',
+    badge: 'COMING SOON',
     badgeColor: '#4ECCA3',
     price: '€0',
     originalPrice: null,
@@ -100,7 +102,8 @@ const skillPacks = [
     updated: '2026-02-28',
     category: 'Finance',
     categoryColor: '#FEBC2E',
-    gumroadUrl: 'https://gumroad.com',
+    gumroadUrl: 'https://clawmatic.gumroad.com',
+    gumroadId: '',
     downloads: '890+',
   },
   {
@@ -108,8 +111,8 @@ const skillPacks = [
     name: 'News & Research Digest',
     slug: 'news-research',
     emoji: '📰',
-    badge: null,
-    badgeColor: '',
+    badge: 'COMING SOON',
+    badgeColor: '#888888',
     price: '€5',
     originalPrice: null,
     description: 'Get AI-curated news digests, research summaries, and topic briefings. Connect RSS feeds, HN, Reddit, and arXiv into one smart daily brief.',
@@ -125,7 +128,8 @@ const skillPacks = [
     updated: '2026-03-01',
     category: 'Information',
     categoryColor: '#888888',
-    gumroadUrl: 'https://gumroad.com',
+    gumroadUrl: 'https://clawmatic.gumroad.com',
+    gumroadId: '',
     downloads: '210+',
   },
   {
@@ -133,7 +137,7 @@ const skillPacks = [
     name: 'Smart Home Bridge',
     slug: 'smart-home',
     emoji: '🏠',
-    badge: 'BETA',
+    badge: 'COMING SOON',
     badgeColor: '#FEBC2E',
     price: '€6',
     originalPrice: null,
@@ -150,7 +154,8 @@ const skillPacks = [
     updated: '2026-02-20',
     category: 'Smart Home',
     categoryColor: '#FEBC2E',
-    gumroadUrl: 'https://gumroad.com',
+    gumroadUrl: 'https://clawmatic.gumroad.com',
+    gumroadId: '',
     downloads: '95+',
   },
   {
@@ -158,8 +163,8 @@ const skillPacks = [
     name: 'Health & Fitness Log',
     slug: 'health-fitness',
     emoji: '💪',
-    badge: null,
-    badgeColor: '',
+    badge: 'COMING SOON',
+    badgeColor: '#FF6B6B',
     price: '€5',
     originalPrice: null,
     description: 'Log workouts, track habits, analyze sleep data, and get personalized fitness summaries. Works with Apple Health CSV exports.',
@@ -175,7 +180,8 @@ const skillPacks = [
     updated: '2026-02-10',
     category: 'Health',
     categoryColor: '#FF6B6B',
-    gumroadUrl: 'https://gumroad.com',
+    gumroadUrl: 'https://clawmatic.gumroad.com',
+    gumroadId: '',
     downloads: '130+',
   },
   {
@@ -183,7 +189,7 @@ const skillPacks = [
     name: 'Belgian Starter Pack',
     slug: 'belgian-starter',
     emoji: '🇧🇪',
-    badge: 'MADE HERE',
+    badge: 'COMING SOON',
     badgeColor: '#5E6AD2',
     price: '€0',
     originalPrice: null,
@@ -200,7 +206,8 @@ const skillPacks = [
     updated: '2026-03-25',
     category: 'Local',
     categoryColor: '#5E6AD2',
-    gumroadUrl: 'https://gumroad.com',
+    gumroadUrl: 'https://clawmatic.gumroad.com',
+    gumroadId: '',
     downloads: '75+',
   },
 ];
@@ -541,21 +548,38 @@ export default function SkillsPage() {
                       </span>
                     )}
                   </div>
-                  <a
-                    href={pack.gumroadUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={pack.price === '€0' ? 'btn-green' : 'btn-primary'}
-                    style={{
-                      padding: '8px 20px',
-                      fontSize: '0.78rem',
-                      textDecoration: 'none',
-                      borderRadius: '2px',
-                      display: 'inline-block',
-                    }}
-                  >
-                    {pack.price === '€0' ? 'get_free →' : 'buy_on_gumroad →'}
-                  </a>
+                  {pack.gumroadId ? (
+                    <a
+                      href={pack.gumroadUrl}
+                      data-gumroad-product-id={pack.gumroadId}
+                      data-gumroad-overlay="true"
+                      className={pack.price === '€0' ? 'btn-green' : 'btn-primary'}
+                      style={{
+                        padding: '8px 20px',
+                        fontSize: '0.78rem',
+                        textDecoration: 'none',
+                        borderRadius: '2px',
+                        display: 'inline-block',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      {pack.price === '€0' ? 'get_free →' : 'buy_now →'}
+                    </a>
+                  ) : (
+                    <span
+                      className="btn-primary"
+                      style={{
+                        padding: '8px 20px',
+                        fontSize: '0.78rem',
+                        borderRadius: '2px',
+                        display: 'inline-block',
+                        opacity: 0.4,
+                        cursor: 'not-allowed',
+                      }}
+                    >
+                      coming_soon →
+                    </span>
+                  )}
                 </div>
               </div>
             ))}
@@ -637,22 +661,20 @@ export default function SkillsPage() {
                   €41
                 </span>
               </div>
-              <a
-                href="https://gumroad.com"
-                target="_blank"
-                rel="noopener noreferrer"
+              <span
                 className="btn-primary"
                 style={{
                   padding: '12px 28px',
                   fontSize: '0.85rem',
-                  textDecoration: 'none',
                   borderRadius: '2px',
                   display: 'inline-block',
                   textAlign: 'center',
+                  opacity: 0.4,
+                  cursor: 'not-allowed',
                 }}
               >
-                get_all_access →
-              </a>
+                coming_soon →
+              </span>
               <p
                 style={{
                   fontFamily: 'Courier New, monospace',
