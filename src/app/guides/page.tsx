@@ -411,7 +411,7 @@ export default function GuidesPage() {
                     onMouseEnter={(e) => ((e.target as HTMLElement).style.color = '#7B85E0')}
                     onMouseLeave={(e) => ((e.target as HTMLElement).style.color = '#5E6AD2')}
                   >
-                    read_guide →
+                    Read guide →
                   </Link>
                 </div>
               </article>
