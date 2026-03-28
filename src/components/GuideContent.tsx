@@ -226,15 +226,24 @@ export function GuideContent({ content, skillsHref }: { content: string; skillsH
         style={{ marginTop: '3rem', padding: '2rem', borderRadius: '4px', background: 'rgba(78, 204, 163, 0.04)', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}
       >
         <p style={{ fontFamily: 'Courier New, monospace', fontSize: '0.7rem', color: '#4ECCA3', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-          // skip_the_setup
+          // skip_the_grind
         </p>
         <p style={{ fontFamily: 'Courier New, monospace', fontSize: '0.9rem', fontWeight: '700', color: '#E8E8E8' }}>
-          Want 10 skills pre-configured and ready to go?
+          You just set up OpenClaw. Now make it actually useful.
         </p>
         <p style={{ fontFamily: 'Courier New, monospace', fontSize: '0.78rem', color: '#666666', lineHeight: '1.7' }}>
-          The OpenClaw Starter Kit includes everything from this guide plus 10 essential skills,
-          example prompts, and an install script. One command and you&apos;re done.
+          The <span style={{ color: '#E8E8E8' }}>OpenClaw Starter Kit</span> skips the part where you spend hours hunting down,
+          configuring, and debugging 10 different skills. It&apos;s all done — WhatsApp, web search,
+          calendar, task automation, and more. Drop it in, run one command, and your agent
+          is actually doing things.
         </p>
+        <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', margin: '0.25rem 0' }}>
+          {['10 skills ready to go', 'one install command', '€9 one-time'].map((f) => (
+            <span key={f} style={{ fontFamily: 'Courier New, monospace', fontSize: '0.7rem', color: '#4ECCA3' }}>
+              ✓ {f}
+            </span>
+          ))}
+        </div>
         <Link href={skillsHref} className="btn-green" style={{ display: 'inline-block', padding: '10px 24px', fontSize: '0.8rem', textDecoration: 'none', borderRadius: '2px', alignSelf: 'flex-start' }}>
           get_starter_kit →
         </Link>
