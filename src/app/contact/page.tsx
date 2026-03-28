@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -273,36 +274,31 @@ export default function ContactPage() {
                 </div>
               ))}
 
-              <div style={{ marginTop: '1.5rem' }}>
-                {/* Replace YOUR_CALENDLY_URL with your actual Calendly link once set up */}
-                <a
-                  href="https://calendly.com/clawmatic"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                  style={{
-                    display: 'inline-block',
-                    padding: '12px 28px',
-                    fontSize: '0.85rem',
-                    textDecoration: 'none',
-                    borderRadius: '2px',
-                    width: '100%',
-                    textAlign: 'center',
-                    boxSizing: 'border-box',
-                  }}
-                >
-                  pick a time slot →
-                </a>
-                <p style={{
-                  fontFamily: 'Courier New, monospace',
-                  fontSize: '0.65rem',
-                  color: '#444444',
-                  marginTop: '0.75rem',
-                  textAlign: 'center',
-                }}>
-                  Powered by Calendly · No account needed to book
-                </p>
-              </div>
+              {/* Calendly inline embed — swap URL once account is created */}
+              <div
+                className="calendly-inline-widget"
+                data-url="https://calendly.com/clawmatic/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=1c1c1c&text_color=efefef&primary_color=5e6ad2"
+                style={{
+                  minWidth: '280px',
+                  height: '500px',
+                  marginTop: '1.5rem',
+                  borderRadius: '4px',
+                  overflow: 'hidden',
+                }}
+              />
+              <Script
+                src="https://assets.calendly.com/assets/external/widget.js"
+                strategy="lazyOnload"
+              />
+              <p style={{
+                fontFamily: 'Courier New, monospace',
+                fontSize: '0.65rem',
+                color: '#444444',
+                marginTop: '0.5rem',
+                textAlign: 'center',
+              }}>
+                Powered by Calendly · No account needed to book
+              </p>
             </div>
 
             {/* FAQ link */}
