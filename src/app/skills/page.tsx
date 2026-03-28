@@ -597,6 +597,104 @@ export default function SkillsPage() {
             ))}
           </div>
 
+          {/* Custom Pack CTA */}
+          <div
+            className="pixel-border"
+            style={{
+              marginTop: '2rem',
+              padding: '2.5rem',
+              borderRadius: '4px',
+              background: 'rgba(78, 204, 163, 0.03)',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '2rem',
+              alignItems: 'center',
+            }}
+          >
+            <div>
+              <p
+                style={{
+                  fontFamily: 'Courier New, monospace',
+                  fontSize: '0.7rem',
+                  color: '#4ECCA3',
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  marginBottom: '0.5rem',
+                }}
+              >
+                // custom_build
+              </p>
+              <h3
+                style={{
+                  fontFamily: 'Courier New, monospace',
+                  fontSize: '1.5rem',
+                  fontWeight: '900',
+                  color: '#E8E8E8',
+                  marginBottom: '0.75rem',
+                }}
+              >
+                Need something{' '}
+                <span style={{ color: '#4ECCA3' }}>tailor-made?</span>
+              </h3>
+              <p
+                style={{
+                  fontFamily: 'Courier New, monospace',
+                  fontSize: '0.8rem',
+                  color: '#888888',
+                  lineHeight: '1.7',
+                }}
+              >
+                Got a specific workflow, tool, or integration in mind? I build fully custom
+                skill packs based on your exact requirements. Tell me what you need and
+                I&apos;ll put it together for you — no one-size-fits-all compromises.
+              </p>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {[
+                '⚡ Built around your exact workflow',
+                '🔧 Any integration you need',
+                '📦 Delivered as a ready-to-install pack',
+                '💬 Priced based on scope',
+              ].map((f) => (
+                <div key={f} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <span
+                    style={{
+                      fontFamily: 'Courier New, monospace',
+                      fontSize: '0.75rem',
+                      color: '#888888',
+                    }}
+                  >
+                    {f}
+                  </span>
+                </div>
+              ))}
+              <a
+                href="mailto:hello@clawmatic.eu"
+                className="btn-green"
+                style={{
+                  padding: '12px 28px',
+                  fontSize: '0.85rem',
+                  borderRadius: '2px',
+                  display: 'inline-block',
+                  textAlign: 'center',
+                  textDecoration: 'none',
+                  marginTop: '0.5rem',
+                }}
+              >
+                request_custom_pack →
+              </a>
+              <p
+                style={{
+                  fontFamily: 'Courier New, monospace',
+                  fontSize: '0.65rem',
+                  color: '#444444',
+                }}
+              >
+                Drop me an email and describe what you need.
+              </p>
+            </div>
+          </div>
+
           {/* Bundle CTA */}
           <div
             className="pixel-border-purple"

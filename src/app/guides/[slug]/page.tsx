@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { GuideContent } from '@/components/GuideContent';
 
 // ─── Guide content ────────────────────────────────────────────────────────────
 
@@ -38,9 +39,21 @@ This guide gets you from zero to a running agent in under 15 minutes.
 
 Before you start, make sure you have:
 
-- **Node.js 18+** installed ([nodejs.org](https://nodejs.org))
-- A terminal (macOS Terminal, Windows Terminal, or any Linux shell)
+[MAC]
+- **Node.js 18+** installed — run \`brew install node\` or download from [nodejs.org](https://nodejs.org)
+- macOS Terminal (built-in) or any terminal app
 - An **Anthropic API key** — get one at [console.anthropic.com](https://console.anthropic.com)
+[/MAC]
+[WINDOWS]
+- **Node.js 18+** installed — download from [nodejs.org](https://nodejs.org) (LTS recommended)
+- **Windows Terminal** or PowerShell (run as Administrator for install)
+- An **Anthropic API key** — get one at [console.anthropic.com](https://console.anthropic.com)
+[/WINDOWS]
+[LINUX]
+- **Node.js 18+** installed — use your distro's package manager or [nodejs.org](https://nodejs.org)
+- Any terminal emulator
+- An **Anthropic API key** — get one at [console.anthropic.com](https://console.anthropic.com)
+[/LINUX]
 
 That's it. No Docker, no complex infra.
 
@@ -48,11 +61,29 @@ That's it. No Docker, no complex infra.
 
 ## Step 1 — Install OpenClaw
 
+[MAC]
+Open Terminal and run:
+
+\`\`\`bash
+npm install -g openclaw
+\`\`\`
+[/MAC]
+[WINDOWS]
+Open PowerShell (as Administrator) and run:
+
+\`\`\`powershell
+npm install -g openclaw
+\`\`\`
+[/WINDOWS]
+[LINUX]
 Open your terminal and run:
 
 \`\`\`bash
 npm install -g openclaw
 \`\`\`
+
+> If you get a permissions error, prefix with \`sudo\` or [configure npm for global installs without sudo](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally).
+[/LINUX]
 
 Verify the install:
 
@@ -88,7 +119,8 @@ my-agent/
 
 ## Step 3 — Add your API key
 
-Open \`~/.openclaw/config.json\` (created on first run) and add your Anthropic key:
+[MAC]
+Open \`~/.openclaw/config.json\` in any text editor and add your Anthropic key:
 
 \`\`\`json
 {
@@ -100,11 +132,50 @@ Open \`~/.openclaw/config.json\` (created on first run) and add your Anthropic k
 }
 \`\`\`
 
-Or set it as an environment variable:
+Or set it in your shell profile (\`~/.zshrc\` or \`~/.bash_profile\`):
 
 \`\`\`bash
 export ANTHROPIC_API_KEY=sk-ant-your-key-here
 \`\`\`
+[/MAC]
+[WINDOWS]
+Open \`%USERPROFILE%\\.openclaw\\config.json\` in Notepad and add your Anthropic key:
+
+\`\`\`json
+{
+  "providers": {
+    "anthropic": {
+      "apiKey": "sk-ant-your-key-here"
+    }
+  }
+}
+\`\`\`
+
+Or set it as a system environment variable via Settings → System → Environment Variables:
+
+\`\`\`
+ANTHROPIC_API_KEY = sk-ant-your-key-here
+\`\`\`
+[/WINDOWS]
+[LINUX]
+Open \`~/.openclaw/config.json\` in any text editor and add your Anthropic key:
+
+\`\`\`json
+{
+  "providers": {
+    "anthropic": {
+      "apiKey": "sk-ant-your-key-here"
+    }
+  }
+}
+\`\`\`
+
+Or export it in your shell config (\`~/.bashrc\` or \`~/.zshrc\`):
+
+\`\`\`bash
+export ANTHROPIC_API_KEY=sk-ant-your-key-here
+\`\`\`
+[/LINUX]
 
 ---
 
@@ -140,7 +211,7 @@ Restart your agent, then ask:
 
 > What's the weather in Brussels today?
 
-It should pull live weather data and answer in plain language.
+It should pull live weather data and answer in plain language. Browse [clawhub.ai](https://clawhub.ai) for the full skill catalogue.
 
 ---
 
@@ -157,174 +228,42 @@ Now that your agent is running, here's what to explore:
 
 ## Troubleshooting
 
+[MAC]
 **Agent won't start?**
 Check your Node.js version: \`node --version\` — needs to be 18 or above.
 
 **API key error?**
-Make sure there are no spaces or quotes around the key in your config file.
+Make sure there are no spaces or quotes around the key in your config or \`.zshrc\`.
 
-**Skill not working after install?**
-Always restart the agent after installing new skills: \`openclaw restart\`
+**Permission denied on npm install?**
+Use \`sudo npm install -g openclaw\` or configure npm's global prefix.
+[/MAC]
+[WINDOWS]
+**Agent won't start?**
+Check your Node.js version: \`node --version\` in PowerShell — needs to be 18 or above.
+
+**API key not found?**
+Make sure you opened a new terminal after setting the environment variable.
+
+**npm not recognised?**
+Ensure Node.js was added to PATH during install. Re-run the Node.js installer and check "Add to PATH".
+[/WINDOWS]
+[LINUX]
+**Agent won't start?**
+Check your Node.js version: \`node --version\` — needs to be 18 or above.
+
+**API key error?**
+Run \`source ~/.bashrc\` (or \`~/.zshrc\`) after exporting the key, or open a fresh terminal.
+
+**Permission error on npm install?**
+Configure a user-level npm prefix instead of using sudo — see [npm docs](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally).
+[/LINUX]
 
 ---
 
 Still stuck? The [OpenClaw docs](https://docs.openclaw.ai) have detailed troubleshooting, or join the [community Discord](https://discord.com/invite/clawd).`,
   },
 };
-
-// ─── Inline text formatter ────────────────────────────────────────────────────
-
-function formatInline(text: string): string {
-  return text
-    .replace(/\*\*([^*]+)\*\*/g, '<strong style="color:#E8E8E8;">$1</strong>')
-    .replace(/`([^`]+)`/g, '<code style="background:#1a1a1a;color:#4ECCA3;padding:2px 6px;border-radius:2px;font-size:0.78rem;font-family:Courier New,monospace;">$1</code>')
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" style="color:#5E6AD2;text-decoration:none;" target="_blank" rel="noopener noreferrer">$1</a>');
-}
-
-// ─── Content renderer ─────────────────────────────────────────────────────────
-
-function renderContent(content: string) {
-  const lines = content.split('\n');
-  const elements: React.ReactNode[] = [];
-  let i = 0;
-
-  while (i < lines.length) {
-    const line = lines[i];
-
-    // Code block
-    if (line.startsWith('```')) {
-      const lang = line.replace('```', '').trim();
-      const codeLines: string[] = [];
-      i++;
-      while (i < lines.length && lines[i] !== '```') {
-        codeLines.push(lines[i]);
-        i++;
-      }
-      elements.push(
-        <div key={i} style={{ margin: '1.25rem 0' }}>
-          {lang && (
-            <div style={{
-              fontFamily: 'Courier New, monospace',
-              fontSize: '0.65rem',
-              color: '#555555',
-              background: '#111111',
-              padding: '4px 12px',
-              borderBottom: '1px solid #1e1e1e',
-              borderRadius: '4px 4px 0 0',
-            }}>
-              {lang}
-            </div>
-          )}
-          <pre style={{
-            background: '#111111',
-            border: '1px solid #1e1e1e',
-            borderRadius: lang ? '0 0 4px 4px' : '4px',
-            padding: '1rem 1.25rem',
-            overflowX: 'auto',
-            fontFamily: 'Courier New, monospace',
-            fontSize: '0.78rem',
-            color: '#4ECCA3',
-            lineHeight: '1.7',
-            margin: 0,
-          }}>
-            {codeLines.join('\n')}
-          </pre>
-        </div>
-      );
-      i++;
-      continue;
-    }
-
-    // H2
-    if (line.startsWith('## ')) {
-      elements.push(
-        <h2 key={i} style={{
-          fontFamily: 'Courier New, monospace',
-          fontSize: '1.1rem',
-          fontWeight: '700',
-          color: '#5E6AD2',
-          marginTop: '2.5rem',
-          marginBottom: '1rem',
-          paddingBottom: '0.5rem',
-          borderBottom: '1px solid #1e1e1e',
-        }}>
-          {line.replace('## ', '')}
-        </h2>
-      );
-      i++;
-      continue;
-    }
-
-    // Blockquote
-    if (line.startsWith('> ')) {
-      elements.push(
-        <blockquote key={i} style={{
-          borderLeft: '3px solid #4ECCA3',
-          paddingLeft: '1rem',
-          margin: '1rem 0',
-        }}>
-          <span
-            style={{ fontFamily: 'Courier New, monospace', fontSize: '0.85rem', color: '#888888', fontStyle: 'italic' }}
-            dangerouslySetInnerHTML={{ __html: formatInline(line.replace('> ', '')) }}
-          />
-        </blockquote>
-      );
-      i++;
-      continue;
-    }
-
-    // List item
-    if (line.startsWith('- ')) {
-      elements.push(
-        <div key={i} style={{ display: 'flex', gap: '8px', marginBottom: '6px' }}>
-          <span style={{ color: '#4ECCA3', fontSize: '0.7rem', marginTop: '4px', flexShrink: 0 }}>✓</span>
-          <span
-            style={{ fontFamily: 'Courier New, monospace', fontSize: '0.82rem', color: '#888888', lineHeight: '1.7' }}
-            dangerouslySetInnerHTML={{ __html: formatInline(line.replace('- ', '')) }}
-          />
-        </div>
-      );
-      i++;
-      continue;
-    }
-
-    // HR
-    if (line === '---') {
-      elements.push(<hr key={i} style={{ border: 'none', borderTop: '1px solid #1e1e1e', margin: '2rem 0' }} />);
-      i++;
-      continue;
-    }
-
-    // Bold standalone line (e.g. "**Agent won't start?**")
-    if (line.startsWith('**') && line.endsWith('**') && !line.slice(2, -2).includes('**')) {
-      elements.push(
-        <p key={i} style={{ fontFamily: 'Courier New, monospace', fontSize: '0.82rem', fontWeight: '700', color: '#E8E8E8', marginTop: '1rem', marginBottom: '0.25rem' }}>
-          {line.slice(2, -2)}
-        </p>
-      );
-      i++;
-      continue;
-    }
-
-    // Empty line
-    if (line.trim() === '') {
-      elements.push(<div key={i} style={{ height: '0.4rem' }} />);
-      i++;
-      continue;
-    }
-
-    // Default paragraph
-    elements.push(
-      <p key={i}
-        style={{ fontFamily: 'Courier New, monospace', fontSize: '0.82rem', color: '#888888', lineHeight: '1.8', marginBottom: '0.5rem' }}
-        dangerouslySetInnerHTML={{ __html: formatInline(line) }}
-      />
-    );
-    i++;
-  }
-
-  return elements;
-}
 
 // ─── Static params ────────────────────────────────────────────────────────────
 
@@ -412,27 +351,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       {/* Content */}
       <section style={{ padding: 'clamp(2rem, 4vw, 3rem) 1.5rem' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }}>
-          {renderContent(guide.content)}
-
-          {/* CTA */}
-          <div
-            className="pixel-border-purple"
-            style={{ marginTop: '3rem', padding: '2rem', borderRadius: '4px', background: 'rgba(78, 204, 163, 0.04)', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}
-          >
-            <p style={{ fontFamily: 'Courier New, monospace', fontSize: '0.7rem', color: '#4ECCA3', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-              // skip_the_setup
-            </p>
-            <p style={{ fontFamily: 'Courier New, monospace', fontSize: '0.9rem', fontWeight: '700', color: '#E8E8E8' }}>
-              Want 10 skills pre-configured and ready to go?
-            </p>
-            <p style={{ fontFamily: 'Courier New, monospace', fontSize: '0.78rem', color: '#666666', lineHeight: '1.7' }}>
-              The OpenClaw Starter Kit includes everything from this guide plus 10 essential skills,
-              example prompts, and an install script. One command and you&apos;re done.
-            </p>
-            <Link href="/skills" className="btn-green" style={{ display: 'inline-block', padding: '10px 24px', fontSize: '0.8rem', textDecoration: 'none', borderRadius: '2px', alignSelf: 'flex-start' }}>
-              get_starter_kit →
-            </Link>
-          </div>
+          <GuideContent content={guide.content} skillsHref="/skills" />
         </div>
       </section>
     </div>
