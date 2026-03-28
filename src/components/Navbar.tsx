@@ -7,7 +7,7 @@ import { useState } from 'react';
 const navLinks = [
   { href: '/', label: '~/home' },
   { href: '/guides', label: 'guides' },
-  { href: '/skills', label: 'skill_packs' },
+  { href: '/skills', label: 'skill packs' },
   { href: '/about', label: 'about' },
   { href: '/contact', label: 'contact' },
 ];
@@ -88,9 +88,7 @@ export default function Navbar() {
             </Link>
           ))}
           <a
-            href="https://gumroad.com"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/skills"
             className="btn-primary"
             style={{
               padding: '6px 16px',
@@ -100,7 +98,7 @@ export default function Navbar() {
               display: 'inline-block',
             }}
           >
-            get_skills
+            shop →
           </a>
         </div>
 

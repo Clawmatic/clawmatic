@@ -122,26 +122,18 @@ export default function ContactPage() {
               {
                 icon: '📧',
                 label: 'General / anything',
-                value: 'hello@clawmatic.eu',
-                href: 'mailto:hello@clawmatic.eu',
+                value: 'info@clawmatic.eu',
+                href: 'mailto:info@clawmatic.eu',
                 color: '#4ECCA3',
                 desc: 'Questions, feedback, bug reports — all welcome.',
               },
               {
                 icon: '🔧',
                 label: 'Custom skill packs',
-                value: 'hello@clawmatic.eu',
-                href: 'mailto:hello@clawmatic.eu?subject=Custom%20Skill%20Pack%20Request',
+                value: 'custom@clawmatic.eu',
+                href: 'mailto:custom@clawmatic.eu?subject=Custom%20Skill%20Pack%20Request',
                 color: '#5E6AD2',
                 desc: 'Describe what you need and I\'ll scope it out.',
-              },
-              {
-                icon: '💬',
-                label: 'Community Discord',
-                value: 'discord.com/invite/clawd',
-                href: 'https://discord.com/invite/clawd',
-                color: '#FEBC2E',
-                desc: 'Hang out with other OpenClaw builders.',
               },
             ].map((item) => (
               <a
@@ -190,6 +182,65 @@ export default function ContactPage() {
                 </p>
               </a>
             ))}
+
+            {/* Hands-on install */}
+            <div
+              className="pixel-border"
+              style={{
+                padding: '1.5rem',
+                borderRadius: '4px',
+                background: 'rgba(94, 106, 210, 0.04)',
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '0.75rem' }}>
+                <span style={{ fontSize: '1.25rem' }}>🛠️</span>
+                <span
+                  style={{
+                    fontFamily: 'Courier New, monospace',
+                    fontSize: '0.7rem',
+                    color: '#5E6AD2',
+                    letterSpacing: '0.05em',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  Hands-on setup
+                </span>
+              </div>
+              <p
+                style={{
+                  fontFamily: 'Courier New, monospace',
+                  fontSize: '0.82rem',
+                  color: '#EFEFEF',
+                  marginBottom: '0.5rem',
+                  lineHeight: '1.5',
+                }}
+              >
+                Need help getting OpenClaw installed?
+              </p>
+              <p
+                style={{
+                  fontFamily: 'Courier New, monospace',
+                  fontSize: '0.75rem',
+                  color: '#777777',
+                  lineHeight: '1.7',
+                  marginBottom: '0.75rem',
+                }}
+              >
+                I can set up OpenClaw for you directly — either via remote access or on-site.
+                Whether you&apos;re not technical or just don&apos;t want the hassle, I&apos;ll handle the whole installation and get your agent running.
+              </p>
+              <a
+                href="mailto:info@clawmatic.eu?subject=Hands-on%20Setup%20Request"
+                style={{
+                  fontFamily: 'Courier New, monospace',
+                  fontSize: '0.75rem',
+                  color: '#5E6AD2',
+                  textDecoration: 'none',
+                }}
+              >
+                get in touch →
+              </a>
+            </div>
 
             {/* Response time note */}
             <div
