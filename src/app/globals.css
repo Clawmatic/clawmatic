@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0F0F0F;
-  --bg-card: #161616;
-  --bg-card-hover: #1a1a1a;
+  --bg: #141414;
+  --bg-card: #1c1c1c;
+  --bg-card-hover: #212121;
   --purple: #5E6AD2;
   --purple-light: #7B85E0;
   --green: #4ECCA3;
   --green-dim: #2a7a63;
-  --text: #E8E8E8;
-  --text-dim: #888888;
-  --border: #2a2a2a;
+  --text: #EFEFEF;
+  --text-dim: #999999;
+  --border: #303030;
   --border-glow: rgba(94, 106, 210, 0.4);
 }
 
@@ -35,9 +35,14 @@ html {
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: var(--font-inter), 'Inter', 'Segoe UI', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+}
+
+/* Keep monospace for terminal/code feel where intentional */
+.mono {
+  font-family: 'Courier New', Courier, monospace;
 }
 
 /* Scanline overlay */
