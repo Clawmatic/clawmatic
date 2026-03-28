@@ -348,7 +348,7 @@ export default function ContactPage() {
             textTransform: 'uppercase',
             marginBottom: '0.75rem',
           }}>
-            // made_in_belgium
+            Made in Belgium
           </p>
           <p style={{
             fontFamily: 'Courier New, monospace',

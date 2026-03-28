@@ -575,7 +575,7 @@ export default function SkillsPage() {
                         cursor: 'pointer',
                       }}
                     >
-                      {pack.price === '€0' ? 'get_free →' : 'buy_now →'}
+                      {pack.price === '€0' ? 'Get free →' : 'Buy now →'}
                     </a>
                   ) : (
                     <span
@@ -589,7 +589,7 @@ export default function SkillsPage() {
                         cursor: 'not-allowed',
                       }}
                     >
-                      coming_soon →
+                      Coming soon →
                     </span>
                   )}
                 </div>
@@ -783,7 +783,7 @@ export default function SkillsPage() {
                   cursor: 'not-allowed',
                 }}
               >
-                coming_soon →
+                Coming soon →
               </span>
               <p
                 style={{
