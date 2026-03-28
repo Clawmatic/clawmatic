@@ -2,9 +2,16 @@ import { MetadataRoute } from 'next';
 
 const BASE_URL = 'https://clawmatic.eu';
 
-// Only include live guides — add slugs here when content is ready
 const guides = [
   'getting-started',
+  'connect-whatsapp',
+  'first-skill',
+  'config-deep-dive',
+  'automate-standups',
+  'google-calendar-email',
+  'skill-pack-format',
+  'finance-assistant',
+  'vps-setup',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
