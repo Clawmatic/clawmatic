@@ -102,7 +102,7 @@ const features = [
     tagColor: '#5E6AD2',
     description: 'Step-by-step tutorials to get OpenClaw running exactly how you want it. From setup to advanced workflows.',
     href: '/guides',
-    cta: 'read_guides →',
+    cta: 'Read guides →',
     count: '12 guides',
   },
   {
@@ -112,7 +112,7 @@ const features = [
     tagColor: '#4ECCA3',
     description: 'Pre-built skill bundles that supercharge OpenClaw. Connect apps, automate tasks, build faster.',
     href: '/skills',
-    cta: 'browse_skills →',
+    cta: 'Browse skills →',
     count: '8 packs',
   },
   {
@@ -122,7 +122,7 @@ const features = [
     tagColor: '#888888',
     description: 'Join the builders. Share skills, swap configs, and figure out what OpenClaw can actually do.',
     href: '#',
-    cta: 'coming_soon',
+    cta: 'Coming soon',
     count: 'join waitlist',
   },
 ];
