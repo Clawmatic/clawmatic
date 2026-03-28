@@ -9,6 +9,7 @@ const navLinks = [
   { href: '/guides', label: 'guides' },
   { href: '/skills', label: 'skill packs' },
   { href: '/about', label: 'about' },
+  { href: '/faq', label: 'faq' },
   { href: '/contact', label: 'contact' },
 ];
 
