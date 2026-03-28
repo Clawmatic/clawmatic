@@ -250,7 +250,7 @@ export default function HomePage() {
                 display: 'inline-block',
               }}
             >
-              start_here →
+              Start here →
             </Link>
             <Link
               href="/skills"
@@ -263,7 +263,7 @@ export default function HomePage() {
                 display: 'inline-block',
               }}
             >
-              browse_skills
+              Browse skills
             </Link>
           </div>
         </div>
@@ -342,7 +342,7 @@ export default function HomePage() {
                   marginBottom: '1rem',
                 }}
               >
-                // what_is_openclaw
+                What is OpenClaw?
               </p>
               <h2
                 style={{
@@ -494,7 +494,7 @@ export default function HomePage() {
                 marginBottom: '0.75rem',
               }}
             >
-              // what_you_get
+              What you get
             </p>
             <h2
               style={{
@@ -636,7 +636,7 @@ export default function HomePage() {
               marginBottom: '1rem',
             }}
           >
-            // get_started
+            Get started
           </p>
           <h2
             style={{
@@ -684,7 +684,7 @@ export default function HomePage() {
                 display: 'inline-block',
               }}
             >
-              read_the_guides →
+              Read the guides →
             </Link>
             <Link
               href="/skills"
@@ -697,7 +697,7 @@ export default function HomePage() {
                 display: 'inline-block',
               }}
             >
-              shop_skill_packs
+              Shop skill packs
             </Link>
           </div>
         </div>

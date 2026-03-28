@@ -167,7 +167,7 @@ export default function GuidesPage() {
               marginBottom: '0.75rem',
             }}
           >
-            ./guides
+            Guides
           </p>
           <h1
             style={{

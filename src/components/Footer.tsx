@@ -84,7 +84,7 @@ export default function Footer() {
                   onMouseEnter={(e) => ((e.target as HTMLElement).style.color = '#4ECCA3')}
                   onMouseLeave={(e) => ((e.target as HTMLElement).style.color = '#888888')}
                 >
-                  ./{link.label.toLowerCase().replace(' ', '-')}
+                  {link.label}
                 </Link>
               </div>
             ))}
@@ -102,7 +102,7 @@ export default function Footer() {
                 textTransform: 'uppercase',
               }}
             >
-              system_status
+              System status
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
               {[

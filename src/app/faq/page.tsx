@@ -131,7 +131,7 @@ export default function FAQPage() {
             textTransform: 'uppercase',
             marginBottom: '0.75rem',
           }}>
-            ./faq
+            FAQ
           </p>
           <h1 style={{
             fontFamily: 'Courier New, monospace',
@@ -234,7 +234,7 @@ export default function FAQPage() {
             }}
           >
             <p style={{ fontFamily: 'Courier New, monospace', fontSize: '0.7rem', color: '#5E6AD2', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-              // still_have_questions
+              Still have questions?
             </p>
             <p style={{ fontFamily: 'Courier New, monospace', fontSize: '0.9rem', fontWeight: '700', color: '#EFEFEF' }}>
               Didn&apos;t find your answer?

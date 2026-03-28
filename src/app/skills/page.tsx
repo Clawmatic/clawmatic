@@ -263,7 +263,7 @@ export default function SkillsPage() {
               marginBottom: '0.75rem',
             }}
           >
-            ./skill_packs
+            Skill Packs
           </p>
           <h1
             style={{
@@ -622,7 +622,7 @@ export default function SkillsPage() {
                   marginBottom: '0.5rem',
                 }}
               >
-                // custom_build
+                Custom Build
               </p>
               <h3
                 style={{
@@ -681,7 +681,7 @@ export default function SkillsPage() {
                   marginTop: '0.5rem',
                 }}
               >
-                request_custom_pack →
+                Request custom pack →
               </a>
               <p
                 style={{
@@ -720,7 +720,7 @@ export default function SkillsPage() {
                   marginBottom: '0.5rem',
                 }}
               >
-                // bundle_deal
+                Bundle Deal
               </p>
               <h3
                 style={{

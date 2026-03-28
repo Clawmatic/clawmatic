@@ -88,7 +88,7 @@ export default function ContactPage() {
               textTransform: 'uppercase',
               marginBottom: '0.25rem',
             }}>
-              // reach_me
+              Reach me
             </p>
 
             {[
@@ -231,7 +231,7 @@ export default function ContactPage() {
               textTransform: 'uppercase',
               marginBottom: '0.25rem',
             }}>
-              // plan_a_meeting
+              Plan a meeting
             </p>
 
             {/* Meeting card */}

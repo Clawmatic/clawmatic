@@ -80,7 +80,7 @@ export default function AboutPage() {
               marginBottom: '0.75rem',
             }}
           >
-            ./about
+            About
           </p>
           <h1
             style={{
@@ -134,7 +134,7 @@ export default function AboutPage() {
                   marginBottom: '1rem',
                 }}
               >
-                // the_story
+                The Story
               </p>
               <div
                 style={{
@@ -226,7 +226,7 @@ export default function AboutPage() {
                     marginBottom: '0.5rem',
                   }}
                 >
-                  // not_affiliated
+                  Not Affiliated
                 </p>
                 <p
                   style={{
@@ -266,7 +266,7 @@ export default function AboutPage() {
               marginBottom: '2rem',
             }}
           >
-            // timeline
+            Timeline
           </p>
 
           <div style={{ position: 'relative', paddingLeft: '2rem' }}>
@@ -356,7 +356,7 @@ export default function AboutPage() {
               marginBottom: '1rem',
             }}
           >
-            // what_we_stand_for
+            What we stand for
           </p>
           <h2
             style={{
@@ -436,7 +436,7 @@ export default function AboutPage() {
               marginBottom: '1rem',
             }}
           >
-            // say_hello
+            Say hello
           </p>
           <h2
             style={{
@@ -476,7 +476,7 @@ export default function AboutPage() {
                 display: 'inline-block',
               }}
             >
-              email_us →
+              Email us →
             </a>
             <Link
               href="/guides"
@@ -489,7 +489,7 @@ export default function AboutPage() {
                 display: 'inline-block',
               }}
             >
-              explore_guides
+              Explore guides
             </Link>
           </div>
         </div>
