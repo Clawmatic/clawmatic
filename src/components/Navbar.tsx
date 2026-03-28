@@ -9,6 +9,7 @@ const navLinks = [
   { href: '/guides', label: 'guides' },
   { href: '/skills', label: 'skill_packs' },
   { href: '/about', label: 'about' },
+  { href: '/contact', label: 'contact' },
 ];
 
 export default function Navbar() {
