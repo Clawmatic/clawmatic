@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import CookieBanner from '@/components/CookieBanner';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 
@@ -87,14 +88,22 @@ export default function RootLayout({
         <Navbar />
         <main style={{ flex: 1 }}>{children}</main>
         <Footer />
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-891L4C43V7" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">{`
+        {/* GA consent defaults to denied until user accepts cookie banner */}
+        <Script id="ga-consent-default" strategy="beforeInteractive">{`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
+          gtag('consent', 'default', {
+            analytics_storage: 'denied',
+            ad_storage: 'denied',
+          });
+        `}</Script>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-891L4C43V7" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">{`
           gtag('js', new Date());
           gtag('config', 'G-891L4C43V7');
         `}</Script>
         <Script src="https://gumroad.com/js/gumroad.js" strategy="lazyOnload" />
+        <CookieBanner />
       </body>
     </html>
   );
