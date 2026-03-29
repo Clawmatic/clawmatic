@@ -669,7 +669,7 @@ export default function SkillsPage() {
                 </div>
               ))}
               <a
-                href="mailto:hello@clawmatic.eu"
+                href="mailto:info@clawmatic.eu"
                 className="btn-green"
                 style={{
                   padding: '12px 28px',

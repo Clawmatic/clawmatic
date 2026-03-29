@@ -466,7 +466,7 @@ export default function AboutPage() {
 
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a
-              href="mailto:hello@clawmatic.dev"
+              href="mailto:info@clawmatic.eu"
               className="btn-primary"
               style={{
                 padding: '12px 28px',

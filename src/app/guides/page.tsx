@@ -439,7 +439,7 @@ export default function GuidesPage() {
               More guides coming soon. Got a topic?
             </p>
             <a
-              href="mailto:hello@clawmatic.dev"
+              href="mailto:info@clawmatic.eu"
               style={{
                 fontFamily: 'Courier New, monospace',
                 fontSize: '0.75rem',
