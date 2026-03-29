@@ -20,9 +20,10 @@ export default function Navbar() {
   return (
     <nav
       style={{
-        borderBottom: '1px solid #2a2a2a',
-        background: 'rgba(15,15,15,0.95)',
-        backdropFilter: 'blur(10px)',
+        borderBottom: '1px solid #242424',
+        background: 'rgba(14,14,14,0.92)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
         position: 'sticky',
         top: 0,
         zIndex: 100,
@@ -36,71 +37,75 @@ export default function Navbar() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          height: '60px',
+          height: '64px',
         }}
       >
-        {/* Logo */}
+        {/* Logo — intentionally monospace as brand mark */}
         <Link href="/" style={{ textDecoration: 'none' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <span
-              style={{
-                fontSize: '1.5rem',
-                fontWeight: 'bold',
-                fontFamily: 'Courier New, monospace',
-                color: '#5E6AD2',
-                letterSpacing: '-0.02em',
-              }}
-            >
-              {'> '}
-              <span style={{ color: '#4ECCA3' }}>Claw</span>
-              <span style={{ color: '#E8E8E8' }}>Matic</span>
-            </span>
-          </div>
+          <span
+            style={{
+              fontSize: '1.25rem',
+              fontWeight: 'bold',
+              fontFamily: 'Courier New, monospace',
+              letterSpacing: '-0.02em',
+            }}
+          >
+            <span style={{ color: '#5E6AD2' }}>{'> '}</span>
+            <span style={{ color: '#4ECCA3' }}>Claw</span>
+            <span style={{ color: '#E8E8E8' }}>Matic</span>
+          </span>
         </Link>
 
         {/* Desktop nav */}
-        <div className="desktop-nav" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              style={{
-                fontFamily: 'Courier New, monospace',
-                fontSize: '0.85rem',
-                color: pathname === link.href ? '#4ECCA3' : '#888888',
-                textDecoration: 'none',
-                letterSpacing: '0.05em',
-                transition: 'color 0.2s ease',
-                borderBottom: pathname === link.href ? '1px solid #4ECCA3' : '1px solid transparent',
-                paddingBottom: '2px',
-              }}
-              onMouseEnter={(e) => {
-                if (pathname !== link.href) {
-                  (e.target as HTMLElement).style.color = '#E8E8E8';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (pathname !== link.href) {
-                  (e.target as HTMLElement).style.color = '#888888';
-                }
-              }}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <a
+        <div className="desktop-nav" style={{ display: 'flex', gap: '1.75rem', alignItems: 'center' }}>
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                style={{
+                  fontSize: '0.875rem',
+                  fontWeight: '450',
+                  color: isActive ? '#E8E8E8' : '#777777',
+                  textDecoration: 'none',
+                  letterSpacing: '0.01em',
+                  transition: 'color 0.2s ease',
+                  position: 'relative',
+                  paddingBottom: '2px',
+                }}
+                className={isActive ? 'nav-link-active' : 'nav-link'}
+              >
+                {link.label}
+                {isActive && (
+                  <span
+                    style={{
+                      position: 'absolute',
+                      bottom: '-2px',
+                      left: 0,
+                      right: 0,
+                      height: '1px',
+                      background: '#4ECCA3',
+                      borderRadius: '1px',
+                    }}
+                  />
+                )}
+              </Link>
+            );
+          })}
+          <Link
             href="/skills"
             className="btn-primary"
             style={{
-              padding: '6px 16px',
-              fontSize: '0.8rem',
+              padding: '7px 16px',
+              fontSize: '0.85rem',
               textDecoration: 'none',
-              borderRadius: '2px',
+              borderRadius: '6px',
               display: 'inline-block',
             }}
           >
             Shop →
-          </a>
+          </Link>
         </div>
 
         {/* Mobile hamburger */}
@@ -114,7 +119,7 @@ export default function Navbar() {
             padding: '8px',
             display: 'none',
             flexDirection: 'column',
-            gap: '4px',
+            gap: '5px',
           }}
           aria-label="Toggle menu"
         >
@@ -123,14 +128,14 @@ export default function Navbar() {
               key={i}
               style={{
                 display: 'block',
-                width: '22px',
-                height: '2px',
+                width: '20px',
+                height: '1.5px',
                 background: '#E8E8E8',
                 transition: 'all 0.2s ease',
                 transform: menuOpen
-                  ? i === 0 ? 'rotate(45deg) translate(4px, 4px)'
+                  ? i === 0 ? 'rotate(45deg) translate(4px, 4.5px)'
                   : i === 1 ? 'scaleX(0)'
-                  : 'rotate(-45deg) translate(4px, -4px)'
+                  : 'rotate(-45deg) translate(4px, -4.5px)'
                   : 'none',
               }}
             />
@@ -142,11 +147,12 @@ export default function Navbar() {
       {menuOpen && (
         <div
           style={{
-            borderTop: '1px solid #2a2a2a',
-            padding: '1rem 1.5rem',
+            borderTop: '1px solid #242424',
+            padding: '1.25rem 1.5rem',
             display: 'flex',
             flexDirection: 'column',
-            gap: '1rem',
+            gap: '0.875rem',
+            background: 'rgba(14,14,14,0.98)',
           }}
         >
           {navLinks.map((link) => (
@@ -155,10 +161,11 @@ export default function Navbar() {
               href={link.href}
               onClick={() => setMenuOpen(false)}
               style={{
-                fontFamily: 'Courier New, monospace',
                 fontSize: '0.9rem',
+                fontWeight: '450',
                 color: pathname === link.href ? '#4ECCA3' : '#888888',
                 textDecoration: 'none',
+                letterSpacing: '0.01em',
               }}
             >
               {link.label}
@@ -168,6 +175,7 @@ export default function Navbar() {
       )}
 
       <style>{`
+        .nav-link:hover { color: #CCCCCC !important; }
         @media (max-width: 768px) {
           .desktop-nav { display: none !important; }
           .mobile-menu-btn { display: flex !important; }

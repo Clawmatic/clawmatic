@@ -37,7 +37,7 @@ function TerminalHero() {
     <span
       style={{
         color: '#4ECCA3',
-        fontSize: 'clamp(1rem, 3vw, 1.5rem)',
+        fontSize: 'clamp(1rem, 3vw, 1.4rem)',
         fontFamily: 'Courier New, monospace',
         display: 'inline-block',
         minHeight: '2rem',
@@ -48,7 +48,7 @@ function TerminalHero() {
         style={{
           display: 'inline-block',
           width: '2px',
-          height: '1.2em',
+          height: '1.1em',
           background: '#4ECCA3',
           marginLeft: '2px',
           verticalAlign: 'middle',
@@ -63,12 +63,12 @@ function GlitchTitle() {
   return (
     <h1
       style={{
-        fontSize: 'clamp(2.5rem, 8vw, 6rem)',
+        fontSize: 'clamp(2.8rem, 9vw, 6.5rem)',
         fontWeight: '900',
         fontFamily: 'Courier New, monospace',
-        letterSpacing: '-0.02em',
-        lineHeight: 1.05,
-        marginBottom: '1.5rem',
+        letterSpacing: '-0.03em',
+        lineHeight: 1.0,
+        marginBottom: '1.75rem',
         position: 'relative',
       }}
     >
@@ -82,7 +82,7 @@ function GlitchTitle() {
       <br />
       <span
         style={{
-          background: 'linear-gradient(135deg, #5E6AD2, #4ECCA3)',
+          background: 'linear-gradient(135deg, #5E6AD2 0%, #4ECCA3 100%)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
@@ -94,9 +94,59 @@ function GlitchTitle() {
   );
 }
 
+// SVG Icons
+const BookIcon = () => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+  </svg>
+);
+
+const ZapIcon = () => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+  </svg>
+);
+
+const UsersIcon = () => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+    <circle cx="9" cy="7" r="4"/>
+    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+  </svg>
+);
+
+const GearIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="3"/>
+    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+  </svg>
+);
+
+const PlugIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+    <polyline points="15 3 21 3 21 9"/>
+    <line x1="10" y1="14" x2="21" y2="3"/>
+  </svg>
+);
+
+const SparkleIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 2L9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5L12 2z"/>
+  </svg>
+);
+
+const MessageIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+);
+
 const features = [
   {
-    icon: '📖',
+    icon: <BookIcon />,
     title: 'Guides',
     tag: 'LEARN',
     tagColor: '#5E6AD2',
@@ -106,7 +156,7 @@ const features = [
     count: '12 guides',
   },
   {
-    icon: '⚡',
+    icon: <ZapIcon />,
     title: 'Skill Packs',
     tag: 'POWER UP',
     tagColor: '#4ECCA3',
@@ -116,7 +166,7 @@ const features = [
     count: '8 packs',
   },
   {
-    icon: '🛠️',
+    icon: <UsersIcon />,
     title: 'Community',
     tag: 'SOON',
     tagColor: '#888888',
@@ -135,14 +185,25 @@ const stats = [
 ];
 
 export default function HomePage() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add('in-view');
+      }),
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div style={{ background: '#0F0F0F' }}>
       {/* Hero Section */}
       <section
-        className="grid-bg"
+        className="grid-bg mesh-bg"
         style={{
           position: 'relative',
-          padding: 'clamp(4rem, 10vw, 8rem) 1.5rem clamp(3rem, 8vw, 6rem)',
+          padding: 'clamp(5rem, 12vw, 10rem) 1.5rem clamp(4rem, 10vw, 8rem)',
           overflow: 'hidden',
         }}
       >
@@ -150,12 +211,12 @@ export default function HomePage() {
         <div
           style={{
             position: 'absolute',
-            top: '-20%',
-            left: '-10%',
-            width: '600px',
-            height: '600px',
+            top: '-15%',
+            left: '-5%',
+            width: '700px',
+            height: '700px',
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(94, 106, 210, 0.08) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(94, 106, 210, 0.07) 0%, transparent 65%)',
             pointerEvents: 'none',
           }}
         />
@@ -164,30 +225,30 @@ export default function HomePage() {
             position: 'absolute',
             bottom: '-10%',
             right: '-5%',
-            width: '500px',
-            height: '500px',
+            width: '600px',
+            height: '600px',
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(78, 204, 163, 0.06) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(78, 204, 163, 0.05) 0%, transparent 65%)',
             pointerEvents: 'none',
           }}
         />
 
         <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative' }}>
           {/* Badge */}
-          <div style={{ marginBottom: '1.5rem' }}>
+          <div style={{ marginBottom: '2rem' }}>
             <span
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                background: 'rgba(94, 106, 210, 0.12)',
-                border: '1px solid rgba(94, 106, 210, 0.3)',
-                borderRadius: '2px',
-                padding: '4px 12px',
-                fontFamily: 'Courier New, monospace',
-                fontSize: '0.7rem',
-                color: '#5E6AD2',
-                letterSpacing: '0.1em',
+                background: 'rgba(94, 106, 210, 0.1)',
+                border: '1px solid rgba(94, 106, 210, 0.25)',
+                borderRadius: '20px',
+                padding: '5px 14px',
+                fontSize: '0.72rem',
+                fontWeight: '500',
+                color: '#7B85E0',
+                letterSpacing: '0.06em',
                 textTransform: 'uppercase',
               }}
             >
@@ -197,8 +258,9 @@ export default function HomePage() {
                   height: '6px',
                   borderRadius: '50%',
                   background: '#4ECCA3',
-                  boxShadow: '0 0 8px #4ECCA3',
+                  boxShadow: '0 0 8px rgba(78, 204, 163, 0.8)',
                   animation: 'pulse-glow 2s ease infinite',
+                  flexShrink: 0,
                 }}
               />
               OpenClaw AI — Unofficial Hub
@@ -207,13 +269,14 @@ export default function HomePage() {
 
           <GlitchTitle />
 
-          <div style={{ marginBottom: '2.5rem' }}>
+          <div style={{ marginBottom: '2rem' }}>
             <p
               style={{
                 fontFamily: 'Courier New, monospace',
-                fontSize: '0.85rem',
+                fontSize: '0.82rem',
                 color: '#5E6AD2',
                 marginBottom: '0.5rem',
+                opacity: 0.8,
               }}
             >
               $ ./clawmatic --run
@@ -223,30 +286,30 @@ export default function HomePage() {
 
           <p
             style={{
-              fontFamily: 'Courier New, monospace',
-              fontSize: 'clamp(0.85rem, 2vw, 1rem)',
+              fontSize: 'clamp(1rem, 2.2vw, 1.1rem)',
               color: '#888888',
-              maxWidth: '600px',
-              lineHeight: '1.8',
-              marginBottom: '2.5rem',
+              maxWidth: '580px',
+              lineHeight: '1.75',
+              marginBottom: '2.75rem',
+              fontWeight: '400',
             }}
           >
             ClawMatic is your go-to resource for{' '}
-            <span style={{ color: '#E8E8E8' }}>OpenClaw AI</span> — the personal AI
+            <span style={{ color: '#CCCCCC', fontWeight: '500' }}>OpenClaw AI</span> — the personal AI
             assistant that actually does stuff. Guides, skill packs, and a community
             of builders who push it to the limit.
           </p>
 
           {/* CTA buttons */}
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '0.875rem', flexWrap: 'wrap' }}>
             <Link
               href="/guides"
               className="btn-primary"
               style={{
-                padding: '14px 32px',
-                fontSize: '0.9rem',
+                padding: '13px 28px',
+                fontSize: '0.95rem',
                 textDecoration: 'none',
-                borderRadius: '2px',
+                borderRadius: '8px',
                 display: 'inline-block',
               }}
             >
@@ -256,10 +319,10 @@ export default function HomePage() {
               href="/skills"
               className="btn-green"
               style={{
-                padding: '14px 32px',
-                fontSize: '0.9rem',
+                padding: '13px 28px',
+                fontSize: '0.95rem',
                 textDecoration: 'none',
-                borderRadius: '2px',
+                borderRadius: '8px',
                 display: 'inline-block',
               }}
             >
@@ -272,10 +335,10 @@ export default function HomePage() {
       {/* Stats bar */}
       <section
         style={{
-          borderTop: '1px solid #2a2a2a',
-          borderBottom: '1px solid #2a2a2a',
+          borderTop: '1px solid #1f1f1f',
+          borderBottom: '1px solid #1f1f1f',
           background: '#0a0a0a',
-          padding: '1.5rem',
+          padding: '1.75rem',
         }}
       >
         <div
@@ -294,22 +357,22 @@ export default function HomePage() {
             >
               <div
                 style={{
-                  fontFamily: 'Courier New, monospace',
-                  fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-                  fontWeight: 'bold',
+                  fontSize: 'clamp(1.6rem, 3vw, 2.2rem)',
+                  fontWeight: '700',
                   color: '#4ECCA3',
-                  marginBottom: '0.25rem',
+                  marginBottom: '0.3rem',
+                  letterSpacing: '-0.02em',
                 }}
               >
                 {stat.value}
               </div>
               <div
                 style={{
-                  fontFamily: 'Courier New, monospace',
-                  fontSize: '0.7rem',
+                  fontSize: '0.72rem',
+                  fontWeight: '500',
                   color: '#555555',
                   textTransform: 'uppercase',
-                  letterSpacing: '0.1em',
+                  letterSpacing: '0.08em',
                 }}
               >
                 {stat.label}
@@ -320,13 +383,13 @@ export default function HomePage() {
       </section>
 
       {/* What is OpenClaw section */}
-      <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem' }}>
+      <section className="reveal" style={{ padding: 'clamp(5rem, 10vw, 7rem) 1.5rem' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: '3rem',
+              gap: '4rem',
               alignItems: 'center',
             }}
           >
@@ -334,24 +397,24 @@ export default function HomePage() {
             <div>
               <p
                 style={{
-                  fontFamily: 'Courier New, monospace',
-                  fontSize: '0.7rem',
+                  fontSize: '0.72rem',
+                  fontWeight: '600',
                   color: '#5E6AD2',
-                  letterSpacing: '0.15em',
+                  letterSpacing: '0.12em',
                   textTransform: 'uppercase',
-                  marginBottom: '1rem',
+                  marginBottom: '1.25rem',
                 }}
               >
                 What is OpenClaw?
               </p>
               <h2
                 style={{
-                  fontFamily: 'Courier New, monospace',
-                  fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
-                  fontWeight: '900',
+                  fontSize: 'clamp(1.75rem, 4vw, 2.75rem)',
+                  fontWeight: '700',
                   color: '#E8E8E8',
                   lineHeight: 1.2,
-                  marginBottom: '1.5rem',
+                  marginBottom: '1.75rem',
+                  letterSpacing: '-0.02em',
                 }}
               >
                 The AI assistant
@@ -364,30 +427,39 @@ export default function HomePage() {
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '1rem',
+                  gap: '1.1rem',
                 }}
               >
                 {[
-                  { icon: '⚙️', text: 'Runs locally or in the cloud — you pick.' },
-                  { icon: '🔌', text: 'Connects to your apps via skills and integrations.' },
-                  { icon: '🧠', text: 'Learns your style. Gets smarter over time.' },
-                  { icon: '💬', text: 'Talk to it on WhatsApp, CLI, or web — anywhere.' },
-                ].map((item) => (
+                  { icon: <GearIcon />, text: 'Runs locally or in the cloud — you pick.' },
+                  { icon: <PlugIcon />, text: 'Connects to your apps via skills and integrations.' },
+                  { icon: <SparkleIcon />, text: 'Learns your style. Gets smarter over time.' },
+                  { icon: <MessageIcon />, text: 'Talk to it on WhatsApp, CLI, or web — anywhere.' },
+                ].map((item, i) => (
                   <div
-                    key={item.text}
+                    key={i}
                     style={{
                       display: 'flex',
                       alignItems: 'flex-start',
                       gap: '12px',
                     }}
                   >
-                    <span style={{ fontSize: '1rem', lineHeight: '1.7' }}>{item.icon}</span>
+                    <span
+                      style={{
+                        color: '#4ECCA3',
+                        marginTop: '2px',
+                        flexShrink: 0,
+                        opacity: 0.85,
+                      }}
+                    >
+                      {item.icon}
+                    </span>
                     <p
                       style={{
-                        fontFamily: 'Courier New, monospace',
-                        fontSize: '0.85rem',
+                        fontSize: '0.9rem',
                         color: '#888888',
                         lineHeight: '1.7',
+                        fontWeight: '400',
                       }}
                     >
                       {item.text}
@@ -401,21 +473,21 @@ export default function HomePage() {
             <div
               className="pixel-border"
               style={{
-                borderRadius: '4px',
+                borderRadius: '10px',
                 overflow: 'hidden',
                 background: '#0a0a0a',
-                maxWidth: '500px',
+                maxWidth: '480px',
               }}
             >
               {/* Terminal header */}
               <div
                 style={{
-                  background: '#161616',
+                  background: '#141414',
                   padding: '12px 16px',
-                  borderBottom: '1px solid #2a2a2a',
+                  borderBottom: '1px solid #222222',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
+                  gap: '7px',
                 }}
               >
                 {['#FF5F57', '#FEBC2E', '#28C840'].map((color) => (
@@ -427,14 +499,15 @@ export default function HomePage() {
                       borderRadius: '50%',
                       background: color,
                       display: 'block',
+                      opacity: 0.8,
                     }}
                   />
                 ))}
                 <span
                   style={{
                     fontFamily: 'Courier New, monospace',
-                    fontSize: '0.7rem',
-                    color: '#555555',
+                    fontSize: '0.72rem',
+                    color: '#444444',
                     marginLeft: '8px',
                   }}
                 >
@@ -457,7 +530,7 @@ export default function HomePage() {
                     style={{
                       fontFamily: 'Courier New, monospace',
                       fontSize: '0.8rem',
-                      lineHeight: '1.8',
+                      lineHeight: '1.85',
                       display: 'flex',
                       gap: '8px',
                     }}
@@ -476,32 +549,33 @@ export default function HomePage() {
 
       {/* Features section */}
       <section
+        className="reveal"
         style={{
-          padding: 'clamp(3rem, 6vw, 5rem) 1.5rem',
+          padding: 'clamp(4rem, 8vw, 6rem) 1.5rem',
           background: '#0a0a0a',
           borderTop: '1px solid #1a1a1a',
         }}
       >
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
             <p
               style={{
-                fontFamily: 'Courier New, monospace',
-                fontSize: '0.7rem',
+                fontSize: '0.72rem',
+                fontWeight: '600',
                 color: '#5E6AD2',
-                letterSpacing: '0.15em',
+                letterSpacing: '0.12em',
                 textTransform: 'uppercase',
-                marginBottom: '0.75rem',
+                marginBottom: '0.875rem',
               }}
             >
               What you get
             </p>
             <h2
               style={{
-                fontFamily: 'Courier New, monospace',
-                fontSize: 'clamp(1.5rem, 4vw, 2.2rem)',
-                fontWeight: '900',
+                fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+                fontWeight: '700',
                 color: '#E8E8E8',
+                letterSpacing: '-0.02em',
               }}
             >
               Everything you need to{' '}
@@ -513,7 +587,7 @@ export default function HomePage() {
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '1.5rem',
+              gap: '1.25rem',
             }}
           >
             {features.map((feature) => (
@@ -522,7 +596,7 @@ export default function HomePage() {
                 className="card-hover pixel-border"
                 style={{
                   padding: '2rem',
-                  borderRadius: '4px',
+                  borderRadius: '10px',
                   position: 'relative',
                 }}
               >
@@ -535,13 +609,24 @@ export default function HomePage() {
                     marginBottom: '1.5rem',
                   }}
                 >
-                  <span style={{ fontSize: '2rem' }}>{feature.icon}</span>
+                  <span
+                    style={{
+                      color: feature.tagColor,
+                      display: 'flex',
+                      alignItems: 'center',
+                      padding: '8px',
+                      background: `${feature.tagColor}12`,
+                      borderRadius: '8px',
+                    }}
+                  >
+                    {feature.icon}
+                  </span>
                   <span
                     className="tag"
                     style={{
-                      background: `${feature.tagColor}18`,
+                      background: `${feature.tagColor}10`,
                       color: feature.tagColor,
-                      border: `1px solid ${feature.tagColor}40`,
+                      border: `1px solid ${feature.tagColor}30`,
                     }}
                   >
                     {feature.tag}
@@ -550,22 +635,22 @@ export default function HomePage() {
 
                 <h3
                   style={{
-                    fontFamily: 'Courier New, monospace',
-                    fontSize: '1.2rem',
-                    fontWeight: '700',
+                    fontSize: '1.1rem',
+                    fontWeight: '600',
                     color: '#E8E8E8',
                     marginBottom: '0.75rem',
+                    letterSpacing: '-0.01em',
                   }}
                 >
                   {feature.title}
                 </h3>
                 <p
                   style={{
-                    fontFamily: 'Courier New, monospace',
-                    fontSize: '0.8rem',
-                    color: '#888888',
+                    fontSize: '0.875rem',
+                    color: '#777777',
                     lineHeight: '1.7',
-                    marginBottom: '1.5rem',
+                    marginBottom: '1.75rem',
+                    fontWeight: '400',
                   }}
                 >
                   {feature.description}
@@ -582,11 +667,11 @@ export default function HomePage() {
                   <Link
                     href={feature.href}
                     style={{
-                      fontFamily: 'Courier New, monospace',
-                      fontSize: '0.75rem',
+                      fontSize: '0.825rem',
+                      fontWeight: '500',
                       color: feature.tagColor,
                       textDecoration: 'none',
-                      letterSpacing: '0.05em',
+                      letterSpacing: '0.01em',
                       transition: 'opacity 0.2s',
                     }}
                   >
@@ -594,9 +679,9 @@ export default function HomePage() {
                   </Link>
                   <span
                     style={{
-                      fontFamily: 'Courier New, monospace',
-                      fontSize: '0.7rem',
-                      color: '#444444',
+                      fontSize: '0.72rem',
+                      color: '#3f3f3f',
+                      fontWeight: '500',
                     }}
                   >
                     {feature.count}
@@ -610,8 +695,9 @@ export default function HomePage() {
 
       {/* CTA Banner */}
       <section
+        className="reveal"
         style={{
-          padding: 'clamp(4rem, 8vw, 6rem) 1.5rem',
+          padding: 'clamp(5rem, 10vw, 8rem) 1.5rem',
           textAlign: 'center',
           position: 'relative',
           overflow: 'hidden',
@@ -621,31 +707,31 @@ export default function HomePage() {
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'radial-gradient(ellipse at center, rgba(94, 106, 210, 0.08) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse at center, rgba(94, 106, 210, 0.07) 0%, transparent 65%)',
             pointerEvents: 'none',
           }}
         />
-        <div style={{ maxWidth: '700px', margin: '0 auto', position: 'relative' }}>
+        <div style={{ maxWidth: '640px', margin: '0 auto', position: 'relative' }}>
           <p
             style={{
-              fontFamily: 'Courier New, monospace',
-              fontSize: '0.7rem',
+              fontSize: '0.72rem',
+              fontWeight: '600',
               color: '#5E6AD2',
-              letterSpacing: '0.15em',
+              letterSpacing: '0.12em',
               textTransform: 'uppercase',
-              marginBottom: '1rem',
+              marginBottom: '1.25rem',
             }}
           >
             Get started
           </p>
           <h2
             style={{
-              fontFamily: 'Courier New, monospace',
-              fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
-              fontWeight: '900',
+              fontSize: 'clamp(1.75rem, 4.5vw, 2.75rem)',
+              fontWeight: '700',
               color: '#E8E8E8',
               lineHeight: 1.2,
-              marginBottom: '1rem',
+              marginBottom: '1.1rem',
+              letterSpacing: '-0.02em',
             }}
           >
             Ready to level up
@@ -654,11 +740,11 @@ export default function HomePage() {
           </h2>
           <p
             style={{
-              fontFamily: 'Courier New, monospace',
-              fontSize: '0.85rem',
-              color: '#888888',
+              fontSize: '1rem',
+              color: '#777777',
               lineHeight: '1.7',
-              marginBottom: '2rem',
+              marginBottom: '2.25rem',
+              fontWeight: '400',
             }}
           >
             Start with a guide, grab a skill pack, or just browse.
@@ -668,7 +754,7 @@ export default function HomePage() {
           <div
             style={{
               display: 'flex',
-              gap: '1rem',
+              gap: '0.875rem',
               justifyContent: 'center',
               flexWrap: 'wrap',
             }}
@@ -677,10 +763,10 @@ export default function HomePage() {
               href="/guides"
               className="btn-primary"
               style={{
-                padding: '14px 32px',
-                fontSize: '0.9rem',
+                padding: '13px 28px',
+                fontSize: '0.95rem',
                 textDecoration: 'none',
-                borderRadius: '2px',
+                borderRadius: '8px',
                 display: 'inline-block',
               }}
             >
@@ -690,10 +776,10 @@ export default function HomePage() {
               href="/skills"
               className="btn-green"
               style={{
-                padding: '14px 32px',
-                fontSize: '0.9rem',
+                padding: '13px 28px',
+                fontSize: '0.95rem',
                 textDecoration: 'none',
-                borderRadius: '2px',
+                borderRadius: '8px',
                 display: 'inline-block',
               }}
             >
@@ -705,7 +791,7 @@ export default function HomePage() {
 
       <style>{`
         @media (max-width: 480px) {
-          [style*="gridTemplateColumns: 'repeat(4, 1fr)'"] {
+          [style*="repeat(4, 1fr)"] {
             grid-template-columns: repeat(2, 1fr) !important;
           }
         }

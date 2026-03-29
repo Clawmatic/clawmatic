@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer
       style={{
-        borderTop: '1px solid #2a2a2a',
+        borderTop: '1px solid #242424',
         background: '#0a0a0a',
         padding: '3rem 1.5rem 2rem',
         marginTop: 'auto',
@@ -17,18 +17,19 @@ export default function Footer() {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '2rem',
-            marginBottom: '2rem',
+            gap: '2.5rem',
+            marginBottom: '2.5rem',
           }}
         >
           {/* Brand */}
           <div>
             <div
               style={{
-                fontFamily: 'Courier New, monospace',
-                fontSize: '1.2rem',
+                fontSize: '1.15rem',
                 fontWeight: 'bold',
-                marginBottom: '0.75rem',
+                fontFamily: 'Courier New, monospace',
+                marginBottom: '0.875rem',
+                letterSpacing: '-0.01em',
               }}
             >
               <span style={{ color: '#5E6AD2' }}>{'> '}</span>
@@ -37,10 +38,9 @@ export default function Footer() {
             </div>
             <p
               style={{
-                fontFamily: 'Courier New, monospace',
-                fontSize: '0.75rem',
+                fontSize: '0.8rem',
                 color: '#555555',
-                lineHeight: '1.6',
+                lineHeight: '1.7',
               }}
             >
               The unofficial hub for OpenClaw AI.
@@ -51,19 +51,19 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Links */}
+          {/* Navigation */}
           <div>
             <p
               style={{
-                fontFamily: 'Courier New, monospace',
                 fontSize: '0.7rem',
+                fontWeight: '600',
                 color: '#5E6AD2',
                 letterSpacing: '0.1em',
-                marginBottom: '0.75rem',
+                marginBottom: '0.875rem',
                 textTransform: 'uppercase',
               }}
             >
-              navigation
+              Navigation
             </p>
             {[
               { href: '/', label: 'Home' },
@@ -71,18 +71,17 @@ export default function Footer() {
               { href: '/skills', label: 'Skill Packs' },
               { href: '/about', label: 'About' },
             ].map((link) => (
-              <div key={link.href} style={{ marginBottom: '0.4rem' }}>
+              <div key={link.href} style={{ marginBottom: '0.5rem' }}>
                 <Link
                   href={link.href}
                   style={{
-                    fontFamily: 'Courier New, monospace',
-                    fontSize: '0.8rem',
-                    color: '#888888',
+                    fontSize: '0.85rem',
+                    color: '#666666',
                     textDecoration: 'none',
                     transition: 'color 0.2s',
                   }}
-                  onMouseEnter={(e) => ((e.target as HTMLElement).style.color = '#4ECCA3')}
-                  onMouseLeave={(e) => ((e.target as HTMLElement).style.color = '#888888')}
+                  onMouseEnter={(e) => ((e.target as HTMLElement).style.color = '#CCCCCC')}
+                  onMouseLeave={(e) => ((e.target as HTMLElement).style.color = '#666666')}
                 >
                   {link.label}
                 </Link>
@@ -94,17 +93,17 @@ export default function Footer() {
           <div>
             <p
               style={{
-                fontFamily: 'Courier New, monospace',
                 fontSize: '0.7rem',
+                fontWeight: '600',
                 color: '#5E6AD2',
                 letterSpacing: '0.1em',
-                marginBottom: '0.75rem',
+                marginBottom: '0.875rem',
                 textTransform: 'uppercase',
               }}
             >
-              System status
+              System Status
             </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {[
                 { label: 'API', status: 'online' },
                 { label: 'Skills CDN', status: 'online' },
@@ -116,9 +115,8 @@ export default function Footer() {
                     display: 'flex',
                     alignItems: 'center',
                     gap: '8px',
-                    fontFamily: 'Courier New, monospace',
-                    fontSize: '0.75rem',
-                    color: '#888888',
+                    fontSize: '0.82rem',
+                    color: '#666666',
                   }}
                 >
                   <span
@@ -127,8 +125,9 @@ export default function Footer() {
                       height: '6px',
                       borderRadius: '50%',
                       background: '#4ECCA3',
-                      boxShadow: '0 0 6px #4ECCA3',
+                      boxShadow: '0 0 6px rgba(78, 204, 163, 0.6)',
                       display: 'inline-block',
+                      flexShrink: 0,
                     }}
                   />
                   {item.label}
@@ -150,23 +149,12 @@ export default function Footer() {
             gap: '0.5rem',
           }}
         >
-          <p
-            style={{
-              fontFamily: 'Courier New, monospace',
-              fontSize: '0.7rem',
-              color: '#444444',
-            }}
-          >
+          <p style={{ fontSize: '0.75rem', color: '#3f3f3f' }}>
             © 2026 ClawMatic — Not affiliated with OpenClaw Inc.
           </p>
-          <p
-            style={{
-              fontFamily: 'Courier New, monospace',
-              fontSize: '0.7rem',
-              color: '#444444',
-            }}
-          >
-            v0.1.0 [<span style={{ color: '#5E6AD2' }}>BETA</span>]
+          <p style={{ fontSize: '0.75rem', color: '#3f3f3f' }}>
+            v0.1.0{' '}
+            <span style={{ color: '#5E6AD2', fontWeight: '500' }}>BETA</span>
           </p>
         </div>
       </div>
