@@ -100,7 +100,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 export default function HomePage() {
   return (
-    <div style={{ background: '#141414', ...s }}>
+    <div style={{ background: '#1e1e1e', ...s }}>
 
       {/* ── HERO ── */}
       <section
@@ -108,7 +108,7 @@ export default function HomePage() {
           position: 'relative',
           padding: 'clamp(5rem, 12vw, 9rem) 1.5rem clamp(4rem, 10vw, 7rem)',
           overflow: 'hidden',
-          background: '#141414',
+          background: '#1e1e1e',
         }}
       >
         {/* Glow blobs */}
@@ -222,7 +222,7 @@ export default function HomePage() {
       </section>
 
       {/* ── TARGETING ── */}
-      <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#0f0f0f', borderTop: '1px solid #1e1e1e' }}>
+      <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#181818', borderTop: '1px solid #1e1e1e' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <p style={{ fontSize: '0.75rem', fontWeight: 700, color: '#5E6AD2', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem', textAlign: 'center' }}>
             Is this for you?
@@ -240,7 +240,7 @@ export default function HomePage() {
               <div key={item} style={{
                 display: 'flex', alignItems: 'flex-start', gap: '12px',
                 padding: '1.25rem 1.5rem',
-                background: '#141414',
+                background: '#1e1e1e',
                 border: '1px solid #222222',
                 borderRadius: '10px',
               }}>
@@ -253,7 +253,7 @@ export default function HomePage() {
       </section>
 
       {/* ── PROBLEM ── */}
-      <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#141414', borderTop: '1px solid #1e1e1e' }}>
+      <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#1e1e1e', borderTop: '1px solid #1e1e1e' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <p style={{ fontSize: '0.75rem', fontWeight: 700, color: '#5E6AD2', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>
@@ -273,7 +273,7 @@ export default function HomePage() {
             ].map((card) => (
               <div key={card.title} style={{
                 padding: '1.75rem',
-                background: '#0f0f0f',
+                background: '#181818',
                 border: '1px solid #222222',
                 borderRadius: '12px',
               }}>
@@ -293,7 +293,7 @@ export default function HomePage() {
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section id="how-it-works" style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#0f0f0f', borderTop: '1px solid #1e1e1e' }}>
+      <section id="how-it-works" style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#181818', borderTop: '1px solid #1e1e1e' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
             <p style={{ fontSize: '0.75rem', fontWeight: 700, color: '#5E6AD2', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>
@@ -312,7 +312,7 @@ export default function HomePage() {
             ].map((item) => (
               <div key={item.step} style={{
                 padding: '2rem',
-                background: '#141414',
+                background: '#1e1e1e',
                 border: '1px solid #222222',
                 borderRadius: '12px',
                 position: 'relative',
@@ -333,7 +333,7 @@ export default function HomePage() {
       </section>
 
       {/* ── BENEFITS ── */}
-      <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#141414', borderTop: '1px solid #1e1e1e' }}>
+      <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#1e1e1e', borderTop: '1px solid #1e1e1e' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <p style={{ fontSize: '0.75rem', fontWeight: 700, color: '#5E6AD2', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>
@@ -348,7 +348,7 @@ export default function HomePage() {
             {benefits.map((b) => (
               <div key={b.title} style={{
                 padding: '1.75rem',
-                background: '#0f0f0f',
+                background: '#181818',
                 border: '1px solid #222222',
                 borderRadius: '12px',
                 display: 'flex',
@@ -379,7 +379,7 @@ export default function HomePage() {
       </section>
 
       {/* ── PROOF ── */}
-      <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#0f0f0f', borderTop: '1px solid #1e1e1e' }}>
+      <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#181818', borderTop: '1px solid #1e1e1e' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <p style={{ fontSize: '0.75rem', fontWeight: 700, color: '#5E6AD2', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>
@@ -407,7 +407,7 @@ export default function HomePage() {
             ].map((r) => (
               <div key={r.label} style={{
                 padding: '2.25rem',
-                background: '#141414',
+                background: '#1e1e1e',
                 border: '1px solid #252525',
                 borderRadius: '14px',
               }}>
@@ -434,7 +434,7 @@ export default function HomePage() {
       {/* ── OFFER ── */}
       <section style={{
         padding: 'clamp(4rem, 8vw, 6rem) 1.5rem',
-        background: '#141414',
+        background: '#1e1e1e',
         borderTop: '1px solid #1e1e1e',
         position: 'relative',
         overflow: 'hidden',
@@ -478,7 +478,7 @@ export default function HomePage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#0f0f0f', borderTop: '1px solid #1e1e1e' }}>
+      <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#181818', borderTop: '1px solid #1e1e1e' }}>
         <div style={{ maxWidth: '720px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <p style={{ fontSize: '0.75rem', fontWeight: 700, color: '#5E6AD2', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>
@@ -499,7 +499,7 @@ export default function HomePage() {
       {/* ── FINAL CTA ── */}
       <section style={{
         padding: 'clamp(5rem, 10vw, 8rem) 1.5rem',
-        background: '#141414',
+        background: '#1e1e1e',
         borderTop: '1px solid #1e1e1e',
         textAlign: 'center',
         position: 'relative',
