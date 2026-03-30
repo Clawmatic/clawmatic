@@ -378,6 +378,36 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── WHAT WE AUTOMATE ── */}
+      <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#1e1e1e', borderTop: '1px solid #2a2a2a' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <p style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#5E6AD2', marginBottom: '0.75rem', ...s }}>Use cases</p>
+            <h2 style={{ fontSize: 'clamp(1.6rem, 4vw, 2.2rem)', fontWeight: 700, color: '#F0F0F0', lineHeight: 1.25, ...s }}>What we automate</h2>
+            <p style={{ marginTop: '0.75rem', color: '#888', fontSize: '1rem', maxWidth: '520px', margin: '0.75rem auto 0', ...s }}>If your team does it manually and repeatedly, we can probably automate it.</p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.25rem' }}>
+            {[
+              { icon: '📧', title: 'Email triage & responses', desc: 'Auto-sort, label, draft replies, and follow up — without lifting a finger.' },
+              { icon: '🎯', title: 'Lead follow-up', desc: 'Never let a lead go cold. Automated outreach and CRM updates on autopilot.' },
+              { icon: '📊', title: 'Reporting & dashboards', desc: 'Pull data, generate reports, and deliver insights automatically on schedule.' },
+              { icon: '📅', title: 'Scheduling & booking', desc: 'Let AI handle meeting coordination, reminders, and calendar management.' },
+              { icon: '💬', title: 'Customer support', desc: 'Instant responses to common questions across email, chat, and WhatsApp.' },
+              { icon: '📋', title: 'Data entry & processing', desc: 'Extract, transform, and move data between systems without manual work.' },
+            ].map((item) => (
+              <div key={item.title} style={{ background: '#181818', border: '1px solid #2a2a2a', borderRadius: '10px', padding: '1.5rem', transition: 'border-color 0.2s ease' }}
+                onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#5E6AD2')}
+                onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#2a2a2a')}
+              >
+                <div style={{ fontSize: '1.75rem', marginBottom: '0.75rem' }}>{item.icon}</div>
+                <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: '#F0F0F0', marginBottom: '0.5rem', ...s }}>{item.title}</h3>
+                <p style={{ fontSize: '0.85rem', color: '#888', lineHeight: 1.6, ...s }}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── PROOF ── */}
       <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#181818', borderTop: '1px solid #1e1e1e' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>

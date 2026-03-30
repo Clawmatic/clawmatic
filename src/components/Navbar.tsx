@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
@@ -38,7 +39,8 @@ export default function Navbar() {
         }}
       >
         {/* Logo */}
-        <Link href="/" style={{ textDecoration: 'none' }}>
+        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <Image src="/clawmatic-logo.png" alt="ClawMatic" width={36} height={36} style={{ borderRadius: '6px' }} />
           <span
             style={{
               fontSize: '1.2rem',
@@ -48,7 +50,6 @@ export default function Navbar() {
               color: '#F0F0F0',
             }}
           >
-            <span style={{ color: '#5E6AD2' }}>&gt; </span>
             <span style={{ color: '#4ECCA3' }}>Claw</span>
             <span style={{ color: '#F0F0F0' }}>Matic</span>
           </span>
