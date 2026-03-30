@@ -8,9 +8,9 @@ const s = {
 };
 
 const benefits = [
-  { icon: '⏱', title: 'Save 10–30+ hours/week', desc: 'Automate the tasks that eat your day so your team can focus on work that matters.' },
+  { icon: '⏱', title: 'Save 10-30+ hours/week', desc: 'Automate the tasks that eat your day so your team can focus on work that matters.' },
   { icon: '💸', title: 'Reduce operational costs', desc: 'Do more with less. Cut overhead by replacing manual processes with AI workflows.' },
-  { icon: '🔁', title: 'Eliminate repetitive tasks', desc: 'Email triage, data entry, reporting — all handled automatically.' },
+  { icon: '🔁', title: 'Eliminate repetitive tasks', desc: 'Email triage, data entry, reporting -- all handled automatically.' },
   { icon: '⚡', title: 'Faster response times', desc: 'AI systems that respond instantly, 24/7, without manual intervention.' },
   { icon: '📈', title: 'More time for growth', desc: 'When the busywork disappears, you can focus on strategy, clients, and scaling.' },
 ];
@@ -18,19 +18,19 @@ const benefits = [
 const faqs = [
   {
     q: 'Do I need technical knowledge?',
-    a: 'No. We handle everything — from design to deployment. You just tell us what you need automated, and we build it.',
+    a: 'No. We handle everything -- from design to deployment. You just tell us what you need automated, and we build it.',
   },
   {
     q: 'How long does it take?',
-    a: 'Typically 2–4 weeks depending on the scope of your project. We'll give you a clear timeline after the audit.',
+    a: "Typically 2-4 weeks depending on the scope of your project. We'll give you a clear timeline after the audit.",
   },
   {
     q: 'Is this expensive?',
-    a: 'We offer scalable solutions for different budgets. Start with a free audit and we'll recommend what actually makes sense for your situation.',
+    a: "We offer scalable solutions for different budgets. Start with a free audit and we'll recommend what actually makes sense for your situation.",
   },
   {
     q: 'What kind of businesses do you work with?',
-    a: 'Any business with repetitive processes — from local shops and agencies to SaaS teams and e-commerce stores.',
+    a: 'Any business with repetitive processes -- from local shops and agencies to SaaS teams and e-commerce stores.',
   },
 ];
 
@@ -267,7 +267,7 @@ export default function HomePage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.25rem', marginBottom: '3rem' }}>
             {[
               { icon: '🐌', title: 'Manual tasks slow growth', desc: 'Every hour spent on manual work is an hour not spent on strategy or customers.' },
-              { icon: '🔄', title: 'Repetitive work eats your day', desc: 'The same tasks, every day, done by hand — draining focus and energy.' },
+              { icon: '🔄', title: 'Repetitive work eats your day', desc: 'The same tasks, every day, done by hand -- draining focus and energy.' },
               { icon: '👥', title: 'Hiring more just to keep up', desc: 'Scaling means more headcount, more overhead, more complexity.' },
               { icon: '🚧', title: 'Missed opportunities', desc: 'When you\'re buried in busywork, growth opportunities pass you by.' },
             ].map((card) => (
@@ -307,7 +307,7 @@ export default function HomePage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
             {[
               { step: '01', title: 'Analyze', color: '#5E6AD2', desc: 'We dig into your business and identify exactly where time and money are being wasted on manual processes.' },
-              { step: '02', title: 'Automate', color: '#4ECCA3', desc: 'We build custom AI workflows tailored to your specific operations — no off-the-shelf templates.' },
+              { step: '02', title: 'Automate', color: '#4ECCA3', desc: 'We build custom AI workflows tailored to your specific operations -- no off-the-shelf templates.' },
               { step: '03', title: 'Scale', color: '#5E6AD2', desc: 'With the busywork handled, you save time, reduce costs, and have the bandwidth to grow faster.' },
             ].map((item) => (
               <div key={item.step} style={{
@@ -395,7 +395,7 @@ export default function HomePage() {
               {
                 stat: '80%',
                 label: 'faster response time',
-                desc: 'Automated lead handling reduced response time by 80% — prospects got answers instantly, around the clock.',
+                desc: 'Automated lead handling reduced response time by 80% -- prospects got answers instantly, around the clock.',
                 color: '#4ECCA3',
               },
               {
@@ -452,7 +452,7 @@ export default function HomePage() {
             Start with a free AI audit
           </h2>
           <p style={{ fontSize: '1rem', color: '#888888', lineHeight: 1.75, marginBottom: '2.25rem' }}>
-            We will analyze your business and show you exactly where AI can save you time and money — no obligation, no cost.
+            We will analyze your business and show you exactly where AI can save you time and money -- no obligation, no cost.
           </p>
           <a
             href="https://calendly.com/clawmatic/30min"
