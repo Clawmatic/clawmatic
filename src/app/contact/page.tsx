@@ -1,266 +1,123 @@
-import type { Metadata } from 'next';
-import Script from 'next/script';
+"use client";
 
-export const metadata: Metadata = {
-  title: 'Contact',
-  description:
-    'Get in touch with ClawMatic. Book a free AI audit call or send us an email to discuss your automation project.',
-};
-
-const labelStyle = {
-  fontFamily: 'var(--font-inter), Inter, sans-serif',
-  fontSize: '0.75rem',
-  fontWeight: 600,
-  color: '#5E6AD2',
-  letterSpacing: '0.12em',
-  textTransform: 'uppercase' as const,
-  marginBottom: '1rem',
-};
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Mail, Target, Clock, CheckCircle2, ArrowRight } from "lucide-react";
 
 export default function ContactPage() {
   return (
-    <div style={{ background: '#181818', minHeight: '100vh' }}>
+    <div className="min-h-screen bg-background pt-16">
       {/* Hero */}
-      <section
-        className="grid-bg"
-        style={{
-          padding: 'clamp(4rem, 8vw, 6rem) 1.5rem 3rem',
-          borderBottom: '1px solid #2a2a2a',
-          position: 'relative',
-          overflow: 'hidden',
-        }}
-      >
-        <div
-          style={{
-            position: 'absolute',
-            top: '-30%',
-            right: '0',
-            width: '500px',
-            height: '500px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(94, 106, 210, 0.07) 0%, transparent 70%)',
-            pointerEvents: 'none',
-          }}
-        />
-        <div style={{ maxWidth: '1100px', margin: '0 auto', position: 'relative' }}>
-          <p style={labelStyle}>Contact</p>
-          <h1
-            style={{
-              fontFamily: 'var(--font-inter), Inter, sans-serif',
-              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-              fontWeight: 700,
-              color: '#F0F0F0',
-              lineHeight: 1.15,
-              marginBottom: '1rem',
-            }}
-          >
-            Let us talk about your business
-          </h1>
-          <p
-            style={{
-              fontFamily: 'var(--font-inter), Inter, sans-serif',
-              fontSize: '1rem',
-              color: '#888',
-              maxWidth: '560px',
-              lineHeight: 1.7,
-            }}
-          >
-            Book a free audit call, send us an email, or use the calendar below. No obligation — just
-            a conversation about what we can automate for you.
-          </p>
+      <section className="pt-32 pb-20 relative">
+        <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium tracking-wide">
+              Contact
+            </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mt-4 mb-6 max-w-3xl">
+              Let&apos;s talk about <span className="gradient-text">your business</span>
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl">
+              Book a free audit call, send us an email, or use the calendar below. No obligation — just a conversation about what we can automate for you.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Main content */}
-      <section style={{ padding: 'clamp(3rem, 6vw, 5rem) 1.5rem', background: '#1e1e1e' }}>
-        <div
-          style={{
-            maxWidth: '1100px',
-            margin: '0 auto',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '3rem',
-            alignItems: 'start',
-          }}
-        >
-          {/* Left column */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            <p style={labelStyle}>Get in touch</p>
-
-            {/* Email card */}
-            <a
-              href="mailto:info@clawmatic.eu"
-              className="card-hover pixel-border"
-              style={{
-                display: 'block',
-                padding: '1.5rem',
-                borderRadius: '10px',
-                background: '#181818',
-                textDecoration: 'none',
-              }}
+      {/* Contact Grid */}
+      <section className="py-24">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            {/* Left - Get in touch */}
+            <motion.div
+              className="space-y-6"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '0.5rem' }}>
-                <span style={{ fontSize: '1.25rem' }}>📧</span>
-                <span
-                  style={{
-                    fontFamily: 'var(--font-inter), Inter, sans-serif',
-                    fontSize: '0.7rem',
-                    fontWeight: 600,
-                    color: '#4ECCA3',
-                    letterSpacing: '0.08em',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  Email us
-                </span>
-              </div>
-              <p
-                style={{
-                  fontFamily: 'var(--font-inter), Inter, sans-serif',
-                  fontSize: '0.9rem',
-                  fontWeight: 600,
-                  color: '#F0F0F0',
-                  marginBottom: '0.35rem',
-                }}
-              >
-                info@clawmatic.eu
-              </p>
-              <p
-                style={{
-                  fontFamily: 'var(--font-inter), Inter, sans-serif',
-                  fontSize: '0.8rem',
-                  color: '#888',
-                  lineHeight: 1.6,
-                }}
-              >
-                Questions, project enquiries, or just want to chat about automation.
-              </p>
-            </a>
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium tracking-wide">
+                Get in touch
+              </span>
 
-            {/* Free audit card */}
-            <div
-              className="pixel-border-purple"
-              style={{
-                padding: '1.5rem',
-                borderRadius: '10px',
-                background: 'rgba(94, 106, 210, 0.04)',
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '0.75rem' }}>
-                <span style={{ fontSize: '1.25rem' }}>🎯</span>
-                <h3
-                  style={{
-                    fontFamily: 'var(--font-inter), Inter, sans-serif',
-                    fontSize: '0.95rem',
-                    fontWeight: 700,
-                    color: '#F0F0F0',
-                    margin: 0,
-                  }}
-                >
-                  Free AI Audit
-                </h3>
-              </div>
-              <p
-                style={{
-                  fontFamily: 'var(--font-inter), Inter, sans-serif',
-                  fontSize: '0.85rem',
-                  color: '#888',
-                  lineHeight: 1.7,
-                  marginBottom: '0.75rem',
-                }}
-              >
-                Not sure where to start? We will analyze your business processes and show you exactly
-                where AI can save you time and money — completely free, no obligation.
-              </p>
               <a
-                href="https://calendly.com/clawmatic/30min"
-                style={{
-                  fontFamily: 'var(--font-inter), Inter, sans-serif',
-                  fontSize: '0.8rem',
-                  fontWeight: 600,
-                  color: '#5E6AD2',
-                  textDecoration: 'none',
-                }}
+                href="mailto:info@clawmatic.eu"
+                className="glass-card rounded-2xl p-6 block hover:border-primary/30 transition-colors group"
               >
-                Book your free audit →
-              </a>
-            </div>
-
-            {/* Response time */}
-            <div
-              style={{
-                padding: '1rem 1.25rem',
-                background: 'rgba(78, 204, 163, 0.05)',
-                border: '1px solid rgba(78, 204, 163, 0.15)',
-                borderRadius: '8px',
-              }}
-            >
-              <p
-                style={{
-                  fontFamily: 'var(--font-inter), Inter, sans-serif',
-                  fontSize: '0.82rem',
-                  color: '#888',
-                  lineHeight: 1.6,
-                }}
-              >
-                ⏱ We typically respond within 24 hours on weekdays.
-              </p>
-            </div>
-          </div>
-
-          {/* Right column */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            <p style={labelStyle}>Book a call</p>
-
-            <div
-              className="pixel-border"
-              style={{
-                padding: '2rem',
-                borderRadius: '10px',
-                background: '#181818',
-              }}
-            >
-              <h3
-                style={{
-                  fontFamily: 'var(--font-inter), Inter, sans-serif',
-                  fontSize: '1.1rem',
-                  fontWeight: 700,
-                  color: '#F0F0F0',
-                  marginBottom: '1rem',
-                }}
-              >
-                30-minute free audit call
-              </h3>
-
-              {['Free of charge', 'We analyze your workflow', 'No obligation'].map((f) => (
-                <div key={f} style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
-                  <span style={{ color: '#4ECCA3', fontSize: '0.75rem' }}>✓</span>
-                  <span
-                    style={{
-                      fontFamily: 'var(--font-inter), Inter, sans-serif',
-                      fontSize: '0.82rem',
-                      color: '#888',
-                    }}
-                  >
-                    {f}
-                  </span>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Mail className="h-5 w-5 text-primary" />
+                  </div>
+                  <span className="text-xs font-semibold tracking-wide uppercase text-primary">Email us</span>
                 </div>
-              ))}
+                <p className="font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">info@clawmatic.eu</p>
+                <p className="text-sm text-muted-foreground">Questions, project enquiries, or just want to chat about automation.</p>
+              </a>
 
-              <div
-                className="calendly-inline-widget"
-                data-url="https://calendly.com/clawmatic/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=1e1e1e&text_color=f0f0f0&primary_color=5e6ad2"
-                style={{
-                  minWidth: '280px',
-                  height: '500px',
-                  marginTop: '1.5rem',
-                }}
-              />
-              <Script
-                src="https://assets.calendly.com/assets/external/widget.js"
-                strategy="lazyOnload"
-              />
-            </div>
+              <div className="glass-card rounded-2xl p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-accent/15 flex items-center justify-center">
+                    <Target className="h-5 w-5 text-accent" />
+                  </div>
+                  <h3 className="font-bold text-foreground">Free AI Audit</h3>
+                </div>
+                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                  Not sure where to start? We&apos;ll analyze your business processes and show you exactly where AI can save you time and money — completely free, no obligation.
+                </p>
+                <Button variant="hero" size="sm" asChild>
+                  <a href="https://calendly.com/clawmatic/30min" target="_blank" rel="noopener noreferrer">
+                    Book your free audit →
+                  </a>
+                </Button>
+              </div>
+
+              <div className="glass-card rounded-xl px-5 py-3 flex items-center gap-3">
+                <Clock className="h-4 w-4 text-muted-foreground shrink-0" />
+                <p className="text-sm text-muted-foreground">We typically respond within 24 hours on weekdays.</p>
+              </div>
+            </motion.div>
+
+            {/* Right - Book a call */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+            >
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium tracking-wide">
+                Book a call
+              </span>
+
+              <div className="glass-card rounded-2xl p-8 mt-6">
+                <h3 className="text-xl font-bold text-foreground mb-6">30-minute free audit call</h3>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-center gap-3 text-foreground">
+                    <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
+                    Free of charge
+                  </li>
+                  <li className="flex items-center gap-3 text-foreground">
+                    <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
+                    We analyze your workflow
+                  </li>
+                  <li className="flex items-center gap-3 text-foreground">
+                    <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
+                    No obligation
+                  </li>
+                </ul>
+
+                <Button variant="hero" size="lg" asChild className="w-full text-base py-6">
+                  <a href="https://calendly.com/clawmatic/30min" target="_blank" rel="noopener noreferrer">
+                    Schedule Your Call
+                    <ArrowRight className="ml-1 h-4 w-4" />
+                  </a>
+                </Button>
+
+                <p className="text-xs text-muted-foreground text-center mt-4">
+                  You&apos;ll be redirected to our Calendly to pick a time that works for you.
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>

@@ -1,205 +1,92 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Menu, X, Zap } from "lucide-react";
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/services', label: 'Services' },
-  { href: '/toolkit', label: 'Toolkit' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Toolkit", href: "/toolkit" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
-export default function Navbar() {
+const Navbar = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
-  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav
-      style={{
-        borderBottom: '1px solid #1e1e1e',
-        background: 'rgba(20,20,20,0.95)',
-        backdropFilter: 'blur(12px)',
-        position: 'sticky',
-        top: 0,
-        zIndex: 100,
-      }}
-    >
-      <div
-        style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '0 1.5rem',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          height: '64px',
-        }}
-      >
-        {/* Logo */}
-        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <Image src="/clawmatic-logo.png" alt="ClawMatic" width={36} height={36} style={{ borderRadius: '6px' }} />
-          <span
-            style={{
-              fontSize: '1.2rem',
-              fontWeight: 700,
-              fontFamily: 'var(--font-inter), Inter, sans-serif',
-              letterSpacing: '-0.02em',
-              color: '#F0F0F0',
-            }}
-          >
-            <span style={{ color: '#4ECCA3' }}>Claw</span>
-            <span style={{ color: '#F0F0F0' }}>Matic</span>
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
+        <Link href="/" className="flex items-center gap-2">
+          <Zap className="h-6 w-6 text-primary" />
+          <span className="text-lg font-display font-bold text-foreground">
+            Claw<span className="text-primary">Matic</span>
           </span>
         </Link>
 
-        {/* Desktop nav */}
-        <div className="desktop-nav" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+        <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
-              key={link.href}
+              key={link.label}
               href={link.href}
-              style={{
-                fontFamily: 'var(--font-inter), Inter, sans-serif',
-                fontSize: '0.875rem',
-                fontWeight: 500,
-                color: pathname === link.href ? '#F0F0F0' : '#888888',
-                textDecoration: 'none',
-                transition: 'color 0.2s ease',
-              }}
-              onMouseEnter={(e) => {
-                if (pathname !== link.href) {
-                  (e.target as HTMLElement).style.color = '#cccccc';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (pathname !== link.href) {
-                  (e.target as HTMLElement).style.color = '#888888';
-                }
-              }}
+              className={`text-sm transition-colors duration-200 ${
+                pathname === link.href
+                  ? "text-foreground font-medium"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               {link.label}
             </Link>
           ))}
-          <a
-            href="https://calendly.com/clawmatic/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              padding: '8px 18px',
-              background: '#4ECCA3',
-              color: '#0f0f0f',
-              fontFamily: 'var(--font-inter), Inter, sans-serif',
-              fontSize: '0.875rem',
-              fontWeight: 700,
-              textDecoration: 'none',
-              borderRadius: '6px',
-              display: 'inline-block',
-              transition: 'opacity 0.2s',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
-          >
-            Book a Call
-          </a>
         </div>
 
-        {/* Mobile hamburger */}
+        <div className="hidden md:block">
+          <Button variant="hero" size="sm" asChild>
+            <a href="https://calendly.com/clawmatic/30min" target="_blank" rel="noopener noreferrer">
+              Book a Call
+            </a>
+          </Button>
+        </div>
+
         <button
-          className="mobile-menu-btn"
-          onClick={() => setMenuOpen(!menuOpen)}
-          style={{
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            padding: '8px',
-            display: 'none',
-            flexDirection: 'column',
-            gap: '5px',
-          }}
-          aria-label="Toggle menu"
+          className="md:hidden text-foreground"
+          onClick={() => setMobileOpen(!mobileOpen)}
         >
-          {[0, 1, 2].map((i) => (
-            <span
-              key={i}
-              style={{
-                display: 'block',
-                width: '22px',
-                height: '2px',
-                background: '#E8E8E8',
-                borderRadius: '2px',
-                transition: 'all 0.2s ease',
-                transform: menuOpen
-                  ? i === 0 ? 'rotate(45deg) translate(5px, 5px)'
-                  : i === 1 ? 'scaleX(0)'
-                  : 'rotate(-45deg) translate(5px, -5px)'
-                  : 'none',
-              }}
-            />
-          ))}
+          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
-      {/* Mobile menu */}
-      {menuOpen && (
-        <div
-          style={{
-            borderTop: '1px solid #1e1e1e',
-            padding: '1.25rem 1.5rem 1.5rem',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem',
-          }}
-        >
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              style={{
-                fontFamily: 'var(--font-inter), Inter, sans-serif',
-                fontSize: '0.95rem',
-                fontWeight: 500,
-                color: pathname === link.href ? '#F0F0F0' : '#888888',
-                textDecoration: 'none',
-              }}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <a
-            href="https://calendly.com/clawmatic/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMenuOpen(false)}
-            style={{
-              display: 'inline-block',
-              padding: '10px 20px',
-              background: '#4ECCA3',
-              color: '#0f0f0f',
-              fontFamily: 'var(--font-inter), Inter, sans-serif',
-              fontSize: '0.9rem',
-              fontWeight: 700,
-              textDecoration: 'none',
-              borderRadius: '6px',
-              textAlign: 'center',
-              marginTop: '0.25rem',
-            }}
-          >
-            Book a Call
-          </a>
+      {mobileOpen && (
+        <div className="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-xl">
+          <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={`text-sm transition-colors py-2 ${
+                  pathname === link.href
+                    ? "text-foreground font-medium"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Button variant="hero" size="sm" asChild>
+              <a href="https://calendly.com/clawmatic/30min" target="_blank" rel="noopener noreferrer">
+                Book a Call
+              </a>
+            </Button>
+          </div>
         </div>
       )}
-
-      <style>{`
-        @media (max-width: 768px) {
-          .desktop-nav { display: none !important; }
-          .mobile-menu-btn { display: flex !important; }
-        }
-      `}</style>
     </nav>
   );
-}
+};
+
+export default Navbar;

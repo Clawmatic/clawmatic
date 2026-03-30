@@ -1,316 +1,149 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
+"use client";
 
-export const metadata: Metadata = {
-  title: 'About',
-  description:
-    'ClawMatic is a Belgian AI automation agency. We build custom AI systems that eliminate repetitive work for growing businesses.',
-};
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Target, Wrench, Flag, Handshake } from "lucide-react";
 
 const values = [
-  {
-    icon: '🎯',
-    title: 'Results first',
-    description: 'We measure success by time saved and costs reduced. Not by features shipped.',
-  },
-  {
-    icon: '🔧',
-    title: 'Built for your business',
-    description: 'No templates. Every automation is designed around how you actually work.',
-  },
-  {
-    icon: '🇧🇪',
-    title: 'Belgian-made',
-    description: 'Built in Belgium, with European values around privacy, quality, and honest pricing.',
-  },
-  {
-    icon: '🤝',
-    title: 'We handle everything',
-    description: 'From scoping to deployment. You do not need any technical knowledge.',
-  },
+  { icon: Target, title: "Results first", desc: "We measure success by time saved and costs reduced. Not by features shipped." },
+  { icon: Wrench, title: "Built for your business", desc: "No templates. Every automation is designed around how you actually work." },
+  { icon: Flag, title: "Belgian-made", desc: "Built in Belgium, with European values around privacy, quality, and honest pricing." },
+  { icon: Handshake, title: "We handle everything", desc: "From scoping to deployment. You do not need any technical knowledge." },
 ];
-
-const labelStyle = {
-  fontFamily: 'var(--font-inter), Inter, sans-serif',
-  fontSize: '0.75rem',
-  fontWeight: 600,
-  color: '#5E6AD2',
-  letterSpacing: '0.12em',
-  textTransform: 'uppercase' as const,
-  marginBottom: '1rem',
-};
 
 export default function AboutPage() {
   return (
-    <div style={{ background: '#181818', minHeight: '100vh' }}>
+    <div className="min-h-screen bg-background pt-16">
       {/* Hero */}
-      <section
-        className="grid-bg"
-        style={{
-          padding: 'clamp(4rem, 8vw, 6rem) 1.5rem 3rem',
-          borderBottom: '1px solid #2a2a2a',
-          position: 'relative',
-          overflow: 'hidden',
-        }}
-      >
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'radial-gradient(ellipse at 60% 50%, rgba(94, 106, 210, 0.08) 0%, transparent 65%)',
-            pointerEvents: 'none',
-          }}
-        />
-        <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative' }}>
-          <p style={labelStyle}>About us</p>
-          <h1
-            style={{
-              fontFamily: 'var(--font-inter), Inter, sans-serif',
-              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-              fontWeight: 700,
-              color: '#F0F0F0',
-              lineHeight: 1.15,
-              marginBottom: '1.5rem',
-            }}
-          >
-            We help businesses stop wasting time on manual work
-          </h1>
-          <p
-            style={{
-              fontFamily: 'var(--font-inter), Inter, sans-serif',
-              fontSize: '1.05rem',
-              color: '#888',
-              maxWidth: '660px',
-              lineHeight: 1.7,
-            }}
-          >
-            ClawMatic is a Belgian AI automation agency. We build custom AI systems that eliminate
-            repetitive work so you and your team can focus on what actually matters.
-          </p>
+      <section className="pt-32 pb-20 relative">
+        <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium tracking-wide">
+              About us
+            </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mt-4 mb-6 max-w-4xl">
+              We help businesses stop wasting time on <span className="gradient-text">manual work</span>
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl">
+              ClawMatic is a Belgian AI automation agency. We build custom AI systems that eliminate repetitive work so you and your team can focus on what actually matters.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Story */}
-      <section style={{ padding: 'clamp(3rem, 6vw, 5rem) 1.5rem', background: '#1e1e1e' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: '4rem',
-              alignItems: 'start',
-            }}
-          >
-            {/* Left: text */}
-            <div>
-              <p style={labelStyle}>Our story</p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                {[
-                  'We started ClawMatic because we kept seeing the same problem: smart, capable businesses drowning in manual work. Emails that needed sorting, leads that needed following up, reports that needed generating — all done by hand, every single day.',
-                  'AI can handle most of that. Not the generic ChatGPT kind — custom-built systems tailored to exactly how your business works. That is what we build.',
-                  'We are based in Belgium and work with businesses across Europe. Every project starts with a free audit so we understand your workflow before we build anything.',
-                ].map((text, i) => (
-                  <p
-                    key={i}
-                    style={{
-                      fontFamily: 'var(--font-inter), Inter, sans-serif',
-                      fontSize: '0.95rem',
-                      color: '#888',
-                      lineHeight: 1.7,
-                    }}
-                  >
-                    {text}
-                  </p>
-                ))}
+      {/* Our Story */}
+      <section className="py-24">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-start max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium tracking-wide">
+                Our story
+              </span>
+              <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  We started ClawMatic because we kept seeing the same problem: smart, capable businesses drowning in manual work. Emails that needed sorting, leads that needed following up, reports that needed generating — all done by hand, every single day.
+                </p>
+                <p>
+                  AI can handle most of that. Not the generic ChatGPT kind — custom-built systems tailored to exactly how your business works. That is what we build.
+                </p>
+                <p>
+                  We are based in Belgium and work with businesses across Europe. Every project starts with a free audit so we understand your workflow before we build anything.
+                </p>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Right: cards */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-              <div
-                className="pixel-border"
-                style={{
-                  background: '#181818',
-                  borderRadius: '10px',
-                  padding: '2rem',
-                }}
-              >
-                <div style={{ fontSize: '3rem', marginBottom: '1rem', lineHeight: 1 }}>🇧🇪</div>
-                <h3
-                  style={{
-                    fontFamily: 'var(--font-inter), Inter, sans-serif',
-                    fontSize: '1rem',
-                    fontWeight: 700,
-                    color: '#F0F0F0',
-                    marginBottom: '0.5rem',
-                  }}
-                >
-                  Based in Belgium
-                </h3>
-                <p
-                  style={{
-                    fontFamily: 'var(--font-inter), Inter, sans-serif',
-                    fontSize: '0.875rem',
-                    color: '#888',
-                    lineHeight: 1.7,
-                  }}
-                >
-                  Built in Belgium, serving clients across Europe. Belgian-made means built carefully,
-                  delivered honestly, and priced fairly.
+            <motion.div
+              className="space-y-6"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+            >
+              <div className="glass-card rounded-2xl p-6">
+                <div className="text-3xl mb-3">🇧🇪</div>
+                <h3 className="font-bold text-foreground mb-2">Based in Belgium</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Built in Belgium, serving clients across Europe. Belgian-made means built carefully, delivered honestly, and priced fairly.
                 </p>
               </div>
 
-              <div
-                className="pixel-border-green"
-                style={{
-                  background: 'rgba(78, 204, 163, 0.03)',
-                  borderRadius: '10px',
-                  padding: '1.5rem',
-                }}
-              >
-                <p
-                  style={{
-                    fontFamily: 'var(--font-inter), Inter, sans-serif',
-                    fontSize: '0.75rem',
-                    fontWeight: 600,
-                    color: '#4ECCA3',
-                    letterSpacing: '0.12em',
-                    textTransform: 'uppercase',
-                    marginBottom: '0.75rem',
-                  }}
-                >
+              <div className="glass-card rounded-2xl p-6">
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium tracking-wide">
                   Our approach
-                </p>
-                <p
-                  style={{
-                    fontFamily: 'var(--font-inter), Inter, sans-serif',
-                    fontSize: '0.875rem',
-                    color: '#888',
-                    lineHeight: 1.7,
-                  }}
-                >
-                  We do not sell off-the-shelf software. Every system we build is custom — designed
-                  around your specific processes and tools.
+                </span>
+                <p className="text-sm text-muted-foreground leading-relaxed mt-3">
+                  We do not sell off-the-shelf software. Every system we build is custom — designed around your specific processes and tools.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Values */}
-      <section style={{ padding: 'clamp(3rem, 6vw, 5rem) 1.5rem', background: '#181818' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <p style={labelStyle}>What we stand for</p>
-          <h2
-            style={{
-              fontFamily: 'var(--font-inter), Inter, sans-serif',
-              fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-              fontWeight: 700,
-              color: '#F0F0F0',
-              marginBottom: '2.5rem',
-            }}
-          >
-            How we work
-          </h2>
+      <section className="py-24 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          <div className="text-center mb-16">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium tracking-wide">
+              What we stand for
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-3">How we work</h2>
+          </div>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-              gap: '1.25rem',
-            }}
-          >
-            {values.map((v) => (
-              <div
-                key={v.title}
-                className="card-hover pixel-border"
-                style={{
-                  padding: '1.75rem',
-                  borderRadius: '10px',
-                  background: '#1e1e1e',
-                  transition: 'border-color 0.2s',
-                }}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {values.map((v, i) => (
+              <motion.div
+                key={i}
+                className="glass-card rounded-2xl p-6 text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <span style={{ fontSize: '1.75rem', display: 'block', marginBottom: '1rem' }}>
-                  {v.icon}
-                </span>
-                <h3
-                  style={{
-                    fontFamily: 'var(--font-inter), Inter, sans-serif',
-                    fontSize: '0.95rem',
-                    fontWeight: 700,
-                    color: '#F0F0F0',
-                    marginBottom: '0.5rem',
-                  }}
-                >
-                  {v.title}
-                </h3>
-                <p
-                  style={{
-                    fontFamily: 'var(--font-inter), Inter, sans-serif',
-                    fontSize: '0.875rem',
-                    color: '#888',
-                    lineHeight: 1.7,
-                  }}
-                >
-                  {v.description}
-                </p>
-              </div>
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <v.icon className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="font-bold text-foreground mb-2">{v.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section
-        style={{
-          padding: 'clamp(3rem, 6vw, 5rem) 1.5rem',
-          background: '#1e1e1e',
-          borderTop: '1px solid #2a2a2a',
-          textAlign: 'center',
-        }}
-      >
-        <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-          <p style={{ ...labelStyle, textAlign: 'center' }}>Get started</p>
-          <h2
-            style={{
-              fontFamily: 'var(--font-inter), Inter, sans-serif',
-              fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
-              fontWeight: 700,
-              color: '#F0F0F0',
-              marginBottom: '1rem',
-            }}
+      <section className="py-24">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div
+            className="relative rounded-3xl overflow-hidden max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
           >
-            Ready to stop doing things manually?
-          </h2>
-          <p
-            style={{
-              fontFamily: 'var(--font-inter), Inter, sans-serif',
-              fontSize: '0.95rem',
-              color: '#888',
-              lineHeight: 1.7,
-              marginBottom: '2rem',
-            }}
-          >
-            Book a free 30-minute call. We will analyze your business and show you exactly where AI
-            can save you time.
-          </p>
-          <a
-            href="https://calendly.com/clawmatic/30min"
-            className="btn-primary"
-            style={{
-              display: 'inline-block',
-              padding: '14px 32px',
-              fontSize: '0.9rem',
-              textDecoration: 'none',
-              borderRadius: '8px',
-              fontFamily: 'var(--font-inter), Inter, sans-serif',
-              fontWeight: 600,
-            }}
-          >
-            Book Your Free Audit
-          </a>
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-card to-accent/10" />
+            <div className="absolute inset-0 hero-grid opacity-20" />
+            <div className="relative z-10 p-10 sm:p-16 text-center">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium tracking-wide mb-4">
+                Get started
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Ready to stop doing things manually?</h2>
+              <p className="text-muted-foreground max-w-xl mx-auto mb-8 text-lg">
+                Book a free 30-minute call. We&apos;ll analyze your business and show you exactly where AI can save you time.
+              </p>
+              <Button variant="hero" size="lg" asChild className="text-base px-10 py-6">
+                <a href="https://calendly.com/clawmatic/30min" target="_blank" rel="noopener noreferrer">
+                  Book Your Free Audit <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>

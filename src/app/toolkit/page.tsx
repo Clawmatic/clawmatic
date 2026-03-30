@@ -1,641 +1,216 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { CheckCircle2, Zap, Tag, Download, Package, Rocket, Code, DollarSign, Newspaper, Home, Dumbbell, Flag, ArrowRight } from "lucide-react";
 
-const s = {
-  fontFamily: 'var(--font-inter), Inter, sans-serif',
+type Toolkit = {
+  icon: React.ElementType;
+  badge: string;
+  badgeColor: string;
+  category: string;
+  title: string;
+  desc: string;
+  features: string[];
+  moreCount: number;
+  automations: number;
+  version: string;
+  downloads: string;
+  price: string;
+  oldPrice?: string;
+  buyUrl?: string;
+  comingSoon?: boolean;
 };
 
-const toolkits = [
+const toolkits: Toolkit[] = [
   {
-    id: 1,
-    name: 'Starter Kit',
-    emoji: '🚀',
-    badge: 'NEW',
-    badgeColor: '#4ECCA3',
-    price: '€9',
-    originalPrice: null,
-    description:
-      'Everything you need to hit the ground running. 10 essential automations covering messaging, productivity, search, and task management — pre-configured and ready to use.',
-    features: [
-      '10 curated essential automations',
-      'Step-by-step setup guide',
-      'WhatsApp + Telegram basics',
-      'Web search & summarization',
-      'Task & calendar automation',
-      'Lifetime updates included',
-    ],
-    skills: 10,
-    version: '1.0.0',
-    updated: '2026-03-28',
-    category: 'Starter',
-    categoryColor: '#4ECCA3',
-    gumroadUrl: 'https://clawmatic.gumroad.com/l/starter-kit',
-    gumroadId: 'starter-kit',
-    downloads: '0+',
+    icon: Rocket, badge: "NEW", badgeColor: "bg-primary/10 text-primary", category: "Starter",
+    title: "Starter Kit",
+    desc: "Everything you need to hit the ground running. 10 essential automations covering messaging, productivity, search, and task management — pre-configured and ready to use.",
+    features: ["10 curated essential automations", "Step-by-step setup guide", "WhatsApp + Telegram basics", "Web search & summarization"],
+    moreCount: 2, automations: 10, version: "v1.0.0", downloads: "0+", price: "€9",
+    buyUrl: "https://clawmatic.gumroad.com/l/starter-kit",
   },
   {
-    id: 2,
-    name: 'Productivity OS Pack',
-    emoji: '🚀',
-    badge: 'BESTSELLER',
-    badgeColor: '#5E6AD2',
-    price: '€10',
-    originalPrice: '€15',
-    description:
-      'The ultimate productivity bundle. Google Calendar, Gmail, Notion, Todoist — all wired into your automation agent. Automate your whole workday.',
-    features: [
-      'Google Calendar read/write',
-      'Gmail drafting & sending',
-      'Notion page creation',
-      'Todoist task management',
-      'Daily briefing generator',
-      'Standup auto-writer',
-    ],
-    skills: 15,
-    version: '2.1.0',
-    updated: '2026-03-10',
-    category: 'Productivity',
-    categoryColor: '#5E6AD2',
-    gumroadUrl: 'https://clawmatic.gumroad.com',
-    gumroadId: '',
-    downloads: '520+',
+    icon: Zap, badge: "BESTSELLER", badgeColor: "bg-accent/15 text-accent", category: "Productivity",
+    title: "Productivity OS Pack",
+    desc: "The ultimate productivity bundle. Google Calendar, Gmail, Notion, Todoist — all wired into your automation agent. Automate your whole workday.",
+    features: ["Google Calendar read/write", "Gmail drafting & sending", "Notion page creation", "Todoist task management"],
+    moreCount: 2, automations: 15, version: "v2.1.0", downloads: "520+", price: "€10", oldPrice: "€15",
+    comingSoon: true,
   },
   {
-    id: 3,
-    name: 'Dev Toolkit',
-    emoji: '🛠️',
-    badge: 'COMING SOON',
-    badgeColor: '#FF6B6B',
-    price: '€8',
-    originalPrice: null,
-    description:
-      'Automations for developers. Pull GitHub issues, write commit messages, explain code, generate PRs, search docs — everything a dev needs inside your AI assistant.',
-    features: [
-      'GitHub issues & PRs',
-      'Code explanation & review',
-      'Commit message writer',
-      'Docs search (MDN, npm, etc)',
-      'Shell command helper',
-      'Bug report formatter',
-    ],
-    skills: 12,
-    version: '1.0.1',
-    updated: '2026-03-20',
-    category: 'Development',
-    categoryColor: '#FF6B6B',
-    gumroadUrl: 'https://clawmatic.gumroad.com',
-    gumroadId: '',
-    downloads: '180+',
+    icon: Code, badge: "COMING SOON", badgeColor: "bg-secondary text-secondary-foreground", category: "Development",
+    title: "Dev Toolkit",
+    desc: "Automations for developers. Pull GitHub issues, write commit messages, explain code, generate PRs, search docs — everything a dev needs inside your AI assistant.",
+    features: ["GitHub issues & PRs", "Code explanation & review", "Commit message writer", "Docs search (MDN, npm, etc)"],
+    moreCount: 2, automations: 12, version: "v1.0.1", downloads: "180+", price: "€8",
+    comingSoon: true,
   },
   {
-    id: 4,
-    name: 'Finance Tracker Pack',
-    emoji: '💰',
-    badge: 'COMING SOON',
-    badgeColor: '#4ECCA3',
-    price: '€0',
-    originalPrice: null,
-    description:
-      'Parse bank CSV exports, categorize transactions, track budgets, and ask questions about your money — all locally, all private.',
-    features: [
-      'CSV bank import',
-      'Auto-categorization',
-      'Monthly spend reports',
-      'Budget alerts',
-      'Natural language queries',
-    ],
-    skills: 6,
-    version: '1.1.0',
-    updated: '2026-02-28',
-    category: 'Finance',
-    categoryColor: '#FEBC2E',
-    gumroadUrl: 'https://clawmatic.gumroad.com',
-    gumroadId: '',
-    downloads: '890+',
+    icon: DollarSign, badge: "COMING SOON", badgeColor: "bg-secondary text-secondary-foreground", category: "Finance",
+    title: "Finance Tracker Pack",
+    desc: "Parse bank CSV exports, categorize transactions, track budgets, and ask questions about your money — all locally, all private.",
+    features: ["CSV bank import", "Auto-categorization", "Monthly spend reports", "Budget alerts"],
+    moreCount: 1, automations: 6, version: "v1.1.0", downloads: "890+", price: "€0",
+    comingSoon: true,
   },
   {
-    id: 5,
-    name: 'News & Research Digest',
-    emoji: '📰',
-    badge: 'COMING SOON',
-    badgeColor: '#888888',
-    price: '€5',
-    originalPrice: null,
-    description:
-      'Get AI-curated news digests, research summaries, and topic briefings. Connect RSS feeds, HN, Reddit, and arXiv into one smart daily brief.',
-    features: [
-      'RSS feed aggregation',
-      'Hacker News digest',
-      'Reddit topic summaries',
-      'arXiv paper briefs',
-      'Custom keyword alerts',
-    ],
-    skills: 7,
-    version: '1.2.0',
-    updated: '2026-03-01',
-    category: 'Information',
-    categoryColor: '#888888',
-    gumroadUrl: 'https://clawmatic.gumroad.com',
-    gumroadId: '',
-    downloads: '210+',
+    icon: Newspaper, badge: "COMING SOON", badgeColor: "bg-secondary text-secondary-foreground", category: "Information",
+    title: "News & Research Digest",
+    desc: "Get AI-curated news digests, research summaries, and topic briefings. Connect RSS feeds, HN, Reddit, and arXiv into one smart daily brief.",
+    features: ["RSS feed aggregation", "Hacker News digest", "Reddit topic summaries", "arXiv paper briefs"],
+    moreCount: 1, automations: 7, version: "v1.2.0", downloads: "210+", price: "€5",
+    comingSoon: true,
   },
   {
-    id: 6,
-    name: 'Smart Home Bridge',
-    emoji: '🏠',
-    badge: 'COMING SOON',
-    badgeColor: '#FEBC2E',
-    price: '€6',
-    originalPrice: null,
-    description:
-      'Control Home Assistant, Philips Hue, and MQTT devices with natural language. "Set study lights to focus mode" just works.',
-    features: [
-      'Home Assistant integration',
-      'Philips Hue scenes',
-      'MQTT device control',
-      'Automation triggers',
-      'Device state queries',
-    ],
-    skills: 9,
-    version: '0.9.5',
-    updated: '2026-02-20',
-    category: 'Smart Home',
-    categoryColor: '#FEBC2E',
-    gumroadUrl: 'https://clawmatic.gumroad.com',
-    gumroadId: '',
-    downloads: '95+',
+    icon: Home, badge: "COMING SOON", badgeColor: "bg-secondary text-secondary-foreground", category: "Smart Home",
+    title: "Smart Home Bridge",
+    desc: "Control Home Assistant, Philips Hue, and MQTT devices with natural language. \"Set study lights to focus mode\" just works.",
+    features: ["Home Assistant integration", "Philips Hue scenes", "MQTT device control", "Automation triggers"],
+    moreCount: 1, automations: 9, version: "v0.9.5", downloads: "95+", price: "€6",
+    comingSoon: true,
   },
   {
-    id: 7,
-    name: 'Health & Fitness Log',
-    emoji: '💪',
-    badge: 'COMING SOON',
-    badgeColor: '#FF6B6B',
-    price: '€5',
-    originalPrice: null,
-    description:
-      'Log workouts, track habits, analyze sleep data, and get personalized fitness summaries. Works with Apple Health CSV exports.',
-    features: [
-      'Workout logging',
-      'Habit tracker',
-      'Apple Health CSV import',
-      'Weekly fitness reports',
-      'Goal tracking',
-    ],
-    skills: 5,
-    version: '1.0.0',
-    updated: '2026-02-10',
-    category: 'Health',
-    categoryColor: '#FF6B6B',
-    gumroadUrl: 'https://clawmatic.gumroad.com',
-    gumroadId: '',
-    downloads: '130+',
+    icon: Dumbbell, badge: "COMING SOON", badgeColor: "bg-secondary text-secondary-foreground", category: "Health",
+    title: "Health & Fitness Log",
+    desc: "Log workouts, track habits, analyze sleep data, and get personalized fitness summaries. Works with Apple Health CSV exports.",
+    features: ["Workout logging", "Habit tracker", "Apple Health CSV import", "Weekly fitness reports"],
+    moreCount: 1, automations: 5, version: "v1.0.0", downloads: "130+", price: "€5",
+    comingSoon: true,
   },
   {
-    id: 8,
-    name: 'Belgian Starter Pack',
-    emoji: '🇧🇪',
-    badge: 'COMING SOON',
-    badgeColor: '#5E6AD2',
-    price: '€0',
-    originalPrice: null,
-    description:
-      'A free starter pack built with Belgian taste. Includes VAT calculator, Belgian public transit lookup, and more local integrations.',
-    features: [
-      'Belgian VAT calculator',
-      'SNCB train lookup',
-      'De Lijn bus schedules',
-      'Belgian holiday checker',
-      'EUR/USD quick convert',
-    ],
-    skills: 5,
-    version: '1.0.0',
-    updated: '2026-03-25',
-    category: 'Local',
-    categoryColor: '#5E6AD2',
-    gumroadUrl: 'https://clawmatic.gumroad.com',
-    gumroadId: '',
-    downloads: '75+',
+    icon: Flag, badge: "COMING SOON", badgeColor: "bg-secondary text-secondary-foreground", category: "Local",
+    title: "Belgian Starter Pack",
+    desc: "A free starter pack built with Belgian taste. Includes VAT calculator, Belgian public transit lookup, and more local integrations.",
+    features: ["Belgian VAT calculator", "SNCB train lookup", "De Lijn bus schedules", "Belgian holiday checker"],
+    moreCount: 1, automations: 5, version: "v1.0.0", downloads: "75+", price: "€0",
+    comingSoon: true,
   },
 ];
 
 export default function ToolkitPage() {
   return (
-    <div style={{ background: '#181818', minHeight: '100vh', ...s }}>
-
-      {/* ── HERO ── */}
-      <section
-        style={{
-          padding: 'clamp(3rem, 6vw, 5rem) 1.5rem 2.5rem',
-          borderBottom: '1px solid #2a2a2a',
-          position: 'relative',
-          overflow: 'hidden',
-          background: '#1e1e1e',
-        }}
-      >
-        <div style={{
-          position: 'absolute', top: '-30%', right: '0',
-          width: '500px', height: '500px', borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(78,204,163,0.06) 0%, transparent 70%)',
-          pointerEvents: 'none',
-        }} />
-        <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative' }}>
-          <p style={{
-            ...s,
-            fontSize: '0.75rem',
-            fontWeight: 600,
-            color: '#5E6AD2',
-            letterSpacing: '0.12em',
-            textTransform: 'uppercase',
-            marginBottom: '0.75rem',
-          }}>
-            Toolkit
-          </p>
-          <h1 style={{
-            ...s,
-            fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-            fontWeight: 800,
-            color: '#F0F0F0',
-            lineHeight: 1.1,
-            letterSpacing: '-0.03em',
-            marginBottom: '1rem',
-          }}>
-            Automate your work —{' '}
-            <span style={{ color: '#4ECCA3' }}>yourself</span>
-          </h1>
-          <p style={{
-            ...s,
-            fontSize: 'clamp(0.95rem, 2vw, 1.1rem)',
-            color: '#888888',
-            maxWidth: '560px',
-            lineHeight: 1.7,
-            marginBottom: '0.75rem',
-          }}>
-            Ready-made automation toolkits for individuals. No agency needed, no technical knowledge required. Download, install, and start saving time today.
-          </p>
-          <p style={{
-            ...s,
-            fontSize: '0.85rem',
-            color: '#888',
-          }}>
-            Looking for a custom build for your business?{' '}
-            <Link href="/services" style={{ color: '#4ECCA3', textDecoration: 'none' }}>
-              → /services
-            </Link>
-          </p>
+    <div className="min-h-screen bg-background pt-16">
+      {/* Hero */}
+      <section className="pt-32 pb-20 relative">
+        <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium tracking-wide">
+              Toolkit
+            </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mt-4 mb-6 max-w-3xl">
+              Automate your work — <span className="gradient-text">yourself</span>
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl mb-6">
+              Ready-made automation toolkits for individuals. No agency needed, no technical knowledge required. Download, install, and start saving time today.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Looking for a custom build for your business?{" "}
+              <a href="/services" className="text-primary hover:underline">→ /services</a>
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* ── INFO BAR ── */}
-      <section style={{
-        background: 'rgba(78,204,163,0.06)',
-        borderBottom: '1px solid rgba(78,204,163,0.15)',
-        padding: '12px 1.5rem',
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '12px',
-        }}>
-          <span style={{ color: '#4ECCA3', fontSize: '0.85rem' }}>ℹ️</span>
-          <p style={{
-            ...s,
-            fontSize: '0.8rem',
-            color: '#888888',
-          }}>
-            All toolkits are delivered as instant downloads via{' '}
-            <span style={{ color: '#4ECCA3' }}>Gumroad</span>. One-time payment, lifetime updates.
-          </p>
+      {/* Info banner */}
+      <section className="pb-8">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="glass-card rounded-xl px-5 py-3 flex items-center gap-3 max-w-4xl">
+            <Package className="h-5 w-5 text-primary shrink-0" />
+            <p className="text-sm text-muted-foreground">
+              All toolkits are delivered as instant downloads via <span className="text-foreground font-medium">Gumroad</span>. One-time payment, lifetime updates.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* ── PRODUCTS GRID ── */}
-      <section style={{ padding: 'clamp(2rem, 4vw, 3rem) 1.5rem' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-            gap: '1.25rem',
-          }}>
-            {toolkits.map((toolkit) => (
-              <div
-                key={toolkit.id}
-                className="card-hover"
-                style={{
-                  background: '#181818',
-                  border: '1px solid #2a2a2a',
-                  borderRadius: '10px',
-                  padding: '1.75rem',
-                  position: 'relative',
-                  display: 'flex',
-                  flexDirection: 'column',
-                }}
+      {/* Toolkit Grid */}
+      <section className="py-16">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {toolkits.map((tk, i) => (
+              <motion.div
+                key={i}
+                className="glow-border glass-card rounded-2xl p-6 flex flex-col"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.06 }}
               >
-                {/* Card header */}
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'flex-start',
-                  marginBottom: '1.25rem',
-                }}>
-                  <span style={{
-                    fontSize: '2rem',
-                    lineHeight: 1,
-                    background: '#1e1e1e',
-                    padding: '8px',
-                    borderRadius: '8px',
-                    display: 'block',
-                  }}>
-                    {toolkit.emoji}
-                  </span>
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px' }}>
-                    {toolkit.badge && (
-                      <span style={{
-                        ...s,
-                        fontSize: '0.65rem',
-                        fontWeight: 700,
-                        letterSpacing: '0.08em',
-                        textTransform: 'uppercase',
-                        padding: '3px 8px',
-                        borderRadius: '4px',
-                        background: `${toolkit.badgeColor}15`,
-                        color: toolkit.badgeColor,
-                        border: `1px solid ${toolkit.badgeColor}35`,
-                      }}>
-                        {toolkit.badge}
-                      </span>
-                    )}
-                    <span style={{
-                      ...s,
-                      fontSize: '0.65rem',
-                      fontWeight: 600,
-                      letterSpacing: '0.06em',
-                      textTransform: 'uppercase',
-                      padding: '3px 8px',
-                      borderRadius: '4px',
-                      background: `${toolkit.categoryColor}10`,
-                      color: toolkit.categoryColor,
-                      border: `1px solid ${toolkit.categoryColor}25`,
-                    }}>
-                      {toolkit.category}
-                    </span>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <tk.icon className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="flex gap-2">
+                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${tk.badgeColor}`}>{tk.badge}</span>
+                    <span className="text-[10px] font-medium bg-secondary text-secondary-foreground px-2 py-0.5 rounded-full">{tk.category}</span>
                   </div>
                 </div>
 
-                <h3 style={{
-                  ...s,
-                  fontSize: '1rem',
-                  fontWeight: 700,
-                  color: '#E8E8E8',
-                  marginBottom: '0.75rem',
-                }}>
-                  {toolkit.name}
-                </h3>
+                <h3 className="text-lg font-bold text-foreground mb-2">{tk.title}</h3>
+                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{tk.desc}</p>
 
-                <p style={{
-                  ...s,
-                  fontSize: '0.82rem',
-                  color: '#666666',
-                  lineHeight: 1.7,
-                  marginBottom: '1.25rem',
-                  flex: 1,
-                }}>
-                  {toolkit.description}
-                </p>
-
-                {/* Feature list */}
-                <div style={{ marginBottom: '1.25rem' }}>
-                  {toolkit.features.slice(0, 4).map((f) => (
-                    <div key={f} style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-                      <span style={{ color: '#4ECCA3', fontSize: '0.65rem' }}>✓</span>
-                      <span style={{ ...s, fontSize: '0.78rem', color: '#666666' }}>{f}</span>
-                    </div>
+                <ul className="space-y-1.5 mb-2">
+                  {tk.features.map((f) => (
+                    <li key={f} className="flex items-center gap-2 text-sm text-foreground">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" />
+                      {f}
+                    </li>
                   ))}
-                  {toolkit.features.length > 4 && (
-                    <div style={{ ...s, fontSize: '0.72rem', color: '#444444', marginTop: '4px' }}>
-                      +{toolkit.features.length - 4} more
-                    </div>
-                  )}
+                </ul>
+                <p className="text-xs text-muted-foreground mb-4">+{tk.moreCount} more</p>
+
+                <div className="flex items-center gap-3 text-xs text-muted-foreground mb-4 mt-auto">
+                  <span className="flex items-center gap-1"><Zap className="h-3 w-3" />{tk.automations} automations</span>
+                  <span className="flex items-center gap-1"><Tag className="h-3 w-3" />{tk.version}</span>
+                  <span className="flex items-center gap-1"><Download className="h-3 w-3" />{tk.downloads}</span>
                 </div>
 
-                {/* Meta row */}
-                <div style={{
-                  display: 'flex',
-                  gap: '12px',
-                  marginBottom: '1.25rem',
-                  borderTop: '1px solid #2a2a2a',
-                  paddingTop: '1rem',
-                }}>
-                  {[
-                    { label: toolkit.skills + ' automations', icon: '⚡' },
-                    { label: 'v' + toolkit.version, icon: '🔖' },
-                    { label: toolkit.downloads, icon: '⬇️' },
-                  ].map((m) => (
-                    <span key={m.label} style={{
-                      ...s,
-                      fontSize: '0.68rem',
-                      color: '#555555',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '4px',
-                    }}>
-                      <span>{m.icon}</span> {m.label}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Price + CTA */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div>
-                    <span style={{
-                      ...s,
-                      fontSize: '1.4rem',
-                      fontWeight: 800,
-                      color: toolkit.price === '€0' ? '#4ECCA3' : '#E8E8E8',
-                    }}>
-                      {toolkit.price}
-                    </span>
-                    {toolkit.originalPrice && (
-                      <span style={{
-                        ...s,
-                        fontSize: '0.85rem',
-                        color: '#444444',
-                        textDecoration: 'line-through',
-                        marginLeft: '8px',
-                      }}>
-                        {toolkit.originalPrice}
-                      </span>
-                    )}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-2xl font-bold text-foreground">{tk.price}</span>
+                    {tk.oldPrice && <span className="text-sm text-muted-foreground line-through">{tk.oldPrice}</span>}
                   </div>
-                  {toolkit.gumroadId ? (
-                    <a
-                      href={toolkit.gumroadUrl}
-                      data-gumroad-product-id={toolkit.gumroadId}
-                      data-gumroad-overlay="true"
-                      style={{
-                        ...s,
-                        padding: '8px 20px',
-                        fontSize: '0.8rem',
-                        fontWeight: 600,
-                        textDecoration: 'none',
-                        borderRadius: '6px',
-                        display: 'inline-block',
-                        cursor: 'pointer',
-                        background: toolkit.price === '€0' ? '#4ECCA3' : '#5E6AD2',
-                        color: toolkit.price === '€0' ? '#0f0f0f' : '#fff',
-                        transition: 'opacity 0.2s',
-                      }}
-                      onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
-                      onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
-                    >
-                      {toolkit.price === '€0' ? 'Get free →' : 'Buy now →'}
-                    </a>
+                  {tk.comingSoon ? (
+                    <span className="text-sm text-muted-foreground">Coming soon →</span>
                   ) : (
-                    <span style={{
-                      ...s,
-                      padding: '8px 20px',
-                      fontSize: '0.8rem',
-                      fontWeight: 600,
-                      borderRadius: '6px',
-                      display: 'inline-block',
-                      opacity: 0.35,
-                      cursor: 'not-allowed',
-                      background: '#5E6AD2',
-                      color: '#fff',
-                    }}>
-                      Coming soon →
-                    </span>
+                    <Button variant="hero" size="sm" asChild>
+                      <a href={tk.buyUrl} target="_blank" rel="noopener noreferrer">Buy now →</a>
+                    </Button>
                   )}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* ── BOTTOM CTA ── */}
-          <div style={{
-            marginTop: '2.5rem',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '1.25rem',
-          }}>
-            {/* Card 1 — Custom build */}
-            <div style={{
-              background: '#181818',
-              border: '1px solid rgba(78,204,163,0.3)',
-              borderRadius: '10px',
-              padding: '2rem',
-            }}>
-              <p style={{
-                ...s,
-                fontSize: '0.75rem',
-                fontWeight: 600,
-                color: '#4ECCA3',
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                marginBottom: '0.5rem',
-              }}>
-                Need something custom?
-              </p>
-              <h3 style={{
-                ...s,
-                fontSize: '1.35rem',
-                fontWeight: 700,
-                color: '#F0F0F0',
-                marginBottom: '0.75rem',
-                letterSpacing: '-0.02em',
-              }}>
-                Built for your exact workflow
-              </h3>
-              <p style={{
-                ...s,
-                fontSize: '0.875rem',
-                color: '#888888',
-                lineHeight: 1.7,
-                marginBottom: '1.5rem',
-              }}>
-                Want an automation tailored to exactly how you work? We build custom systems for individuals and businesses alike.
-              </p>
-              <a
-                href="mailto:info@clawmatic.eu"
-                style={{
-                  ...s,
-                  display: 'inline-block',
-                  padding: '10px 22px',
-                  background: '#4ECCA3',
-                  color: '#0f0f0f',
-                  fontWeight: 700,
-                  fontSize: '0.875rem',
-                  textDecoration: 'none',
-                  borderRadius: '6px',
-                  transition: 'opacity 0.2s',
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
-                onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
-              >
-                Get in touch →
-              </a>
-            </div>
-
-            {/* Card 2 — Business CTA */}
-            <div style={{
-              background: '#181818',
-              border: '1px solid rgba(94,106,210,0.3)',
-              borderRadius: '10px',
-              padding: '2rem',
-            }}>
-              <p style={{
-                ...s,
-                fontSize: '0.75rem',
-                fontWeight: 600,
-                color: '#5E6AD2',
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                marginBottom: '0.5rem',
-              }}>
-                Running a business?
-              </p>
-              <h3 style={{
-                ...s,
-                fontSize: '1.35rem',
-                fontWeight: 700,
-                color: '#F0F0F0',
-                marginBottom: '0.75rem',
-                letterSpacing: '-0.02em',
-              }}>
-                We build it for you
-              </h3>
-              <p style={{
-                ...s,
-                fontSize: '0.875rem',
-                color: '#888888',
-                lineHeight: 1.7,
-                marginBottom: '1.5rem',
-              }}>
-                Our agency service handles everything — scoping, building, and deploying custom AI automation for your team.
-              </p>
-              <Link
-                href="/services"
-                style={{
-                  ...s,
-                  display: 'inline-block',
-                  padding: '10px 22px',
-                  background: '#4ECCA3',
-                  color: '#0f0f0f',
-                  fontWeight: 700,
-                  fontSize: '0.875rem',
-                  textDecoration: 'none',
-                  borderRadius: '6px',
-                  transition: 'opacity 0.2s',
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
-                onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
-              >
-                See our services →
-              </Link>
-            </div>
+      {/* Custom CTA */}
+      <section className="py-24">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <motion.div
+              className="glass-card rounded-2xl p-8"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-xl font-bold text-foreground mb-2">Need something custom?</h3>
+              <p className="text-sm text-muted-foreground mb-4">Want an automation tailored to exactly how you work? We build custom systems for individuals and businesses alike.</p>
+              <a href="mailto:info@clawmatic.eu" className="text-primary text-sm hover:underline font-medium">Get in touch →</a>
+            </motion.div>
+            <motion.div
+              className="glass-card rounded-2xl p-8"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-xl font-bold text-foreground mb-2">Running a business?</h3>
+              <p className="text-sm text-muted-foreground mb-4">Our agency service handles everything — scoping, building, and deploying custom AI automation for your team.</p>
+              <a href="/services" className="text-primary text-sm hover:underline font-medium">Explore services →</a>
+            </motion.div>
           </div>
         </div>
       </section>
