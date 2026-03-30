@@ -3,109 +3,104 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'FAQ',
-  description: 'Frequently asked questions about ClawMatic, OpenClaw skill packs, custom builds, and installations.',
+  description:
+    'Frequently asked questions about ClawMatic AI automation services, our process, pricing, and what we build.',
 };
 
 const faqs = [
   {
-    category: 'SKILL PACKS',
+    category: 'ABOUT CLAWMATIC',
     color: '#4ECCA3',
     items: [
       {
-        q: 'Do I need coding experience to use the skill packs?',
-        a: 'No. Every pack comes with an install script and a step-by-step setup guide. If you can open a terminal and run a command, you\'re good to go.',
+        q: 'What is ClawMatic?',
+        a: 'ClawMatic is a Belgian AI automation agency. We build custom AI systems that eliminate repetitive work for businesses — from email automation to lead follow-up, reporting, scheduling, and more.',
       },
       {
-        q: 'What happens after I buy a pack on Gumroad?',
-        a: 'You get an instant download link for a ZIP file. Inside is the skill pack folder, an install script, and a README. Run the script and restart OpenClaw — done.',
+        q: 'Where are you based?',
+        a: 'We are based in Belgium and work with clients across Europe. Most of our work is done remotely, so location is rarely a barrier.',
       },
       {
-        q: 'Do packs work on Windows, macOS, and Linux?',
-        a: 'Yes. The skills themselves are platform-independent. The install scripts are bash-based — on Windows, run them in Git Bash, WSL, or PowerShell with minor adjustments (the README covers this).',
-      },
-      {
-        q: 'Do I get updates when new versions come out?',
-        a: 'Yes. Gumroad gives you lifetime access to all future versions of the pack you bought. You\'ll get an email when updates are available.',
-      },
-      {
-        q: 'Can I get a refund?',
-        a: 'Yes. If a pack doesn\'t work on your setup and we can\'t fix it together, you get a full refund. Email info@clawmatic.eu with your Gumroad order details.',
-      },
-      {
-        q: 'Can I use the packs on multiple machines?',
-        a: 'Yes. Your purchase is for personal use across your own devices. One person, multiple installs — no problem.',
+        q: 'Who is this for?',
+        a: 'Any business that has repetitive manual processes. Whether you run a local shop, an agency, an e-commerce store, or a SaaS product — if your team is doing the same tasks by hand every day, we can probably automate most of it.',
       },
     ],
   },
   {
-    category: 'CUSTOM PACKS',
+    category: 'OUR SERVICES',
     color: '#5E6AD2',
     items: [
       {
-        q: 'What is a custom skill pack?',
-        a: 'A skill pack built specifically around your workflow. You tell me what you need — what apps, what automations, what integrations — and I build it for you. Delivered as a ready-to-install pack.',
+        q: 'What exactly do you build?',
+        a: 'Custom AI automation systems tailored to your business. Common examples include: automated email triage and responses, lead follow-up workflows, report generation, customer support automation, data entry and processing, and scheduling systems.',
       },
       {
-        q: 'How much does a custom pack cost?',
-        a: 'It depends on the scope. Simple packs (1–3 skills) start around €30–50. More complex builds with multiple integrations are priced on request. Email custom@clawmatic.eu with your requirements and I\'ll give you a quote.',
+        q: 'Do I need technical knowledge?',
+        a: 'No. We handle everything from scoping to deployment. You just tell us what you want automated and we build it. No coding required on your end.',
       },
       {
-        q: 'How long does a custom pack take?',
-        a: 'Usually 2–5 working days depending on complexity. I\'ll give you a timeline when we scope the project.',
+        q: 'What tools and platforms do you work with?',
+        a: 'We work with most common business tools — Gmail, Outlook, Slack, Notion, HubSpot, Airtable, WhatsApp, and many more. If you use it daily, we can probably connect to it.',
       },
     ],
   },
   {
-    category: 'OPENCLAW & SETUP',
+    category: 'THE PROCESS',
     color: '#FF6B6B',
     items: [
       {
-        q: 'What is OpenClaw?',
-        a: 'OpenClaw is a personal AI assistant platform that runs on your own machine. It connects a language model (like Claude) to skills — modules that let your agent take actions in the real world. ClawMatic is an unofficial resource hub for it.',
+        q: 'How does it work?',
+        a: 'It starts with a free 30-minute audit call. We learn about your business and identify where automation can save you the most time. Then we scope the project, build the system, and deliver it ready to use.',
       },
       {
-        q: 'Do I need an Anthropic API key to use OpenClaw?',
-        a: 'Yes. OpenClaw uses Claude as its default model, which requires an Anthropic API key. You can get one at console.anthropic.com. Usage costs a few cents per conversation for most people.',
+        q: 'How long does a project take?',
+        a: 'Most projects are delivered within 2-4 weeks. Simpler automations can be done faster. We give you a clear timeline after the audit.',
       },
       {
-        q: 'Can you install OpenClaw for me?',
-        a: 'Yes. I offer hands-on setup via remote access or on-site. Email info@clawmatic.eu or plan a meeting via the contact page.',
-      },
-      {
-        q: 'What are the system requirements?',
-        a: 'Node.js 18+ and any modern OS (Windows, macOS, Linux). A basic laptop is fine. For always-on use, a cheap VPS (€4–6/month) is recommended.',
+        q: 'What happens after delivery?',
+        a: 'We make sure everything works correctly before handover. If something breaks or needs adjusting after launch, we are here to fix it.',
       },
     ],
   },
   {
-    category: 'CLAWMATIC',
+    category: 'PRICING',
     color: '#FEBC2E',
     items: [
       {
-        q: 'Is ClawMatic affiliated with OpenClaw?',
-        a: 'No. ClawMatic is an independent, unofficial resource hub. It\'s not made by or endorsed by the OpenClaw team.',
+        q: 'How much does it cost?',
+        a: 'It depends on the scope. After the free audit we give you a clear, fixed-price quote — no surprises. We offer solutions for different budget levels.',
       },
       {
-        q: 'Are the guides really free?',
-        a: 'Yes, always. Guides are free. Skill packs are paid. That\'s the model.',
+        q: 'Is the audit really free?',
+        a: 'Yes, completely. The audit call is free with no obligation. We only move forward if it makes sense for your business.',
       },
       {
-        q: 'I found an error in a guide / something is broken.',
-        a: 'Please tell me! Email info@clawmatic.eu with what you found and I\'ll fix it quickly.',
+        q: 'Do you offer ongoing support?',
+        a: 'Yes. We offer optional maintenance and support packages for clients who want ongoing help, updates, or new automations added over time.',
       },
     ],
   },
 ];
 
+const labelStyle = {
+  fontFamily: 'var(--font-inter), Inter, sans-serif',
+  fontSize: '0.75rem',
+  fontWeight: 600,
+  color: '#5E6AD2',
+  letterSpacing: '0.12em',
+  textTransform: 'uppercase' as const,
+  marginBottom: '1rem',
+};
+
 export default function FAQPage() {
   return (
-    <div style={{ background: '#141414', minHeight: '100vh' }}>
-      {/* Header */}
+    <div style={{ background: '#181818', minHeight: '100vh' }}>
+      {/* Hero */}
       <section
         className="grid-bg"
         style={{
-          padding: 'clamp(3rem, 6vw, 5rem) 1.5rem 2rem',
-          borderBottom: '1px solid #303030',
+          padding: 'clamp(4rem, 8vw, 6rem) 1.5rem 3rem',
+          borderBottom: '1px solid #2a2a2a',
           position: 'relative',
           overflow: 'hidden',
         }}
@@ -123,35 +118,29 @@ export default function FAQPage() {
           }}
         />
         <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative' }}>
-          <p style={{
-            fontFamily: 'Courier New, monospace',
-            fontSize: '0.7rem',
-            color: '#4ECCA3',
-            letterSpacing: '0.15em',
-            textTransform: 'uppercase',
-            marginBottom: '0.75rem',
-          }}>
-            FAQ
-          </p>
-          <h1 style={{
-            fontFamily: 'Courier New, monospace',
-            fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-            fontWeight: '900',
-            color: '#EFEFEF',
-            lineHeight: 1.1,
-            marginBottom: '1rem',
-          }}>
-            Common questions,
-            <br />
+          <p style={labelStyle}>FAQ</p>
+          <h1
+            style={{
+              fontFamily: 'var(--font-inter), Inter, sans-serif',
+              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+              fontWeight: 700,
+              color: '#F0F0F0',
+              lineHeight: 1.15,
+              marginBottom: '1rem',
+            }}
+          >
+            Common questions,{' '}
             <span style={{ color: '#4ECCA3' }}>straight answers.</span>
           </h1>
-          <p style={{
-            fontFamily: 'Courier New, monospace',
-            fontSize: '0.85rem',
-            color: '#999999',
-            maxWidth: '500px',
-            lineHeight: '1.7',
-          }}>
+          <p
+            style={{
+              fontFamily: 'var(--font-inter), Inter, sans-serif',
+              fontSize: '1rem',
+              color: '#888',
+              maxWidth: '500px',
+              lineHeight: 1.7,
+            }}
+          >
             Can&apos;t find what you&apos;re looking for?{' '}
             <Link href="/contact" style={{ color: '#4ECCA3', textDecoration: 'none' }}>
               Get in touch →
@@ -161,28 +150,37 @@ export default function FAQPage() {
       </section>
 
       {/* FAQ content */}
-      <section style={{ padding: 'clamp(3rem, 6vw, 5rem) 1.5rem' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '3.5rem' }}>
+      <section style={{ padding: 'clamp(3rem, 6vw, 5rem) 1.5rem', background: '#1e1e1e' }}>
+        <div
+          style={{
+            maxWidth: '900px',
+            margin: '0 auto',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '3.5rem',
+          }}
+        >
           {faqs.map((section) => (
             <div key={section.category}>
               {/* Category header */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.25rem' }}>
                 <span
                   style={{
-                    fontFamily: 'Courier New, monospace',
-                    fontSize: '0.65rem',
+                    fontFamily: 'var(--font-inter), Inter, sans-serif',
+                    fontSize: '0.7rem',
+                    fontWeight: 600,
                     color: section.color,
-                    letterSpacing: '0.15em',
+                    letterSpacing: '0.12em',
                     textTransform: 'uppercase',
                     background: `${section.color}12`,
                     border: `1px solid ${section.color}30`,
                     padding: '3px 10px',
-                    borderRadius: '2px',
+                    borderRadius: '4px',
                   }}
                 >
                   {section.category}
                 </span>
-                <div style={{ flex: 1, height: '1px', background: '#1e1e1e' }} />
+                <div style={{ flex: 1, height: '1px', background: '#2a2a2a' }} />
               </div>
 
               {/* Questions */}
@@ -192,27 +190,31 @@ export default function FAQPage() {
                     key={item.q}
                     className="pixel-border"
                     style={{
-                      padding: '1.25rem 1.5rem',
-                      borderRadius: '4px',
-                      background: '#1c1c1c',
+                      padding: '1.5rem',
+                      borderRadius: '10px',
+                      background: '#181818',
                     }}
                   >
-                    <p style={{
-                      fontFamily: 'Courier New, monospace',
-                      fontSize: '0.85rem',
-                      fontWeight: '700',
-                      color: '#EFEFEF',
-                      marginBottom: '0.5rem',
-                      lineHeight: '1.5',
-                    }}>
+                    <p
+                      style={{
+                        fontFamily: 'var(--font-inter), Inter, sans-serif',
+                        fontSize: '0.9rem',
+                        fontWeight: 700,
+                        color: '#F0F0F0',
+                        marginBottom: '0.5rem',
+                        lineHeight: 1.5,
+                      }}
+                    >
                       {item.q}
                     </p>
-                    <p style={{
-                      fontFamily: 'Courier New, monospace',
-                      fontSize: '0.78rem',
-                      color: '#888888',
-                      lineHeight: '1.75',
-                    }}>
+                    <p
+                      style={{
+                        fontFamily: 'var(--font-inter), Inter, sans-serif',
+                        fontSize: '0.875rem',
+                        color: '#888',
+                        lineHeight: 1.7,
+                      }}
+                    >
                       {item.a}
                     </p>
                   </div>
@@ -226,36 +228,66 @@ export default function FAQPage() {
             className="pixel-border-purple"
             style={{
               padding: '2rem',
-              borderRadius: '4px',
+              borderRadius: '10px',
               background: 'rgba(94, 106, 210, 0.04)',
               display: 'flex',
               flexDirection: 'column',
               gap: '0.75rem',
             }}
           >
-            <p style={{ fontFamily: 'Courier New, monospace', fontSize: '0.7rem', color: '#5E6AD2', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-              Still have questions?
-            </p>
-            <p style={{ fontFamily: 'Courier New, monospace', fontSize: '0.9rem', fontWeight: '700', color: '#EFEFEF' }}>
-              Didn&apos;t find your answer?
-            </p>
-            <p style={{ fontFamily: 'Courier New, monospace', fontSize: '0.78rem', color: '#666666', lineHeight: '1.7' }}>
-              Email info@clawmatic.eu or plan a meeting and I&apos;ll help you out directly.
+            <p style={labelStyle}>Still have questions?</p>
+            <h3
+              style={{
+                fontFamily: 'var(--font-inter), Inter, sans-serif',
+                fontSize: '1rem',
+                fontWeight: 700,
+                color: '#F0F0F0',
+                margin: 0,
+              }}
+            >
+              Did not find your answer?
+            </h3>
+            <p
+              style={{
+                fontFamily: 'var(--font-inter), Inter, sans-serif',
+                fontSize: '0.875rem',
+                color: '#888',
+                lineHeight: 1.7,
+              }}
+            >
+              Send us an email or book a free call — we are happy to answer any questions before you
+              commit to anything.
             </p>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <a
                 href="mailto:info@clawmatic.eu"
                 className="btn-green"
-                style={{ display: 'inline-block', padding: '10px 24px', fontSize: '0.8rem', textDecoration: 'none', borderRadius: '2px' }}
+                style={{
+                  display: 'inline-block',
+                  padding: '10px 24px',
+                  fontSize: '0.85rem',
+                  textDecoration: 'none',
+                  borderRadius: '8px',
+                  fontFamily: 'var(--font-inter), Inter, sans-serif',
+                  fontWeight: 600,
+                }}
               >
-                email us →
+                Email us →
               </a>
               <Link
                 href="/contact"
                 className="btn-primary"
-                style={{ display: 'inline-block', padding: '10px 24px', fontSize: '0.8rem', textDecoration: 'none', borderRadius: '2px' }}
+                style={{
+                  display: 'inline-block',
+                  padding: '10px 24px',
+                  fontSize: '0.85rem',
+                  textDecoration: 'none',
+                  borderRadius: '8px',
+                  fontFamily: 'var(--font-inter), Inter, sans-serif',
+                  fontWeight: 600,
+                }}
               >
-                plan a meeting →
+                Book a free call →
               </Link>
             </div>
           </div>

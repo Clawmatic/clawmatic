@@ -1,21 +1,31 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Get in touch with ClawMatic. Questions about skill packs, custom builds, or just want to say hi.',
+  description:
+    'Get in touch with ClawMatic. Book a free AI audit call or send us an email to discuss your automation project.',
+};
+
+const labelStyle = {
+  fontFamily: 'var(--font-inter), Inter, sans-serif',
+  fontSize: '0.75rem',
+  fontWeight: 600,
+  color: '#5E6AD2',
+  letterSpacing: '0.12em',
+  textTransform: 'uppercase' as const,
+  marginBottom: '1rem',
 };
 
 export default function ContactPage() {
   return (
-    <div style={{ background: '#141414', minHeight: '100vh' }}>
-      {/* Header */}
+    <div style={{ background: '#181818', minHeight: '100vh' }}>
+      {/* Hero */}
       <section
         className="grid-bg"
         style={{
-          padding: 'clamp(3rem, 6vw, 5rem) 1.5rem 2rem',
-          borderBottom: '1px solid #303030',
+          padding: 'clamp(4rem, 8vw, 6rem) 1.5rem 3rem',
+          borderBottom: '1px solid #2a2a2a',
           position: 'relative',
           overflow: 'hidden',
         }}
@@ -32,334 +42,226 @@ export default function ContactPage() {
             pointerEvents: 'none',
           }}
         />
-        <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative' }}>
-          <p style={{
-            fontFamily: 'Courier New, monospace',
-            fontSize: '0.7rem',
-            color: '#5E6AD2',
-            letterSpacing: '0.15em',
-            textTransform: 'uppercase',
-            marginBottom: '0.75rem',
-          }}>
-            ./contact
-          </p>
-          <h1 style={{
-            fontFamily: 'Courier New, monospace',
-            fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-            fontWeight: '900',
-            color: '#EFEFEF',
-            lineHeight: 1.1,
-            marginBottom: '1rem',
-          }}>
-            Let&apos;s talk.
-            <br />
-            <span style={{ color: '#5E6AD2' }}>I don&apos;t bite.</span>
+        <div style={{ maxWidth: '1100px', margin: '0 auto', position: 'relative' }}>
+          <p style={labelStyle}>Contact</p>
+          <h1
+            style={{
+              fontFamily: 'var(--font-inter), Inter, sans-serif',
+              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+              fontWeight: 700,
+              color: '#F0F0F0',
+              lineHeight: 1.15,
+              marginBottom: '1rem',
+            }}
+          >
+            Let us talk about your business
           </h1>
-          <p style={{
-            fontFamily: 'Courier New, monospace',
-            fontSize: '0.85rem',
-            color: '#999999',
-            maxWidth: '500px',
-            lineHeight: '1.7',
-          }}>
-            Questions about skill packs, custom builds, broken guides, or just want to
-            say hi — pick the option that works best for you.
+          <p
+            style={{
+              fontFamily: 'var(--font-inter), Inter, sans-serif',
+              fontSize: '1rem',
+              color: '#888',
+              maxWidth: '560px',
+              lineHeight: 1.7,
+            }}
+          >
+            Book a free audit call, send us an email, or use the calendar below. No obligation — just
+            a conversation about what we can automate for you.
           </p>
         </div>
       </section>
 
       {/* Main content */}
-      <section style={{ padding: 'clamp(3rem, 6vw, 5rem) 1.5rem' }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '3rem',
-          alignItems: 'start',
-        }}>
-          {/* Left column — contact options */}
+      <section style={{ padding: 'clamp(3rem, 6vw, 5rem) 1.5rem', background: '#1e1e1e' }}>
+        <div
+          style={{
+            maxWidth: '1100px',
+            margin: '0 auto',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '3rem',
+            alignItems: 'start',
+          }}
+        >
+          {/* Left column */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            <p style={{
-              fontFamily: 'Courier New, monospace',
-              fontSize: '0.7rem',
-              color: '#5E6AD2',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              marginBottom: '0.25rem',
-            }}>
-              Reach me
-            </p>
+            <p style={labelStyle}>Get in touch</p>
 
-            {[
-              {
-                icon: '📧',
-                label: 'General / anything',
-                value: 'info@clawmatic.eu',
-                href: 'mailto:info@clawmatic.eu',
-                color: '#4ECCA3',
-                desc: 'Questions, feedback, bug reports — all welcome.',
-              },
-              {
-                icon: '🔧',
-                label: 'Custom skill packs',
-                value: 'custom@clawmatic.eu',
-                href: 'mailto:custom@clawmatic.eu?subject=Custom%20Skill%20Pack%20Request',
-                color: '#5E6AD2',
-                desc: 'Describe what you need and I\'ll scope it out.',
-              },
-            ].map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="card-hover pixel-border"
+            {/* Email card */}
+            <a
+              href="mailto:info@clawmatic.eu"
+              className="card-hover pixel-border"
+              style={{
+                display: 'block',
+                padding: '1.5rem',
+                borderRadius: '10px',
+                background: '#181818',
+                textDecoration: 'none',
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '0.5rem' }}>
+                <span style={{ fontSize: '1.25rem' }}>📧</span>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-inter), Inter, sans-serif',
+                    fontSize: '0.7rem',
+                    fontWeight: 600,
+                    color: '#4ECCA3',
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  Email us
+                </span>
+              </div>
+              <p
                 style={{
-                  display: 'block',
-                  padding: '1.5rem',
-                  borderRadius: '4px',
-                  textDecoration: 'none',
+                  fontFamily: 'var(--font-inter), Inter, sans-serif',
+                  fontSize: '0.9rem',
+                  fontWeight: 600,
+                  color: '#F0F0F0',
+                  marginBottom: '0.35rem',
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '0.5rem' }}>
-                  <span style={{ fontSize: '1.25rem' }}>{item.icon}</span>
-                  <span style={{
-                    fontFamily: 'Courier New, monospace',
-                    fontSize: '0.7rem',
-                    color: item.color,
-                    letterSpacing: '0.05em',
-                    textTransform: 'uppercase',
-                  }}>
-                    {item.label}
-                  </span>
-                </div>
-                <p style={{
-                  fontFamily: 'Courier New, monospace',
-                  fontSize: '0.85rem',
-                  color: '#EFEFEF',
-                  marginBottom: '0.35rem',
-                }}>
-                  {item.value}
-                </p>
-                <p style={{
-                  fontFamily: 'Courier New, monospace',
-                  fontSize: '0.75rem',
-                  color: '#777777',
-                }}>
-                  {item.desc}
-                </p>
-              </a>
-            ))}
+                info@clawmatic.eu
+              </p>
+              <p
+                style={{
+                  fontFamily: 'var(--font-inter), Inter, sans-serif',
+                  fontSize: '0.8rem',
+                  color: '#888',
+                  lineHeight: 1.6,
+                }}
+              >
+                Questions, project enquiries, or just want to chat about automation.
+              </p>
+            </a>
 
-            {/* Hands-on install */}
+            {/* Free audit card */}
             <div
-              className="pixel-border"
+              className="pixel-border-purple"
               style={{
                 padding: '1.5rem',
-                borderRadius: '4px',
+                borderRadius: '10px',
                 background: 'rgba(94, 106, 210, 0.04)',
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '0.75rem' }}>
-                <span style={{ fontSize: '1.25rem' }}>🛠️</span>
-                <span style={{
-                  fontFamily: 'Courier New, monospace',
-                  fontSize: '0.7rem',
-                  color: '#5E6AD2',
-                  letterSpacing: '0.05em',
-                  textTransform: 'uppercase',
-                }}>
-                  Hands-on setup
-                </span>
+                <span style={{ fontSize: '1.25rem' }}>🎯</span>
+                <h3
+                  style={{
+                    fontFamily: 'var(--font-inter), Inter, sans-serif',
+                    fontSize: '0.95rem',
+                    fontWeight: 700,
+                    color: '#F0F0F0',
+                    margin: 0,
+                  }}
+                >
+                  Free AI Audit
+                </h3>
               </div>
-              <p style={{
-                fontFamily: 'Courier New, monospace',
-                fontSize: '0.82rem',
-                color: '#EFEFEF',
-                marginBottom: '0.5rem',
-                lineHeight: '1.5',
-              }}>
-                Need help getting OpenClaw installed?
-              </p>
-              <p style={{
-                fontFamily: 'Courier New, monospace',
-                fontSize: '0.75rem',
-                color: '#777777',
-                lineHeight: '1.7',
-                marginBottom: '0.75rem',
-              }}>
-                I can set up OpenClaw for you directly — via remote access or on-site.
-                Whether you&apos;re not technical or just don&apos;t want the hassle, I&apos;ll handle the whole installation and get your agent running.
+              <p
+                style={{
+                  fontFamily: 'var(--font-inter), Inter, sans-serif',
+                  fontSize: '0.85rem',
+                  color: '#888',
+                  lineHeight: 1.7,
+                  marginBottom: '0.75rem',
+                }}
+              >
+                Not sure where to start? We will analyze your business processes and show you exactly
+                where AI can save you time and money — completely free, no obligation.
               </p>
               <a
-                href="mailto:info@clawmatic.eu?subject=Hands-on%20Setup%20Request"
+                href="https://calendly.com/clawmatic/30min"
                 style={{
-                  fontFamily: 'Courier New, monospace',
-                  fontSize: '0.75rem',
+                  fontFamily: 'var(--font-inter), Inter, sans-serif',
+                  fontSize: '0.8rem',
+                  fontWeight: 600,
                   color: '#5E6AD2',
                   textDecoration: 'none',
                 }}
               >
-                get in touch →
+                Book your free audit →
               </a>
             </div>
 
             {/* Response time */}
-            <div style={{
-              padding: '1rem 1.25rem',
-              background: 'rgba(78, 204, 163, 0.05)',
-              border: '1px solid rgba(78, 204, 163, 0.15)',
-              borderRadius: '4px',
-            }}>
-              <p style={{
-                fontFamily: 'Courier New, monospace',
-                fontSize: '0.75rem',
-                color: '#666666',
-                lineHeight: '1.6',
-              }}>
-                <span style={{ color: '#4ECCA3' }}>⏱ Response time:</span> Usually within 24–48 hours on weekdays. I&apos;m a one-person operation so it might take a bit longer on weekends.
+            <div
+              style={{
+                padding: '1rem 1.25rem',
+                background: 'rgba(78, 204, 163, 0.05)',
+                border: '1px solid rgba(78, 204, 163, 0.15)',
+                borderRadius: '8px',
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: 'var(--font-inter), Inter, sans-serif',
+                  fontSize: '0.82rem',
+                  color: '#888',
+                  lineHeight: 1.6,
+                }}
+              >
+                ⏱ We typically respond within 24 hours on weekdays.
               </p>
             </div>
           </div>
 
-          {/* Right column — meeting */}
+          {/* Right column */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            <p style={{
-              fontFamily: 'Courier New, monospace',
-              fontSize: '0.7rem',
-              color: '#5E6AD2',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              marginBottom: '0.25rem',
-            }}>
-              Plan a meeting
-            </p>
+            <p style={labelStyle}>Book a call</p>
 
-            {/* Meeting card */}
             <div
-              className="pixel-border-purple"
+              className="pixel-border"
               style={{
                 padding: '2rem',
-                borderRadius: '4px',
-                background: 'rgba(94, 106, 210, 0.04)',
+                borderRadius: '10px',
+                background: '#181818',
               }}
             >
-              <span style={{ fontSize: '2rem', display: 'block', marginBottom: '1rem' }}>📅</span>
-              <h3 style={{
-                fontFamily: 'Courier New, monospace',
-                fontSize: '1.1rem',
-                fontWeight: '700',
-                color: '#EFEFEF',
-                marginBottom: '0.75rem',
-              }}>
-                Book a call
+              <h3
+                style={{
+                  fontFamily: 'var(--font-inter), Inter, sans-serif',
+                  fontSize: '1.1rem',
+                  fontWeight: 700,
+                  color: '#F0F0F0',
+                  marginBottom: '1rem',
+                }}
+              >
+                30-minute free audit call
               </h3>
-              <p style={{
-                fontFamily: 'Courier New, monospace',
-                fontSize: '0.78rem',
-                color: '#888888',
-                lineHeight: '1.75',
-                marginBottom: '1.5rem',
-              }}>
-                Prefer to talk it through? Book a free 30-minute call — we can discuss a custom pack, a hands-on setup, or just your OpenClaw questions. Zoom or Google Meet, your choice.
-              </p>
 
-              {[
-                '30 min, free of charge',
-                'Zoom or Google Meet',
-                'Pick a slot that works for you',
-              ].map((f) => (
+              {['Free of charge', 'We analyze your workflow', 'No obligation'].map((f) => (
                 <div key={f} style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
-                  <span style={{ color: '#4ECCA3', fontSize: '0.7rem' }}>✓</span>
-                  <span style={{ fontFamily: 'Courier New, monospace', fontSize: '0.75rem', color: '#777777' }}>{f}</span>
+                  <span style={{ color: '#4ECCA3', fontSize: '0.75rem' }}>✓</span>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-inter), Inter, sans-serif',
+                      fontSize: '0.82rem',
+                      color: '#888',
+                    }}
+                  >
+                    {f}
+                  </span>
                 </div>
               ))}
 
-              {/* Calendly inline embed — swap URL once account is created */}
               <div
                 className="calendly-inline-widget"
-                data-url="https://calendly.com/clawmatic/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=1c1c1c&text_color=efefef&primary_color=5e6ad2"
+                data-url="https://calendly.com/clawmatic/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=1e1e1e&text_color=f0f0f0&primary_color=5e6ad2"
                 style={{
                   minWidth: '280px',
                   height: '500px',
                   marginTop: '1.5rem',
-                  borderRadius: '4px',
-                  overflow: 'hidden',
                 }}
               />
               <Script
                 src="https://assets.calendly.com/assets/external/widget.js"
                 strategy="lazyOnload"
               />
-              <p style={{
-                fontFamily: 'Courier New, monospace',
-                fontSize: '0.65rem',
-                color: '#444444',
-                marginTop: '0.5rem',
-                textAlign: 'center',
-              }}>
-                Powered by Calendly · No account needed to book
-              </p>
-            </div>
-
-            {/* FAQ link */}
-            <div style={{
-              padding: '1.25rem 1.5rem',
-              background: '#1c1c1c',
-              border: '1px solid #303030',
-              borderRadius: '4px',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}>
-              <div>
-                <p style={{ fontFamily: 'Courier New, monospace', fontSize: '0.82rem', color: '#EFEFEF', marginBottom: '0.25rem' }}>
-                  Quick answers?
-                </p>
-                <p style={{ fontFamily: 'Courier New, monospace', fontSize: '0.72rem', color: '#666666' }}>
-                  Check the FAQ first — might save you an email.
-                </p>
-              </div>
-              <Link
-                href="/faq"
-                style={{
-                  fontFamily: 'Courier New, monospace',
-                  fontSize: '0.75rem',
-                  color: '#4ECCA3',
-                  textDecoration: 'none',
-                  whiteSpace: 'nowrap',
-                  marginLeft: '1rem',
-                }}
-              >
-                view FAQ →
-              </Link>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Bottom */}
-      <section style={{ borderTop: '1px solid #1e1e1e', padding: '3rem 1.5rem', textAlign: 'center' }}>
-        <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-          <p style={{
-            fontFamily: 'Courier New, monospace',
-            fontSize: '0.7rem',
-            color: '#555555',
-            letterSpacing: '0.1em',
-            textTransform: 'uppercase',
-            marginBottom: '0.75rem',
-          }}>
-            Made in Belgium
-          </p>
-          <p style={{
-            fontFamily: 'Courier New, monospace',
-            fontSize: '0.8rem',
-            color: '#666666',
-            lineHeight: '1.7',
-          }}>
-            ClawMatic is a one-person project built with genuine love for OpenClaw. 🇧🇪
-            <br />
-            Every euro from skill pack sales goes back into building more content.
-          </p>
         </div>
       </section>
     </div>
