@@ -218,6 +218,12 @@ export default function HomePage() {
               See How It Works
             </a>
           </div>
+          <p style={{ marginTop: "1.25rem", fontSize: "0.85rem", color: "#888", fontFamily: "var(--font-inter), Inter, sans-serif" }}>
+            Not a business?{" "}
+            <a href="/toolkit" style={{ color: "#4ECCA3", textDecoration: "none" }}>
+              Browse our DIY automation toolkits →
+            </a>
+          </p>
         </div>
       </section>
 
