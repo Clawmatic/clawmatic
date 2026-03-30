@@ -1,11 +1,6 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'Toolkit',
-  description:
-    'Ready-made automation toolkits for individuals. Download and start automating your work today — no technical knowledge needed.',
-};
+import Link from 'next/link';
 
 const s = {
   fontFamily: 'var(--font-inter), Inter, sans-serif',
