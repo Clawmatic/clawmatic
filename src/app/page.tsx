@@ -1,691 +1,376 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-const taglines = [
-  'automate everything_',
-  'your AI does the clawing_',
-  'skills > limits_',
-  'hack your workflow_',
+const s = {
+  fontFamily: 'var(--font-inter), Inter, sans-serif',
+};
+
+const benefits = [
+  { icon: '⏱', title: 'Save 10–30+ hours/week', desc: 'Automate the tasks that eat your day so your team can focus on work that matters.' },
+  { icon: '💸', title: 'Reduce operational costs', desc: 'Do more with less. Cut overhead by replacing manual processes with AI workflows.' },
+  { icon: '🔁', title: 'Eliminate repetitive tasks', desc: 'Email triage, data entry, reporting — all handled automatically.' },
+  { icon: '⚡', title: 'Faster response times', desc: 'AI systems that respond instantly, 24/7, without manual intervention.' },
+  { icon: '📈', title: 'More time for growth', desc: 'When the busywork disappears, you can focus on strategy, clients, and scaling.' },
 ];
 
-function TerminalHero() {
-  const [currentTagline, setCurrentTagline] = useState(0);
-  const [displayed, setDisplayed] = useState('');
-  const [charIndex, setCharIndex] = useState(0);
+const faqs = [
+  {
+    q: 'Do I need technical knowledge?',
+    a: 'No. We handle everything — from design to deployment. You just tell us what you need automated, and we build it.',
+  },
+  {
+    q: 'How long does it take?',
+    a: 'Typically 2–4 weeks depending on the scope of your project. We'll give you a clear timeline after the audit.',
+  },
+  {
+    q: 'Is this expensive?',
+    a: 'We offer scalable solutions for different budgets. Start with a free audit and we'll recommend what actually makes sense for your situation.',
+  },
+  {
+    q: 'What kind of businesses do you work with?',
+    a: 'Any business with repetitive processes — from local shops and agencies to SaaS teams and e-commerce stores.',
+  },
+];
 
-  useEffect(() => {
-    const target = taglines[currentTagline];
-    if (charIndex < target.length) {
-      const timeout = setTimeout(() => {
-        setDisplayed(target.slice(0, charIndex + 1));
-        setCharIndex(charIndex + 1);
-      }, 60);
-      return () => clearTimeout(timeout);
-    } else {
-      const timeout = setTimeout(() => {
-        setDisplayed('');
-        setCharIndex(0);
-        setCurrentTagline((prev) => (prev + 1) % taglines.length);
-      }, 2500);
-      return () => clearTimeout(timeout);
-    }
-  }, [charIndex, currentTagline]);
-
+function FAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
   return (
-    <span
+    <div
       style={{
-        color: '#4ECCA3',
-        fontSize: 'clamp(1rem, 3vw, 1.4rem)',
-        fontFamily: 'Courier New, monospace',
-        display: 'inline-block',
-        minHeight: '2rem',
+        borderBottom: '1px solid #2a2a2a',
+        padding: '1.25rem 0',
       }}
     >
-      {displayed}
-      <span
+      <button
+        onClick={() => setOpen(!open)}
         style={{
-          display: 'inline-block',
-          width: '2px',
-          height: '1.1em',
-          background: '#4ECCA3',
-          marginLeft: '2px',
-          verticalAlign: 'middle',
-          animation: 'blink 1s step-end infinite',
-        }}
-      />
-    </span>
-  );
-}
-
-function GlitchTitle() {
-  return (
-    <h1
-      style={{
-        fontSize: 'clamp(2.8rem, 9vw, 6.5rem)',
-        fontWeight: '900',
-        fontFamily: 'Courier New, monospace',
-        letterSpacing: '-0.03em',
-        lineHeight: 1.0,
-        marginBottom: '1.75rem',
-        position: 'relative',
-      }}
-    >
-      <span
-        className="glitch-text"
-        data-text="OpenClaw"
-        style={{ color: '#E8E8E8' }}
-      >
-        OpenClaw
-      </span>
-      <br />
-      <span
-        style={{
-          background: 'linear-gradient(135deg, #5E6AD2 0%, #4ECCA3 100%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text',
+          background: 'none',
+          border: 'none',
+          cursor: 'pointer',
+          width: '100%',
+          textAlign: 'left',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: '1rem',
+          padding: 0,
         }}
       >
-        Unleashed.
-      </span>
-    </h1>
+        <span
+          style={{
+            ...s,
+            fontSize: '1rem',
+            fontWeight: 600,
+            color: '#E8E8E8',
+          }}
+        >
+          {q}
+        </span>
+        <span
+          style={{
+            color: '#5E6AD2',
+            fontSize: '1.25rem',
+            lineHeight: 1,
+            flexShrink: 0,
+            transition: 'transform 0.2s',
+            transform: open ? 'rotate(45deg)' : 'none',
+          }}
+        >
+          +
+        </span>
+      </button>
+      {open && (
+        <p
+          style={{
+            ...s,
+            marginTop: '0.75rem',
+            fontSize: '0.9rem',
+            color: '#888888',
+            lineHeight: 1.7,
+          }}
+        >
+          {a}
+        </p>
+      )}
+    </div>
   );
 }
-
-// SVG Icons
-const BookIcon = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-  </svg>
-);
-
-const ZapIcon = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-  </svg>
-);
-
-const UsersIcon = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-    <circle cx="9" cy="7" r="4"/>
-    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-  </svg>
-);
-
-const GearIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="3"/>
-    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-  </svg>
-);
-
-const PlugIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-    <polyline points="15 3 21 3 21 9"/>
-    <line x1="10" y1="14" x2="21" y2="3"/>
-  </svg>
-);
-
-const SparkleIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 2L9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5L12 2z"/>
-  </svg>
-);
-
-const MessageIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-  </svg>
-);
-
-const features = [
-  {
-    icon: <BookIcon />,
-    title: 'Guides',
-    tag: 'LEARN',
-    tagColor: '#5E6AD2',
-    description: 'Step-by-step tutorials to get OpenClaw running exactly how you want it. From setup to advanced workflows.',
-    href: '/guides',
-    cta: 'Read guides →',
-    count: '12 guides',
-  },
-  {
-    icon: <ZapIcon />,
-    title: 'Skill Packs',
-    tag: 'POWER UP',
-    tagColor: '#4ECCA3',
-    description: 'Pre-built skill bundles that supercharge OpenClaw. Connect apps, automate tasks, build faster.',
-    href: '/skills',
-    cta: 'Browse skills →',
-    count: '8 packs',
-  },
-  {
-    icon: <UsersIcon />,
-    title: 'Community',
-    tag: 'SOON',
-    tagColor: '#888888',
-    description: 'Join the builders. Share skills, swap configs, and figure out what OpenClaw can actually do.',
-    href: '#',
-    cta: 'Coming soon',
-    count: 'join waitlist',
-  },
-];
-
-const stats = [
-  { value: '12+', label: 'Guides' },
-  { value: '8', label: 'Skill Packs' },
-  { value: '100%', label: 'Open Claw' },
-  { value: '🇧🇪', label: 'Belgian Made' },
-];
 
 export default function HomePage() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => {
-        if (e.isIntersecting) e.target.classList.add('in-view');
-      }),
-      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
-    );
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <div style={{ background: '#0F0F0F' }}>
-      {/* Hero Section */}
+    <div style={{ background: '#141414', ...s }}>
+
+      {/* ── HERO ── */}
       <section
-        className="grid-bg mesh-bg"
         style={{
           position: 'relative',
-          padding: 'clamp(5rem, 12vw, 10rem) 1.5rem clamp(4rem, 10vw, 8rem)',
+          padding: 'clamp(5rem, 12vw, 9rem) 1.5rem clamp(4rem, 10vw, 7rem)',
           overflow: 'hidden',
+          background: '#141414',
         }}
       >
-        {/* Background glow blobs */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '-15%',
-            left: '-5%',
-            width: '700px',
-            height: '700px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(94, 106, 210, 0.07) 0%, transparent 65%)',
-            pointerEvents: 'none',
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '-10%',
-            right: '-5%',
-            width: '600px',
-            height: '600px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(78, 204, 163, 0.05) 0%, transparent 65%)',
-            pointerEvents: 'none',
-          }}
-        />
+        {/* Glow blobs */}
+        <div style={{
+          position: 'absolute', top: '-15%', left: '-10%',
+          width: '600px', height: '600px', borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(94,106,210,0.1) 0%, transparent 70%)',
+          pointerEvents: 'none',
+        }} />
+        <div style={{
+          position: 'absolute', bottom: '-10%', right: '-5%',
+          width: '500px', height: '500px', borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(78,204,163,0.07) 0%, transparent 70%)',
+          pointerEvents: 'none',
+        }} />
 
-        <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative' }}>
-          {/* Badge */}
-          <div style={{ marginBottom: '2rem' }}>
-            <span
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                background: 'rgba(94, 106, 210, 0.1)',
-                border: '1px solid rgba(94, 106, 210, 0.25)',
-                borderRadius: '20px',
-                padding: '5px 14px',
-                fontSize: '0.72rem',
-                fontWeight: '500',
-                color: '#7B85E0',
-                letterSpacing: '0.06em',
-                textTransform: 'uppercase',
-              }}
-            >
-              <span
-                style={{
-                  width: '6px',
-                  height: '6px',
-                  borderRadius: '50%',
-                  background: '#4ECCA3',
-                  boxShadow: '0 0 8px rgba(78, 204, 163, 0.8)',
-                  animation: 'pulse-glow 2s ease infinite',
-                  flexShrink: 0,
-                }}
-              />
-              OpenClaw AI — Unofficial Hub
+        <div style={{ maxWidth: '860px', margin: '0 auto', position: 'relative', textAlign: 'center' }}>
+          <div style={{ marginBottom: '1.5rem' }}>
+            <span style={{
+              display: 'inline-flex', alignItems: 'center', gap: '8px',
+              background: 'rgba(78,204,163,0.1)', border: '1px solid rgba(78,204,163,0.25)',
+              borderRadius: '100px', padding: '5px 14px',
+              fontSize: '0.75rem', fontWeight: 600, color: '#4ECCA3',
+              letterSpacing: '0.04em', textTransform: 'uppercase',
+            }}>
+              <span style={{
+                width: '6px', height: '6px', borderRadius: '50%',
+                background: '#4ECCA3', boxShadow: '0 0 8px #4ECCA3',
+              }} />
+              AI Automation Agency
             </span>
           </div>
 
-          <GlitchTitle />
+          <h1 style={{
+            fontSize: 'clamp(2.5rem, 7vw, 5rem)',
+            fontWeight: 800,
+            lineHeight: 1.1,
+            letterSpacing: '-0.03em',
+            color: '#F0F0F0',
+            marginBottom: '1.5rem',
+          }}>
+            Automate Your Business{' '}
+            <span style={{
+              background: 'linear-gradient(135deg, #5E6AD2, #4ECCA3)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}>
+              with AI
+            </span>
+          </h1>
 
-          <div style={{ marginBottom: '2rem' }}>
-            <p
-              style={{
-                fontFamily: 'Courier New, monospace',
-                fontSize: '0.82rem',
-                color: '#5E6AD2',
-                marginBottom: '0.5rem',
-                opacity: 0.8,
-              }}
-            >
-              $ ./clawmatic --run
-            </p>
-            <TerminalHero />
-          </div>
-
-          <p
-            style={{
-              fontSize: 'clamp(1rem, 2.2vw, 1.1rem)',
-              color: '#888888',
-              maxWidth: '580px',
-              lineHeight: '1.75',
-              marginBottom: '2.75rem',
-              fontWeight: '400',
-            }}
-          >
-            ClawMatic is your go-to resource for{' '}
-            <span style={{ color: '#CCCCCC', fontWeight: '500' }}>OpenClaw AI</span> — the personal AI
-            assistant that actually does stuff. Guides, skill packs, and a community
-            of builders who push it to the limit.
+          <p style={{
+            fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
+            color: '#999999',
+            lineHeight: 1.7,
+            maxWidth: '580px',
+            margin: '0 auto 2.5rem',
+          }}>
+            We build custom AI systems that eliminate repetitive work so you can focus on growth.
           </p>
 
-          {/* CTA buttons */}
-          <div style={{ display: 'flex', gap: '0.875rem', flexWrap: 'wrap' }}>
-            <Link
-              href="/guides"
-              className="btn-primary"
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a
+              href="https://calendly.com/clawmatic/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
-                padding: '13px 28px',
+                display: 'inline-block',
+                padding: '14px 28px',
+                background: '#5E6AD2',
+                color: '#fff',
+                fontWeight: 600,
                 fontSize: '0.95rem',
                 textDecoration: 'none',
                 borderRadius: '8px',
-                display: 'inline-block',
+                transition: 'opacity 0.2s',
               }}
+              onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
             >
-              Start here →
-            </Link>
-            <Link
-              href="/skills"
-              className="btn-green"
+              Book Your Free Audit
+            </a>
+            <a
+              href="#how-it-works"
               style={{
-                padding: '13px 28px',
+                display: 'inline-block',
+                padding: '14px 28px',
+                background: 'transparent',
+                color: '#999999',
+                fontWeight: 500,
                 fontSize: '0.95rem',
                 textDecoration: 'none',
                 borderRadius: '8px',
-                display: 'inline-block',
+                border: '1px solid #333333',
+                transition: 'border-color 0.2s, color 0.2s',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = '#555555';
+                e.currentTarget.style.color = '#E8E8E8';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = '#333333';
+                e.currentTarget.style.color = '#999999';
               }}
             >
-              Browse skills
-            </Link>
+              See How It Works
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Stats bar */}
-      <section
-        style={{
-          borderTop: '1px solid #1f1f1f',
-          borderBottom: '1px solid #1f1f1f',
-          background: '#0a0a0a',
-          padding: '1.75rem',
-        }}
-      >
-        <div
-          style={{
-            maxWidth: '1200px',
-            margin: '0 auto',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '1rem',
-          }}
-        >
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              style={{ textAlign: 'center', padding: '0.5rem' }}
-            >
-              <div
-                style={{
-                  fontSize: 'clamp(1.6rem, 3vw, 2.2rem)',
-                  fontWeight: '700',
-                  color: '#4ECCA3',
-                  marginBottom: '0.3rem',
-                  letterSpacing: '-0.02em',
-                }}
-              >
-                {stat.value}
-              </div>
-              <div
-                style={{
-                  fontSize: '0.72rem',
-                  fontWeight: '500',
-                  color: '#555555',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.08em',
-                }}
-              >
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* What is OpenClaw section */}
-      <section className="reveal" style={{ padding: 'clamp(5rem, 10vw, 7rem) 1.5rem' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: '4rem',
-              alignItems: 'center',
-            }}
-          >
-            {/* Text */}
-            <div>
-              <p
-                style={{
-                  fontSize: '0.72rem',
-                  fontWeight: '600',
-                  color: '#5E6AD2',
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  marginBottom: '1.25rem',
-                }}
-              >
-                What is OpenClaw?
-              </p>
-              <h2
-                style={{
-                  fontSize: 'clamp(1.75rem, 4vw, 2.75rem)',
-                  fontWeight: '700',
-                  color: '#E8E8E8',
-                  lineHeight: 1.2,
-                  marginBottom: '1.75rem',
-                  letterSpacing: '-0.02em',
-                }}
-              >
-                The AI assistant
-                <br />
-                <span style={{ color: '#4ECCA3' }}>that actually claws</span>
-                <br />
-                through your day.
-              </h2>
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '1.1rem',
-                }}
-              >
-                {[
-                  { icon: <GearIcon />, text: 'Runs locally or in the cloud — you pick.' },
-                  { icon: <PlugIcon />, text: 'Connects to your apps via skills and integrations.' },
-                  { icon: <SparkleIcon />, text: 'Learns your style. Gets smarter over time.' },
-                  { icon: <MessageIcon />, text: 'Talk to it on WhatsApp, CLI, or web — anywhere.' },
-                ].map((item, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'flex-start',
-                      gap: '12px',
-                    }}
-                  >
-                    <span
-                      style={{
-                        color: '#4ECCA3',
-                        marginTop: '2px',
-                        flexShrink: 0,
-                        opacity: 0.85,
-                      }}
-                    >
-                      {item.icon}
-                    </span>
-                    <p
-                      style={{
-                        fontSize: '0.9rem',
-                        color: '#888888',
-                        lineHeight: '1.7',
-                        fontWeight: '400',
-                      }}
-                    >
-                      {item.text}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Terminal mockup */}
-            <div
-              className="pixel-border"
-              style={{
+      {/* ── TARGETING ── */}
+      <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#0f0f0f', borderTop: '1px solid #1e1e1e' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <p style={{ fontSize: '0.75rem', fontWeight: 700, color: '#5E6AD2', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem', textAlign: 'center' }}>
+            Is this for you?
+          </p>
+          <h2 style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', fontWeight: 700, color: '#F0F0F0', textAlign: 'center', marginBottom: '2.5rem', letterSpacing: '-0.02em' }}>
+            This is for you if...
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
+            {[
+              'You run a small or mid-sized business',
+              'You spend hours on repetitive tasks every week',
+              'You want to scale without hiring more people',
+              'You\'re tired of manual processes slowing you down',
+            ].map((item) => (
+              <div key={item} style={{
+                display: 'flex', alignItems: 'flex-start', gap: '12px',
+                padding: '1.25rem 1.5rem',
+                background: '#141414',
+                border: '1px solid #222222',
                 borderRadius: '10px',
-                overflow: 'hidden',
-                background: '#0a0a0a',
-                maxWidth: '480px',
-              }}
-            >
-              {/* Terminal header */}
-              <div
-                style={{
-                  background: '#141414',
-                  padding: '12px 16px',
-                  borderBottom: '1px solid #222222',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '7px',
-                }}
-              >
-                {['#FF5F57', '#FEBC2E', '#28C840'].map((color) => (
-                  <span
-                    key={color}
-                    style={{
-                      width: '10px',
-                      height: '10px',
-                      borderRadius: '50%',
-                      background: color,
-                      display: 'block',
-                      opacity: 0.8,
-                    }}
-                  />
-                ))}
-                <span
-                  style={{
-                    fontFamily: 'Courier New, monospace',
-                    fontSize: '0.72rem',
-                    color: '#444444',
-                    marginLeft: '8px',
-                  }}
-                >
-                  openclaw — terminal
-                </span>
+              }}>
+                <span style={{ color: '#4ECCA3', fontSize: '1.1rem', marginTop: '1px', flexShrink: 0 }}>✓</span>
+                <span style={{ fontSize: '0.95rem', color: '#cccccc', lineHeight: 1.5 }}>{item}</span>
               </div>
-              {/* Terminal body */}
-              <div style={{ padding: '1.5rem' }}>
-                {[
-                  { prompt: '$', cmd: ' openclaw --start', color: '#E8E8E8' },
-                  { prompt: '>', cmd: ' Initializing OpenClaw v2.1...', color: '#555555' },
-                  { prompt: '>', cmd: ' Loading skill packs... ✓', color: '#4ECCA3' },
-                  { prompt: '>', cmd: ' WhatsApp bridge connected ✓', color: '#4ECCA3' },
-                  { prompt: '>', cmd: ' Calendar sync active ✓', color: '#4ECCA3' },
-                  { prompt: '>', cmd: ' Ready. What do you need?', color: '#5E6AD2' },
-                  { prompt: '$', cmd: ' _', color: '#4ECCA3' },
-                ].map((line, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      fontFamily: 'Courier New, monospace',
-                      fontSize: '0.8rem',
-                      lineHeight: '1.85',
-                      display: 'flex',
-                      gap: '8px',
-                    }}
-                  >
-                    <span style={{ color: '#5E6AD2', userSelect: 'none' }}>
-                      {line.prompt}
-                    </span>
-                    <span style={{ color: line.color }}>{line.cmd}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Features section */}
-      <section
-        className="reveal"
-        style={{
-          padding: 'clamp(4rem, 8vw, 6rem) 1.5rem',
-          background: '#0a0a0a',
-          borderTop: '1px solid #1a1a1a',
-        }}
-      >
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-            <p
-              style={{
-                fontSize: '0.72rem',
-                fontWeight: '600',
-                color: '#5E6AD2',
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                marginBottom: '0.875rem',
-              }}
-            >
-              What you get
+      {/* ── PROBLEM ── */}
+      <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#141414', borderTop: '1px solid #1e1e1e' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <p style={{ fontSize: '0.75rem', fontWeight: 700, color: '#5E6AD2', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>
+              The problem
             </p>
-            <h2
-              style={{
-                fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
-                fontWeight: '700',
-                color: '#E8E8E8',
-                letterSpacing: '-0.02em',
-              }}
-            >
-              Everything you need to{' '}
-              <span style={{ color: '#4ECCA3' }}>go deeper.</span>
+            <h2 style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', fontWeight: 700, color: '#F0F0F0', letterSpacing: '-0.02em' }}>
+              Your business is leaking time and money
             </h2>
           </div>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '1.25rem',
-            }}
-          >
-            {features.map((feature) => (
-              <div
-                key={feature.title}
-                className="card-hover pixel-border"
-                style={{
-                  padding: '2rem',
-                  borderRadius: '10px',
-                  position: 'relative',
-                }}
-              >
-                {/* Top row */}
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'flex-start',
-                    marginBottom: '1.5rem',
-                  }}
-                >
-                  <span
-                    style={{
-                      color: feature.tagColor,
-                      display: 'flex',
-                      alignItems: 'center',
-                      padding: '8px',
-                      background: `${feature.tagColor}12`,
-                      borderRadius: '8px',
-                    }}
-                  >
-                    {feature.icon}
-                  </span>
-                  <span
-                    className="tag"
-                    style={{
-                      background: `${feature.tagColor}10`,
-                      color: feature.tagColor,
-                      border: `1px solid ${feature.tagColor}30`,
-                    }}
-                  >
-                    {feature.tag}
-                  </span>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.25rem', marginBottom: '3rem' }}>
+            {[
+              { icon: '🐌', title: 'Manual tasks slow growth', desc: 'Every hour spent on manual work is an hour not spent on strategy or customers.' },
+              { icon: '🔄', title: 'Repetitive work eats your day', desc: 'The same tasks, every day, done by hand — draining focus and energy.' },
+              { icon: '👥', title: 'Hiring more just to keep up', desc: 'Scaling means more headcount, more overhead, more complexity.' },
+              { icon: '🚧', title: 'Missed opportunities', desc: 'When you\'re buried in busywork, growth opportunities pass you by.' },
+            ].map((card) => (
+              <div key={card.title} style={{
+                padding: '1.75rem',
+                background: '#0f0f0f',
+                border: '1px solid #222222',
+                borderRadius: '12px',
+              }}>
+                <span style={{ fontSize: '1.75rem', display: 'block', marginBottom: '1rem' }}>{card.icon}</span>
+                <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#E8E8E8', marginBottom: '0.5rem' }}>{card.title}</h3>
+                <p style={{ fontSize: '0.85rem', color: '#777777', lineHeight: 1.6 }}>{card.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ textAlign: 'center' }}>
+            <p style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)', fontWeight: 600, color: '#4ECCA3' }}>
+              That is exactly what we fix.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── HOW IT WORKS ── */}
+      <section id="how-it-works" style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#0f0f0f', borderTop: '1px solid #1e1e1e' }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+            <p style={{ fontSize: '0.75rem', fontWeight: 700, color: '#5E6AD2', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>
+              The process
+            </p>
+            <h2 style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', fontWeight: 700, color: '#F0F0F0', letterSpacing: '-0.02em' }}>
+              How it works
+            </h2>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
+            {[
+              { step: '01', title: 'Analyze', color: '#5E6AD2', desc: 'We dig into your business and identify exactly where time and money are being wasted on manual processes.' },
+              { step: '02', title: 'Automate', color: '#4ECCA3', desc: 'We build custom AI workflows tailored to your specific operations — no off-the-shelf templates.' },
+              { step: '03', title: 'Scale', color: '#5E6AD2', desc: 'With the busywork handled, you save time, reduce costs, and have the bandwidth to grow faster.' },
+            ].map((item) => (
+              <div key={item.step} style={{
+                padding: '2rem',
+                background: '#141414',
+                border: '1px solid #222222',
+                borderRadius: '12px',
+                position: 'relative',
+              }}>
+                <div style={{
+                  fontSize: '0.7rem', fontWeight: 800, color: item.color,
+                  letterSpacing: '0.1em', marginBottom: '1rem',
+                  opacity: 0.7,
+                }}>
+                  STEP {item.step}
                 </div>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#F0F0F0', marginBottom: '0.75rem' }}>{item.title}</h3>
+                <p style={{ fontSize: '0.875rem', color: '#888888', lineHeight: 1.7 }}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-                <h3
-                  style={{
-                    fontSize: '1.1rem',
-                    fontWeight: '600',
-                    color: '#E8E8E8',
-                    marginBottom: '0.75rem',
-                    letterSpacing: '-0.01em',
-                  }}
-                >
-                  {feature.title}
-                </h3>
-                <p
-                  style={{
-                    fontSize: '0.875rem',
-                    color: '#777777',
-                    lineHeight: '1.7',
-                    marginBottom: '1.75rem',
-                    fontWeight: '400',
-                  }}
-                >
-                  {feature.description}
-                </p>
+      {/* ── BENEFITS ── */}
+      <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#141414', borderTop: '1px solid #1e1e1e' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <p style={{ fontSize: '0.75rem', fontWeight: 700, color: '#5E6AD2', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>
+              What you get
+            </p>
+            <h2 style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', fontWeight: 700, color: '#F0F0F0', letterSpacing: '-0.02em' }}>
+              Real results, every time
+            </h2>
+          </div>
 
-                {/* Bottom row */}
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                  }}
-                >
-                  <Link
-                    href={feature.href}
-                    style={{
-                      fontSize: '0.825rem',
-                      fontWeight: '500',
-                      color: feature.tagColor,
-                      textDecoration: 'none',
-                      letterSpacing: '0.01em',
-                      transition: 'opacity 0.2s',
-                    }}
-                  >
-                    {feature.cta}
-                  </Link>
-                  <span
-                    style={{
-                      fontSize: '0.72rem',
-                      color: '#3f3f3f',
-                      fontWeight: '500',
-                    }}
-                  >
-                    {feature.count}
-                  </span>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
+            {benefits.map((b) => (
+              <div key={b.title} style={{
+                padding: '1.75rem',
+                background: '#0f0f0f',
+                border: '1px solid #222222',
+                borderRadius: '12px',
+                display: 'flex',
+                gap: '1rem',
+                alignItems: 'flex-start',
+              }}>
+                <span style={{
+                  fontSize: '1.5rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '44px',
+                  height: '44px',
+                  background: 'rgba(94,106,210,0.12)',
+                  borderRadius: '10px',
+                  flexShrink: 0,
+                }}>
+                  {b.icon}
+                </span>
+                <div>
+                  <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: '#E8E8E8', marginBottom: '0.4rem' }}>{b.title}</h3>
+                  <p style={{ fontSize: '0.82rem', color: '#777777', lineHeight: 1.6 }}>{b.desc}</p>
                 </div>
               </div>
             ))}
@@ -693,109 +378,168 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <section
-        className="reveal"
-        style={{
-          padding: 'clamp(5rem, 10vw, 8rem) 1.5rem',
-          textAlign: 'center',
-          position: 'relative',
-          overflow: 'hidden',
-        }}
-      >
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'radial-gradient(ellipse at center, rgba(94, 106, 210, 0.07) 0%, transparent 65%)',
-            pointerEvents: 'none',
-          }}
-        />
-        <div style={{ maxWidth: '640px', margin: '0 auto', position: 'relative' }}>
-          <p
-            style={{
-              fontSize: '0.72rem',
-              fontWeight: '600',
-              color: '#5E6AD2',
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              marginBottom: '1.25rem',
-            }}
-          >
-            Get started
-          </p>
-          <h2
-            style={{
-              fontSize: 'clamp(1.75rem, 4.5vw, 2.75rem)',
-              fontWeight: '700',
-              color: '#E8E8E8',
-              lineHeight: 1.2,
-              marginBottom: '1.1rem',
-              letterSpacing: '-0.02em',
-            }}
-          >
-            Ready to level up
-            <br />
-            <span style={{ color: '#4ECCA3' }}>your OpenClaw?</span>
-          </h2>
-          <p
-            style={{
-              fontSize: '1rem',
-              color: '#777777',
-              lineHeight: '1.7',
-              marginBottom: '2.25rem',
-              fontWeight: '400',
-            }}
-          >
-            Start with a guide, grab a skill pack, or just browse.
-            <br />
-            ClawMatic has what you need to build something wild.
-          </p>
-          <div
-            style={{
-              display: 'flex',
-              gap: '0.875rem',
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-            }}
-          >
-            <Link
-              href="/guides"
-              className="btn-primary"
-              style={{
-                padding: '13px 28px',
-                fontSize: '0.95rem',
-                textDecoration: 'none',
-                borderRadius: '8px',
-                display: 'inline-block',
-              }}
-            >
-              Read the guides →
-            </Link>
-            <Link
-              href="/skills"
-              className="btn-green"
-              style={{
-                padding: '13px 28px',
-                fontSize: '0.95rem',
-                textDecoration: 'none',
-                borderRadius: '8px',
-                display: 'inline-block',
-              }}
-            >
-              Shop skill packs
-            </Link>
+      {/* ── PROOF ── */}
+      <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#0f0f0f', borderTop: '1px solid #1e1e1e' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <p style={{ fontSize: '0.75rem', fontWeight: 700, color: '#5E6AD2', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>
+              Results
+            </p>
+            <h2 style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', fontWeight: 700, color: '#F0F0F0', letterSpacing: '-0.02em' }}>
+              Results from real businesses
+            </h2>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1.5rem' }}>
+            {[
+              {
+                stat: '80%',
+                label: 'faster response time',
+                desc: 'Automated lead handling reduced response time by 80% — prospects got answers instantly, around the clock.',
+                color: '#4ECCA3',
+              },
+              {
+                stat: '15+',
+                label: 'hours saved per week',
+                desc: 'Custom AI workflow replaced a manual reporting process, saving 15+ hours per week across the team.',
+                color: '#5E6AD2',
+              },
+            ].map((r) => (
+              <div key={r.label} style={{
+                padding: '2.25rem',
+                background: '#141414',
+                border: '1px solid #252525',
+                borderRadius: '14px',
+              }}>
+                <div style={{
+                  fontSize: 'clamp(2.5rem, 6vw, 3.5rem)',
+                  fontWeight: 800,
+                  color: r.color,
+                  letterSpacing: '-0.03em',
+                  lineHeight: 1,
+                  marginBottom: '0.25rem',
+                }}>
+                  {r.stat}
+                </div>
+                <div style={{ fontSize: '0.8rem', fontWeight: 600, color: '#666666', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '1rem' }}>
+                  {r.label}
+                </div>
+                <p style={{ fontSize: '0.875rem', color: '#888888', lineHeight: 1.7 }}>{r.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <style>{`
-        @media (max-width: 480px) {
-          [style*="repeat(4, 1fr)"] {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-        }
-      `}</style>
+      {/* ── OFFER ── */}
+      <section style={{
+        padding: 'clamp(4rem, 8vw, 6rem) 1.5rem',
+        background: '#141414',
+        borderTop: '1px solid #1e1e1e',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'radial-gradient(ellipse at center, rgba(94,106,210,0.07) 0%, transparent 70%)',
+          pointerEvents: 'none',
+        }} />
+        <div style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center', position: 'relative' }}>
+          <p style={{ fontSize: '0.75rem', fontWeight: 700, color: '#5E6AD2', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>
+            Free offer
+          </p>
+          <h2 style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', fontWeight: 700, color: '#F0F0F0', letterSpacing: '-0.02em', marginBottom: '1.25rem' }}>
+            Start with a free AI audit
+          </h2>
+          <p style={{ fontSize: '1rem', color: '#888888', lineHeight: 1.75, marginBottom: '2.25rem' }}>
+            We will analyze your business and show you exactly where AI can save you time and money — no obligation, no cost.
+          </p>
+          <a
+            href="https://calendly.com/clawmatic/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-block',
+              padding: '16px 36px',
+              background: '#5E6AD2',
+              color: '#fff',
+              fontWeight: 700,
+              fontSize: '1rem',
+              textDecoration: 'none',
+              borderRadius: '8px',
+              transition: 'opacity 0.2s',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
+          >
+            Get Your Free Audit
+          </a>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#0f0f0f', borderTop: '1px solid #1e1e1e' }}>
+        <div style={{ maxWidth: '720px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <p style={{ fontSize: '0.75rem', fontWeight: 700, color: '#5E6AD2', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>
+              FAQ
+            </p>
+            <h2 style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', fontWeight: 700, color: '#F0F0F0', letterSpacing: '-0.02em' }}>
+              Common questions
+            </h2>
+          </div>
+          <div>
+            {faqs.map((faq) => (
+              <FAQItem key={faq.q} q={faq.q} a={faq.a} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FINAL CTA ── */}
+      <section style={{
+        padding: 'clamp(5rem, 10vw, 8rem) 1.5rem',
+        background: '#141414',
+        borderTop: '1px solid #1e1e1e',
+        textAlign: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'radial-gradient(ellipse at center bottom, rgba(78,204,163,0.06) 0%, transparent 60%)',
+          pointerEvents: 'none',
+        }} />
+        <div style={{ maxWidth: '640px', margin: '0 auto', position: 'relative' }}>
+          <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 3rem)', fontWeight: 800, color: '#F0F0F0', letterSpacing: '-0.03em', marginBottom: '1rem', lineHeight: 1.15 }}>
+            Stop wasting time on manual work
+          </h2>
+          <p style={{ fontSize: '1.05rem', color: '#888888', marginBottom: '2.5rem', lineHeight: 1.7 }}>
+            Every week you wait is another week of lost hours.
+          </p>
+          <a
+            href="https://calendly.com/clawmatic/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-block',
+              padding: '16px 36px',
+              background: '#5E6AD2',
+              color: '#fff',
+              fontWeight: 700,
+              fontSize: '1.05rem',
+              textDecoration: 'none',
+              borderRadius: '8px',
+              transition: 'opacity 0.2s',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
+          >
+            Book Your Free Call
+          </a>
+        </div>
+      </section>
+
     </div>
   );
 }

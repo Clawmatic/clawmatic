@@ -4,7 +4,6 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import CookieBanner from '@/components/CookieBanner';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 
@@ -13,24 +12,20 @@ const BASE_URL = 'https://clawmatic.eu';
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'ClawMatic — OpenClaw AI Guides & Skill Packs',
+    default: 'ClawMatic — AI Automation Agency',
     template: '%s — ClawMatic',
   },
   description:
-    'The go-to resource for OpenClaw AI. Step-by-step guides, ready-to-install skill packs, and automation ideas for power users. Free guides, paid packs from €5.',
+    'ClawMatic builds custom AI automation systems for businesses. Eliminate repetitive work, save 10-30 hours per week, and scale faster. Book a free AI audit.',
   keywords: [
-    'OpenClaw',
-    'OpenClaw AI',
-    'OpenClaw guides',
-    'OpenClaw skills',
-    'AI assistant',
-    'personal AI',
     'AI automation',
+    'business automation',
+    'AI agency',
+    'custom AI systems',
+    'workflow automation',
+    'AI consultant',
+    'AI assistant',
     'ClawMatic',
-    'skill packs',
-    'OpenClaw tutorial',
-    'WhatsApp AI',
-    'AI assistant setup',
   ],
   authors: [{ name: 'ClawMatic', url: BASE_URL }],
   creator: 'ClawMatic',
@@ -39,23 +34,23 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: BASE_URL,
     siteName: 'ClawMatic',
-    title: 'ClawMatic — OpenClaw AI Guides & Skill Packs',
+    title: 'ClawMatic — AI Automation Agency',
     description:
-      'Guides, skill packs, and automation ideas for OpenClaw AI. Get your agent doing more in minutes.',
+      'ClawMatic builds custom AI automation systems for businesses. Eliminate repetitive work, save 10-30 hours per week, and scale faster.',
     images: [
       {
         url: '/openclaw-starter-kit-cover.png',
         width: 1280,
         height: 960,
-        alt: 'ClawMatic — OpenClaw AI Hub',
+        alt: 'ClawMatic — AI Automation Agency',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ClawMatic — OpenClaw AI Guides & Skill Packs',
+    title: 'ClawMatic — AI Automation Agency',
     description:
-      'Guides, skill packs, and automation ideas for OpenClaw AI. Get your agent doing more in minutes.',
+      'ClawMatic builds custom AI automation systems for businesses. Eliminate repetitive work, save 10-30 hours per week, and scale faster.',
     images: ['/openclaw-starter-kit-cover.png'],
   },
   verification: {
@@ -88,22 +83,14 @@ export default function RootLayout({
         <Navbar />
         <main style={{ flex: 1 }}>{children}</main>
         <Footer />
-        {/* GA consent defaults to denied until user accepts cookie banner */}
-        <Script id="ga-consent-default" strategy="beforeInteractive">{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('consent', 'default', {
-            analytics_storage: 'denied',
-            ad_storage: 'denied',
-          });
-        `}</Script>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-891L4C43V7" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-891L4C43V7');
         `}</Script>
         <Script src="https://gumroad.com/js/gumroad.js" strategy="lazyOnload" />
-        <CookieBanner />
       </body>
     </html>
   );
