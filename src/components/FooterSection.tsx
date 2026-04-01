@@ -1,5 +1,6 @@
 "use client";
 import { Zap } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
@@ -10,17 +11,24 @@ const FooterSection = () => {
       <div className="py-20 text-center">
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">
-            Stop wasting time on manual work
+            Ready to ship OpenClaw faster?
           </h2>
           <p className="text-muted-foreground mb-8">
-            Every week you wait is another week of lost hours.
+            The installer page is ready — the download links can be added the moment the build is finished.
           </p>
-          <Button variant="hero" size="lg" asChild className="text-base px-8 py-6">
-            <a href="https://calendly.com/clawmatic/30min" target="_blank" rel="noopener noreferrer">
-              Let's Talk
-              <ArrowRight className="ml-1 h-4 w-4" />
-            </a>
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Button variant="hero" size="lg" asChild className="text-base px-8 py-6">
+              <Link href="/installer">
+                Open Installer Page
+                <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button variant="hero-outline" size="lg" asChild className="text-base px-8 py-6">
+              <a href="https://calendly.com/clawmatic/30min" target="_blank" rel="noopener noreferrer">
+                Let's Talk
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
 

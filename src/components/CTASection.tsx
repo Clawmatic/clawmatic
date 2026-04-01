@@ -19,19 +19,26 @@ const CTASection = () => {
           <div className="absolute inset-0 hero-grid opacity-20" />
 
           <div className="relative z-10 p-10 sm:p-16 text-center">
-            <span className="section-label mb-4 block">Free offer</span>
+            <span className="section-label mb-4 block">Installer coming soon</span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Start with a <span className="gradient-text">free AI audit</span>
+              Get ready for the <span className="gradient-text">one-click installer</span>
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto mb-8 text-lg">
-              We'll analyze your business and show you exactly where AI can save you time and money — no obligation, no cost.
+              The installer page is already laid out. When the download files are ready, this spot can point straight to the Windows, macOS, and Linux builds.
             </p>
-            <Button variant="hero" size="lg" asChild className="text-base px-10 py-6">
-              <a href="https://calendly.com/clawmatic/30min" target="_blank" rel="noopener noreferrer">
-                Get Your Free Audit
-                <ArrowRight className="ml-1 h-4 w-4" />
-              </a>
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button variant="hero" size="lg" asChild className="text-base px-10 py-6">
+                <a href="/installer">
+                  Open Installer Page
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
+              </Button>
+              <Button variant="hero-outline" size="lg" asChild className="text-base px-10 py-6">
+                <a href="https://calendly.com/clawmatic/30min" target="_blank" rel="noopener noreferrer">
+                  Book a Call
+                </a>
+              </Button>
+            </div>
           </div>
         </motion.div>
       </div>
