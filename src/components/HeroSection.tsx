@@ -32,7 +32,7 @@ const HeroSection = () => {
           transition={{ duration: 0.7, delay: 0.15 }}
         >
           Automate Your Business{" "}
-          <span className="gradient-text">with AI</span>
+          <span className="gradient-text">With AI</span>
         </motion.h1>
 
         <motion.p
