@@ -1,4 +1,4 @@
-import { ArrowRight, Download, ShieldCheck, Settings2, Sparkles, Globe } from "lucide-react";
+import { ArrowRight, Download, ShieldCheck, Settings2, Sparkles, Globe, KeyRound, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const installerPlatforms = ["Windows", "macOS", "Linux"];
@@ -20,6 +20,20 @@ const steps = [
   "Let it finish the setup automatically",
   "Connect your channel",
   "Start using OpenClaw",
+];
+
+const freeTier = [
+  "You provide your own API key",
+  "You follow a short setup guide",
+  "OpenClaw installs and configures locally",
+  "Good for users who want control and already have provider access",
+];
+
+const premiumTier = [
+  "We handle the API/provider side for you",
+  "Managed access and shorter onboarding",
+  "Much closer to a true one-click setup",
+  "Best for users who want the smoothest possible experience",
 ];
 
 export default function InstallerPage() {
@@ -82,6 +96,36 @@ export default function InstallerPage() {
           </div>
 
           <aside className="lg:sticky lg:top-28 space-y-6">
+            <div className="rounded-3xl border border-border bg-card p-6 shadow-lg">
+              <div className="flex items-center gap-2 mb-4 text-primary">
+                <KeyRound className="h-5 w-5" />
+                <h2 className="text-2xl font-semibold">Free vs Premium</h2>
+              </div>
+              <div className="space-y-5">
+                <div className="rounded-2xl border border-border bg-background/60 p-4">
+                  <div className="inline-flex items-center gap-2 text-sm font-semibold text-foreground mb-2">
+                    Free
+                  </div>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    {freeTier.map((item) => (
+                      <li key={item}>• {item}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="rounded-2xl border border-primary/20 bg-primary/5 p-4">
+                  <div className="inline-flex items-center gap-2 text-sm font-semibold text-primary mb-2">
+                    <BadgeCheck className="h-4 w-4" />
+                    Premium
+                  </div>
+                  <ul className="space-y-2 text-sm text-foreground/90">
+                    {premiumTier.map((item) => (
+                      <li key={item}>• {item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
             <div className="rounded-3xl border border-border bg-card p-6 shadow-lg" id="download">
               <h2 className="text-2xl font-semibold mb-3">Download area</h2>
               <p className="text-muted-foreground mb-6">
@@ -123,9 +167,10 @@ export default function InstallerPage() {
                 <h2 className="text-2xl font-semibold">What’s left manual</h2>
               </div>
               <ul className="space-y-3 text-sm text-muted-foreground">
+                <li>• Free tier: entering your own API key</li>
+                <li>• Free tier: following the setup guide</li>
                 <li>• Connecting your own messaging channel</li>
                 <li>• Confirming any OS security prompt</li>
-                <li>• Choosing a custom model if you want to override the default</li>
               </ul>
             </div>
           </aside>

@@ -23,8 +23,11 @@ const CTASection = () => {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
               Get ready for the <span className="gradient-text">one-click installer</span>
             </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto mb-8 text-lg">
-              The installer page is already laid out. When the download files are ready, this spot can point straight to the Windows, macOS, and Linux builds.
+            <p className="text-muted-foreground max-w-xl mx-auto mb-6 text-lg">
+              The installer page is already laid out. The free path will still ask the user to bring their own API key and follow a guide, while premium will do the provider side and onboarding for them.
+            </p>
+            <p className="text-muted-foreground max-w-xl mx-auto mb-8 text-sm">
+              That means: free is honest and practical, premium is the fully managed one-click experience.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button variant="hero" size="lg" asChild className="text-base px-10 py-6">
