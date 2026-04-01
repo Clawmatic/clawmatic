@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<p align="center">
+  <img src="/clawmatic-logo.png" alt="ClawMatic logo" width="260" />
+</p>
 
-## Getting Started
+<h1 align="center">ClawMatic</h1>
 
-First, run the development server:
+<p align="center">
+  <strong>OpenClaw AI Hub</strong><br />
+  Guides, skill packs, and tools to automate your life with AI agents.
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<p align="center">
+  <a href="https://clawmatic.eu">Website</a> ·
+  <a href="https://github.com/Clawmatic/clawmatic">GitHub</a> ·
+  <a href="https://clawmatic.gumroad.com">Gumroad</a>
+</p>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## What is ClawMatic?
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+ClawMatic is the home for practical OpenClaw tutorials, starter kits, and premium skill packs.
+It's built for people who want to move fast, automate the boring stuff, and actually ship useful AI workflows.
 
-## Learn More
+### What you'll find here
+- Step-by-step OpenClaw guides for Windows, macOS, and Linux
+- Downloadable skill packs and starter kits
+- Practical automation tips for real workflows
+- A growing set of tools and docs around OpenClaw
 
-To learn more about Next.js, take a look at the following resources:
+### Current focus
+- Make OpenClaw easier to install and use
+- Ship polished beginner-friendly guides
+- Build useful skill packs that save time immediately
+- Keep the experience clean, fast, and a little bit fun
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Featured download
 
-## Deploy on Vercel
+### OpenClaw Starter Kit
+A ready-to-use starter pack to help you get going faster.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<p align="center">
+  <img src="/openclaw-starter-kit-cover.png" alt="OpenClaw Starter Kit cover" width="420" />
+</p>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Download: [openclaw-starter-kit-v1.0.0.zip](/openclaw-starter-kit-v1.0.0.zip)
+
+---
+
+## Roadmap
+
+- Public launch polish
+- More guides and screenshots
+- More skill packs
+- Better onboarding for new users
+- A stronger brand page for the OpenClaw ecosystem
+
+---
+
+## Notes
+
+This repo is currently private while the site and content are still being refined.
+When it goes public, this README will already be ready for visitors instead of the usual boring boilerplate.
