@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/clawmatic-logo.png" alt="ClawMatic logo" width="260" />
+  <img src="public/clawmatic-logo.png" alt="ClawMatic logo" width="260" />
 </p>
 
 <h1 align="center">ClawMatic</h1>
@@ -42,7 +42,7 @@ It's built for people who want to move fast, automate the boring stuff, and actu
 A ready-to-use starter pack to help you get going faster.
 
 <p align="center">
-  <img src="/openclaw-starter-kit-cover.png" alt="OpenClaw Starter Kit cover" width="420" />
+  <img src="public/openclaw-starter-kit-cover.png" alt="OpenClaw Starter Kit cover" width="420" />
 </p>
 
 Download: [openclaw-starter-kit-v1.0.0.zip](/openclaw-starter-kit-v1.0.0.zip)
