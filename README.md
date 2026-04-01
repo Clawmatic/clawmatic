@@ -15,6 +15,12 @@
   <a href="https://clawmatic.gumroad.com">Gumroad</a>
 </p>
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=nextdotjs" alt="Next.js 14" />
+  <img src="https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/Status-Private-6B46C1?style=for-the-badge" alt="Private status" />
+</p>
+
 ---
 
 ## What is ClawMatic?
@@ -45,7 +51,7 @@ A ready-to-use starter pack to help you get going faster.
   <img src="public/openclaw-starter-kit-cover.png" alt="OpenClaw Starter Kit cover" width="420" />
 </p>
 
-Download: [openclaw-starter-kit-v1.0.0.zip](/openclaw-starter-kit-v1.0.0.zip)
+Download: [openclaw-starter-kit-v1.0.0.zip](public/openclaw-starter-kit-v1.0.0.zip)
 
 ---
 
