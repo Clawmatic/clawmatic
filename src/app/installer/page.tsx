@@ -129,17 +129,17 @@ export default function InstallerPage() {
             <div className="rounded-3xl border border-border bg-card p-6 shadow-lg" id="download">
               <h2 className="text-2xl font-semibold mb-3">Download area</h2>
               <p className="text-muted-foreground mb-6">
-                Add the real installer links here when the build is ready.
+                Installer builds will be published here once the release is ready.
               </p>
               <div className="space-y-3">
                 <button className="w-full rounded-xl bg-primary px-5 py-3 text-primary-foreground font-medium opacity-60 cursor-not-allowed text-left">
-                  Windows download link goes here
+                  Windows release coming shortly
                 </button>
                 <button className="w-full rounded-xl bg-primary px-5 py-3 text-primary-foreground font-medium opacity-60 cursor-not-allowed text-left">
-                  macOS download link goes here
+                  macOS release coming shortly
                 </button>
                 <button className="w-full rounded-xl bg-primary px-5 py-3 text-primary-foreground font-medium opacity-60 cursor-not-allowed text-left">
-                  Linux download link goes here
+                  Linux release coming shortly
                 </button>
               </div>
             </div>
