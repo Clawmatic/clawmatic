@@ -25,7 +25,7 @@ const FooterSection = () => {
             </Button>
             <Button variant="hero-outline" size="lg" asChild className="text-base px-8 py-6">
               <a href="https://calendly.com/clawmatic/30min" target="_blank" rel="noopener noreferrer">
-                Let's Talk
+                Let&apos;s Talk
               </a>
             </Button>
           </div>

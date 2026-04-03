@@ -190,7 +190,7 @@ export function GuideContent({ content, skillsHref }: { content: string; skillsH
       {hasOSTabs && (
         <div style={{ marginBottom: '2rem' }}>
           <p style={{ fontFamily: 'Courier New, monospace', fontSize: '0.7rem', color: '#555555', marginBottom: '0.5rem', letterSpacing: '0.05em' }}>
-            // select_your_os
+            {'// select_your_os'}
           </p>
           <div style={{ display: 'flex', gap: '0', borderBottom: '1px solid #1e1e1e' }}>
             {osOptions.map((o) => (
@@ -226,7 +226,7 @@ export function GuideContent({ content, skillsHref }: { content: string; skillsH
         style={{ marginTop: '3rem', padding: '2rem', borderRadius: '4px', background: 'rgba(78, 204, 163, 0.04)', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}
       >
         <p style={{ fontFamily: 'Courier New, monospace', fontSize: '0.7rem', color: '#4ECCA3', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-          // skip_the_grind
+          {'// skip_the_grind'}
         </p>
         <p style={{ fontFamily: 'Courier New, monospace', fontSize: '0.9rem', fontWeight: '700', color: '#E8E8E8' }}>
           You just set up OpenClaw. Now make it actually useful.

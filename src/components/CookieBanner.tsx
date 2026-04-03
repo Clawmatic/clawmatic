@@ -7,15 +7,19 @@ export default function CookieBanner() {
 
   useEffect(() => {
     const consent = localStorage.getItem('cookie-consent');
-    if (!consent) setVisible(true);
+    if (!consent) {
+      const id = setTimeout(() => setVisible(true), 0);
+      return () => clearTimeout(id);
+    }
   }, []);
 
   const accept = () => {
     localStorage.setItem('cookie-consent', 'accepted');
     setVisible(false);
     // Fire GA now that consent is given
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('consent', 'update', {
+    type GtagWindow = Window & { gtag?: (...args: unknown[]) => void };
+    if (typeof window !== 'undefined' && (window as GtagWindow).gtag) {
+      (window as GtagWindow).gtag!('consent', 'update', {
         analytics_storage: 'granted',
       });
     }

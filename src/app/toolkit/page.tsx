@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, Zap, Tag, Download, Package, Rocket, Code, DollarSign, Newspaper, Home, Dumbbell, Flag, ArrowRight } from "lucide-react";
+import { CheckCircle2, Zap, Tag, Download, Package, Rocket, Code, DollarSign, Newspaper, Home, Dumbbell, Flag } from "lucide-react";
 
 type Toolkit = {
   icon: React.ElementType;

@@ -340,7 +340,7 @@ Open your OpenClaw config at \`~/.openclaw/config.json\` and add the WhatsApp pl
 }
 \`\`\`
 
-- **allowedNumbers** — only these numbers can interact with your agent. Always set this for security.
+- **allowedNumbers** — only these numbers can interact with your agent. Replace \`+32XXXXXXXXX\` with your own WhatsApp number including country code (e.g. \`+1XXXXXXXXXX\` for the US). Always set this for security.
 - **respondToAll** — if \`true\`, the agent responds to any WhatsApp message. Dangerous if your number leaks; keep it \`false\`.
 
 Restart OpenClaw to apply:
@@ -363,7 +363,7 @@ You should get a reply from your OpenClaw agent within a few seconds.
 
 ## Step 5 — Send messages from your agent
 
-Your agent can also reach out to you. In any prompt or cron job, use:
+Your agent can also reach out to you. In any prompt or cron job, use (replace \`+32XXXXXXXXX\` with your number):
 
 \`\`\`
 Send a WhatsApp message to +32XXXXXXXXX: "Your daily briefing is ready."
