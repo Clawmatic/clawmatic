@@ -2,451 +2,151 @@
 
 import Link from 'next/link';
 import React from 'react';
-
+import { Clock, ArrowRight } from 'lucide-react';
 
 const guides = [
   {
-    id: 1,
-    category: 'SETUP',
-    categoryColor: '#5E6AD2',
-    title: 'Getting Started with OpenClaw',
-    slug: 'getting-started',
-    description: 'Install OpenClaw, configure your first agent, and say hello to your AI assistant. This guide covers everything from zero to running in under 15 minutes.',
-    readTime: '8 min',
-    difficulty: 'Beginner',
-    difficultyColor: '#4ECCA3',
-    tags: ['setup', 'cli', 'install'],
-    updated: '2026-03-28',
-  },
-  {
-    id: 2,
-    category: 'INTEGRATIONS',
-    categoryColor: '#4ECCA3',
-    title: 'Connecting OpenClaw to WhatsApp',
-    slug: 'connect-whatsapp',
-    description: 'Bridge OpenClaw with WhatsApp so you can send messages, commands, and receive updates directly in your chat. Step-by-step with QR code setup.',
-    readTime: '12 min',
-    difficulty: 'Intermediate',
-    difficultyColor: '#FEBC2E',
-    tags: ['whatsapp', 'bridge', 'messaging'],
-    updated: '2026-03-28',
-  },
-  {
-    id: 3,
-    category: 'SKILLS',
-    categoryColor: '#FF6B6B',
-    title: 'Building Your First Custom Skill',
-    slug: 'first-skill',
-    description: 'Learn how OpenClaw skills work, write a simple one from scratch, and deploy it to your agent. Includes the full skill schema and a working example.',
-    readTime: '15 min',
-    difficulty: 'Intermediate',
-    difficultyColor: '#FEBC2E',
-    tags: ['skills', 'code', 'custom'],
-    updated: '2026-03-28',
-  },
-  {
-    id: 4,
-    category: 'SETUP',
-    categoryColor: '#5E6AD2',
-    title: 'OpenClaw Config Deep Dive',
-    slug: 'config-deep-dive',
-    description: 'Explore every configuration option in config.json. Providers, model selection, memory, gateway, plugins, and security settings — all explained with examples.',
-    readTime: '20 min',
-    difficulty: 'Advanced',
-    difficultyColor: '#FF6B6B',
-    tags: ['config', 'advanced', 'json'],
-    updated: '2026-03-28',
-  },
-  {
-    id: 5,
-    category: 'AUTOMATION',
-    categoryColor: '#4ECCA3',
-    title: 'Automating Daily Standups with OpenClaw',
-    slug: 'automate-standups',
-    description: 'Use OpenClaw cron jobs to auto-generate your standup every morning from git commits, calendar, and tasks — then send it to Slack or WhatsApp.',
+    slug: 'how-to-install-openclaw',
+    title: 'How to install OpenClaw AI — complete setup guide',
+    description: 'A full walkthrough of installing OpenClaw on Windows, macOS, and Linux. From zero to a working AI assistant in under 15 minutes.',
+    tags: ['Getting started', 'Setup'],
     readTime: '10 min',
-    difficulty: 'Intermediate',
-    difficultyColor: '#FEBC2E',
-    tags: ['automation', 'slack', 'workflow', 'cron'],
-    updated: '2026-03-28',
   },
   {
-    id: 6,
-    category: 'INTEGRATIONS',
-    categoryColor: '#4ECCA3',
-    title: 'Connecting Google Calendar & Gmail',
-    slug: 'google-calendar-email',
-    description: 'Hook OpenClaw into your Google workspace. Read your calendar, draft emails, and manage your schedule — all from natural language.',
-    readTime: '14 min',
-    difficulty: 'Intermediate',
-    difficultyColor: '#FEBC2E',
-    tags: ['google', 'calendar', 'email', 'oauth'],
-    updated: '2026-03-28',
+    slug: 'which-ai-model-openclaw-2026',
+    title: 'Which AI model should you use on OpenClaw? (2026 guide)',
+    description: "There are dozens of models on OpenRouter. This guide cuts through the noise and tells you exactly which model fits your use case — with benchmarks and real examples.",
+    tags: ['Models', 'Getting started'],
+    readTime: '8 min',
   },
   {
-    id: 7,
-    category: 'SKILLS',
-    categoryColor: '#FF6B6B',
-    title: 'The OpenClaw Skill Pack Format',
-    slug: 'skill-pack-format',
-    description: 'Full reference for the AgentSkills format. How to structure, bundle, version, and distribute skill packs — including publishing to clawhub.ai and Gumroad.',
-    readTime: '18 min',
-    difficulty: 'Advanced',
-    difficultyColor: '#FF6B6B',
-    tags: ['skills', 'packaging', 'format', 'clawhub'],
-    updated: '2026-03-28',
+    slug: 'top-5-openclaw-skills-productivity',
+    title: 'Top 5 OpenClaw skills for productivity',
+    description: "The five skills that will save you the most time, ranked. Each one explained with setup instructions and example prompts.",
+    tags: ['Skills', 'Productivity'],
+    readTime: '6 min',
   },
   {
-    id: 8,
-    category: 'AUTOMATION',
-    categoryColor: '#4ECCA3',
-    title: 'OpenClaw as a Personal Finance Assistant',
-    slug: 'finance-assistant',
-    description: 'Export your bank CSV, ask OpenClaw to categorise and summarise your spending. Weekly budget alerts, all local — no APIs, no cloud.',
-    readTime: '11 min',
-    difficulty: 'Beginner',
-    difficultyColor: '#4ECCA3',
-    tags: ['finance', 'csv', 'automation', 'budgeting'],
-    updated: '2026-03-28',
+    slug: 'connect-openclaw-to-openrouter',
+    title: 'How to connect OpenClaw to OpenRouter',
+    description: 'OpenRouter gives you access to every major AI model in one place. This guide shows you how to link it to OpenClaw so you can swap models instantly.',
+    tags: ['Setup', 'Models'],
+    readTime: '7 min',
   },
   {
-    id: 9,
-    category: 'SETUP',
-    categoryColor: '#5E6AD2',
-    title: 'Running OpenClaw on a VPS (Always-On)',
-    slug: 'vps-setup',
-    description: 'Deploy OpenClaw on a cheap VPS so it runs 24/7. Covers systemd, nginx reverse proxy, SSL with Let\'s Encrypt, and remote access.',
-    readTime: '25 min',
-    difficulty: 'Advanced',
-    difficultyColor: '#FF6B6B',
-    tags: ['vps', 'server', 'deploy', 'systemd'],
-    updated: '2026-03-28',
+    slug: 'openclaw-for-beginners-first-automation',
+    title: 'OpenClaw for beginners — your first automation',
+    description: "Never built an automation before? Start here. We'll walk you through your first real workflow from scratch — no code required.",
+    tags: ['Getting started', 'Automation'],
+    readTime: '12 min',
   },
 ];
 
-const categories = ['ALL', 'SETUP', 'INTEGRATIONS', 'SKILLS', 'AUTOMATION'];
+const allTags = ['All', 'Getting started', 'Skills', 'Automation', 'Models', 'Setup'];
 
 export default function GuidesPage() {
-  const [activeCategory, setActiveCategory] = React.useState('ALL');
-  const filteredGuides = activeCategory === 'ALL'
+  const [activeTag, setActiveTag] = React.useState('All');
+
+  const filtered = activeTag === 'All'
     ? guides
-    : guides.filter((g) => g.category === activeCategory);
+    : guides.filter((g) => g.tags.includes(activeTag));
 
   return (
-    <div style={{ background: '#0F0F0F', minHeight: '100vh' }}>
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <section
-        className="grid-bg"
-        style={{
-          padding: 'clamp(3rem, 6vw, 5rem) 1.5rem 2rem',
-          borderBottom: '1px solid #2a2a2a',
-          position: 'relative',
-          overflow: 'hidden',
-        }}
-      >
-        <div
-          style={{
-            position: 'absolute',
-            top: '-50%',
-            left: '-5%',
-            width: '400px',
-            height: '400px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(94, 106, 210, 0.06) 0%, transparent 70%)',
-            pointerEvents: 'none',
-          }}
-        />
-        <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative' }}>
-          <p
-            style={{
-              fontFamily: 'Courier New, monospace',
-              fontSize: '0.7rem',
-              color: '#5E6AD2',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              marginBottom: '0.75rem',
-            }}
-          >
-            Guides
-          </p>
-          <h1
-            style={{
-              fontFamily: 'Courier New, monospace',
-              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-              fontWeight: '900',
-              color: '#E8E8E8',
-              lineHeight: 1.1,
-              marginBottom: '1rem',
-            }}
-          >
-            Learn OpenClaw.
-            <br />
-            <span style={{ color: '#5E6AD2' }}>Actually master it.</span>
+      <section className="pt-32 pb-14 relative border-b border-border/50">
+        <div className="absolute inset-0 hero-grid opacity-20" />
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          <span className="inline-block text-xs font-semibold text-primary tracking-widest uppercase mb-4">
+            Free guides
+          </span>
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
+            OpenClaw AI Guides
           </h1>
-          <p
-            style={{
-              fontFamily: 'Courier New, monospace',
-              fontSize: '0.85rem',
-              color: '#888888',
-              maxWidth: '550px',
-              lineHeight: '1.7',
-            }}
-          >
-            No fluff, no filler. Just step-by-step guides written by people who
-            actually use OpenClaw daily. From first install to advanced automation.
+          <p className="text-lg text-muted-foreground max-w-xl">
+            Setup tutorials, skill walkthroughs, and tips for getting the most out of OpenClaw AI.
           </p>
-
-          {/* Stats row */}
-          <div
-            style={{
-              display: 'flex',
-              gap: '2rem',
-              marginTop: '2rem',
-              flexWrap: 'wrap',
-            }}
-          >
-            {[
-              { n: guides.length, label: 'guides' },
-              { n: 'More', label: 'coming soon' },
-              { n: 'Free', label: 'always' },
-            ].map((s) => (
-              <div key={s.label}>
-                <span
-                  style={{
-                    fontFamily: 'Courier New, monospace',
-                    fontSize: '1.2rem',
-                    fontWeight: 'bold',
-                    color: '#4ECCA3',
-                  }}
-                >
-                  {s.n}
-                </span>
-                <span
-                  style={{
-                    fontFamily: 'Courier New, monospace',
-                    fontSize: '0.75rem',
-                    color: '#555555',
-                    marginLeft: '6px',
-                  }}
-                >
-                  {s.label}
-                </span>
-              </div>
-            ))}
+          <div className="flex gap-6 mt-8 text-sm">
+            <span><strong className="text-primary">{guides.length}</strong> <span className="text-muted-foreground">guides</span></span>
+            <span><strong className="text-primary">Free</strong> <span className="text-muted-foreground">always</span></span>
+            <span><strong className="text-primary">More</strong> <span className="text-muted-foreground">coming soon</span></span>
           </div>
         </div>
       </section>
 
-      {/* Category filter bar */}
-      <section
-        style={{
-          borderBottom: '1px solid #1a1a1a',
-          background: '#0a0a0a',
-          padding: '0 1.5rem',
-          overflowX: 'auto',
-        }}
-      >
-        <div
-          style={{
-            maxWidth: '1200px',
-            margin: '0 auto',
-            display: 'flex',
-            gap: '0',
-          }}
-        >
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              style={{
-                fontFamily: 'Courier New, monospace',
-                fontSize: '0.75rem',
-                color: cat === activeCategory ? '#4ECCA3' : '#555555',
-                background: 'none',
-                border: 'none',
-                borderBottom: cat === activeCategory ? '2px solid #4ECCA3' : '2px solid transparent',
-                padding: '1rem 1.25rem',
-                cursor: 'pointer',
-                letterSpacing: '0.05em',
-                whiteSpace: 'nowrap',
-                transition: 'color 0.2s',
-              }}
-            >
-              {cat}
-            </button>
-          ))}
+      {/* Tag filter */}
+      <div className="border-b border-border/50 bg-background/80 sticky top-16 z-40 backdrop-blur-sm">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="flex gap-0 overflow-x-auto">
+            {allTags.map((tag) => (
+              <button
+                key={tag}
+                onClick={() => setActiveTag(tag)}
+                className={`px-4 py-3.5 text-xs font-medium whitespace-nowrap border-b-2 transition-colors ${
+                  tag === activeTag
+                    ? 'border-primary text-primary'
+                    : 'border-transparent text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* Guides grid */}
-      <section style={{ padding: 'clamp(2rem, 4vw, 3rem) 1.5rem' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-              gap: '1.25rem',
-            }}
-          >
-            {filteredGuides.map((guide) => (
+      <section className="py-12">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+            {filtered.map((guide) => (
               <article
-                key={guide.id}
-                className="card-hover pixel-border"
-                style={{
-                  borderRadius: '4px',
-                  padding: '1.75rem',
-                  position: 'relative',
-                  cursor: 'pointer',
-                }}
+                key={guide.slug}
+                className="group rounded-xl border border-border/50 bg-card p-6 flex flex-col card-hover"
               >
-                {/* Category + difficulty */}
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    marginBottom: '1rem',
-                  }}
-                >
-                  <span
-                    className="tag"
-                    style={{
-                      background: `${guide.categoryColor}15`,
-                      color: guide.categoryColor,
-                      border: `1px solid ${guide.categoryColor}35`,
-                    }}
-                  >
-                    {guide.category}
-                  </span>
-                  <span
-                    className="tag"
-                    style={{
-                      background: `${guide.difficultyColor}10`,
-                      color: guide.difficultyColor,
-                    }}
-                  >
-                    {guide.difficulty}
-                  </span>
-                </div>
-
-                <h3
-                  style={{
-                    fontFamily: 'Courier New, monospace',
-                    fontSize: '1rem',
-                    fontWeight: '700',
-                    color: '#E8E8E8',
-                    lineHeight: 1.4,
-                    marginBottom: '0.75rem',
-                  }}
-                >
-                  {guide.title}
-                </h3>
-
-                <p
-                  style={{
-                    fontFamily: 'Courier New, monospace',
-                    fontSize: '0.78rem',
-                    color: '#666666',
-                    lineHeight: '1.7',
-                    marginBottom: '1.25rem',
-                  }}
-                >
-                  {guide.description}
-                </p>
-
-                {/* Tags */}
-                <div
-                  style={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: '4px',
-                    marginBottom: '1.25rem',
-                  }}
-                >
+                <div className="flex flex-wrap gap-2 mb-4">
                   {guide.tags.map((tag) => (
                     <span
                       key={tag}
-                      style={{
-                        fontFamily: 'Courier New, monospace',
-                        fontSize: '0.65rem',
-                        color: '#444444',
-                        background: '#1a1a1a',
-                        padding: '2px 6px',
-                        borderRadius: '1px',
-                      }}
+                      className="text-xs px-2.5 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary font-medium"
                     >
-                      #{tag}
+                      {tag}
                     </span>
                   ))}
                 </div>
 
-                {/* Bottom */}
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    borderTop: '1px solid #1e1e1e',
-                    paddingTop: '1rem',
-                  }}
-                >
-                  <span
-                    style={{
-                      fontFamily: 'Courier New, monospace',
-                      fontSize: '0.7rem',
-                      color: '#444444',
-                    }}
-                  >
+                <h2 className="font-semibold text-base leading-snug mb-3 group-hover:text-primary transition-colors">
+                  {guide.title}
+                </h2>
+
+                <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">
+                  {guide.description}
+                </p>
+
+                <div className="flex items-center justify-between pt-4 border-t border-border/50">
+                  <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <Clock className="h-3.5 w-3.5" />
                     {guide.readTime} read
                   </span>
                   <Link
                     href={`/guides/${guide.slug}`}
-                    style={{
-                      fontFamily: 'Courier New, monospace',
-                      fontSize: '0.75rem',
-                      color: '#5E6AD2',
-                      textDecoration: 'none',
-                      transition: 'color 0.2s',
-                    }}
-                    onMouseEnter={(e) => ((e.target as HTMLElement).style.color = '#7B85E0')}
-                    onMouseLeave={(e) => ((e.target as HTMLElement).style.color = '#5E6AD2')}
+                    className="flex items-center gap-1 text-xs font-medium text-primary hover:underline"
                   >
-                    Read guide →
+                    Read guide
+                    <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
               </article>
             ))}
           </div>
 
-          {/* Load more hint */}
-          <div
-            style={{
-              textAlign: 'center',
-              marginTop: '3rem',
-              padding: '2rem',
-              border: '1px dashed #2a2a2a',
-              borderRadius: '4px',
-            }}
-          >
-            <p
-              style={{
-                fontFamily: 'Courier New, monospace',
-                fontSize: '0.8rem',
-                color: '#555555',
-                marginBottom: '0.5rem',
-              }}
-            >
-              More guides coming soon. Got a topic?
-            </p>
-            <a
-              href="mailto:info@clawmatic.eu"
-              style={{
-                fontFamily: 'Courier New, monospace',
-                fontSize: '0.75rem',
-                color: '#4ECCA3',
-                textDecoration: 'none',
-              }}
-            >
+          {filtered.length === 0 && (
+            <p className="text-center text-muted-foreground py-16">No guides in this category yet.</p>
+          )}
+
+          <div className="text-center mt-12 py-8 border border-dashed border-border/50 rounded-xl max-w-lg mx-auto">
+            <p className="text-sm text-muted-foreground mb-2">More guides coming soon. Got a topic?</p>
+            <a href="mailto:info@clawmatic.eu" className="text-sm text-primary hover:underline">
               Suggest a guide →
             </a>
           </div>

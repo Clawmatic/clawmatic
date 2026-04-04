@@ -3,16 +3,16 @@
 
 :root {
   --font-inter: 'Inter';
-  --bg: #121212;
-  --bg-card: #1c1c1c;
-  --bg-card-hover: #212121;
+  --bg: #0a0a0a;
+  --bg-card: #141414;
+  --bg-card-hover: #1a1a1a;
   --purple: #5E6AD2;
   --purple-light: #7B85E0;
   --green: #4ECCA3;
   --green-dim: #2a7a63;
-  --text: #EFEFEF;
-  --text-dim: #888888;
-  --border: #2e2e2e;
+  --text: #f5f5f5;
+  --text-dim: #a0a0a0;
+  --border: #1f1f1f;
   --border-glow: rgba(94, 106, 210, 0.4);
 
   /* Designer tokens */
@@ -37,14 +37,14 @@
   --color-border: var(--border);
 
   /* Designer system */
-  --color-background: #121212;
-  --color-foreground: #EFEFEF;
+  --color-background: #0a0a0a;
+  --color-foreground: #f5f5f5;
   --color-primary: #4ECCA3;
-  --color-primary-foreground: #0f0f0f;
-  --color-secondary: #1c1c1c;
-  --color-secondary-foreground: #EFEFEF;
-  --color-muted: #1c1c1c;
-  --color-muted-foreground: #888888;
+  --color-primary-foreground: #0a0a0a;
+  --color-secondary: #141414;
+  --color-secondary-foreground: #f5f5f5;
+  --color-muted: #141414;
+  --color-muted-foreground: #a0a0a0;
   --color-accent: #5E6AD2;
   --color-accent-foreground: #EFEFEF;
   --color-popover: #1c1c1c;
@@ -52,7 +52,7 @@
   --color-destructive: #ef4444;
   --color-destructive-foreground: #EFEFEF;
   --color-ring: #4ECCA3;
-  --color-input: #2e2e2e;
+  --color-input: #1f1f1f;
 
   /* Fonts */
   --font-display: 'Space Grotesk', system-ui, sans-serif;
@@ -330,6 +330,54 @@ body {
     100% calc(100% - 8px), calc(100% - 8px) 100%,
     8px 100%, 0 calc(100% - 8px)
   );
+}
+
+/* Guide article body styles */
+.guide-body p {
+  color: var(--text-dim);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+.guide-body ul, .guide-body ol {
+  color: var(--text-dim);
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+.guide-body li {
+  margin-bottom: 0.4rem;
+}
+.guide-body strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.guide-body a {
+  color: var(--purple);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.guide-body a:hover {
+  color: var(--purple-light);
+}
+.guide-body pre {
+  background: #0f0f0f;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin: 1.25rem 0;
+}
+.guide-body code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  color: var(--green);
+}
+.guide-body pre code {
+  color: var(--text);
+}
+.guide-body em {
+  color: var(--text);
+  font-style: italic;
 }
 
 /* Scrollbar */

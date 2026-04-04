@@ -1,181 +1,100 @@
-import { ArrowRight, Download, ShieldCheck, Settings2, Sparkles, Globe, KeyRound, BadgeCheck } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import type { Metadata } from 'next';
+import { Check } from 'lucide-react';
+import EmailCapture from '@/components/EmailCapture';
 
-const installerPlatforms = ["Windows", "macOS", "Linux"];
-
-const benefits = [
-  "OpenClaw installed for you",
-  "Workspace created automatically",
-  "Default model configured",
-  "API key stored securely",
-  "Web tools enabled",
-  "Gateway started",
-  "Default skills installed",
-  "Channel setup opened at the end",
-];
-
-const steps = [
-  "Download the installer for your operating system",
-  "Run it once",
-  "Let it finish the setup automatically",
-  "Connect your channel",
-  "Start using OpenClaw",
-];
+export const metadata: Metadata = {
+  title: 'One-Click OpenClaw Installer — Coming Soon · ClawMatic',
+  description:
+    'No terminal. No config files. No API setup headaches. The ClawMatic one-click installer is coming soon. Get notified when it launches.',
+};
 
 const freeTier = [
-  "You provide your own API key",
-  "You follow a short setup guide",
-  "OpenClaw installs and configures locally",
-  "Good for users who want control and already have provider access",
+  'Bring your own API key',
+  'Step-by-step guided setup',
+  'Full install checklist',
+  'Community support',
 ];
 
 const premiumTier = [
-  "We handle the API/provider side for you",
-  "Managed access and shorter onboarding",
-  "Much closer to a true one-click setup",
-  "Best for users who want the smoothest possible experience",
+  'Everything handled for you',
+  'API provider setup included',
+  'One-click, fully managed',
+  'Priority support',
 ];
 
 export default function InstallerPage() {
   return (
-    <main className="min-h-screen bg-background pt-24 pb-20">
-      <section className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] items-start">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm text-primary mb-6">
-              <Sparkles className="h-4 w-4" />
-              Installer landing page
-            </div>
+    <div className="min-h-screen bg-background">
+      {/* Hero */}
+      <section className="pt-32 pb-16 relative">
+        <div className="absolute inset-0 hero-grid opacity-20" />
+        <div className="container mx-auto px-4 sm:px-6 max-w-3xl text-center relative z-10">
+          <span className="inline-block text-xs font-semibold border border-muted-foreground/30 text-muted-foreground rounded-full px-4 py-1.5 mb-6 tracking-widest uppercase">
+            Coming soon
+          </span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+            One-click OpenClaw installer
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-10">
+            No terminal. No config files. No API setup headaches. Just click install and you&apos;re running.
+          </p>
+          <p className="text-xs text-muted-foreground/60">
+            The installer is already built. We&apos;re finishing the final setup flow.
+          </p>
+        </div>
+      </section>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
-              Install OpenClaw in <span className="gradient-text">one run</span>
-            </h1>
-
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mb-8">
-              One download. One click. One working setup.
-              ClawMatic’s installer sets up OpenClaw automatically, installs the essentials,
-              and opens the final channel setup step for you.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 mb-10">
-              <Button size="lg" className="text-base px-8 py-6" asChild>
-                <a href="#download">
-                  Download installer
-                  <Download className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
-              <Button variant="hero-outline" size="lg" className="text-base px-8 py-6" asChild>
-                <a href="#how-it-works">
-                  See what it does
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
-            </div>
-
-            <div className="flex flex-wrap gap-3 mb-12">
-              {installerPlatforms.map((platform) => (
-                <span
-                  key={platform}
-                  className="rounded-full border border-border bg-card px-4 py-2 text-sm text-muted-foreground"
-                >
-                  {platform}
+      {/* Tiers */}
+      <section className="py-12">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto mb-16">
+            {/* Free tier */}
+            <div className="rounded-xl border border-border/50 bg-card p-7">
+              <div className="flex items-center justify-between mb-5">
+                <h2 className="text-lg font-bold">Free tier</h2>
+                <span className="text-xs px-2.5 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary font-medium">
+                  Free
                 </span>
-              ))}
+              </div>
+              <ul className="space-y-3">
+                {freeTier.map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                    <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              {benefits.map((item) => (
-                <div key={item} className="rounded-2xl border border-border bg-card p-4 shadow-sm">
-                  <div className="flex items-start gap-3">
-                    <ShieldCheck className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                    <p className="text-sm text-foreground/90">{item}</p>
-                  </div>
-                </div>
-              ))}
+            {/* Premium tier */}
+            <div className="rounded-xl border border-primary/20 bg-primary/5 p-7">
+              <div className="flex items-center justify-between mb-5">
+                <h2 className="text-lg font-bold">Premium tier</h2>
+                <span className="text-xs px-2.5 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary font-medium">
+                  Paid
+                </span>
+              </div>
+              <ul className="space-y-3">
+                {premiumTier.map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                    <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
-          <aside className="lg:sticky lg:top-28 space-y-6">
-            <div className="rounded-3xl border border-border bg-card p-6 shadow-lg">
-              <div className="flex items-center gap-2 mb-4 text-primary">
-                <KeyRound className="h-5 w-5" />
-                <h2 className="text-2xl font-semibold">Free vs Premium</h2>
-              </div>
-              <div className="space-y-5">
-                <div className="rounded-2xl border border-border bg-background/60 p-4">
-                  <div className="inline-flex items-center gap-2 text-sm font-semibold text-foreground mb-2">
-                    Free
-                  </div>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    {freeTier.map((item) => (
-                      <li key={item}>• {item}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="rounded-2xl border border-primary/20 bg-primary/5 p-4">
-                  <div className="inline-flex items-center gap-2 text-sm font-semibold text-primary mb-2">
-                    <BadgeCheck className="h-4 w-4" />
-                    Premium
-                  </div>
-                  <ul className="space-y-2 text-sm text-foreground/90">
-                    {premiumTier.map((item) => (
-                      <li key={item}>• {item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div className="rounded-3xl border border-border bg-card p-6 shadow-lg" id="download">
-              <h2 className="text-2xl font-semibold mb-3">Download area</h2>
-              <p className="text-muted-foreground mb-6">
-                Installer builds will be published here once the release is ready.
-              </p>
-              <div className="space-y-3">
-                <button className="w-full rounded-xl bg-primary px-5 py-3 text-primary-foreground font-medium opacity-60 cursor-not-allowed text-left">
-                  Windows release coming shortly
-                </button>
-                <button className="w-full rounded-xl bg-primary px-5 py-3 text-primary-foreground font-medium opacity-60 cursor-not-allowed text-left">
-                  macOS release coming shortly
-                </button>
-                <button className="w-full rounded-xl bg-primary px-5 py-3 text-primary-foreground font-medium opacity-60 cursor-not-allowed text-left">
-                  Linux release coming shortly
-                </button>
-              </div>
-            </div>
-
-            <div className="rounded-3xl border border-border bg-card p-6 shadow-lg" id="how-it-works">
-              <div className="flex items-center gap-2 mb-4 text-primary">
-                <Settings2 className="h-5 w-5" />
-                <h2 className="text-2xl font-semibold">How it works</h2>
-              </div>
-              <ol className="space-y-4">
-                {steps.map((step, index) => (
-                  <li key={step} className="flex gap-4">
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary font-semibold">
-                      {index + 1}
-                    </span>
-                    <p className="text-sm text-muted-foreground pt-1">{step}</p>
-                  </li>
-                ))}
-              </ol>
-            </div>
-
-            <div className="rounded-3xl border border-border bg-card p-6 shadow-lg">
-              <div className="flex items-center gap-2 mb-4 text-primary">
-                <Globe className="h-5 w-5" />
-                <h2 className="text-2xl font-semibold">What’s left manual</h2>
-              </div>
-              <ul className="space-y-3 text-sm text-muted-foreground">
-                <li>• Free tier: entering your own API key</li>
-                <li>• Free tier: following the setup guide</li>
-                <li>• Connecting your own messaging channel</li>
-                <li>• Confirming any OS security prompt</li>
-              </ul>
-            </div>
-          </aside>
+          {/* Email capture */}
+          <div className="rounded-xl border border-border/50 bg-card p-10 max-w-2xl mx-auto">
+            <EmailCapture
+              heading="Get notified when it launches"
+              subheading="We'll email you the moment the installer is ready to download."
+              finePrint="No spam. Unsubscribe anytime."
+            />
+          </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
