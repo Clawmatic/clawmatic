@@ -94,7 +94,7 @@ const packageDetails: Record<
       'OpenClaw skill suggestions',
       'Setup guide PDF',
     ],
-    url: '#',
+    url: '/contact', // TODO: replace with Gumroad link when live
   },
   'support-bot': {
     name: 'The Support Bot Stack',
@@ -107,7 +107,7 @@ const packageDetails: Record<
       'OpenClaw setup guide',
       '30-min onboarding call',
     ],
-    url: '#',
+    url: '/contact', // TODO: replace with Gumroad link when live
   },
   'research': {
     name: 'The Research Stack',
@@ -120,7 +120,7 @@ const packageDetails: Record<
       'Prompt templates for analysis',
       'OpenClaw skill suggestions',
     ],
-    url: '#',
+    url: '/contact', // TODO: replace with Gumroad link when live
   },
 };
 
@@ -133,7 +133,8 @@ export default function QuizClient() {
   const [done, setDone] = useState(false);
 
   const currentStep = steps[step];
-  const progress = ((step) / steps.length) * 100;
+  // Progress reflects the current step being shown (1-indexed), so step 1 = 20%, step 5 = 100%
+  const progress = ((step + 1) / steps.length) * 100;
 
   const handleSelect = (value: string) => {
     setSelected(value);
@@ -196,10 +197,10 @@ export default function QuizClient() {
               </ul>
             </div>
             <Button variant="hero" asChild className="w-full">
-              <a href={pkg.url} target="_blank" rel="noopener noreferrer">
+              <Link href={pkg.url}>
                 Get this stack
                 <ArrowRight className="ml-1 h-4 w-4" />
-              </a>
+              </Link>
             </Button>
           </div>
 
@@ -230,7 +231,6 @@ export default function QuizClient() {
         <div className="mb-10">
           <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
             <span>Step {step + 1} of {steps.length}</span>
-            <span>{Math.round(progress)}% complete</span>
           </div>
           <div className="h-1.5 w-full bg-border rounded-full overflow-hidden">
             <div

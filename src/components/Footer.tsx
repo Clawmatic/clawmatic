@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { Zap } from 'lucide-react';
 
+const DISCORD_URL = 'https://discord.gg/7p3PVFq3';
+
 const footerLinks = {
   Content: [
     { href: '/guides', label: 'Guides' },
@@ -14,6 +16,9 @@ const footerLinks = {
     { href: '/installer', label: 'Installer' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
+  ],
+  Community: [
+    { href: DISCORD_URL, label: 'Discord', external: true },
   ],
 };
 
@@ -50,12 +55,23 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {link.label}
-                    </Link>
+                    {'external' in link && link.external ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

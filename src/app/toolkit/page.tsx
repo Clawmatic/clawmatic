@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { ArrowRight, Download, Package } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -15,7 +16,7 @@ const packs = [
     price: '€19',
     description: 'Skills for email, scheduling, and task management. The essential toolkit for getting your day under control with AI.',
     tags: ['Email', 'Calendar', 'Tasks'],
-    gumroadUrl: '#', // update when live
+    gumroadUrl: '/contact', // TODO: replace with Gumroad link when live
     comingSoon: false,
   },
   {
@@ -120,10 +121,10 @@ export default function ToolkitPage() {
                   {pack.comingSoon ? (
                     <span className="opacity-60 cursor-not-allowed">Coming soon</span>
                   ) : (
-                    <a href={pack.gumroadUrl} target="_blank" rel="noopener noreferrer">
+                    <Link href={pack.gumroadUrl}>
                       Get this pack
                       <ArrowRight className="ml-1 h-4 w-4" />
-                    </a>
+                    </Link>
                   )}
                 </Button>
               </div>
