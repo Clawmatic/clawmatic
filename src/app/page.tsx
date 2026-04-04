@@ -19,10 +19,10 @@ export default function HomePage() {
     <div className="min-h-screen bg-background pt-16">
       <HeroSection />
       <IsForYouSection />
+      <QuizPromoSection />
       <WhatWeAutomateSection />
       <StatsSection />
       <OpenClawHubSection />
-      <QuizPromoSection />
       <EmailCaptureSection />
       <CTASection />
     </div>
