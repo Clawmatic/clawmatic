@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Package, Zap, ArrowRight } from "lucide-react";
+import { BookOpen, Package, Zap, Sparkles, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const tiles = [
@@ -23,6 +23,13 @@ const tiles = [
     title: "Skill Packs",
     description: "Drop-in skills ready to use inside OpenClaw.",
     href: "/toolkit",
+  },
+  {
+    icon: Sparkles,
+    title: "Stack Recommender",
+    description: "5 quick questions. We tell you exactly what to use.",
+    href: "/quiz",
+    highlight: true,
   },
 ];
 
@@ -49,7 +56,7 @@ const OpenClawHubSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-3 gap-5 max-w-4xl mx-auto mb-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto mb-10">
           {tiles.map((tile, i) => {
             const Icon = tile.icon;
             return (
@@ -62,13 +69,28 @@ const OpenClawHubSection = () => {
               >
                 <Link
                   href={tile.href}
-                  className="group block rounded-xl border border-border/50 bg-card p-7 card-hover h-full"
+                  className={`group block rounded-xl border p-7 card-hover h-full ${
+                    tile.highlight
+                      ? "border-primary/30 bg-primary/5 hover:bg-primary/10"
+                      : "border-border/50 bg-card"
+                  }`}
                 >
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-4 transition-colors ${
+                    tile.highlight
+                      ? "bg-primary/15 group-hover:bg-primary/25"
+                      : "bg-primary/10 group-hover:bg-primary/20"
+                  }`}>
                     <Icon className="h-5 w-5 text-primary" />
                   </div>
-                  <h3 className="font-semibold mb-2">{tile.title}</h3>
+                  <h3 className={`font-semibold mb-2 ${tile.highlight ? "text-primary" : ""}`}>
+                    {tile.title}
+                  </h3>
                   <p className="text-sm text-muted-foreground">{tile.description}</p>
+                  {tile.highlight && (
+                    <span className="inline-flex items-center gap-1 mt-3 text-xs text-primary font-medium">
+                      Take the quiz <ArrowRight className="h-3 w-3" />
+                    </span>
+                  )}
                 </Link>
               </motion.div>
             );

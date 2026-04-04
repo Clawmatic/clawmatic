@@ -142,12 +142,22 @@ export default function PackagesPage() {
             ))}
           </div>
 
-          <p className="text-center mt-10 text-sm text-muted-foreground">
-            Not sure which one fits?{' '}
-            <Link href="/quiz" className="text-primary hover:underline">
-              Take the quiz →
-            </Link>
-          </p>
+          {/* Quiz CTA */}
+          <div className="mt-12 max-w-2xl mx-auto rounded-2xl border border-primary/20 bg-primary/5 px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div>
+              <p className="text-xs font-semibold text-primary tracking-widest uppercase mb-1">Not sure which one fits?</p>
+              <p className="font-bold text-lg leading-snug">Take the 2-minute quiz</p>
+              <p className="text-sm text-muted-foreground mt-1">
+                Answer 5 quick questions and get a personalised recommendation.
+              </p>
+            </div>
+            <Button variant="hero" asChild className="flex-shrink-0">
+              <Link href="/quiz">
+                Find my stack
+                <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
     </div>

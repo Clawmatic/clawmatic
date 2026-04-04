@@ -4,6 +4,7 @@ import IsForYouSection from "@/components/IsForYouSection";
 import WhatWeAutomateSection from "@/components/WhatWeAutomateSection";
 import StatsSection from "@/components/StatsSection";
 import OpenClawHubSection from "@/components/OpenClawHubSection";
+import QuizPromoSection from "@/components/QuizPromoSection";
 import CTASection from "@/components/CTASection";
 import EmailCaptureSection from "@/components/EmailCaptureSection";
 
@@ -21,6 +22,7 @@ export default function HomePage() {
       <WhatWeAutomateSection />
       <StatsSection />
       <OpenClawHubSection />
+      <QuizPromoSection />
       <EmailCaptureSection />
       <CTASection />
     </div>
