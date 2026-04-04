@@ -10,26 +10,24 @@ const footerCols = [
   {
     heading: 'Agency',
     links: [
-      { label: 'Services', href: '/services' },
-      { label: 'How it Works', href: '/how-it-works' },
-      { label: 'Pricing', href: '/pricing' },
+      { label: 'Services', href: '/services', external: false },
+      { label: 'How it Works', href: '/how-it-works', external: false },
       { label: 'Book an Audit', href: CALENDLY_URL, external: true },
     ],
   },
   {
     heading: 'Company',
     links: [
-      { label: 'About', href: '/about' },
-      { label: 'Contact', href: '/contact' },
-      { label: 'Privacy Policy', href: '/privacy' },
+      { label: 'About', href: '/about', external: false },
+      { label: 'Contact', href: '/contact', external: false },
+      { label: 'Privacy Policy', href: '/privacy', external: false },
     ],
   },
   {
     heading: 'Resources',
-    muted: true,
     links: [
-      { label: 'Guides', href: '/guides' },
-      { label: 'Skill Packs', href: '/toolkit' },
+      { label: 'Guides', href: '/guides', external: false },
+      { label: 'Skill Packs', href: '/toolkit', external: false },
       { label: 'Discord', href: DISCORD_URL, external: true },
     ],
   },
@@ -48,7 +46,7 @@ export default function Footer() {
                 Claw<span className="text-primary">Matic</span>
               </span>
             </Link>
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               AI automation for businesses.
               <br />
               <span className="mt-1 inline-block">🇧🇪 Made in Belgium</span>
@@ -58,7 +56,7 @@ export default function Footer() {
           {/* Link columns */}
           {footerCols.map((col) => (
             <div key={col.heading}>
-              <p className={`text-xs font-semibold uppercase tracking-widest mb-4 ${col.muted ? 'text-muted-foreground/40' : 'text-muted-foreground'}`}>
+              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-4">
                 {col.heading}
               </p>
               <ul className="space-y-2.5">
@@ -69,14 +67,14 @@ export default function Footer() {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`text-sm transition-colors hover:text-foreground ${col.muted ? 'text-muted-foreground/50 hover:text-muted-foreground' : 'text-muted-foreground'}`}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                       >
                         {link.label}
                       </a>
                     ) : (
                       <Link
                         href={link.href}
-                        className={`text-sm transition-colors hover:text-foreground ${col.muted ? 'text-muted-foreground/50 hover:text-muted-foreground' : 'text-muted-foreground'}`}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                       >
                         {link.label}
                       </Link>
