@@ -11,7 +11,6 @@ const CALENDLY_URL = "https://calendly.com/clawmatic/30min";
 const navLinks = [
   { label: "Services", href: "/services" },
   { label: "How it Works", href: "/how-it-works" },
-  { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
 ];
 
