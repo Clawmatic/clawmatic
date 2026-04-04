@@ -1,216 +1,133 @@
-"use client";
+import type { Metadata } from 'next';
+import { ArrowRight, Download, Package } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { CheckCircle2, Zap, Tag, Download, Package, Rocket, Code, DollarSign, Newspaper, Home, Dumbbell, Flag } from "lucide-react";
-
-type Toolkit = {
-  icon: React.ElementType;
-  badge: string;
-  badgeColor: string;
-  category: string;
-  title: string;
-  desc: string;
-  features: string[];
-  moreCount: number;
-  automations: number;
-  version: string;
-  downloads: string;
-  price: string;
-  oldPrice?: string;
-  buyUrl?: string;
-  comingSoon?: boolean;
+export const metadata: Metadata = {
+  title: 'OpenClaw Skill Packs — ClawMatic',
+  description:
+    'Ready-made skills you can drop straight into OpenClaw. Tested, documented, and ready to use. Instant download.',
 };
 
-const toolkits: Toolkit[] = [
+const packs = [
   {
-    icon: Rocket, badge: "NEW", badgeColor: "bg-primary/10 text-primary", category: "Starter",
-    title: "Starter Kit",
-    desc: "Everything you need to hit the ground running. 10 essential automations covering messaging, productivity, search, and task management — pre-configured and ready to use.",
-    features: ["10 curated essential automations", "Step-by-step setup guide", "WhatsApp + Telegram basics", "Web search & summarization"],
-    moreCount: 2, automations: 10, version: "v1.0.0", downloads: "0+", price: "€9",
-    buyUrl: "https://clawmatic.gumroad.com/l/starter-kit",
+    id: 'productivity',
+    name: 'The Productivity Pack',
+    price: '€19',
+    description: 'Skills for email, scheduling, and task management. The essential toolkit for getting your day under control with AI.',
+    tags: ['Email', 'Calendar', 'Tasks'],
+    gumroadUrl: '#', // update when live
+    comingSoon: false,
   },
   {
-    icon: Zap, badge: "BESTSELLER", badgeColor: "bg-accent/15 text-accent", category: "Productivity",
-    title: "Productivity OS Pack",
-    desc: "The ultimate productivity bundle. Google Calendar, Gmail, Notion, Todoist — all wired into your automation agent. Automate your whole workday.",
-    features: ["Google Calendar read/write", "Gmail drafting & sending", "Notion page creation", "Todoist task management"],
-    moreCount: 2, automations: 15, version: "v2.1.0", downloads: "520+", price: "€10", oldPrice: "€15",
+    id: 'research',
+    name: 'The Research Pack',
+    price: '€29',
+    description: 'Skills for web research, summarisation, and analysis. Turn your AI into a research assistant that actually delivers.',
+    tags: ['Research', 'Analysis', 'Web'],
+    gumroadUrl: '#',
     comingSoon: true,
   },
   {
-    icon: Code, badge: "COMING SOON", badgeColor: "bg-secondary text-secondary-foreground", category: "Development",
-    title: "Dev Toolkit",
-    desc: "Automations for developers. Pull GitHub issues, write commit messages, explain code, generate PRs, search docs — everything a dev needs inside your AI assistant.",
-    features: ["GitHub issues & PRs", "Code explanation & review", "Commit message writer", "Docs search (MDN, npm, etc)"],
-    moreCount: 2, automations: 12, version: "v1.0.1", downloads: "180+", price: "€8",
+    id: 'support-bot',
+    name: 'The Support Bot Pack',
+    price: '€24',
+    description: 'Customer support automation skills. Build an AI support agent that handles FAQs, triage, and escalation.',
+    tags: ['Support', 'Automation', 'Q&A'],
+    gumroadUrl: '#',
     comingSoon: true,
   },
   {
-    icon: DollarSign, badge: "COMING SOON", badgeColor: "bg-secondary text-secondary-foreground", category: "Finance",
-    title: "Finance Tracker Pack",
-    desc: "Parse bank CSV exports, categorize transactions, track budgets, and ask questions about your money — all locally, all private.",
-    features: ["CSV bank import", "Auto-categorization", "Monthly spend reports", "Budget alerts"],
-    moreCount: 1, automations: 6, version: "v1.1.0", downloads: "890+", price: "€0",
-    comingSoon: true,
-  },
-  {
-    icon: Newspaper, badge: "COMING SOON", badgeColor: "bg-secondary text-secondary-foreground", category: "Information",
-    title: "News & Research Digest",
-    desc: "Get AI-curated news digests, research summaries, and topic briefings. Connect RSS feeds, HN, Reddit, and arXiv into one smart daily brief.",
-    features: ["RSS feed aggregation", "Hacker News digest", "Reddit topic summaries", "arXiv paper briefs"],
-    moreCount: 1, automations: 7, version: "v1.2.0", downloads: "210+", price: "€5",
-    comingSoon: true,
-  },
-  {
-    icon: Home, badge: "COMING SOON", badgeColor: "bg-secondary text-secondary-foreground", category: "Smart Home",
-    title: "Smart Home Bridge",
-    desc: "Control Home Assistant, Philips Hue, and MQTT devices with natural language. \"Set study lights to focus mode\" just works.",
-    features: ["Home Assistant integration", "Philips Hue scenes", "MQTT device control", "Automation triggers"],
-    moreCount: 1, automations: 9, version: "v0.9.5", downloads: "95+", price: "€6",
-    comingSoon: true,
-  },
-  {
-    icon: Dumbbell, badge: "COMING SOON", badgeColor: "bg-secondary text-secondary-foreground", category: "Health",
-    title: "Health & Fitness Log",
-    desc: "Log workouts, track habits, analyze sleep data, and get personalized fitness summaries. Works with Apple Health CSV exports.",
-    features: ["Workout logging", "Habit tracker", "Apple Health CSV import", "Weekly fitness reports"],
-    moreCount: 1, automations: 5, version: "v1.0.0", downloads: "130+", price: "€5",
-    comingSoon: true,
-  },
-  {
-    icon: Flag, badge: "COMING SOON", badgeColor: "bg-secondary text-secondary-foreground", category: "Local",
-    title: "Belgian Starter Pack",
-    desc: "A free starter pack built with Belgian taste. Includes VAT calculator, Belgian public transit lookup, and more local integrations.",
-    features: ["Belgian VAT calculator", "SNCB train lookup", "De Lijn bus schedules", "Belgian holiday checker"],
-    moreCount: 1, automations: 5, version: "v1.0.0", downloads: "75+", price: "€0",
+    id: 'writing',
+    name: 'The Writing Pack',
+    price: '€19',
+    description: 'Content creation and copywriting skills. Draft emails, blog posts, social copy, and more — at speed.',
+    tags: ['Copywriting', 'Content', 'Email'],
+    gumroadUrl: '#',
     comingSoon: true,
   },
 ];
 
 export default function ToolkitPage() {
   return (
-    <div className="min-h-screen bg-background pt-16">
-      {/* Hero */}
-      <section className="pt-32 pb-20 relative">
-        <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium tracking-wide">
-              Toolkit
+    <div className="min-h-screen bg-background">
+      {/* Header */}
+      <section className="pt-32 pb-14 relative border-b border-border/50">
+        <div className="absolute inset-0 hero-grid opacity-20" />
+        <div className="container mx-auto px-4 sm:px-6 max-w-3xl relative z-10">
+          <span className="inline-block text-xs font-semibold text-primary tracking-widest uppercase mb-4">
+            Skill packs
+          </span>
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-5">
+            OpenClaw Skill Packs
+          </h1>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Ready-made skills you can drop straight into OpenClaw. Tested, documented, and ready to use.
+          </p>
+          <div className="flex items-center gap-3 mt-5">
+            <span className="inline-flex items-center gap-1.5 text-xs text-primary border border-primary/20 bg-primary/5 rounded-full px-3 py-1.5">
+              <Download className="h-3.5 w-3.5" />
+              Instant download
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mt-4 mb-6 max-w-3xl">
-              Automate your work — <span className="gradient-text">yourself</span>
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mb-6">
-              Ready-made automation toolkits for individuals. No agency needed, no technical knowledge required. Download, install, and start saving time today.
-            </p>
-            <p className="text-sm text-muted-foreground">
-              Looking for a custom build for your business?{" "}
-              <a href="/services" className="text-primary hover:underline">→ /services</a>
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Info banner */}
-      <section className="pb-8">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="glass-card rounded-xl px-5 py-3 flex items-center gap-3 max-w-4xl">
-            <Package className="h-5 w-5 text-primary shrink-0" />
-            <p className="text-sm text-muted-foreground">
-              All toolkits are delivered as instant downloads via <span className="text-foreground font-medium">Gumroad</span>. One-time payment, lifetime updates.
-            </p>
+            <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground border border-border/50 rounded-full px-3 py-1.5">
+              <Package className="h-3.5 w-3.5" />
+              Drop into OpenClaw
+            </span>
           </div>
         </div>
       </section>
 
-      {/* Toolkit Grid */}
-      <section className="py-16">
+      {/* Packs grid */}
+      <section className="py-14">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {toolkits.map((tk, i) => (
-              <motion.div
-                key={i}
-                className="glow-border glass-card rounded-2xl p-6 flex flex-col"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.06 }}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+            {packs.map((pack) => (
+              <div
+                key={pack.id}
+                className="rounded-xl border border-border/50 bg-card p-6 flex flex-col card-hover relative"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <tk.icon className="h-5 w-5 text-primary" />
-                  </div>
-                  <div className="flex gap-2">
-                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${tk.badgeColor}`}>{tk.badge}</span>
-                    <span className="text-[10px] font-medium bg-secondary text-secondary-foreground px-2 py-0.5 rounded-full">{tk.category}</span>
-                  </div>
+                {pack.comingSoon && (
+                  <span className="absolute top-4 right-4 text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground border border-border/50 font-medium">
+                    Coming soon
+                  </span>
+                )}
+
+                <div className="flex items-start justify-between gap-2 mb-4">
+                  <h2 className="text-base font-bold leading-snug pr-2">{pack.name}</h2>
+                  <span className="text-lg font-bold text-primary flex-shrink-0">{pack.price}</span>
                 </div>
 
-                <h3 className="text-lg font-bold text-foreground mb-2">{tk.title}</h3>
-                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{tk.desc}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">
+                  {pack.description}
+                </p>
 
-                <ul className="space-y-1.5 mb-2">
-                  {tk.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm text-foreground">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" />
-                      {f}
-                    </li>
+                <div className="flex flex-wrap gap-1.5 mb-5">
+                  {pack.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs px-2 py-0.5 rounded border border-border/50 text-muted-foreground"
+                    >
+                      {tag}
+                    </span>
                   ))}
-                </ul>
-                <p className="text-xs text-muted-foreground mb-4">+{tk.moreCount} more</p>
-
-                <div className="flex items-center gap-3 text-xs text-muted-foreground mb-4 mt-auto">
-                  <span className="flex items-center gap-1"><Zap className="h-3 w-3" />{tk.automations} automations</span>
-                  <span className="flex items-center gap-1"><Tag className="h-3 w-3" />{tk.version}</span>
-                  <span className="flex items-center gap-1"><Download className="h-3 w-3" />{tk.downloads}</span>
                 </div>
 
-                <div className="flex items-center justify-between">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-2xl font-bold text-foreground">{tk.price}</span>
-                    {tk.oldPrice && <span className="text-sm text-muted-foreground line-through">{tk.oldPrice}</span>}
-                  </div>
-                  {tk.comingSoon ? (
-                    <span className="text-sm text-muted-foreground">Coming soon →</span>
+                <Button
+                  variant={pack.comingSoon ? 'hero-outline' : 'hero'}
+                  asChild
+                  className="w-full"
+                  disabled={pack.comingSoon}
+                >
+                  {pack.comingSoon ? (
+                    <span className="opacity-60 cursor-not-allowed">Coming soon</span>
                   ) : (
-                    <Button variant="hero" size="sm" asChild>
-                      <a href={tk.buyUrl} target="_blank" rel="noopener noreferrer">Buy now →</a>
-                    </Button>
+                    <a href={pack.gumroadUrl} target="_blank" rel="noopener noreferrer">
+                      Get this pack
+                      <ArrowRight className="ml-1 h-4 w-4" />
+                    </a>
                   )}
-                </div>
-              </motion.div>
+                </Button>
+              </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Custom CTA */}
-      <section className="py-24">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <motion.div
-              className="glass-card rounded-2xl p-8"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-xl font-bold text-foreground mb-2">Need something custom?</h3>
-              <p className="text-sm text-muted-foreground mb-4">Want an automation tailored to exactly how you work? We build custom systems for individuals and businesses alike.</p>
-              <a href="mailto:info@clawmatic.eu" className="text-primary text-sm hover:underline font-medium">Get in touch →</a>
-            </motion.div>
-            <motion.div
-              className="glass-card rounded-2xl p-8"
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-xl font-bold text-foreground mb-2">Running a business?</h3>
-              <p className="text-sm text-muted-foreground mb-4">Our agency service handles everything — scoping, building, and deploying custom AI automation for your team.</p>
-              <a href="/services" className="text-primary text-sm hover:underline font-medium">Explore services →</a>
-            </motion.div>
           </div>
         </div>
       </section>
