@@ -5,8 +5,10 @@ import WhatWeAutomateSection from "@/components/WhatWeAutomateSection";
 import StatsSection from "@/components/StatsSection";
 import OpenClawHubSection from "@/components/OpenClawHubSection";
 import QuizPromoSection from "@/components/QuizPromoSection";
-import CTASection from "@/components/CTASection";
 import EmailCaptureSection from "@/components/EmailCaptureSection";
+import InstallerTeaserSection from "@/components/InstallerTeaserSection";
+import FAQSection from "@/components/FAQSection";
+import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
   title: "ClawMatic — AI Automation Agency & OpenClaw Hub",
@@ -19,11 +21,13 @@ export default function HomePage() {
     <div className="min-h-screen bg-background pt-16">
       <HeroSection />
       <IsForYouSection />
-      <QuizPromoSection />
       <WhatWeAutomateSection />
       <StatsSection />
       <OpenClawHubSection />
+      <QuizPromoSection />
       <EmailCaptureSection />
+      <InstallerTeaserSection />
+      <FAQSection />
       <CTASection />
     </div>
   );

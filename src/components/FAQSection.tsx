@@ -10,19 +10,19 @@ import { motion } from "framer-motion";
 const faqs = [
   {
     q: "Do I need technical knowledge?",
-    a: "Not at all. We handle everything — from analysis to implementation. You just tell us what's slowing you down, and we build the solution.",
+    a: "For the done-for-you service — no. We handle everything. For the DIY toolkit and guides, basic comfort with a terminal is helpful but not required. Our guides are written for beginners.",
   },
   {
     q: "How long does it take?",
-    a: "Most automations are up and running within 1-2 weeks. Complex systems may take 3-4 weeks depending on scope.",
+    a: "A typical business automation is scoped, built, and live within 1–2 weeks. For DIY users, the install guide gets most people running in under 15 minutes.",
   },
   {
     q: "Is this expensive?",
-    a: "Our solutions typically pay for themselves within the first month through time and cost savings. We start with a free audit so you can see the ROI before committing.",
+    a: "The done-for-you service is priced based on scope — book a free call to get a quote. The guides are free. Skill packs start at €19. AI stack packages start at €29.",
   },
   {
     q: "What kind of businesses do you work with?",
-    a: "We work with small and mid-sized businesses across all industries — from agencies and e-commerce to consulting firms and service businesses.",
+    a: "Small and mid-sized businesses that are drowning in repetitive manual work — typically 2–50 people. Industry doesn't matter. If your team does the same tasks every day by hand, we can help.",
   },
 ];
 
@@ -30,24 +30,32 @@ const FAQSection = () => {
   return (
     <section id="faq" className="py-24">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12">
-          <span className="section-label">FAQ</span>
-          <h2 className="section-title mt-3">Common questions</h2>
-        </div>
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="inline-block text-xs font-semibold text-primary tracking-widest uppercase mb-4">
+            FAQ
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Common questions</h2>
+        </motion.div>
 
         <motion.div
           className="max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
         >
           <Accordion type="single" collapsible className="space-y-3">
             {faqs.map((faq, i) => (
               <AccordionItem
                 key={i}
                 value={`faq-${i}`}
-                className="glass-card rounded-xl px-6 border-none"
+                className="rounded-xl border border-border/50 bg-card px-6 border-none"
               >
                 <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline py-5">
                   {faq.q}

@@ -886,6 +886,19 @@ export default async function GuidePage({
               </div>
             </div>
           )}
+
+          {/* Discord support note */}
+          <p className="text-sm text-muted-foreground/60 text-center mt-10 pt-8 border-t border-border/50">
+            Something not working or have a question?{' '}
+            <a
+              href="https://discord.gg/7p3PVFq3"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              Ask in the ClawMatic Discord →
+            </a>
+          </p>
         </div>
       </div>
     </div>

@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+
+const DISCORD_URL = 'https://discord.gg/7p3PVFq3';
 
 export const metadata: Metadata = {
   title: 'About ClawMatic',
@@ -61,6 +63,12 @@ export default function AboutPage() {
               <Link href="/guides">
                 Explore the guides
               </Link>
+            </Button>
+            <Button variant="hero-outline" asChild>
+              <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer">
+                <MessageSquare className="h-4 w-4" />
+                Join the Discord
+              </a>
             </Button>
           </div>
         </div>
