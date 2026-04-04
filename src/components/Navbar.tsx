@@ -4,9 +4,10 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Zap, ChevronDown, BookOpen, Package, Puzzle } from "lucide-react";
+import { Menu, X, Zap, ChevronDown, BookOpen, Puzzle, MessageSquare } from "lucide-react";
 
 const CALENDLY_URL = "https://calendly.com/clawmatic/30min";
+const DISCORD_URL = "https://discord.gg/7p3PVFq3";
 
 const navLinks = [
   { label: "Services", href: "/services" },
@@ -15,9 +16,9 @@ const navLinks = [
 ];
 
 const resourceLinks = [
-  { label: "Guides", href: "/guides", icon: BookOpen, desc: "Free step-by-step tutorials" },
-  { label: "Skill Packs", href: "/toolkit", icon: Puzzle, desc: "One-command OpenClaw installs" },
-  { label: "AI Stack Packages", href: "/packages", icon: Package, desc: "Curated model + config bundles" },
+  { label: "Guides", href: "/guides", icon: BookOpen, desc: "Free step-by-step tutorials", external: false },
+  { label: "Skill Packs", href: "/toolkit", icon: Puzzle, desc: "One-command OpenClaw installs", external: false },
+  { label: "Discord", href: DISCORD_URL, icon: MessageSquare, desc: "Community & support", external: true },
 ];
 
 const Navbar = () => {
@@ -82,22 +83,40 @@ const Navbar = () => {
 
             {resourcesOpen && (
               <div className="absolute right-0 top-full mt-2 w-64 rounded-xl border border-border/60 bg-popover shadow-lg py-2 z-50">
-                {resourceLinks.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setResourcesOpen(false)}
-                    className="flex items-start gap-3 px-4 py-3 hover:bg-card transition-colors"
-                  >
-                    <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <item.icon className="h-3.5 w-3.5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-foreground">{item.label}</p>
-                      <p className="text-xs text-muted-foreground mt-0.5">{item.desc}</p>
-                    </div>
-                  </Link>
-                ))}
+                {resourceLinks.map((item) => {
+                  const inner = (
+                    <>
+                      <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <item.icon className="h-3.5 w-3.5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-foreground">{item.label}</p>
+                        <p className="text-xs text-muted-foreground mt-0.5">{item.desc}</p>
+                      </div>
+                    </>
+                  );
+                  return item.external ? (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setResourcesOpen(false)}
+                      className="flex items-start gap-3 px-4 py-3 hover:bg-card transition-colors"
+                    >
+                      {inner}
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setResourcesOpen(false)}
+                      className="flex items-start gap-3 px-4 py-3 hover:bg-card transition-colors"
+                    >
+                      {inner}
+                    </Link>
+                  );
+                })}
               </div>
             )}
           </div>
@@ -142,16 +161,29 @@ const Navbar = () => {
             <p className="text-xs font-semibold text-muted-foreground/50 uppercase tracking-widest mt-4 mb-1">
               Resources
             </p>
-            {resourceLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2.5 border-b border-border/30"
-                onClick={() => setMobileOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {resourceLinks.map((link) =>
+              link.external ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2.5 border-b border-border/30"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2.5 border-b border-border/30"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
 
             <div className="pt-3">
               <Button variant="hero" size="sm" className="w-full" asChild>
