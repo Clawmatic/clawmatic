@@ -2,161 +2,142 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, BookOpen, Package, Puzzle, MessageSquare } from "lucide-react";
+import {
+  ArrowRight,
+  Search,
+  Wrench,
+  TrendingUp,
+  Mail,
+  Users,
+  BarChart3,
+  Calendar,
+  MessageCircle,
+  Database,
+  CheckCircle2,
+  Shield,
+  Star,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import EmailCapture from "@/components/EmailCapture";
 
-const DISCORD_URL = "https://discord.gg/7p3PVFq3";
 const CALENDLY_URL = "https://calendly.com/clawmatic/30min";
 
 // ─── HERO ─────────────────────────────────────────────────────────────────────
 
 function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-16">
-      <div className="absolute inset-0 hero-grid opacity-30" />
-      <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
-      <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+      <div className="absolute inset-0 hero-grid opacity-20" />
       <div
-        className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-accent/5 rounded-full blur-3xl animate-float"
-        style={{ animationDelay: "3s" }}
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at 20% 50%, rgba(78,204,163,0.08) 0%, transparent 55%), radial-gradient(ellipse at 80% 20%, rgba(94,106,210,0.06) 0%, transparent 55%)",
+        }}
       />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-6"
+          className="mb-7"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium tracking-wide">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-            The unofficial OpenClaw AI hub
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-semibold tracking-widest uppercase">
+            AI Automation for Businesses
           </span>
         </motion.div>
 
         <motion.h1
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-5 max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold tracking-tight leading-[1.08] mb-6 max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          Get the most out of OpenClaw AI.{" "}
-          <span className="gradient-text">Without the setup headaches.</span>
+          Your team is wasting hours
+          <br />
+          <span className="gradient-text">on work AI can do in seconds.</span>
         </motion.h1>
 
         <motion.p
-          className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
+          className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
         >
-          Free guides, curated AI model setups, ready-made skill packs, and a growing community of builders — all in one place.
+          ClawMatic builds custom AI automation systems for small and mid-sized businesses. We handle everything — you just watch the hours come back.
         </motion.p>
 
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
+          className="flex flex-col items-center gap-4"
         >
-          <Button variant="hero" size="lg" asChild className="text-base px-8 py-6 min-w-[200px]">
-            <Link href="/guides">
-              Browse the guides
-              <ArrowRight className="ml-1 h-4 w-4" />
-            </Link>
+          <Button variant="hero" size="lg" asChild className="text-base px-10 py-6">
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+              Book a free 30-minute audit
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
           </Button>
-          <Button variant="hero-outline" size="lg" asChild className="text-base px-8 py-6 min-w-[200px]">
-            <Link href="/packages">View packages</Link>
-          </Button>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.55 }}
-          className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2"
-        >
-          {["5 free guides live", "API keys included in packages", "🇧🇪 Made in Belgium"].map((item) => (
-            <span
-              key={item}
-              className="text-xs text-muted-foreground/70 border border-border/50 rounded-full px-3 py-1"
-            >
-              {item}
-            </span>
-          ))}
+          <p className="text-sm text-muted-foreground/60">
+            No obligation. We map out exactly what can be automated in your business.
+          </p>
         </motion.div>
       </div>
     </section>
   );
 }
 
-// ─── WHAT YOU GET ─────────────────────────────────────────────────────────────
+// ─── PROBLEM ──────────────────────────────────────────────────────────────────
 
-const offerings = [
+const problems = [
   {
-    icon: BookOpen,
-    title: "Free guides",
-    text: "Step-by-step tutorials for installing OpenClaw, picking the right AI model, connecting OpenRouter, and building your first automation. Written for real humans, not developers.",
-    linkLabel: "Browse guides",
-    href: "/guides",
+    title: "Manual tasks that never end",
+    text: "The same emails, the same data entry, the same reports — done by hand, every day, by people who should be doing something more valuable.",
   },
   {
-    icon: Package,
-    title: "Done-for-you packages",
-    text: "Buy a package and we personally set up your API key, load your credits, and configure everything within 24 hours. You just paste your key and go.",
-    linkLabel: "View packages",
-    href: "/packages",
+    title: "Slow response times",
+    text: "Leads go cold. Customer questions wait hours for answers. Every delay costs you money and reputation.",
   },
   {
-    icon: Puzzle,
-    title: "Skill packs",
-    text: "Ready-made OpenClaw skills that install in one command. Email triage, calendar management, web research — drop them in and they work immediately.",
-    linkLabel: "Browse skill packs",
-    href: "/toolkit",
+    title: "Hiring more just to keep up",
+    text: "Scaling means more headcount, more salaries, more complexity. There is a better way.",
+  },
+  {
+    title: "No time to grow",
+    text: "When you are buried in operational work, strategy and growth opportunities pass you by.",
   },
 ];
 
-function WhatYouGet() {
+function Problem() {
   return (
-    <section className="py-20">
+    <section className="py-24 border-t border-border/40">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="max-w-2xl mb-14"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-            What ClawMatic gives you
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+            Your business is leaking time every single day.
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Everything you need to run OpenClaw well — whether you want to learn it yourself or have it done for you.
-          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {offerings.map((item, i) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {problems.map((p, i) => (
             <motion.div
-              key={item.title}
+              key={p.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="rounded-2xl border border-border/60 bg-card p-7 flex flex-col"
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="rounded-xl border border-border/50 bg-card p-7"
             >
-              <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
-                <item.icon className="h-5 w-5 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold mb-3">{item.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-5">{item.text}</p>
-              <Link
-                href={item.href}
-                className="inline-flex items-center gap-1 text-sm text-primary hover:text-primary/80 font-medium transition-colors"
-              >
-                {item.linkLabel} <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
+              <div className="w-1.5 h-6 rounded-full bg-primary/60 mb-4" />
+              <h3 className="text-base font-semibold mb-2">{p.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{p.text}</p>
             </motion.div>
           ))}
         </div>
@@ -165,58 +146,60 @@ function WhatYouGet() {
   );
 }
 
-// ─── HOW IT WORKS ─────────────────────────────────────────────────────────────
+// ─── WHAT WE DO ───────────────────────────────────────────────────────────────
 
-const steps = [
+const pillars = [
   {
-    n: "1",
-    title: "You buy a package",
-    text: "Pick the stack that fits your use case. Copywriter, Support Bot, or Research.",
+    icon: Search,
+    title: "We analyse",
+    text: "We dig into your operations and identify exactly where time and money are being wasted on manual processes.",
   },
   {
-    n: "2",
-    title: "We configure everything",
-    text: "Within 24 hours we set up your API key, load your credits, and prepare your personal config file.",
+    icon: Wrench,
+    title: "We build",
+    text: "We build a custom AI system tailored to your specific workflows — not an off-the-shelf template.",
   },
   {
-    n: "3",
-    title: "Paste and go",
-    text: "You receive everything by email. Paste your key into OpenClaw and you're running AI in under 15 minutes.",
+    icon: TrendingUp,
+    title: "You save",
+    text: "Your team gets hours back every week. Costs go down. Response times drop. You focus on growth.",
   },
 ];
 
-function HowItWorks() {
+function WhatWeDo() {
   return (
-    <section className="py-20 border-t border-border/40">
+    <section className="py-24 border-t border-border/40">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="text-center max-w-2xl mx-auto mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3">
-            We handle the setup. You just use it.
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+            We build AI systems that do the work for you.
           </h2>
+          <p className="text-muted-foreground leading-relaxed">
+            Custom-built for your business. Fully managed by us. No technical knowledge required on your end.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-10">
-          {steps.map((step, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {pillars.map((p, i) => (
             <motion.div
-              key={step.n}
+              key={p.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="text-center"
+              className="text-center px-6 py-10 rounded-2xl border border-border/50 bg-card"
             >
-              <div className="w-10 h-10 rounded-full border border-primary/40 bg-primary/10 flex items-center justify-center text-primary font-bold text-sm mx-auto mb-4">
-                {step.n}
+              <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-6">
+                <p.icon className="h-6 w-6 text-primary" />
               </div>
-              {/* connector line (not on last) */}
-              <h3 className="text-base font-semibold mb-2">{step.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{step.text}</p>
+              <h3 className="text-lg font-semibold mb-3">{p.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{p.text}</p>
             </motion.div>
           ))}
         </div>
@@ -226,11 +209,11 @@ function HowItWorks() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center"
+          className="text-center mt-10"
         >
           <Button variant="hero-outline" asChild>
-            <Link href="/packages">
-              See what&apos;s included <ArrowRight className="ml-1 h-4 w-4" />
+            <Link href="/services">
+              See all services <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </Button>
         </motion.div>
@@ -239,130 +222,209 @@ function HowItWorks() {
   );
 }
 
-// ─── COMMUNITY ────────────────────────────────────────────────────────────────
+// ─── WHAT WE AUTOMATE ─────────────────────────────────────────────────────────
 
-function Community() {
+const automations = [
+  {
+    icon: Mail,
+    title: "Email triage & responses",
+    text: "Auto-sort, label, draft replies, and follow up — without lifting a finger.",
+  },
+  {
+    icon: Users,
+    title: "Lead follow-up",
+    text: "Never let a lead go cold. Automated outreach and CRM updates on autopilot.",
+  },
+  {
+    icon: BarChart3,
+    title: "Reporting & dashboards",
+    text: "Pull data, generate reports, and deliver insights automatically on schedule.",
+  },
+  {
+    icon: Calendar,
+    title: "Scheduling & booking",
+    text: "Let AI handle meeting coordination, reminders, and calendar management.",
+  },
+  {
+    icon: MessageCircle,
+    title: "Customer support",
+    text: "Instant responses to common questions across email, chat, and WhatsApp.",
+  },
+  {
+    icon: Database,
+    title: "Data entry & processing",
+    text: "Extract, transform, and move data between systems without manual work.",
+  },
+];
+
+function WhatWeAutomate() {
   return (
-    <section className="py-20 border-t border-border/40">
+    <section className="py-24 border-t border-border/40">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="max-w-2xl mb-14"
         >
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-            Join the ClawMatic community
+            If your team does it manually and repeatedly,{" "}
+            <span className="text-muted-foreground font-normal">we can probably automate it.</span>
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Get help, share what you&apos;ve built, and stay ahead of every OpenClaw update.
-          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-          {/* Discord tile */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="rounded-2xl border border-primary/30 bg-primary/5 p-8 flex flex-col"
-          >
-            <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
-              <MessageSquare className="h-5 w-5 text-primary" />
-            </div>
-            <h3 className="text-lg font-semibold mb-3">Discord server</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-6">
-              Ask questions, get help with your setup, and share your automations with other OpenClaw users.
-            </p>
-            <Button variant="hero" asChild>
-              <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer">
-                Join the Discord <ArrowRight className="ml-1 h-4 w-4" />
-              </a>
-            </Button>
-          </motion.div>
-
-          {/* Guides tile */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="rounded-2xl border border-border/60 bg-card p-8 flex flex-col"
-          >
-            <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
-              <BookOpen className="h-5 w-5 text-primary" />
-            </div>
-            <h3 className="text-lg font-semibold mb-3">Free guides</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-6">
-              From first install to your first automation — everything documented, always free.
-            </p>
-            <Button variant="hero-outline" asChild>
-              <Link href="/guides">
-                Browse guides <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
-            </Button>
-          </motion.div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {automations.map((item, i) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: i * 0.07 }}
+              className="flex gap-4 rounded-xl border border-border/50 bg-card p-6"
+            >
+              <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <item.icon className="h-4.5 w-4.5 text-primary" style={{ width: 18, height: 18 }} />
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold mb-1.5">{item.title}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">{item.text}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-// ─── EMAIL CAPTURE ────────────────────────────────────────────────────────────
+// ─── WHY CLAWMATIC ────────────────────────────────────────────────────────────
 
-function EmailSection() {
+const trustPoints = [
+  {
+    icon: CheckCircle2,
+    title: "We handle everything",
+    text: "You do not need to understand AI, install anything, or manage any tools. We build it, we run it, we maintain it.",
+  },
+  {
+    icon: Shield,
+    title: "Custom, not templated",
+    text: "Every automation is built specifically for your business and your workflows. No generic solutions.",
+  },
+  {
+    icon: Star,
+    title: "Made in Belgium",
+    text: "Solo-founded, hands-on, and personally invested in every client's results. You deal with the person building your system. 🇧🇪",
+  },
+];
+
+function WhyClawMatic() {
   return (
-    <section className="py-20 border-t border-border/40">
-      <div className="container mx-auto px-4 sm:px-6 max-w-2xl text-center">
+    <section className="py-24 border-t border-border/40">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
+          className="text-center mb-14"
         >
-          <EmailCapture
-            heading="Don't miss the one-click installer launch"
-            subheading="Plus weekly OpenClaw tips, new guides, and skill pack updates straight to your inbox."
-            finePrint="No spam. Unsubscribe anytime."
-          />
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Why ClawMatic?</h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          {trustPoints.map((tp, i) => (
+            <motion.div
+              key={tp.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="text-center"
+            >
+              <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-5">
+                <tp.icon className="h-5 w-5 text-primary" />
+              </div>
+              <h3 className="text-base font-semibold mb-2">{tp.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{tp.text}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── FOUNDING CLIENTS ─────────────────────────────────────────────────────────
+
+function FoundingClients() {
+  return (
+    <section className="py-24 border-t border-border/40">
+      <div className="container mx-auto px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-2xl mx-auto text-center"
+        >
+          <span className="inline-block text-xs font-semibold text-primary tracking-widest uppercase mb-5">
+            Limited spots
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
+            Now accepting founding clients.
+          </h2>
+          <p className="text-muted-foreground leading-relaxed mb-4">
+            ClawMatic is currently working with a small group of founding clients who get hands-on attention, priority support, and the lowest prices we will ever offer — in exchange for honest feedback and a case study.
+          </p>
+          <p className="text-muted-foreground leading-relaxed mb-10">
+            If you run a small or mid-sized business and want to reclaim 10+ hours per week, this is the right moment.
+          </p>
+          <Button variant="hero" size="lg" asChild className="text-base px-8 py-6">
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+              Book your free audit — spots are limited
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
+          </Button>
+          <p className="text-sm text-muted-foreground/60 mt-5">
+            30 minutes. No obligation. No sales pitch — just an honest conversation about what can be automated in your business.
+          </p>
         </motion.div>
       </div>
     </section>
   );
 }
 
-// ─── BUSINESS FOOTNOTE ────────────────────────────────────────────────────────
+// ─── FINAL CTA ────────────────────────────────────────────────────────────────
 
-function BusinessFootnote() {
+function FinalCTA() {
   return (
-    <section className="py-14 border-t border-border/30">
+    <section className="py-20 border-t border-border/40">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-2xl mx-auto rounded-xl border border-border/40 bg-card/40 px-8 py-8 text-center"
+          className="rounded-2xl overflow-hidden relative"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(78,204,163,0.15) 0%, rgba(94,106,210,0.10) 60%, rgba(78,204,163,0.08) 100%)",
+          }}
         >
-          <p className="text-xs font-semibold text-muted-foreground/50 uppercase tracking-widest mb-3">
-            For businesses
-          </p>
-          <h3 className="text-lg font-semibold mb-3 text-foreground/80">
-            Looking for a done-for-you solution?
-          </h3>
-          <p className="text-sm text-muted-foreground/70 leading-relaxed mb-6 max-w-lg mx-auto">
-            ClawMatic also works with small and mid-sized businesses that want AI automation built and managed for them — no DIY required. Book a free 30-minute call and we&apos;ll map out exactly what can be automated in your business.
-          </p>
-          <a
-            href={CALENDLY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4"
-          >
-            Book a free AI audit <ArrowRight className="h-3.5 w-3.5" />
-          </a>
+          <div className="absolute inset-0 border border-primary/20 rounded-2xl" />
+          <div className="relative z-10 text-center px-8 py-16 sm:py-20">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-8">
+              Ready to stop doing work that AI can do for you?
+            </h2>
+            <Button variant="hero" size="lg" asChild className="text-base px-10 py-6">
+              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+                Book a free audit
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </a>
+            </Button>
+          </div>
         </motion.div>
       </div>
     </section>
@@ -375,11 +437,12 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background pt-16">
       <Hero />
-      <WhatYouGet />
-      <HowItWorks />
-      <Community />
-      <EmailSection />
-      <BusinessFootnote />
+      <Problem />
+      <WhatWeDo />
+      <WhatWeAutomate />
+      <WhyClawMatic />
+      <FoundingClients />
+      <FinalCTA />
     </div>
   );
 }

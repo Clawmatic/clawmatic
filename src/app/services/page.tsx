@@ -1,224 +1,161 @@
-"use client";
+import type { Metadata } from 'next';
+import { ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, RefreshCw, MessageSquare, Plug, CheckCircle2, Target, Zap, Wrench } from "lucide-react";
+export const metadata: Metadata = {
+  title: 'Services',
+  description:
+    'Custom AI automation services for small and mid-sized businesses. Email, CRM, reporting, scheduling, customer support, and data processing — all built and managed for you.',
+};
+
+const CALENDLY_URL = 'https://calendly.com/clawmatic/30min';
 
 const services = [
   {
-    icon: RefreshCw,
-    badge: "Most popular",
-    title: "AI Workflow Automation",
-    desc: "We map your most time-consuming manual processes and replace them with AI-powered workflows. The result: tasks that took hours now happen automatically.",
-    tools: ["Gmail", "Slack", "Google Sheets", "Notion", "Airtable"],
-    features: ["Email triage & auto-responses", "Lead follow-up sequences", "Automated reporting", "Data entry & processing"],
-    accent: "primary",
+    id: '01',
+    title: 'Email automation',
+    intro:
+      'We build AI systems that read, sort, draft, and respond to emails — automatically. Your inbox becomes manageable. Your response times drop to minutes.',
+    examples: [
+      'Auto-triage inbound emails by urgency and category',
+      'Draft personalised replies for approval',
+      'Automated follow-up sequences for leads',
+      'Flag emails that need human attention immediately',
+    ],
   },
   {
-    icon: MessageSquare,
-    badge: null,
-    title: "AI Chat & Support Automation",
-    desc: "Deploy AI assistants that handle customer questions, qualify leads, and respond instantly — 24/7, without adding headcount.",
-    tools: ["WhatsApp", "Gmail", "HubSpot", "Slack"],
-    features: ["Customer support bot", "Lead qualification", "Appointment scheduling", "FAQ automation"],
-    accent: "accent",
+    id: '02',
+    title: 'Lead follow-up & CRM',
+    intro:
+      'Never let a lead go cold again. We build automated outreach systems that follow up at the right time with the right message — and update your CRM without anyone touching it.',
+    examples: [
+      'Automated follow-up after first contact',
+      'CRM data entry from email and form submissions',
+      'Lead scoring and priority flagging',
+      'Personalised outreach sequences',
+    ],
   },
   {
-    icon: Plug,
-    badge: null,
-    title: "System Integrations",
-    desc: "Your tools should talk to each other. We connect your apps so data flows automatically — no copy-pasting between systems, no manual syncing.",
-    tools: ["HubSpot", "Notion", "Google Sheets", "Airtable", "Slack"],
-    features: ["CRM auto-updates", "Cross-platform data sync", "Automated notifications", "Multi-tool pipelines"],
-    accent: "primary",
+    id: '03',
+    title: 'Reporting & dashboards',
+    intro:
+      'We eliminate the hours spent pulling data and building reports manually. Your dashboards update themselves. Reports land in your inbox on schedule.',
+    examples: [
+      'Automated weekly/monthly performance reports',
+      'Data pulled from multiple sources, formatted automatically',
+      'Scheduled delivery to your team by email',
+      'Custom KPI dashboards that update in real time',
+    ],
   },
-];
-
-const steps = [
-  { num: "01", title: "Free Audit Call", desc: "30 minutes. We learn about your business, understand your biggest time sinks, and identify the highest-impact automations." },
-  { num: "02", title: "Scope & Quote", desc: "We map out exactly what we will build and give you a fixed-price quote. No surprises, no hourly billing." },
-  { num: "03", title: "We Build It", desc: "Our team builds and tests the automation system. Most projects are delivered within 2-4 weeks." },
-  { num: "04", title: "You Save Time", desc: "We hand over a working system and make sure everything runs smoothly. You start saving hours immediately." },
-];
-
-const whyUs = [
-  { icon: Target, title: "Fixed-price quotes", desc: "You know the cost upfront. No hourly surprises or scope creep invoices." },
-  { icon: Zap, title: "Fast delivery", desc: "Most systems are live within 2-4 weeks. We move quickly without cutting corners." },
-  { icon: Wrench, title: "Built for you", desc: "No off-the-shelf tools. Every system is designed around your specific workflow and stack." },
+  {
+    id: '04',
+    title: 'Scheduling & calendar management',
+    intro:
+      'Meeting coordination, reminders, and calendar management — handled by AI so your team stops losing time to back-and-forth.',
+    examples: [
+      'Automated meeting scheduling from inbound requests',
+      'Reminder sequences for appointments and deadlines',
+      'Calendar blocking for focused work',
+      'Follow-up after meetings',
+    ],
+  },
+  {
+    id: '05',
+    title: 'Customer support automation',
+    intro:
+      'Your customers get instant answers 24/7. Your team handles only the complex cases that actually need a human.',
+    examples: [
+      'AI that answers common questions via email, chat, or WhatsApp',
+      'Instant triage — simple questions answered, complex ones escalated',
+      'After-hours support that never sleeps',
+      'Consistent, on-brand responses every time',
+    ],
+  },
+  {
+    id: '06',
+    title: 'Data entry & processing',
+    intro:
+      'We eliminate manual data work entirely. Extract, transform, and move data between your systems — automatically, accurately, without anyone touching a spreadsheet.',
+    examples: [
+      'Extract data from invoices, forms, and documents',
+      'Sync data between systems without manual export/import',
+      'Automated data validation and cleaning',
+      'Structured outputs from unstructured inputs',
+    ],
+  },
 ];
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-background pt-16">
-      {/* Hero */}
-      <section className="pt-32 pb-20 relative">
-        <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
+    <div className="min-h-screen bg-background">
+      {/* Header */}
+      <section className="pt-32 pb-16 relative border-b border-border/40">
+        <div className="absolute inset-0 hero-grid opacity-15" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse at 30% 60%, rgba(78,204,163,0.07) 0%, transparent 60%)',
+          }}
+        />
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium tracking-wide">
-              Our services
-            </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mt-4 mb-6 max-w-3xl">
-              Custom AI systems built around <span className="gradient-text">your business</span>
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mb-8">
-              We don&apos;t sell software. We build automation systems tailored to exactly how your business works — so the repetitive stuff disappears and you can focus on growth.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button variant="hero" size="lg" asChild>
-                <a href="https://calendly.com/clawmatic/30min" target="_blank" rel="noopener noreferrer">
-                  Book a Free Audit <ArrowRight className="ml-1 h-4 w-4" />
-                </a>
-              </Button>
-              <Button variant="hero-outline" size="lg" asChild>
-                <a href="#process">See how it works</a>
-              </Button>
-            </div>
-          </motion.div>
+          <span className="inline-block text-xs font-semibold text-primary tracking-widest uppercase mb-5">
+            What we build
+          </span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight mb-5 max-w-3xl">
+            Custom AI automation
+            <br />
+            for every part of your business.
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+            Every system is built specifically for your operations. Nothing off-the-shelf.
+          </p>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="py-24">
+      {/* Services list */}
+      <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="mb-16">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium tracking-wide">
-              What we build
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-3">Three ways we automate your business</h2>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-6">
-            {services.map((s, i) => (
-              <motion.div
-                key={i}
-                className="glow-border glass-card rounded-2xl p-7 flex flex-col"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+          <div className="space-y-0 max-w-3xl">
+            {services.map((s) => (
+              <div
+                key={s.id}
+                className="grid sm:grid-cols-[72px_1fr] gap-6 py-12 border-b border-border/40 first:pt-0"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className={`w-11 h-11 rounded-lg ${s.accent === "accent" ? "bg-accent/15" : "bg-primary/10"} flex items-center justify-center`}>
-                    <s.icon className={`h-5 w-5 ${s.accent === "accent" ? "text-accent" : "text-primary"}`} />
-                  </div>
-                  {s.badge && (
-                    <span className="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">{s.badge}</span>
-                  )}
+                <div className="text-4xl font-bold text-primary/20 leading-none pt-1 select-none">
+                  {s.id}
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{s.title}</h3>
-                <p className="text-sm text-muted-foreground mb-5 leading-relaxed">{s.desc}</p>
-
-                <div className="mb-5">
-                  <p className="text-xs text-muted-foreground mb-2">Works with:</p>
-                  <div className="flex flex-wrap gap-2">
-                    {s.tools.map((t) => (
-                      <span key={t} className="text-xs bg-secondary px-2.5 py-1 rounded-md text-secondary-foreground">{t}</span>
+                <div>
+                  <h2 className="text-xl font-bold mb-3">{s.title}</h2>
+                  <p className="text-muted-foreground leading-relaxed mb-5 text-sm">{s.intro}</p>
+                  <ul className="space-y-2">
+                    {s.examples.map((ex) => (
+                      <li key={ex} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                        <span className="w-1 h-1 rounded-full bg-primary mt-2 flex-shrink-0" />
+                        {ex}
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
-
-                <ul className="space-y-2 mt-auto">
-                  {s.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm text-foreground">
-                      <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section id="process" className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          <div className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium tracking-wide">
-              How it works
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-3">From first call to live system — in weeks, not months</h2>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {steps.map((s, i) => (
-              <motion.div
-                key={i}
-                className="text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-              >
-                <div className="text-4xl font-bold gradient-text mb-4">{s.num}</div>
-                <h3 className="text-lg font-bold text-foreground mb-2">{s.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Us */}
-      <section className="py-24">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium tracking-wide">
-              Why us
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-3">Built custom. Delivered fast. Priced fairly.</h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {whyUs.map((w, i) => (
-              <motion.div
-                key={i}
-                className="glass-card rounded-2xl p-6 text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-              >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <w.icon className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="font-bold text-foreground mb-2">{w.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{w.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-24">
-        <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            className="relative rounded-3xl overflow-hidden max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-card to-accent/10" />
-            <div className="absolute inset-0 hero-grid opacity-20" />
-            <div className="relative z-10 p-10 sm:p-16 text-center">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium tracking-wide mb-4">
-                Get started
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Ready to automate your business?</h2>
-              <p className="text-muted-foreground max-w-xl mx-auto mb-8 text-lg">
-                Start with a free 30-minute audit call. We&apos;ll show you exactly what we can automate and what it would cost — no obligation.
-              </p>
-              <Button variant="hero" size="lg" asChild className="text-base px-10 py-6">
-                <a href="https://calendly.com/clawmatic/30min" target="_blank" rel="noopener noreferrer">
-                  Book Your Free Audit <ArrowRight className="ml-1 h-4 w-4" />
-                </a>
-              </Button>
-            </div>
-          </motion.div>
+      <section className="py-16 border-t border-border/40">
+        <div className="container mx-auto px-4 sm:px-6 max-w-2xl text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3">
+            Not sure which automation your business needs first?
+          </h2>
+          <p className="text-muted-foreground mb-8">That is exactly what the free audit is for.</p>
+          <Button variant="hero" size="lg" asChild className="text-base px-8 py-6">
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+              Book a free 30-minute audit
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
+          </Button>
         </div>
       </section>
     </div>
