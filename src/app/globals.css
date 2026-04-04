@@ -344,6 +344,60 @@ body {
   font-weight: 600;
   margin: 1.75rem 0 0.75rem;
 }
+.guide-body blockquote {
+  border-left: 3px solid var(--green);
+  background: rgba(78, 204, 163, 0.06);
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+}
+.guide-body blockquote p {
+  margin-bottom: 0.4rem;
+  color: var(--text);
+}
+.guide-body blockquote p:last-child {
+  margin-bottom: 0;
+}
+.guide-body blockquote ul {
+  margin-bottom: 0;
+  color: var(--text-dim);
+}
+.guide-body blockquote.callout-warning {
+  border-left-color: #FEBC2E;
+  background: rgba(254, 188, 46, 0.06);
+}
+.guide-body blockquote.callout-note {
+  border-left-color: var(--purple);
+  background: rgba(94, 106, 210, 0.06);
+}
+.guide-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.875rem;
+}
+.guide-body th {
+  text-align: left;
+  padding: 0.6rem 1rem;
+  border-bottom: 2px solid var(--border);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.guide-body td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-dim);
+  vertical-align: top;
+}
+.guide-body tr:last-child td {
+  border-bottom: none;
+}
+.guide-body tr:hover td {
+  background: rgba(255,255,255,0.02);
+}
 .guide-body ul, .guide-body ol {
   color: var(--text-dim);
   padding-left: 1.5rem;
