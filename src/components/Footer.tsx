@@ -12,6 +12,7 @@ const footerCols = [
     links: [
       { label: 'Services', href: '/services', external: false },
       { label: 'How it Works', href: '/how-it-works', external: false },
+      { label: 'Pricing', href: '/pricing', external: false },
       { label: 'Book an Audit', href: CALENDLY_URL, external: true },
     ],
   },
@@ -61,7 +62,7 @@ export default function Footer() {
               </p>
               <ul className="space-y-2.5">
                 {col.links.map((link) => (
-                  <li key={link.href}>
+                  <li key={link.label}>
                     {link.external ? (
                       <a
                         href={link.href}
