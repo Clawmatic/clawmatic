@@ -23,7 +23,7 @@ const packages = [
       'OpenClaw skill suggestions',
       'Setup guide PDF',
     ],
-    gumroadUrl: '/contact', // TODO: replace with Gumroad link when live
+    gumroadUrl: 'https://clawmatic.gumroad.com/l/jymqu',
     highlight: false,
   },
   {
@@ -39,7 +39,7 @@ const packages = [
       'OpenClaw setup guide',
       '30-min onboarding call',
     ],
-    gumroadUrl: '/contact', // TODO: replace with Gumroad link when live
+    gumroadUrl: 'https://clawmatic.gumroad.com/l/imsche',
     highlight: true,
   },
   {
@@ -55,7 +55,7 @@ const packages = [
       'Prompt templates for analysis',
       'OpenClaw skill suggestions',
     ],
-    gumroadUrl: '/contact', // TODO: replace with Gumroad link when live
+    gumroadUrl: 'https://clawmatic.gumroad.com/l/pcdgmu',
     highlight: false,
   },
 ];
@@ -133,10 +133,10 @@ export default function PackagesPage() {
                   asChild
                   className="w-full"
                 >
-                  <Link href={pkg.gumroadUrl}>
+                  <a href={pkg.gumroadUrl} target="_blank" rel="noopener noreferrer">
                     Get this stack
                     <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
+                  </a>
                 </Button>
               </div>
             ))}
