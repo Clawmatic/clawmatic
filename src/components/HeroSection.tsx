@@ -2,10 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MessageSquare } from "lucide-react";
 import Link from "next/link";
 
 const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/clawmatic/30min";
+const DISCORD_URL = "https://discord.gg/7p3PVFq3";
 
 const HeroSection = () => {
   return (
@@ -49,7 +50,7 @@ const HeroSection = () => {
         </motion.p>
 
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
@@ -65,17 +66,32 @@ const HeroSection = () => {
               Browse guides &amp; tools
             </Link>
           </Button>
+          <Button variant="hero-outline" size="lg" asChild className="text-base px-8 py-6 min-w-[200px]">
+            <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer">
+              <MessageSquare className="mr-1.5 h-4 w-4" />
+              Join the Discord
+            </a>
+          </Button>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.55 }}
-          className="flex items-center justify-center gap-2"
+          className="flex items-center justify-center gap-3"
         >
           <span className="text-xs text-muted-foreground/60 border border-border/50 rounded-full px-3 py-1">
             🇧🇪 Made in Belgium
           </span>
+          <span className="text-muted-foreground/30">·</span>
+          <a
+            href={DISCORD_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-primary/70 hover:text-primary transition-colors"
+          >
+            Join 100+ builders on Discord →
+          </a>
         </motion.div>
       </div>
     </section>
