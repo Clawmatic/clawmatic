@@ -9,20 +9,20 @@ const BASE_URL = 'https://clawmatic.eu';
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'ClawMatic — The unofficial OpenClaw AI hub',
+    default: 'ClawMatic — AI Automation for Businesses',
     template: '%s — ClawMatic',
   },
   description:
-    'Free guides, curated AI model setups, ready-made skill packs, and a growing community of builders. The go-to hub for OpenClaw AI users.',
+    'ClawMatic builds custom AI automation systems for small and mid-sized businesses. We handle everything — you just watch the hours come back. Book a free 30-minute audit.',
   keywords: [
-    'OpenClaw AI',
-    'OpenClaw guides',
-    'OpenClaw skill packs',
-    'AI automation',
+    'AI automation agency',
+    'business automation',
+    'custom AI systems',
+    'workflow automation',
+    'AI consultant Belgium',
+    'email automation',
+    'CRM automation',
     'ClawMatic',
-    'OpenClaw setup',
-    'AI model setup',
-    'OpenRouter',
   ],
   authors: [{ name: 'ClawMatic', url: BASE_URL }],
   creator: 'ClawMatic',
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: BASE_URL,
     siteName: 'ClawMatic',
-    title: 'ClawMatic — The unofficial OpenClaw AI hub',
+    title: 'ClawMatic — AI Automation for Businesses',
     description:
-      'Free guides, curated AI model setups, ready-made skill packs, and a growing community of builders. The go-to hub for OpenClaw AI users.',
+      'ClawMatic builds custom AI automation systems for small and mid-sized businesses. We handle everything — you just watch the hours come back.',
     images: [
       {
         url: '/openclaw-starter-kit-cover.png',
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ClawMatic — The unofficial OpenClaw AI hub',
+    title: 'ClawMatic — AI Automation for Businesses',
     description:
-      'Free guides, curated AI model setups, ready-made skill packs, and a growing community of builders. The go-to hub for OpenClaw AI users.',
+      'ClawMatic builds custom AI automation systems for small and mid-sized businesses. We handle everything — you just watch the hours come back.',
     images: ['/openclaw-starter-kit-cover.png'],
   },
   verification: {

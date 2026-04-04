@@ -1,34 +1,54 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X, Zap, ChevronDown, BookOpen, Package, Puzzle } from "lucide-react";
+
+const CALENDLY_URL = "https://calendly.com/clawmatic/30min";
 
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Guides", href: "/guides" },
-  { label: "Packages", href: "/packages" },
-  { label: "Toolkit", href: "/toolkit" },
-  { label: "Installer", href: "/installer" },
+  { label: "Services", href: "/services" },
+  { label: "How it Works", href: "/how-it-works" },
+  { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
+];
+
+const resourceLinks = [
+  { label: "Guides", href: "/guides", icon: BookOpen, desc: "Free step-by-step tutorials" },
+  { label: "Skill Packs", href: "/toolkit", icon: Puzzle, desc: "One-command OpenClaw installs" },
+  { label: "AI Stack Packages", href: "/packages", icon: Package, desc: "Curated model + config bundles" },
 ];
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
   const pathname = usePathname();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setResourcesOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-2">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2 flex-shrink-0">
           <Zap className="h-5 w-5 text-primary" />
           <span className="text-lg font-bold tracking-tight text-foreground">
             Claw<span className="text-primary">Matic</span>
           </span>
         </Link>
 
+        {/* Desktop — centre links */}
         <div className="hidden md:flex items-center gap-7">
           {navLinks.map((link) => (
             <Link
@@ -45,14 +65,52 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="hidden md:block">
+        {/* Desktop — right side */}
+        <div className="hidden md:flex items-center gap-3">
+          {/* Resources dropdown */}
+          <div className="relative" ref={dropdownRef}>
+            <button
+              onClick={() => setResourcesOpen(!resourcesOpen)}
+              className={`flex items-center gap-1 text-sm transition-colors duration-200 ${
+                resourcesOpen ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Resources
+              <ChevronDown
+                className={`h-3.5 w-3.5 transition-transform duration-200 ${resourcesOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+
+            {resourcesOpen && (
+              <div className="absolute right-0 top-full mt-2 w-64 rounded-xl border border-border/60 bg-popover shadow-lg py-2 z-50">
+                {resourceLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setResourcesOpen(false)}
+                    className="flex items-start gap-3 px-4 py-3 hover:bg-card transition-colors"
+                  >
+                    <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <item.icon className="h-3.5 w-3.5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-foreground">{item.label}</p>
+                      <p className="text-xs text-muted-foreground mt-0.5">{item.desc}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
           <Button variant="hero" size="sm" asChild>
-            <a href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/clawmatic/30min"} target="_blank" rel="noopener noreferrer">
-              Book a free call
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+              Book a free audit
             </a>
           </Button>
         </div>
 
+        {/* Mobile — hamburger */}
         <button
           className="md:hidden text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -62,6 +120,7 @@ const Navbar = () => {
         </button>
       </div>
 
+      {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-xl">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-1">
@@ -79,10 +138,26 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
+
+            {/* Resources in mobile */}
+            <p className="text-xs font-semibold text-muted-foreground/50 uppercase tracking-widest mt-4 mb-1">
+              Resources
+            </p>
+            {resourceLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2.5 border-b border-border/30"
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+
             <div className="pt-3">
               <Button variant="hero" size="sm" className="w-full" asChild>
-                <a href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/clawmatic/30min"} target="_blank" rel="noopener noreferrer">
-                  Book a free call
+                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+                  Book a free audit
                 </a>
               </Button>
             </div>
