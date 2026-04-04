@@ -27,60 +27,165 @@ interface Guide {
 const guides: Record<string, Guide> = {
   'how-to-install-openclaw': {
     title: 'How to install OpenClaw AI — complete setup guide',
-    description: 'A full walkthrough of installing OpenClaw on Windows, macOS, and Linux. From zero to a working AI assistant in under 15 minutes.',
+    description: 'Install OpenClaw AI in under 15 minutes on Windows, macOS, or Linux. Complete step-by-step guide with commands, troubleshooting, and first setup walkthrough.',
     tags: ['Getting started', 'Setup'],
     readTime: '10 min',
-    updated: '2026-04-01',
-    related: ['connect-openclaw-to-openrouter', 'openclaw-for-beginners-first-automation'],
+    updated: '2026-04-04',
+    related: ['connect-openclaw-to-openrouter', 'which-ai-model-openclaw-2026', 'top-5-openclaw-skills-productivity'],
     sections: [
+      {
+        id: 'learn',
+        heading: 'What you\'ll learn',
+        body: `<ul>
+  <li>What OpenClaw actually is and why it's worth setting up</li>
+  <li>Exact install commands for macOS, Linux, and Windows</li>
+  <li>How to complete the onboarding wizard and connect your first AI model</li>
+  <li>How to verify everything is working</li>
+  <li>The 3 most common install errors and how to fix them</li>
+</ul>`,
+      },
       {
         id: 'what-is-openclaw',
         heading: 'What is OpenClaw?',
-        body: `<p>OpenClaw is a local AI assistant platform that runs on your own machine — or a server you control. Unlike cloud-based AI tools, everything stays under your control: your data, your setup, your rules.</p>
-<p>It works by connecting a language model (via OpenRouter or a direct API key) to a set of <strong>skills</strong> — small modules that give your assistant new abilities like checking email, browsing the web, or managing your calendar.</p>`,
+        body: `<p>OpenClaw is an open-source AI agent that runs on your own machine. Think of it as a personal AI assistant that lives on your hardware — not in someone else's cloud — and connects to every major AI model through a single gateway.</p>
+<p>Once it's running, you can control it from your terminal, a browser dashboard, or even WhatsApp and Telegram. You pick the AI model. You keep your data. You pay only for what you use.</p>
+<p>It has over 199,000 GitHub stars for a reason. Let's get it installed.</p>`,
       },
       {
-        id: 'prerequisites',
-        heading: 'Prerequisites',
-        body: `<p>Before you install OpenClaw, make sure you have:</p>
+        id: 'before-you-start',
+        heading: 'Before you start',
+        body: `<p><strong>What you need:</strong></p>
 <ul>
-  <li><strong>Node.js 18+</strong> — download from <a href="https://nodejs.org" target="_blank" rel="noopener noreferrer">nodejs.org</a></li>
-  <li>A terminal / command prompt</li>
-  <li>An <strong>API key</strong> — from Anthropic, OpenAI, or an OpenRouter account</li>
+  <li>A computer running macOS, Linux, or Windows (Windows users: you'll need WSL2 — covered below)</li>
+  <li>An API key from at least one AI provider — <a href="https://openrouter.ai" target="_blank" rel="noopener noreferrer">OpenRouter</a> is the easiest starting point (free to sign up, pay per use)</li>
+  <li>About 15 minutes</li>
 </ul>
-<p>That's it. No Docker, no complex infrastructure needed.</p>`,
+<p><strong>Node.js:</strong> OpenClaw requires Node.js 22.16 or higher (Node 24 recommended). The installer handles this automatically for most setups.</p>`,
       },
       {
-        id: 'installation',
+        id: 'install',
         heading: 'Step 1 — Install OpenClaw',
-        body: `<p>Open your terminal and run:</p>
-<pre><code>npm install -g openclaw</code></pre>
-<p>Once installed, verify it worked:</p>
-<pre><code>openclaw --version</code></pre>`,
+        body: `<h3>macOS or Linux</h3>
+<p>Open your terminal and run this single command:</p>
+<pre><code>curl -fsSL https://openclaw.ai/install.sh | bash</code></pre>
+<p>That's it. The script detects your OS, installs Node.js if needed, installs OpenClaw globally, and launches the onboarding wizard automatically.</p>
+<p>If you already have Node 22+ and prefer to manage things yourself:</p>
+<pre><code>npm install -g openclaw@latest
+openclaw onboard --install-daemon</code></pre>
+
+<h3>Windows (WSL2) — Recommended</h3>
+<p>WSL2 is the recommended way to run OpenClaw on Windows. If you don't have it yet:</p>
+<ol>
+  <li>Open PowerShell as Administrator</li>
+  <li>Run: <code>wsl --install</code></li>
+  <li>Restart your computer when prompted</li>
+  <li>Open the new Ubuntu app and set your username and password</li>
+</ol>
+<p>Then inside WSL2, run the same command as macOS/Linux:</p>
+<pre><code>curl -fsSL https://openclaw.ai/install.sh | bash</code></pre>
+
+<h3>Windows (Native PowerShell)</h3>
+<p>Prefer to skip WSL2? Run this in PowerShell:</p>
+<pre><code>iwr -useb https://openclaw.ai/install.ps1 | iex</code></pre>`,
       },
       {
-        id: 'configure',
-        heading: 'Step 2 — Configure your API key',
-        body: `<p>Run the setup wizard:</p>
-<pre><code>openclaw setup</code></pre>
-<p>You'll be asked for your API provider and key. OpenClaw stores this securely in your local config file.</p>`,
+        id: 'onboarding',
+        heading: 'Step 2 — Complete the onboarding wizard',
+        body: `<p>After install, the onboarding wizard launches automatically. If it doesn't, run:</p>
+<pre><code>openclaw onboard --install-daemon</code></pre>
+<p>The wizard walks you through four things:</p>
+
+<h3>1. Gateway setup</h3>
+<p>The Gateway is OpenClaw's control plane — a background service that keeps everything running. It's installed as a system service (launchd on macOS, systemd on Linux) so it starts automatically with your computer. Just confirm when prompted.</p>
+
+<h3>2. Connect an AI provider</h3>
+<p>This is where you paste your API key. OpenRouter is the best starting point — one key unlocks Claude, GPT-4o, Gemini, Mistral, and dozens more.</p>
+<p>To connect OpenRouter directly:</p>
+<pre><code>openclaw onboard --provider openrouter --token YOUR_OPENROUTER_API_KEY</code></pre>
+<p>Or just paste your key when the wizard asks. Anthropic and OpenAI direct connections are supported too.</p>
+
+<h3>3. Workspace and channels</h3>
+<p>Your workspace lives at <code>~/.openclaw/</code> — this is where skills, settings, and history are stored. Channels are how you talk to OpenClaw. Enable the default WebChat channel for now. WhatsApp, Telegram, Slack, and Discord can be added later.</p>
+
+<h3>4. First conversation</h3>
+<p>The wizard ends with a test message to confirm everything is connected. A response from your chosen model means the install is complete.</p>`,
       },
       {
-        id: 'start',
-        heading: 'Step 3 — Start OpenClaw',
-        body: `<p>Launch your assistant:</p>
-<pre><code>openclaw start</code></pre>
-<p>A local web interface will open at <code>http://localhost:3000</code>. From here you can chat with your AI, install skills, and manage your setup.</p>`,
+        id: 'verify',
+        heading: 'Step 3 — Verify the install',
+        body: `<pre><code># Check OpenClaw version
+openclaw --version
+
+# Check the gateway is running
+openclaw status
+
+# Catch any config issues
+openclaw doctor
+
+# Open the browser dashboard
+openclaw dashboard</code></pre>
+<p>If <code>openclaw status</code> shows the gateway running and <code>openclaw doctor</code> comes back clean, you're set. The dashboard opens at <code>http://localhost:18789</code> and gives you a full visual interface for models, skills, and conversations.</p>`,
+      },
+      {
+        id: 'first-message',
+        heading: 'Step 4 — Send your first message',
+        body: `<pre><code>openclaw message "What can you help me with?"</code></pre>
+<p>If you get a response, the full install is working.</p>`,
+      },
+      {
+        id: 'errors',
+        heading: 'Common errors and fixes',
+        body: `<h3>"openclaw: command not found"</h3>
+<p>The npm bin directory isn't in your PATH. Add this to your <code>~/.zshrc</code> or <code>~/.bashrc</code>:</p>
+<pre><code>export PATH="$(npm prefix -g)/bin:$PATH"</code></pre>
+<p>Then reload your shell:</p>
+<pre><code>source ~/.zshrc</code></pre>
+
+<h3>"sharp: Please add node-gyp to your dependencies"</h3>
+<p>Conflict with a globally installed libvips (common on macOS with Homebrew). Fix:</p>
+<pre><code>SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install -g openclaw@latest</code></pre>
+
+<h3>"Permission denied" on Linux</h3>
+<pre><code>sudo curl -fsSL https://openclaw.ai/install.sh | bash</code></pre>
+<p>Or fix your npm permissions to avoid needing sudo for global installs.</p>
+
+<h3>Gateway won't start</h3>
+<p>Run <code>openclaw doctor</code> — it surfaces exactly what's misconfigured. Most often it's a missing or expired API key.</p>`,
       },
       {
         id: 'next-steps',
-        heading: 'Next steps',
-        body: `<p>Now that OpenClaw is running, here's what to do next:</p>
-<ul>
-  <li>Connect OpenClaw to OpenRouter for access to all major models</li>
-  <li>Install your first skill pack from the toolkit</li>
-  <li>Try your first automation using the beginner guide</li>
-</ul>`,
+        heading: 'What to do next',
+        body: `<ol>
+  <li><strong>Connect OpenRouter</strong> — unlocks every major AI model from one place. See the <a href="/guides/connect-openclaw-to-openrouter">connecting OpenClaw to OpenRouter</a> guide.</li>
+  <li><strong>Add your first skill</strong> — skills are what make OpenClaw genuinely powerful. Start with the <a href="/guides/top-5-openclaw-skills-productivity">top 5 skills for productivity</a> guide.</li>
+  <li><strong>Pick the right model</strong> — the default might not be the best for your use case. The <a href="/guides/which-ai-model-openclaw-2026">which AI model should you use</a> guide tells you exactly which model fits.</li>
+</ol>`,
+      },
+      {
+        id: 'quick-reference',
+        heading: 'Quick reference',
+        body: `<pre><code># Install (macOS / Linux / WSL2)
+curl -fsSL https://openclaw.ai/install.sh | bash
+
+# Install (Windows PowerShell)
+iwr -useb https://openclaw.ai/install.ps1 | iex
+
+# Install via npm (Node 22+ already installed)
+npm install -g openclaw@latest
+openclaw onboard --install-daemon
+
+# Status and health
+openclaw status
+openclaw doctor
+
+# Open dashboard
+openclaw dashboard
+
+# Send a message
+openclaw message "your message here"
+
+# Update
+openclaw update</code></pre>`,
       },
     ],
   },

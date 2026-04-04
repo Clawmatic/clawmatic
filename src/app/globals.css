@@ -338,6 +338,12 @@ body {
   line-height: 1.8;
   margin-bottom: 1rem;
 }
+.guide-body h3 {
+  color: var(--text);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1.75rem 0 0.75rem;
+}
 .guide-body ul, .guide-body ol {
   color: var(--text-dim);
   padding-left: 1.5rem;
