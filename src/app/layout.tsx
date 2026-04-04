@@ -9,20 +9,20 @@ const BASE_URL = 'https://clawmatic.eu';
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'ClawMatic — AI Automation Agency',
+    default: 'ClawMatic — The unofficial OpenClaw AI hub',
     template: '%s — ClawMatic',
   },
   description:
-    'ClawMatic builds custom AI automation systems for businesses. Eliminate repetitive work, save 10-30 hours per week, and scale faster. Book a free AI audit.',
+    'Free guides, curated AI model setups, ready-made skill packs, and a growing community of builders. The go-to hub for OpenClaw AI users.',
   keywords: [
+    'OpenClaw AI',
+    'OpenClaw guides',
+    'OpenClaw skill packs',
     'AI automation',
-    'business automation',
-    'AI agency',
-    'custom AI systems',
-    'workflow automation',
-    'AI consultant',
-    'AI assistant',
     'ClawMatic',
+    'OpenClaw setup',
+    'AI model setup',
+    'OpenRouter',
   ],
   authors: [{ name: 'ClawMatic', url: BASE_URL }],
   creator: 'ClawMatic',
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: BASE_URL,
     siteName: 'ClawMatic',
-    title: 'ClawMatic — AI Automation Agency',
+    title: 'ClawMatic — The unofficial OpenClaw AI hub',
     description:
-      'ClawMatic builds custom AI automation systems for businesses. Eliminate repetitive work, save 10-30 hours per week, and scale faster.',
+      'Free guides, curated AI model setups, ready-made skill packs, and a growing community of builders. The go-to hub for OpenClaw AI users.',
     images: [
       {
         url: '/openclaw-starter-kit-cover.png',
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ClawMatic — AI Automation Agency',
+    title: 'ClawMatic — The unofficial OpenClaw AI hub',
     description:
-      'ClawMatic builds custom AI automation systems for businesses. Eliminate repetitive work, save 10-30 hours per week, and scale faster.',
+      'Free guides, curated AI model setups, ready-made skill packs, and a growing community of builders. The go-to hub for OpenClaw AI users.',
     images: ['/openclaw-starter-kit-cover.png'],
   },
   verification: {
