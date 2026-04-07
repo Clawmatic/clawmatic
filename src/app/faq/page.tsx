@@ -14,11 +14,11 @@ const faqs = [
     items: [
       {
         q: 'What is ClawMatic?',
-        a: 'ClawMatic is a Belgian AI automation agency. We build custom AI systems that eliminate repetitive work for businesses — from email automation to lead follow-up, reporting, scheduling, and more.',
+        a: 'ClawMatic is an AI automation agency. We build custom AI systems that eliminate repetitive work for businesses — from email automation to lead follow-up, reporting, scheduling, and more.',
       },
       {
         q: 'Where are you based?',
-        a: 'We are based in Belgium and work with clients across Europe. Most of our work is done remotely, so location is rarely a barrier.',
+        a: 'We work with clients across Europe. Most of our work is done remotely, so location is rarely a barrier.',
       },
       {
         q: 'Who is this for?',

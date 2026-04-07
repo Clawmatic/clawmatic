@@ -314,8 +314,8 @@ const trustPoints = [
   },
   {
     icon: Star,
-    title: "Made in Belgium",
-    text: "Solo-founded, hands-on, and personally invested in every client's results. You deal with the person building your system. 🇧🇪",
+    title: "Hands-on and personal",
+    text: "Solo-founded, hands-on, and personally invested in every client's results. You deal with the person building your system.",
   },
 ];
 

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     'business automation',
     'custom AI systems',
     'workflow automation',
-    'AI consultant Belgium',
+    'AI consultant Europe',
     'email automation',
     'CRM automation',
     'ClawMatic',

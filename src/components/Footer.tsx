@@ -49,8 +49,6 @@ export default function Footer() {
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               AI automation for businesses.
-              <br />
-              <span className="mt-1 inline-block">🇧🇪 Made in Belgium</span>
             </p>
           </div>
 

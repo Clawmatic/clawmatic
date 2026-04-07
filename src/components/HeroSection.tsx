@@ -26,7 +26,7 @@ const HeroSection = () => {
         >
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium tracking-wide">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-            AI AUTOMATION · OPENCLAW HUB · MADE IN BELGIUM 🇧🇪
+            AI AUTOMATION · OPENCLAW HUB
           </span>
         </motion.div>
 
@@ -80,10 +80,6 @@ const HeroSection = () => {
           transition={{ duration: 0.7, delay: 0.55 }}
           className="flex items-center justify-center gap-3"
         >
-          <span className="text-xs text-muted-foreground/60 border border-border/50 rounded-full px-3 py-1">
-            🇧🇪 Made in Belgium
-          </span>
-          <span className="text-muted-foreground/30">·</span>
           <a
             href={DISCORD_URL}
             target="_blank"
