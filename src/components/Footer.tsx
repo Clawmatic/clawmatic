@@ -13,7 +13,7 @@ const footerCols = [
       { label: 'Services', href: '/services', external: false },
       { label: 'How it Works', href: '/how-it-works', external: false },
       { label: 'Pricing', href: '/pricing', external: false },
-      { label: 'Book an Audit', href: CALENDLY_URL, external: true },
+      { label: 'Free Deployment Roadmap', href: CALENDLY_URL, external: true },
     ],
   },
   {
@@ -48,8 +48,14 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              AI automation for businesses.
+              OpenClaw deployment specialists. Remote-first, worldwide.
             </p>
+            <a
+              href="https://community.clawmatic.eu"
+              className="inline-flex items-center gap-1 text-xs text-primary hover:text-primary/80 transition-colors mt-3"
+            >
+              community.clawmatic.eu →
+            </a>
           </div>
 
           {/* Link columns */}
@@ -90,7 +96,7 @@ export default function Footer() {
             © 2026 ClawMatic. All rights reserved.
           </p>
           <p className="text-xs text-muted-foreground/40">
-            Not affiliated with OpenClaw Inc.
+            Not officially affiliated with the OpenClaw project.
           </p>
         </div>
       </div>

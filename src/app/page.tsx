@@ -4,18 +4,13 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
-  Search,
-  Wrench,
-  TrendingUp,
-  Mail,
-  Users,
-  BarChart3,
-  Calendar,
-  MessageCircle,
-  Database,
-  CheckCircle2,
   Shield,
   Star,
+  CheckCircle2,
+  Lock,
+  Zap,
+  Clock,
+  Server,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -43,7 +38,7 @@ function Hero() {
           className="mb-7"
         >
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-semibold tracking-widest uppercase">
-            AI Automation for Businesses
+            OpenClaw Deployment Specialists
           </span>
         </motion.div>
 
@@ -53,35 +48,87 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          Your team is wasting hours
+          Your own AI agent, running
           <br />
-          <span className="gradient-text">on work AI can do in seconds.</span>
+          <span className="gradient-text">on your own infrastructure.</span>
         </motion.h1>
 
         <motion.p
-          className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
         >
-          ClawMatic builds custom AI automation systems for small and mid-sized businesses. We handle everything — you just watch the hours come back.
+          ClawMatic deploys custom OpenClaw AI agents for businesses that want AI power without the cloud trade-offs — so you get the power of a full-time AI employee, with zero cloud dependency, zero data leaving your infrastructure, and zero technical knowledge required on your end.
+        </motion.p>
+
+        <motion.p
+          className="text-sm text-muted-foreground/70 max-w-lg mx-auto mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.35 }}
+        >
+          Live in 14 days. Fully under your control. Fully yours — no vendor lock-in, ever.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
-          className="flex flex-col items-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Button variant="hero" size="lg" asChild className="text-base px-10 py-6">
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-              Book a free 30-minute audit
+              Get your free OpenClaw Deployment Roadmap
               <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
-          <p className="text-sm text-muted-foreground/60">
-            No obligation. We map out exactly what can be automated in your business.
-          </p>
+          <Button variant="hero-outline" size="lg" asChild className="text-base px-8 py-6">
+            <Link href="#how-it-works">
+              See how it works →
+            </Link>
+          </Button>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+// ─── WHY OPENCLAW ─────────────────────────────────────────────────────────────
+
+function WhyOpenClaw() {
+  return (
+    <section className="py-24 border-t border-border/40">
+      <div className="container mx-auto px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl"
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-8">
+            Why we chose OpenClaw
+          </h2>
+          <div className="space-y-6 text-muted-foreground leading-relaxed">
+            <p>
+              Most AI automation agencies build on Zapier, Make, or n8n. Those are fine tools — but your data runs through third-party cloud servers, your automations break every time a SaaS vendor changes their API, and you're locked into paying per-task fees forever.
+            </p>
+            <p>
+              OpenClaw is different. It's open-source, runs on your own hardware, and connects to the tools you already use. When we build you an agent, it's yours. If you fire us tomorrow, it keeps running. Your data never leaves your infrastructure. And your costs don't scale with usage — they stay flat.
+            </p>
+            <p>
+              OpenClaw has 150,000+ GitHub stars and thousands of community-built skills. We know this ecosystem inside out because we also run one of the largest community hubs for it.
+            </p>
+          </div>
+          <div className="mt-8">
+            <a
+              href="https://community.clawmatic.eu"
+              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 text-sm font-medium transition-colors"
+            >
+              Visit the OpenClaw community hub → community.clawmatic.eu
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>
@@ -92,20 +139,20 @@ function Hero() {
 
 const problems = [
   {
-    title: "Manual tasks that never end",
-    text: "The same emails, the same data entry, the same reports — done by hand, every day, by people who should be doing something more valuable.",
+    title: "Your data can't leave your infrastructure",
+    text: "Client contracts, data protection laws, and industry regulations make sending data to third-party cloud AI tools legally fraught.",
   },
   {
-    title: "Slow response times",
-    text: "Leads go cold. Customer questions wait hours for answers. Every delay costs you money and reputation.",
+    title: "Your tools lock you in",
+    text: "Every Zapier, Make, or ChatGPT workflow you build is one more vendor holding the keys to your operations.",
   },
   {
-    title: "Hiring more just to keep up",
-    text: "Scaling means more headcount, more salaries, more complexity. There is a better way.",
+    title: "Your team wastes hours on repeatable work",
+    text: "Email triage, lead follow-up, reporting, document processing — all done by hand because 'safe' AI felt impossible.",
   },
   {
-    title: "No time to grow",
-    text: "When you are buried in operational work, strategy and growth opportunities pass you by.",
+    title: "Enterprise AI consultancies want €50,000 and six months",
+    text: "You need something live in weeks, not a discovery phase.",
   },
 ];
 
@@ -121,7 +168,7 @@ function Problem() {
           className="max-w-2xl mb-14"
         >
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-            Your business is leaking time every single day.
+            You want AI. Your compliance team doesn't.
           </h2>
         </motion.div>
 
@@ -146,120 +193,32 @@ function Problem() {
   );
 }
 
-// ─── WHAT WE DO ───────────────────────────────────────────────────────────────
+// ─── HOW IT WORKS ─────────────────────────────────────────────────────────────
 
-const pillars = [
+const steps = [
   {
-    icon: Search,
-    title: "We analyse",
-    text: "We dig into your operations and identify exactly where time and money are being wasted on manual processes.",
+    n: "01",
+    title: "We scope",
+    icon: Clock,
+    body: "A free OpenClaw Deployment Roadmap call. We map your workflows, identify what to automate first, and give you a fixed-price proposal with a clear timeline. No sales pitch.",
   },
   {
-    icon: Wrench,
-    title: "We build",
-    text: "We build a custom AI system tailored to your specific workflows — not an off-the-shelf template.",
+    n: "02",
+    title: "We deploy",
+    icon: Server,
+    body: "We set up OpenClaw on your infrastructure, build the custom skills your workflows need, and integrate with your existing tools. Live in 10–21 days depending on scope.",
   },
   {
-    icon: TrendingUp,
-    title: "You save",
-    text: "Your team gets hours back every week. Costs go down. Response times drop. You focus on growth.",
+    n: "03",
+    title: "You own it",
+    icon: Shield,
+    body: "The deployment is yours. The data is yours. The skills are yours. If you want to manage it yourself, you can. If you want us to maintain and extend it, our Care plan has you covered.",
   },
 ];
 
-function WhatWeDo() {
+function HowItWorks() {
   return (
-    <section className="py-24 border-t border-border/40">
-      <div className="container mx-auto px-4 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-16"
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-            We build AI systems that do the work for you.
-          </h2>
-          <p className="text-muted-foreground leading-relaxed">
-            Custom-built for your business. Fully managed by us. No technical knowledge required on your end.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {pillars.map((p, i) => (
-            <motion.div
-              key={p.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="text-center px-6 py-10 rounded-2xl border border-border/50 bg-card"
-            >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-6">
-                <p.icon className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold mb-3">{p.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{p.text}</p>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center mt-10"
-        >
-          <Button variant="hero-outline" asChild>
-            <Link href="/services">
-              See all services <ArrowRight className="ml-1 h-4 w-4" />
-            </Link>
-          </Button>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-// ─── WHAT WE AUTOMATE ─────────────────────────────────────────────────────────
-
-const automations = [
-  {
-    icon: Mail,
-    title: "Email triage & responses",
-    text: "Auto-sort, label, draft replies, and follow up — without lifting a finger.",
-  },
-  {
-    icon: Users,
-    title: "Lead follow-up",
-    text: "Never let a lead go cold. Automated outreach and CRM updates on autopilot.",
-  },
-  {
-    icon: BarChart3,
-    title: "Reporting & dashboards",
-    text: "Pull data, generate reports, and deliver insights automatically on schedule.",
-  },
-  {
-    icon: Calendar,
-    title: "Scheduling & booking",
-    text: "Let AI handle meeting coordination, reminders, and calendar management.",
-  },
-  {
-    icon: MessageCircle,
-    title: "Customer support",
-    text: "Instant responses to common questions across email, chat, and WhatsApp.",
-  },
-  {
-    icon: Database,
-    title: "Data entry & processing",
-    text: "Extract, transform, and move data between systems without manual work.",
-  },
-];
-
-function WhatWeAutomate() {
-  return (
-    <section className="py-24 border-t border-border/40">
+    <section id="how-it-works" className="py-24 border-t border-border/40">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -269,31 +228,47 @@ function WhatWeAutomate() {
           className="max-w-2xl mb-14"
         >
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-            If your team does it manually and repeatedly,{" "}
-            <span className="text-muted-foreground font-normal">we can probably automate it.</span>
+            One specialist. One system. Fully yours.
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {automations.map((item, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
+          {steps.map((step, i) => (
             <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 16 }}
+              key={step.n}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: i * 0.07 }}
-              className="flex gap-4 rounded-xl border border-border/50 bg-card p-6"
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="rounded-2xl border border-border/50 bg-card p-8"
             >
-              <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <item.icon className="h-4.5 w-4.5 text-primary" style={{ width: 18, height: 18 }} />
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-3xl font-bold text-primary/25 leading-none select-none">
+                  {step.n}
+                </span>
+                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <step.icon className="h-4.5 w-4.5 text-primary" style={{ width: 18, height: 18 }} />
+                </div>
               </div>
-              <div>
-                <h3 className="text-sm font-semibold mb-1.5">{item.title}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">{item.text}</p>
-              </div>
+              <h3 className="text-lg font-bold mb-3">{step.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{step.body}</p>
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-10"
+        >
+          <Button variant="hero-outline" asChild>
+            <Link href="/how-it-works">
+              See the full process <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
@@ -304,18 +279,18 @@ function WhatWeAutomate() {
 const trustPoints = [
   {
     icon: CheckCircle2,
-    title: "We handle everything",
-    text: "You do not need to understand AI, install anything, or manage any tools. We build it, we run it, we maintain it.",
+    title: "OpenClaw specialists",
+    text: "We don't dabble. OpenClaw is the only framework we deploy. We know the ecosystem inside out — including the edge cases that catch generalist agencies off guard.",
   },
   {
-    icon: Shield,
-    title: "Custom, not templated",
-    text: "Every automation is built specifically for your business and your workflows. No generic solutions.",
+    icon: Lock,
+    title: "Your data stays yours",
+    text: "Every deployment runs on your own infrastructure. No data leaves your servers. No third-party processors. Compliant by design.",
   },
   {
     icon: Star,
     title: "Hands-on and personal",
-    text: "Solo-founded, hands-on, and personally invested in every client's results. You deal with the person building your system.",
+    text: "Solo-founded, hands-on, and personally invested in every client's results. You deal with the person building your system — not an account manager.",
   },
 ];
 
@@ -370,26 +345,23 @@ function FoundingClients() {
           className="max-w-2xl mx-auto text-center"
         >
           <span className="inline-block text-xs font-semibold text-primary tracking-widest uppercase mb-5">
-            Limited spots
+            Founding client offer — first 10 only
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
-            Now accepting founding clients.
+            40% off. First 10 clients only.
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            ClawMatic is currently working with a small group of founding clients who get hands-on attention, priority support, and the lowest prices we will ever offer — in exchange for honest feedback and a case study.
+            We're onboarding our first 10 clients at 40% off these rates in exchange for a case study. That means The Inbox Agent at €900 instead of €1,500, Care plans at €540/month instead of €900.
           </p>
           <p className="text-muted-foreground leading-relaxed mb-10">
-            If you run a small or mid-sized business and want to reclaim 10+ hours per week, this is the right moment.
+            This is the lowest pricing ClawMatic will ever offer. After the first 10 clients, prices return to standard.
           </p>
           <Button variant="hero" size="lg" asChild className="text-base px-8 py-6">
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-              Book your free audit — spots are limited
+              Claim your founding client spot
               <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
-          <p className="text-sm text-muted-foreground/60 mt-5">
-            30 minutes. No obligation. No sales pitch — just an honest conversation about what can be automated in your business.
-          </p>
         </motion.div>
       </div>
     </section>
@@ -415,12 +387,15 @@ function FinalCTA() {
         >
           <div className="absolute inset-0 border border-primary/20 rounded-2xl" />
           <div className="relative z-10 text-center px-8 py-16 sm:py-20">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-8">
-              Ready to stop doing work that AI can do for you?
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+              Ready to run AI on your own infrastructure?
             </h2>
+            <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
+              Book a free OpenClaw Deployment Roadmap call. We'll map your workflows and give you a fixed-price proposal — no obligation.
+            </p>
             <Button variant="hero" size="lg" asChild className="text-base px-10 py-6">
               <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-                Book a free audit
+                Get your free Deployment Roadmap
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
@@ -437,9 +412,9 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background pt-16">
       <Hero />
+      <WhyOpenClaw />
       <Problem />
-      <WhatWeDo />
-      <WhatWeAutomate />
+      <HowItWorks />
       <WhyClawMatic />
       <FoundingClients />
       <FinalCTA />

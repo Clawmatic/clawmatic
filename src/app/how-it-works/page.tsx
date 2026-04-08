@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 export const metadata: Metadata = {
   title: 'How it Works',
   description:
-    'From a free 30-minute audit to a live AI automation system in as little as 2 weeks. A simple, transparent process with no technical burden on your side.',
+    'One specialist. One system. Fully yours. From a free OpenClaw Deployment Roadmap call to a live agent on your infrastructure in 10–21 days.',
 };
 
 const CALENDLY_URL = 'https://calendly.com/clawmatic/30min';
@@ -13,50 +13,48 @@ const CALENDLY_URL = 'https://calendly.com/clawmatic/30min';
 const steps = [
   {
     n: '01',
-    title: 'Free audit call',
-    duration: '30 minutes',
-    body: 'We map out your business operations, identify the highest-impact automation opportunities, and give you an honest assessment of what is possible, how long it takes, and what it costs. No obligation.',
+    title: 'We scope',
+    duration: 'Free call',
+    body: 'A free OpenClaw Deployment Roadmap call. We map your workflows, identify what to automate first, and give you a fixed-price proposal with a clear timeline. No sales pitch.',
   },
   {
     n: '02',
-    title: 'Proposal & agreement',
-    duration: '1–2 days',
-    body: 'We send a clear, plain-English proposal. What we will build, what it will do, how much it costs, and what we need from you. No hidden fees, no technical jargon.',
+    title: 'We deploy',
+    duration: '10–21 days',
+    body: 'We set up OpenClaw on your infrastructure, build the custom skills your workflows need, and integrate with your existing tools. Live in 10–21 days depending on scope.',
   },
   {
     n: '03',
-    title: 'We build',
-    duration: '1–2 weeks',
-    body: 'We handle everything. You provide access to the systems we need to connect. We build, test, and refine the automation until it works exactly as agreed.',
-  },
-  {
-    n: '04',
-    title: 'Handover & support',
-    duration: 'Ongoing',
-    body: 'We hand over a working system and show your team how to use it. We remain available for questions and adjustments. If something breaks, we fix it.',
+    title: 'You own it',
+    duration: 'Forever',
+    body: 'The deployment is yours. The data is yours. The skills are yours. If you want to manage it yourself, you can. If you want us to maintain and extend it, our Care plan has you covered.',
   },
 ];
 
 const faqs = [
   {
     q: 'Do I need any technical knowledge?',
-    a: 'None at all. You explain your business problem, we handle everything else. You do not need to install, manage, or understand any of the technology involved.',
+    a: "None at all. You explain your business problem, we handle everything else. You don't need to install, manage, or understand any of the technology involved.",
   },
   {
-    q: 'How long does it take?',
-    a: 'Most automations are live within 1–2 weeks of the audit call. More complex systems take 3–4 weeks. We will give you an honest timeline upfront.',
+    q: 'What infrastructure do I need?',
+    a: "Any machine that can run Docker — a server, a VPS, or even a capable workstation. We'll advise on the right setup during the Deployment Roadmap call. If you don't have anything yet, we'll help you choose the right option.",
+  },
+  {
+    q: 'How long does it take to go live?',
+    a: 'The Inbox Agent goes live in 10 days. The Revenue Agent in 14 days. The Operations Agent in 21 days. Custom builds take 2–4 weeks. You get a clear timeline in the fixed-price proposal.',
   },
   {
     q: 'What do you need from us?',
-    a: 'Access to the systems we are connecting (email, CRM, spreadsheets, etc.) and a point of contact who can answer operational questions during the build.',
+    a: "Access to the systems we're connecting (email, CRM, databases, etc.) and a point of contact who can answer operational questions during the build.",
   },
   {
     q: 'What happens if something breaks?',
-    a: 'We fix it. Every system we build comes with a support period. Long-term maintenance can be arranged as a monthly retainer.',
+    a: 'Every deployment includes 60 days of support. After that, our Care plan covers ongoing maintenance, model updates, and skill updates when APIs change.',
   },
   {
-    q: 'What does it cost?',
-    a: 'Every project is scoped individually. The audit call is free — after that we give you a fixed quote with no surprises. See our pricing page for typical ranges.',
+    q: 'Can I extend the agent after launch?',
+    a: 'Yes. The Custom Stack product is specifically for adding new skills to an existing deployment. Care and Partner clients can request new skills within scope on an ongoing basis.',
   },
 ];
 
@@ -78,12 +76,12 @@ export default function HowItWorksPage() {
             The process
           </span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight mb-5 max-w-3xl">
-            From audit to automation
+            One specialist. One system.
             <br />
-            in as little as 2 weeks.
+            Fully yours.
           </h1>
           <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
-            A simple, transparent process designed to get results fast — with no technical burden on your side.
+            From a free Deployment Roadmap call to a live OpenClaw agent on your infrastructure — in 10–21 days, no technical burden on your side.
           </p>
         </div>
       </section>
@@ -144,11 +142,11 @@ export default function HowItWorksPage() {
             Ready to start?
           </h2>
           <p className="text-muted-foreground mb-8">
-            Book your free 30-minute audit and we will tell you exactly what is possible in your business.
+            Book your free OpenClaw Deployment Roadmap call and we'll tell you exactly what's possible for your business.
           </p>
           <Button variant="hero" size="lg" asChild className="text-base px-8 py-6">
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-              Book a free audit
+              Get your free Deployment Roadmap
               <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>

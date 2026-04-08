@@ -9,19 +9,19 @@ const BASE_URL = 'https://clawmatic.eu';
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'ClawMatic — AI Automation for Businesses',
+    default: 'ClawMatic — OpenClaw Deployment Specialists',
     template: '%s — ClawMatic',
   },
   description:
-    'ClawMatic builds custom AI automation systems for small and mid-sized businesses. We handle everything — you just watch the hours come back. Book a free 30-minute audit.',
+    'ClawMatic deploys custom OpenClaw AI agents for businesses that want AI power without the cloud trade-offs. Self-hosted, data-sovereign, no vendor lock-in. Live in 14 days.',
   keywords: [
-    'AI automation agency',
-    'business automation',
-    'custom AI systems',
-    'workflow automation',
-    'AI consultant Europe',
-    'email automation',
-    'CRM automation',
+    'OpenClaw deployment',
+    'OpenClaw agency',
+    'on-premise AI agents',
+    'self-hosted AI automation',
+    'data sovereignty AI',
+    'OpenClaw specialist',
+    'AI agents own infrastructure',
     'ClawMatic',
   ],
   authors: [{ name: 'ClawMatic', url: BASE_URL }],
@@ -31,23 +31,23 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: BASE_URL,
     siteName: 'ClawMatic',
-    title: 'ClawMatic — AI Automation for Businesses',
+    title: 'ClawMatic — OpenClaw Deployment Specialists',
     description:
-      'ClawMatic builds custom AI automation systems for small and mid-sized businesses. We handle everything — you just watch the hours come back.',
+      'ClawMatic deploys custom OpenClaw AI agents for businesses that want AI power without the cloud trade-offs. Self-hosted, data-sovereign, no vendor lock-in.',
     images: [
       {
         url: '/openclaw-starter-kit-cover.png',
         width: 1280,
         height: 960,
-        alt: 'ClawMatic — AI Automation Agency',
+        alt: 'ClawMatic — OpenClaw Deployment Specialists',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ClawMatic — AI Automation for Businesses',
+    title: 'ClawMatic — OpenClaw Deployment Specialists',
     description:
-      'ClawMatic builds custom AI automation systems for small and mid-sized businesses. We handle everything — you just watch the hours come back.',
+      'ClawMatic deploys custom OpenClaw AI agents for businesses that want AI power without the cloud trade-offs. Self-hosted, data-sovereign, no vendor lock-in.',
     images: ['/openclaw-starter-kit-cover.png'],
   },
   verification: {

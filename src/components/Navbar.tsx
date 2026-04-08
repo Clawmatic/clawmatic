@@ -44,12 +44,12 @@ const Navbar = () => {
       {/* Cross-site banner */}
       <div className="fixed top-0 left-0 right-0 z-[60] bg-primary/10 border-b border-primary/20">
         <div className="container mx-auto px-4 py-1.5 flex items-center justify-center gap-4 text-xs">
-          <span className="text-muted-foreground">You're on ClawMatic Business</span>
-          <a 
-            href="https://community.clawmatic.eu" 
+          <span className="text-muted-foreground">We also run the OpenClaw community hub</span>
+          <a
+            href="https://community.clawmatic.eu"
             className="text-primary hover:text-primary/80 font-medium inline-flex items-center gap-1 transition-colors"
           >
-            Go to Community →
+            community.clawmatic.eu →
           </a>
         </div>
       </div>
@@ -128,7 +128,7 @@ const Navbar = () => {
 
           <Button variant="hero" size="sm" asChild>
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-              Book a free audit
+              Get your free Roadmap
             </a>
           </Button>
         </div>
@@ -190,7 +190,7 @@ const Navbar = () => {
             <div className="pt-3">
               <Button variant="hero" size="sm" className="w-full" asChild>
                 <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-                  Book a free audit
+                  Get your free Roadmap
                 </a>
               </Button>
             </div>
