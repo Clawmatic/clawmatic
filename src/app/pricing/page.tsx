@@ -21,7 +21,7 @@ const tiers = [
       'Free audit call',
       'One custom automation built for your business',
       'Testing and refinement',
-      '30-day support after delivery',
+      '30-day onboarding support',
       'Plain-English documentation',
     ],
     examples: 'Email triage setup, lead follow-up sequence, automated weekly report',
