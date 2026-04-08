@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 export const metadata: Metadata = {
   title: 'About ClawMatic',
   description:
-    'ClawMatic is a solo-founded AI automation practice. We build custom AI systems for small and mid-sized businesses — fully managed, no technical knowledge required.',
+    'ClawMatic is an OpenClaw deployment specialist. We deploy custom OpenClaw AI agents for small and mid-sized businesses — on their own infrastructure, fully under their control.',
 };
 
 const CALENDLY_URL = 'https://calendly.com/clawmatic/30min';
@@ -29,7 +29,7 @@ export default function AboutPage() {
             About
           </span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight mb-5 max-w-3xl">
-            Built for businesses.
+            OpenClaw specialists.
           </h1>
         </div>
       </section>
@@ -37,38 +37,44 @@ export default function AboutPage() {
       {/* Body */}
       <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
-          <p className="text-lg text-muted-foreground leading-relaxed mb-12">
-            ClawMatic is a solo-founded AI automation practice. We work with small and mid-sized businesses that want to stop doing manually what AI can do automatically.
+          <h2 className="text-xl font-bold mb-6">
+            We're OpenClaw specialists. That's it. That's the whole pitch.
+          </h2>
+
+          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+            ClawMatic was founded on a simple idea: businesses shouldn't have to send their data to third-party clouds to benefit from AI.
+          </p>
+
+          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+            OpenClaw is the open-source AI agent framework that makes that possible — but deploying it, configuring it, and maintaining it is still a technical project most businesses can't tackle alone. That's where we come in.
+          </p>
+
+          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+            We run the unofficial OpenClaw community hub at{' '}
+            <a
+              href="https://community.clawmatic.eu"
+              className="text-primary hover:text-primary/80 transition-colors"
+            >
+              community.clawmatic.eu
+            </a>
+            , we publish skill packs for the OpenClaw ecosystem, and we deploy OpenClaw agents as a done-for-you service for small and mid-sized businesses anywhere in the world.
           </p>
 
           <p className="text-lg text-muted-foreground leading-relaxed mb-16">
-            Every automation is built hands-on by a single person who is personally invested in your results. You are not dealing with an account manager — you are dealing with the person building your system.
+            We'd rather be the best in one thing than average at many.
           </p>
 
-          <div className="space-y-12 border-t border-border/40 pt-12">
-            <div>
-              <h2 className="text-xl font-bold mb-4">The approach</h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                We do not use off-the-shelf tools and call it automation. We build custom AI systems tailored to your specific business operations. That means more work on our end — and better results on yours.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                We are also transparent about what we use and how we work. If you want to understand the technology, we will explain it. If you just want results, that is fine too.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-xl font-bold mb-4">Building in public</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                ClawMatic is early. We are honest about that. We are currently working with our first founding clients and building a track record of real results. If you work with us now, you get hands-on attention, founding client pricing, and the satisfaction of having been here first.
-              </p>
-            </div>
+          <div className="border-t border-border/40 pt-10">
+            <p className="text-sm text-muted-foreground/70 leading-relaxed">
+              Remote-first. Working with clients worldwide.
+            </p>
           </div>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 mt-12">
+          <div className="flex flex-col sm:flex-row gap-4 mt-10">
             <Button variant="hero" asChild>
               <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-                Book a free audit
+                Get your free Deployment Roadmap
                 <ArrowRight className="ml-1 h-4 w-4" />
               </a>
             </Button>
@@ -80,7 +86,7 @@ export default function AboutPage() {
           </div>
 
           <p className="text-xs text-muted-foreground/40 mt-8">
-            Not affiliated with OpenClaw Inc.
+            Not officially affiliated with the OpenClaw project.
           </p>
         </div>
       </section>

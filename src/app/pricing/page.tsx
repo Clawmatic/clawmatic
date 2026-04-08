@@ -5,58 +5,55 @@ import { Button } from '@/components/ui/button';
 export const metadata: Metadata = {
   title: 'Pricing',
   description:
-    'Transparent AI automation pricing for small and mid-sized businesses. Fixed quotes, no hidden fees, and a free audit call to scope your project.',
+    'Transparent OpenClaw deployment pricing. Build (one-time deployment), Care (ongoing maintenance), and Partner (full operational backbone). No hidden fees, no vendor lock-in.',
 };
 
 const CALENDLY_URL = 'https://calendly.com/clawmatic/30min';
 
 const tiers = [
   {
-    name: 'Starter automation',
-    price: '€500 – €1,500',
+    name: 'Build',
+    price: '€1,500–€8,000',
     period: 'one-time',
-    description: 'Single-process automation — one workflow, one problem solved.',
+    description: 'One of the four named products, or a custom build. Fixed price, fixed timeline.',
     highlight: false,
     includes: [
-      'Free audit call',
-      'One custom automation built for your business',
-      'Testing and refinement',
-      '30-day onboarding support',
+      'OpenClaw deployment on your infrastructure',
+      'Custom skills built for your workflows',
+      'Full testing and refinement',
       'Plain-English documentation',
+      'Team walkthrough session',
+      '60 days of included support',
     ],
-    examples: 'Email triage setup, lead follow-up sequence, automated weekly report',
   },
   {
-    name: 'Business automation package',
-    price: '€2,000 – €5,000',
-    period: 'one-time',
-    description: 'Multiple connected automations that work together across your business.',
+    name: 'Care',
+    price: '€900',
+    period: 'per month',
+    description: 'Ongoing maintenance of your deployed agent. Minimum 3-month commitment.',
     highlight: true,
     badge: 'Most popular',
     includes: [
-      'Free audit call',
-      'Up to 3 connected automations',
-      'Full testing and refinement',
-      '60-day onboarding support',
-      'Team walkthrough session',
-      'Plain-English documentation',
-    ],
-    examples: 'Email + CRM + reporting combined, full customer support automation system',
-  },
-  {
-    name: 'Monthly retainer',
-    price: '€300 – €800',
-    period: 'per month',
-    description: 'Ongoing management, maintenance, updates, and continued automation of new processes.',
-    highlight: false,
-    includes: [
-      'Everything in the package tier',
-      'Monthly check-in call',
-      'Ongoing system maintenance',
-      'New automation requests (within scope)',
+      'Model updates as OpenClaw evolves',
+      'Skill updates when APIs change',
+      'Monthly optimization call',
+      'New skill requests within scope',
       'Priority support',
     ],
-    examples: 'Best combined with the Business automation package',
+  },
+  {
+    name: 'Partner',
+    price: '€2,500',
+    period: 'per month',
+    description: 'For businesses treating OpenClaw as their primary operational backbone.',
+    highlight: false,
+    includes: [
+      'Everything in Care',
+      'Unlimited new skill requests',
+      'Quarterly strategy reviews',
+      'Dedicated Slack channel',
+      'Priority access to new products',
+    ],
   },
 ];
 
@@ -83,7 +80,7 @@ export default function PricingPage() {
             No surprises.
           </h1>
           <p className="text-lg text-muted-foreground max-w-lg mx-auto leading-relaxed">
-            Every project is quoted individually after the free audit. Below are typical ranges to help you plan.
+            Every project is quoted individually after the free Deployment Roadmap call. Below are standard rates.
           </p>
         </div>
       </section>
@@ -116,7 +113,7 @@ export default function PricingPage() {
                   <p className="text-xs text-muted-foreground leading-relaxed">{tier.description}</p>
                 </div>
 
-                <ul className="space-y-2.5 mb-6 flex-1">
+                <ul className="space-y-2.5 mb-8 flex-1">
                   {tier.includes.map((item) => (
                     <li key={item} className="flex items-start gap-2.5 text-sm">
                       <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
@@ -125,18 +122,13 @@ export default function PricingPage() {
                   ))}
                 </ul>
 
-                <p className="text-xs text-muted-foreground/60 mb-5 leading-relaxed">
-                  <span className="font-medium text-muted-foreground/80">Examples: </span>
-                  {tier.examples}
-                </p>
-
                 <Button
                   variant={tier.highlight ? 'hero' : 'hero-outline'}
                   asChild
                   className="w-full"
                 >
                   <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-                    Book a free audit
+                    Book a free Roadmap call
                     <ArrowRight className="ml-1 h-4 w-4" />
                   </a>
                 </Button>
@@ -144,13 +136,10 @@ export default function PricingPage() {
             ))}
           </div>
 
-          {/* Note */}
+          {/* Invoicing note */}
           <div className="max-w-2xl mx-auto mt-10 text-center">
             <p className="text-xs text-muted-foreground/60 leading-relaxed">
-              These are typical ranges — your actual quote may be higher or lower depending on complexity. The audit call is always free and always the first step.
-            </p>
-            <p className="text-xs text-muted-foreground/50 mt-2">
-              Invoicing in EUR, VAT compliant.
+              Invoicing in EUR. VAT-compliant for EU clients. Global clients invoiced in EUR or USD on request.
             </p>
           </div>
         </div>
@@ -167,11 +156,14 @@ export default function PricingPage() {
             }}
           >
             <span className="inline-block text-xs font-semibold text-primary tracking-widest uppercase mb-4">
-              Founding client offer
+              Founding client offer — 40% off, first 10 clients only
             </span>
-            <h2 className="text-2xl font-bold mb-4">Founding client offer</h2>
+            <h2 className="text-2xl font-bold mb-4">Founding client offer — 40% off, first 10 clients only</h2>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+              We're onboarding our first 10 clients at 40% off these rates in exchange for a case study. That means The Inbox Agent at €900 instead of €1,500, Care plans at €540/month instead of €900.
+            </p>
             <p className="text-sm text-muted-foreground leading-relaxed mb-8">
-              We are currently onboarding our first clients at significantly reduced rates in exchange for a case study and testimonial. If you book an audit now, you lock in founding client pricing for any work that follows.
+              This is the lowest pricing ClawMatic will ever offer. After the first 10 clients, prices return to standard.
             </p>
             <Button variant="hero" size="lg" asChild className="text-base px-8 py-5">
               <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
