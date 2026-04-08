@@ -148,7 +148,7 @@ const problems = [
   },
   {
     title: "Your team wastes hours on repeatable work",
-    text: "Email triage, lead follow-up, reporting, document processing — all done by hand because "safe" AI felt impossible.",
+    text: "Email triage, lead follow-up, reporting, document processing — all done by hand because 'safe' AI felt impossible.",
   },
   {
     title: "Enterprise AI consultancies want €50,000 and six months",

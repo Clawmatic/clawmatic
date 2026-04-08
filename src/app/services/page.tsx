@@ -67,7 +67,7 @@ const products = [
     period: 'one-time',
     timeline: 'Shipped in 2–4 weeks',
     intro:
-      'Your business has a workflow no one else has. We'll build custom OpenClaw skills for exactly that. Starts with a free scoping call to lock in a fixed price.',
+      "Your business has a workflow no one else has. We'll build custom OpenClaw skills for exactly that. Starts with a free scoping call to lock in a fixed price.",
     includes: [
       'Free scoping call to define scope and fixed price',
       'Custom OpenClaw skill development',

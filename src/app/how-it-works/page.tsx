@@ -34,11 +34,11 @@ const steps = [
 const faqs = [
   {
     q: 'Do I need any technical knowledge?',
-    a: 'None at all. You explain your business problem, we handle everything else. You don't need to install, manage, or understand any of the technology involved.',
+    a: "None at all. You explain your business problem, we handle everything else. You don't need to install, manage, or understand any of the technology involved.",
   },
   {
     q: 'What infrastructure do I need?',
-    a: 'Any machine that can run Docker — a server, a VPS, or even a capable workstation. We'll advise on the right setup during the Deployment Roadmap call. If you don't have anything yet, we'll help you choose the right option.',
+    a: "Any machine that can run Docker — a server, a VPS, or even a capable workstation. We'll advise on the right setup during the Deployment Roadmap call. If you don't have anything yet, we'll help you choose the right option.",
   },
   {
     q: 'How long does it take to go live?',
@@ -46,7 +46,7 @@ const faqs = [
   },
   {
     q: 'What do you need from us?',
-    a: 'Access to the systems we're connecting (email, CRM, databases, etc.) and a point of contact who can answer operational questions during the build.',
+    a: "Access to the systems we're connecting (email, CRM, databases, etc.) and a point of contact who can answer operational questions during the build.",
   },
   {
     q: 'What happens if something breaks?',
