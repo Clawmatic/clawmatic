@@ -37,7 +37,7 @@ const tiers = [
       'Free audit call',
       'Up to 3 connected automations',
       'Full testing and refinement',
-      '60-day support after delivery',
+      '60-day onboarding support',
       'Team walkthrough session',
       'Plain-English documentation',
     ],
