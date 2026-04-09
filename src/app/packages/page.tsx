@@ -4,10 +4,24 @@ import { ArrowRight, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-  title: 'Curated AI Stack Packages — ClawMatic',
+  title: 'Stack Bundles — OpenClaw AI | ClawMatic Community',
   description:
-    'Stop guessing which AI model to use. We\'ve done the research — these packages tell you exactly which model to use on OpenClaw and how to get the best results.',
+    'Curated OpenRouter model configurations for OpenClaw. Stop guessing which AI model to use — our Stack Bundles tell you exactly which model to run and how to set it up.',
+  openGraph: {
+    title: 'Stack Bundles — Curated OpenClaw AI Setups | ClawMatic Community',
+    description:
+      'Curated OpenRouter model configurations for OpenClaw. Stop guessing which AI model to use.',
+    images: [{ url: '/og/packages.png', width: 1200, height: 630, alt: 'Stack Bundles — ClawMatic Community' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Stack Bundles — Curated OpenClaw AI Setups | ClawMatic Community',
+    description:
+      'Curated OpenRouter model configurations for OpenClaw. Stop guessing which AI model to use.',
+    images: ['/og/packages.png'],
+  },
 };
+// TODO: Generate OG image at /public/og/packages.png
 
 const packages = [
   {
@@ -68,13 +82,13 @@ export default function PackagesPage() {
         <div className="absolute inset-0 hero-grid opacity-20" />
         <div className="container mx-auto px-4 sm:px-6 max-w-3xl relative z-10">
           <span className="inline-block text-xs font-semibold text-primary tracking-widest uppercase mb-4">
-            Curated packages
+            Stack Bundles
           </span>
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-5">
             Stop guessing. Use the right model.
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            OpenRouter gives you access to dozens of AI models. The problem? Choosing the right one is overwhelming. We&apos;ve done the research — these packages tell you exactly which model to use, how to set it up in OpenClaw, and how to get the best results.
+            OpenRouter gives you access to dozens of AI models. The problem? Choosing the right one is overwhelming. We&apos;ve done the research — these Stack Bundles tell you exactly which model to use, how to set it up in OpenClaw, and how to get the best results.
           </p>
         </div>
       </section>

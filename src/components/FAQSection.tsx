@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     q: "Is this expensive?",
-    a: "The done-for-you service is priced based on scope — book a free call to get a quote. The guides are free. Skill packs start at €19. AI stack packages start at €29.",
+    a: "The done-for-you service is priced based on scope — book a free call to get a quote. The guides are free. Skill packs start at €19. Stack Bundles start at €29.",
   },
   {
     q: "What kind of businesses do you work with?",

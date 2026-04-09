@@ -19,8 +19,8 @@ export default function PrivacyPage() {
       <section style={{ marginBottom: '2rem' }}>
         <h2 style={{ fontFamily: 'Courier New, monospace', color: '#E8E8E8', fontSize: '1rem' }}>Who we are</h2>
         <p style={{ fontFamily: 'Courier New, monospace', fontSize: '0.85rem', color: '#888', lineHeight: 1.8 }}>
-          ClawMatic (clawmatic.eu) is an independent resource for OpenClaw AI guides and skill packs.
-          We are not affiliated with OpenClaw Inc.
+          ClawMatic Community (community.clawmatic.eu) is an independent resource for OpenClaw AI guides and skill packs.
+          We are not officially affiliated with the OpenClaw project.
         </p>
       </section>
 

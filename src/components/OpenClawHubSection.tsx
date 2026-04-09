@@ -14,7 +14,7 @@ const tiles = [
   },
   {
     icon: Package,
-    title: "AI Stack Packages",
+    title: "Stack Bundles",
     description: "Curated model + setup combos for your use case.",
     href: "/packages",
   },

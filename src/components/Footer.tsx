@@ -4,32 +4,32 @@ import Link from 'next/link';
 import { Zap } from 'lucide-react';
 
 const DISCORD_URL = 'https://discord.gg/7p3PVFq3';
-const CALENDLY_URL = 'https://calendly.com/clawmatic/30min';
+const GITHUB_URL = 'https://github.com/Clawmatic';
+const BUSINESS_URL = 'https://clawmatic.eu';
 
 const footerCols = [
   {
-    heading: 'Agency',
+    heading: 'Learn',
     links: [
-      { label: 'Services', href: '/services', external: false },
-      { label: 'How it Works', href: '/how-it-works', external: false },
-      { label: 'Pricing', href: '/pricing', external: false },
-      { label: 'Book an Audit', href: CALENDLY_URL, external: true },
+      { label: 'Free Guides', href: '/guides', external: false },
+      { label: 'Stack Bundles', href: '/packages', external: false },
+      { label: 'Skill Packs', href: '/toolkit', external: false },
+      { label: 'Stack Quiz', href: '/quiz', external: false },
     ],
   },
   {
-    heading: 'Company',
+    heading: 'Community',
     links: [
+      { label: 'Discord', href: DISCORD_URL, external: true },
+      { label: 'GitHub', href: GITHUB_URL, external: true },
       { label: 'About', href: '/about', external: false },
-      { label: 'Contact', href: '/contact', external: false },
-      { label: 'Privacy Policy', href: '/privacy', external: false },
     ],
   },
   {
     heading: 'Resources',
     links: [
-      { label: 'Guides', href: '/guides', external: false },
-      { label: 'Skill Packs', href: '/toolkit', external: false },
-      { label: 'Discord', href: DISCORD_URL, external: true },
+      { label: 'Privacy Policy', href: '/privacy', external: false },
+      { label: 'Installer (coming soon)', href: '/installer', external: false },
     ],
   },
 ];
@@ -47,9 +47,15 @@ export default function Footer() {
                 Claw<span className="text-primary">Matic</span>
               </span>
             </Link>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              AI automation for businesses.
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+              The unofficial OpenClaw AI hub. Free guides, curated stacks, skill packs, and a community of builders.
             </p>
+            <a
+              href={BUSINESS_URL}
+              className="text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors"
+            >
+              ClawMatic Business →
+            </a>
           </div>
 
           {/* Link columns */}
@@ -87,10 +93,10 @@ export default function Footer() {
 
         <div className="border-t border-border/50 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
           <p className="text-xs text-muted-foreground/60">
-            © 2026 ClawMatic. All rights reserved.
+            © 2026 ClawMatic Community. All rights reserved.
           </p>
           <p className="text-xs text-muted-foreground/40">
-            Not affiliated with OpenClaw Inc.
+            Not officially affiliated with the OpenClaw project.
           </p>
         </div>
       </div>

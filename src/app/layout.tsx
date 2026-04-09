@@ -4,51 +4,51 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
-const BASE_URL = 'https://clawmatic.eu';
+const BASE_URL = 'https://community.clawmatic.eu';
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'ClawMatic — AI Automation for Businesses',
-    template: '%s — ClawMatic',
+    default: 'ClawMatic Community — The Unofficial OpenClaw AI Hub',
+    template: '%s | ClawMatic Community',
   },
   description:
-    'ClawMatic builds custom AI automation systems for small and mid-sized businesses. We handle everything — you just watch the hours come back. Book a free 30-minute audit.',
+    'Free guides, curated AI model setups, skill packs, and a community of builders. The unofficial OpenClaw AI hub — all in one place.',
   keywords: [
-    'AI automation agency',
-    'business automation',
-    'custom AI systems',
-    'workflow automation',
-    'AI consultant Europe',
-    'email automation',
-    'CRM automation',
-    'ClawMatic',
+    'OpenClaw',
+    'OpenClaw guides',
+    'OpenClaw skill packs',
+    'OpenClaw setup',
+    'AI agent',
+    'OpenRouter',
+    'ClawMatic Community',
+    'OpenClaw tutorial',
   ],
-  authors: [{ name: 'ClawMatic', url: BASE_URL }],
+  authors: [{ name: 'ClawMatic Community', url: BASE_URL }],
   creator: 'ClawMatic',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: BASE_URL,
-    siteName: 'ClawMatic',
-    title: 'ClawMatic — AI Automation for Businesses',
+    siteName: 'ClawMatic Community',
+    title: 'ClawMatic Community — The Unofficial OpenClaw AI Hub',
     description:
-      'ClawMatic builds custom AI automation systems for small and mid-sized businesses. We handle everything — you just watch the hours come back.',
+      'Free guides, curated AI model setups, skill packs, and a community of builders. All in one place.',
     images: [
       {
-        url: '/openclaw-starter-kit-cover.png',
-        width: 1280,
-        height: 960,
-        alt: 'ClawMatic — AI Automation Agency',
+        url: '/og/home.png',
+        width: 1200,
+        height: 630,
+        alt: 'ClawMatic Community — The Unofficial OpenClaw AI Hub',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ClawMatic — AI Automation for Businesses',
+    title: 'ClawMatic Community — The Unofficial OpenClaw AI Hub',
     description:
-      'ClawMatic builds custom AI automation systems for small and mid-sized businesses. We handle everything — you just watch the hours come back.',
-    images: ['/openclaw-starter-kit-cover.png'],
+      'Free guides, curated AI model setups, skill packs, and a community of builders. All in one place.',
+    images: ['/og/home.png'],
   },
   verification: {
     google: '1BrDFXRyGpSZma0ZDFkbfUtoWvsudjsU2kdbWBjfU68',
