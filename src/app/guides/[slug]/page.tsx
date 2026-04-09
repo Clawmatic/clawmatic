@@ -558,7 +558,7 @@ openrouter/mistralai/mistral-large         # Mistral's flagship</code></pre>
       {
         id: 'why-openrouter',
         heading: 'Why we recommend OpenRouter for most ClawMatic users',
-        body: `<p>If you're buying one of our <a href="/packages">AI Stack Packages</a>, they're all configured to work through OpenRouter. One key, the right model for your use case, and you can switch if your needs change.</p>
+        body: `<p>If you're using one of our <a href="/packages">Stack Bundles</a>, they're all configured to work through OpenRouter. One key, the right model for your use case, and you can switch if your needs change.</p>
 <p>It also means we can update our package recommendations as new models come out — you just change the model string, no new accounts or keys needed.</p>
 <ul>
   <li><a href="/guides/which-ai-model-openclaw-2026">Which AI model should you use on OpenClaw? →</a></li>
@@ -747,16 +747,24 @@ export async function generateMetadata({
   const guide = guides[slug];
   if (!guide) return {};
   return {
-    title: guide.title,
+    title: `${guide.title} | ClawMatic Community`,
     description: guide.description,
     openGraph: {
-      title: guide.title,
+      title: `${guide.title} | ClawMatic Community`,
       description: guide.description,
       url: `${BASE_URL}/guides/${slug}`,
       type: 'article',
+      images: [{ url: `/og/guides/${slug}.png`, width: 1200, height: 630, alt: guide.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${guide.title} | ClawMatic Community`,
+      description: guide.description,
+      images: [`/og/guides/${slug}.png`],
     },
     alternates: { canonical: `${BASE_URL}/guides/${slug}` },
   };
+  // TODO: Generate OG image at /public/og/guides/[slug].png
 }
 
 export function generateStaticParams() {
@@ -813,7 +821,9 @@ export default async function GuidePage({
               <Clock className="h-4 w-4" />
               {guide.readTime} read
             </span>
-            <span>Updated {guide.updated}</span>
+            <span className="text-primary font-medium">
+              Last updated: {guide.updated}
+            </span>
           </div>
         </div>
       </header>

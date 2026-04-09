@@ -12,9 +12,9 @@ interface EmailCaptureProps {
 }
 
 export default function EmailCapture({
-  heading = "Get notified when the one-click installer launches",
-  subheading = "Plus weekly OpenClaw tips, model updates, and new skill packs.",
-  finePrint = "No spam. Unsubscribe anytime.",
+  heading = "Weekly OpenClaw tips, new skill packs, and ecosystem news.",
+  subheading = "The best of the OpenClaw world, delivered once a week. No spam. Unsubscribe anytime.",
+  finePrint = "By subscribing, you agree to our Privacy Policy.",
   className = "",
 }: EmailCaptureProps) {
   const [email, setEmail] = useState("");
@@ -75,7 +75,7 @@ export default function EmailCapture({
             disabled={status === "loading"}
             className="whitespace-nowrap"
           >
-            {status === "loading" ? "..." : "Notify me"}
+            {status === "loading" ? "..." : "Subscribe"}
             {status !== "loading" && <ArrowRight className="ml-1 h-4 w-4" />}
           </Button>
         </form>
@@ -85,7 +85,14 @@ export default function EmailCapture({
         <p className="text-xs text-destructive mt-3">{errorMsg}</p>
       )}
 
-      <p className="text-xs text-muted-foreground/60 mt-4">{finePrint}</p>
+      <p className="text-xs text-muted-foreground/60 mt-4">
+        {finePrint}{" "}
+        {finePrint.includes("Privacy Policy") && (
+          <a href="/privacy" className="hover:underline">
+            Read it here.
+          </a>
+        )}
+      </p>
     </div>
   );
 }

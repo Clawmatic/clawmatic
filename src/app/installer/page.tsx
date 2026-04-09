@@ -3,10 +3,24 @@ import { Check } from 'lucide-react';
 import EmailCapture from '@/components/EmailCapture';
 
 export const metadata: Metadata = {
-  title: 'One-Click OpenClaw Installer — Coming Soon · ClawMatic',
+  title: 'One-Click OpenClaw Installer — Coming Soon | ClawMatic Community',
   description:
-    'No terminal. No config files. No API setup headaches. The ClawMatic one-click installer is coming soon. Get notified when it launches.',
+    'No terminal. No config files. No API setup headaches. The ClawMatic one-click installer for OpenClaw is coming soon — get notified when it launches.',
+  openGraph: {
+    title: 'One-Click OpenClaw Installer — Coming Soon | ClawMatic Community',
+    description:
+      'No terminal. No config files. No API setup headaches. Get notified when the installer launches.',
+    images: [{ url: '/og/installer.png', width: 1200, height: 630, alt: 'OpenClaw Installer — Coming Soon' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'One-Click OpenClaw Installer — Coming Soon | ClawMatic Community',
+    description:
+      'No terminal. No config files. No API setup headaches. Get notified when the installer launches.',
+    images: ['/og/installer.png'],
+  },
 };
+// TODO: Generate OG image at /public/og/installer.png
 
 const freeTier = [
   'Bring your own API key',
