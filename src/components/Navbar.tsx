@@ -17,10 +17,10 @@ const navLinks = [
 ];
 
 const nicheLinks = [
-  { label: "For Law Firms", href: "/for-law-firms" },
-  { label: "For Accounting Firms", href: "/for-accounting-firms" },
-  { label: "For Recruitment Agencies", href: "/for-recruitment-agencies" },
-  { label: "For Property Management", href: "/for-property-management" },
+  { label: "Law Firms", href: "/for-law-firms" },
+  { label: "Accounting Firms", href: "/for-accounting-firms" },
+  { label: "Recruitment Agencies", href: "/for-recruitment-agencies" },
+  { label: "Property Management", href: "/for-property-management" },
 ];
 
 const Navbar = () => {
