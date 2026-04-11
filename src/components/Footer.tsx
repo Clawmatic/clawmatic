@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { Zap } from 'lucide-react';
 
-const DISCORD_URL = 'https://discord.gg/7p3PVFq3';
 const CALENDLY_URL = 'https://calendly.com/clawmatic/30min';
 
 const footerCols = [
@@ -24,21 +23,13 @@ const footerCols = [
       { label: 'Privacy Policy', href: '/privacy', external: false },
     ],
   },
-  {
-    heading: 'Resources',
-    links: [
-      { label: 'Guides', href: '/guides', external: false },
-      { label: 'Skill Packs', href: '/toolkit', external: false },
-      { label: 'Discord', href: DISCORD_URL, external: true },
-    ],
-  },
 ];
 
 export default function Footer() {
   return (
     <footer className="border-t border-border/50 bg-background mt-auto">
       <div className="container mx-auto px-4 sm:px-6 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-10">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">

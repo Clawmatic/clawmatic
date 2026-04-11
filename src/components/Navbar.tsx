@@ -1,13 +1,12 @@
 "use client";
 
-import { useState, useRef, useEffect, Fragment } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Zap, ChevronDown, BookOpen, Puzzle, MessageSquare } from "lucide-react";
+import { Menu, X, Zap } from "lucide-react";
 
 const CALENDLY_URL = "https://calendly.com/clawmatic/30min";
-const DISCORD_URL = "https://discord.gg/7p3PVFq3";
 
 const navLinks = [
   { label: "Services", href: "/services" },
@@ -18,27 +17,9 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
-const resourceLinks = [
-  { label: "Guides", href: "/guides", icon: BookOpen, external: false },
-  { label: "Skill Packs", href: "/toolkit", icon: Puzzle, external: false },
-  { label: "Discord", href: DISCORD_URL, icon: MessageSquare, external: true },
-];
-
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [resourcesOpen, setResourcesOpen] = useState(false);
   const pathname = usePathname();
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setResourcesOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
 
   return (
     <>
@@ -82,51 +63,8 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Desktop — right side: Resources dropdown + CTA */}
+        {/* Desktop — right side CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <div
-            className="relative"
-            ref={dropdownRef}
-            onMouseEnter={() => setResourcesOpen(true)}
-            onMouseLeave={() => setResourcesOpen(false)}
-          >
-            <button
-              onClick={() => setResourcesOpen(!resourcesOpen)}
-              className={`flex items-center gap-1 text-sm transition-colors duration-200 ${
-                resourcesOpen ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Resources
-              <ChevronDown
-                className={`h-3.5 w-3.5 transition-transform duration-200 ${resourcesOpen ? "rotate-180" : ""}`}
-              />
-            </button>
-
-            {resourcesOpen && (
-              <div className="absolute right-0 top-full pt-1 w-48 z-50">
-                <div className="rounded-xl border border-border/60 bg-popover shadow-lg py-1.5">
-                  {resourceLinks.map((item) => {
-                    const inner = (
-                      <div className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-card transition-colors">
-                        <item.icon className="h-3.5 w-3.5 text-primary flex-shrink-0" />
-                        <span className="text-sm text-foreground">{item.label}</span>
-                      </div>
-                    );
-                    return item.external ? (
-                      <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" onClick={() => setResourcesOpen(false)}>
-                        {inner}
-                      </a>
-                    ) : (
-                      <Link key={item.label} href={item.href} onClick={() => setResourcesOpen(false)}>
-                        {inner}
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-          </div>
-
           <Button variant="hero" size="sm" asChild>
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
               Book a free audit
@@ -162,32 +100,6 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-            <p className="text-xs font-semibold text-muted-foreground/50 uppercase tracking-widest mt-4 mb-1">
-              Resources
-            </p>
-            {resourceLinks.map((link) =>
-              link.external ? (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2.5 border-b border-border/30"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ) : (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2.5 border-b border-border/30"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
             <div className="pt-3">
               <Button variant="hero" size="sm" className="w-full" asChild>
                 <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
