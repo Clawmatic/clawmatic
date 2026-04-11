@@ -150,7 +150,7 @@ export default function PricingPage() {
               These are typical ranges — your actual quote may be higher or lower depending on complexity. The audit call is always free and always the first step.
             </p>
             <p className="text-xs text-muted-foreground/50 mt-2">
-              Invoicing in EUR, VAT compliant.
+              Invoicing in EUR, VAT compliant. Fixed price. No deposit until scope is signed.
             </p>
           </div>
         </div>

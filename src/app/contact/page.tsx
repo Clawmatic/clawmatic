@@ -41,6 +41,9 @@ export default function ContactPage() {
           <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
             Pick the option that works for you.
           </p>
+          <p className="text-sm text-muted-foreground/75 max-w-xl leading-relaxed mt-4">
+            Built for legal, healthcare, finance, and professional services teams in the EU.
+          </p>
         </div>
       </section>
 
@@ -55,7 +58,7 @@ export default function ContactPage() {
               </div>
               <h2 className="text-xl font-bold mb-3">Book a free audit call</h2>
               <p className="text-sm text-muted-foreground leading-relaxed mb-8 flex-1">
-                30 minutes. We map out what can be automated in your business, give you an honest assessment, and tell you exactly what it would take. No obligation.
+                30 minutes. We map out what can be automated in your business, give you an honest assessment, and tell you exactly what it would take. No obligation. Fixed price. No deposit until scope is signed.
               </p>
               <Button variant="hero" asChild className="w-full">
                 <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">

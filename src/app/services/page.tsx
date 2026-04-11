@@ -110,6 +110,9 @@ export default function ServicesPage() {
           <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
             Every system is built specifically for your operations. Nothing off-the-shelf.
           </p>
+          <p className="text-sm text-muted-foreground/75 max-w-xl leading-relaxed mt-4">
+            Especially well suited to legal, healthcare, finance, and professional services teams in the EU.
+          </p>
         </div>
       </section>
 
@@ -149,7 +152,7 @@ export default function ServicesPage() {
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3">
             Not sure which automation your business needs first?
           </h2>
-          <p className="text-muted-foreground mb-8">That is exactly what the free audit is for.</p>
+          <p className="text-muted-foreground mb-8">That is exactly what the free audit is for. Fixed price. No deposit until scope is signed.</p>
           <Button variant="hero" size="lg" asChild className="text-base px-8 py-6">
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
               Book a free 30-minute audit
