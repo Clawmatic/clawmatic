@@ -13,6 +13,9 @@ const navLinks = [
   { label: "How it Works", href: "/how-it-works" },
   { label: "Pricing", href: "/pricing" },
   { label: "For Law Firms", href: "/for-law-firms" },
+  { label: "For Accounting Firms", href: "/for-accounting-firms" },
+  { label: "For Recruitment Agencies", href: "/for-recruitment-agencies" },
+  { label: "For Property Management", href: "/for-property-management" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
