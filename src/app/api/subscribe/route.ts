@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
+const BUTTONDOWN_API_BASE = "https://api.buttondown.email/v1";
+
 export async function POST(req: NextRequest) {
   try {
     const { email } = await req.json();
@@ -8,30 +10,36 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid email address." }, { status: 400 });
     }
 
-    const apiKey = process.env.BREVO_API_KEY;
+    const apiKey = process.env.BUTTONDOWN_API_KEY;
     if (!apiKey) {
-      // In dev without API key, just return success
-      console.log("[subscribe] No BREVO_API_KEY set — skipping API call for:", email);
+      console.log("[subscribe] No BUTTONDOWN_API_KEY set — skipping API call for:", email);
       return NextResponse.json({ ok: true });
     }
 
-    const res = await fetch("https://api.brevo.com/v3/contacts", {
+    const res = await fetch(`${BUTTONDOWN_API_BASE}/subscribers`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "api-key": apiKey,
+        Authorization: `Token ${apiKey}`,
       },
       body: JSON.stringify({
         email,
-        listIds: [2], // Update list ID as needed
-        updateEnabled: true,
+        tags: ["website"],
+        metadata: {
+          source: "clawmatic.eu",
+        },
       }),
     });
 
-    if (!res.ok && res.status !== 204) {
+    if (!res.ok) {
       const body = await res.json().catch(() => ({}));
-      console.error("[subscribe] Brevo error:", res.status, body);
-      return NextResponse.json({ error: "Failed to subscribe." }, { status: 500 });
+      const detail = typeof body?.detail === "string" ? body.detail : "";
+      const alreadySubscribed = res.status === 400 && /already subscribed|already exists|already a subscriber/i.test(detail);
+
+      if (!alreadySubscribed) {
+        console.error("[subscribe] Buttondown error:", res.status, body);
+        return NextResponse.json({ error: "Failed to subscribe." }, { status: 500 });
+      }
     }
 
     return NextResponse.json({ ok: true });

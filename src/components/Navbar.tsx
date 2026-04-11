@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Zap } from "lucide-react";
+import { ChevronDown, Menu, X, Zap } from "lucide-react";
 
 const CALENDLY_URL = "https://calendly.com/clawmatic/30min";
 
@@ -12,17 +12,36 @@ const navLinks = [
   { label: "Services", href: "/services" },
   { label: "How it Works", href: "/how-it-works" },
   { label: "Pricing", href: "/pricing" },
-  { label: "For Law Firms", href: "/for-law-firms" },
-  { label: "For Accounting Firms", href: "/for-accounting-firms" },
-  { label: "For Recruitment Agencies", href: "/for-recruitment-agencies" },
-  { label: "For Property Management", href: "/for-property-management" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
+const nicheLinks = [
+  { label: "For Law Firms", href: "/for-law-firms" },
+  { label: "For Accounting Firms", href: "/for-accounting-firms" },
+  { label: "For Recruitment Agencies", href: "/for-recruitment-agencies" },
+  { label: "For Property Management", href: "/for-property-management" },
+];
+
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [nichesOpen, setNichesOpen] = useState(false);
   const pathname = usePathname();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setNichesOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const nicheActive = nicheLinks.some(
+    (link) => pathname === link.href || pathname?.startsWith(link.href + "/")
+  );
 
   return (
     <>
@@ -64,6 +83,45 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
+
+          <div
+            className="relative"
+            ref={dropdownRef}
+            onMouseEnter={() => setNichesOpen(true)}
+            onMouseLeave={() => setNichesOpen(false)}
+          >
+            <button
+              onClick={() => setNichesOpen(!nichesOpen)}
+              className={`flex items-center gap-1 text-sm transition-colors duration-200 ${
+                nichesOpen || nicheActive
+                  ? "text-foreground font-medium"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Industries
+              <ChevronDown
+                className={`h-3.5 w-3.5 transition-transform duration-200 ${nichesOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+
+            {nichesOpen && (
+              <div className="absolute left-1/2 top-full pt-1 w-64 z-50 -translate-x-1/2">
+                <div className="rounded-xl border border-border/60 bg-popover shadow-lg py-1.5">
+                  {nicheLinks.map((item) => (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => setNichesOpen(false)}
+                    >
+                      <div className="px-4 py-2.5 hover:bg-card transition-colors">
+                        <span className="text-sm text-foreground">{item.label}</span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Desktop — right side CTA */}
@@ -95,6 +153,23 @@ const Navbar = () => {
                 href={link.href}
                 className={`text-sm transition-colors py-2.5 border-b border-border/30 ${
                   pathname === link.href
+                    ? "text-foreground font-medium"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <p className="text-xs font-semibold text-muted-foreground/50 uppercase tracking-widest mt-4 mb-1">
+              Industries
+            </p>
+            {nicheLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={`text-sm transition-colors py-2.5 border-b border-border/30 ${
+                  pathname === link.href || pathname?.startsWith(link.href + "/")
                     ? "text-foreground font-medium"
                     : "text-muted-foreground hover:text-foreground"
                 }`}

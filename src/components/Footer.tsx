@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { Zap } from 'lucide-react';
+import EmailCapture from '@/components/EmailCapture';
 
 const CALENDLY_URL = 'https://calendly.com/clawmatic/30min';
 
@@ -13,6 +14,15 @@ const footerCols = [
       { label: 'How it Works', href: '/how-it-works', external: false },
       { label: 'Pricing', href: '/pricing', external: false },
       { label: 'Book an Audit', href: CALENDLY_URL, external: true },
+    ],
+  },
+  {
+    heading: 'Industries',
+    links: [
+      { label: 'Law Firms', href: '/for-law-firms', external: false },
+      { label: 'Accounting Firms', href: '/for-accounting-firms', external: false },
+      { label: 'Recruitment Agencies', href: '/for-recruitment-agencies', external: false },
+      { label: 'Property Management', href: '/for-property-management', external: false },
     ],
   },
   {
@@ -29,7 +39,15 @@ export default function Footer() {
   return (
     <footer className="border-t border-border/50 bg-background mt-auto">
       <div className="container mx-auto px-4 sm:px-6 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-10">
+        <div className="rounded-2xl border border-border/50 bg-card p-8 sm:p-10 mb-10">
+          <EmailCapture
+            heading="Get practical AI automation ideas"
+            subheading="Twice a month: real workflows, niche business use cases, and what’s actually worth automating. No hype."
+            finePrint="Powered by Buttondown. No spam. Unsubscribe anytime."
+          />
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">

@@ -88,9 +88,9 @@ export default function InstallerPage() {
           {/* Email capture */}
           <div className="rounded-xl border border-border/50 bg-card p-10 max-w-2xl mx-auto">
             <EmailCapture
-              heading="Get notified when it launches"
-              subheading="We'll email you the moment the installer is ready to download."
-              finePrint="No spam. Unsubscribe anytime."
+              heading="Get practical AI automation ideas"
+              subheading="Twice a month: real workflows, niche business use cases, and what’s actually worth automating. No hype."
+              finePrint="Powered by Buttondown. No spam. Unsubscribe anytime."
             />
           </div>
         </div>

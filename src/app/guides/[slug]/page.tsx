@@ -858,9 +858,9 @@ export default async function GuidePage({
           {/* Email capture */}
           <div className="rounded-xl border border-primary/20 bg-primary/5 p-8 mt-16 mb-12">
             <EmailCapture
-              heading="Enjoyed this? Get more guides in your inbox."
-              subheading="Weekly OpenClaw tips, new guides, and skill pack updates."
-              finePrint="No spam. Unsubscribe anytime."
+              heading="Get practical AI automation ideas in your inbox."
+              subheading="Twice a month: real workflows, niche business use cases, and practical notes from ClawMatic."
+              finePrint="Powered by Buttondown. No spam. Unsubscribe anytime."
             />
           </div>
 

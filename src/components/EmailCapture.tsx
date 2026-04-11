@@ -12,9 +12,9 @@ interface EmailCaptureProps {
 }
 
 export default function EmailCapture({
-  heading = "Get notified when the one-click installer launches",
-  subheading = "Plus weekly OpenClaw tips, model updates, and new skill packs.",
-  finePrint = "No spam. Unsubscribe anytime.",
+  heading = "Get practical AI automation ideas",
+  subheading = "Twice a month: real workflows, niche business use cases, and what’s actually worth automating. No hype, no vague future-of-work nonsense.",
+  finePrint = "Powered by Buttondown. No spam. Unsubscribe anytime.",
   className = "",
 }: EmailCaptureProps) {
   const [email, setEmail] = useState("");
@@ -57,7 +57,7 @@ export default function EmailCapture({
       {status === "success" ? (
         <div className="flex items-center justify-center gap-2 text-primary font-medium">
           <CheckCircle2 className="h-5 w-5" />
-          You&apos;re on the list — we&apos;ll be in touch!
+          You&apos;re subscribed — welcome to ClawMatic Dispatch.
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
@@ -75,7 +75,7 @@ export default function EmailCapture({
             disabled={status === "loading"}
             className="whitespace-nowrap"
           >
-            {status === "loading" ? "..." : "Notify me"}
+            {status === "loading" ? "..." : "Subscribe"}
             {status !== "loading" && <ArrowRight className="ml-1 h-4 w-4" />}
           </Button>
         </form>
