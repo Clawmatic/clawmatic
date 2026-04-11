@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 export const metadata: Metadata = {
   title: 'About ClawMatic',
   description:
-    'ClawMatic is a solo-founded AI automation practice. We build custom AI systems for small and mid-sized businesses — fully managed, no technical knowledge required.',
+    'ClawMatic is a founder-led AI automation practice. We build custom AI systems for small and mid-sized businesses — hands-on, practical, and built around real operations.',
 };
 
 const CALENDLY_URL = 'https://calendly.com/clawmatic/30min';
@@ -38,7 +38,7 @@ export default function AboutPage() {
       <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
           <p className="text-lg text-muted-foreground leading-relaxed mb-12">
-            ClawMatic is a solo-founded AI automation practice. We work with small and mid-sized businesses that want to stop doing manually what AI can do automatically.
+            ClawMatic is a founder-led AI automation practice. We work with small and mid-sized businesses that want to stop doing manually what AI can do automatically.
           </p>
 
           <p className="text-lg text-muted-foreground leading-relaxed mb-16">
@@ -79,9 +79,11 @@ export default function AboutPage() {
             </Button>
           </div>
 
-          <p className="text-xs text-muted-foreground/40 mt-8">
-            Not affiliated with OpenClaw Inc.
-          </p>
+          <div className="mt-8 rounded-lg border border-border/50 bg-card px-4 py-3">
+            <p className="text-xs text-muted-foreground/70">
+              ClawMatic is an independent company and is not affiliated with OpenClaw Inc.
+            </p>
+          </div>
         </div>
       </section>
     </div>

@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 export const metadata: Metadata = {
   title: 'How it Works',
   description:
-    'From a free 30-minute audit to a live AI automation system in as little as 2 weeks. A simple, transparent process with no technical burden on your side.',
+    'From a free 30-minute audit to a live AI automation system in 2–3 weeks. A simple, transparent process with your IT team in control and ClawMatic handling the build.',
 };
 
 const CALENDLY_URL = 'https://calendly.com/clawmatic/30min';
@@ -26,7 +26,7 @@ const steps = [
   {
     n: '03',
     title: 'We build',
-    duration: '1–2 weeks',
+    duration: '2–3 weeks',
     body: 'We handle everything. You provide access to the systems we need to connect. We build, test, and refine the automation until it works exactly as agreed.',
   },
   {
@@ -40,11 +40,11 @@ const steps = [
 const faqs = [
   {
     q: 'Do I need any technical knowledge?',
-    a: 'None at all. You explain your business problem, we handle everything else. You do not need to install, manage, or understand any of the technology involved.',
+    a: 'Not personally, no. You explain the business problem and we handle the build. If you have an internal IT contact, we can work with them directly so your team stays in control.',
   },
   {
     q: 'How long does it take?',
-    a: 'Most automations are live within 1–2 weeks of the audit call. More complex systems take 3–4 weeks. We will give you an honest timeline upfront.',
+    a: 'Most automations are live within 2–3 weeks of the audit call. More complex systems can take longer. We will give you an honest timeline upfront.',
   },
   {
     q: 'What do you need from us?',
@@ -80,10 +80,10 @@ export default function HowItWorksPage() {
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight mb-5 max-w-3xl">
             From audit to automation
             <br />
-            in as little as 2 weeks.
+            in 2–3 weeks.
           </h1>
           <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
-            A simple, transparent process designed to get results fast — with no technical burden on your side.
+            A simple, transparent process designed to get results fast — with your IT team in control and ClawMatic handling the build.
           </p>
         </div>
       </section>

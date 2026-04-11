@@ -59,12 +59,21 @@ function Hero() {
         </motion.h1>
 
         <motion.p
-          className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
         >
-          ClawMatic builds custom AI automation systems for small and mid-sized businesses. We handle everything — you just watch the hours come back.
+          ClawMatic builds custom AI automation systems for small and mid-sized businesses. Founder-led, hands-on, and built for teams that want less repetitive work and more operational leverage.
+        </motion.p>
+
+        <motion.p
+          className="text-sm sm:text-base text-muted-foreground/75 max-w-2xl mx-auto mb-10 leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+        >
+          Built for legal, healthcare, finance, and professional services teams in the EU.
         </motion.p>
 
         <motion.div
@@ -80,7 +89,7 @@ function Hero() {
             </a>
           </Button>
           <p className="text-sm text-muted-foreground/60">
-            No obligation. We map out exactly what can be automated in your business.
+            No obligation. Fixed price. No deposit until scope is signed.
           </p>
         </motion.div>
       </div>
@@ -181,7 +190,7 @@ function WhatWeDo() {
             We build AI systems that do the work for you.
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            Custom-built for your business. Fully managed by us. No technical knowledge required on your end.
+            Custom-built for your business. Fully managed by us. Your IT team stays in control — we handle the build.
           </p>
         </motion.div>
 
@@ -315,7 +324,7 @@ const trustPoints = [
   {
     icon: Star,
     title: "Hands-on and personal",
-    text: "Solo-founded, hands-on, and personally invested in every client's results. You deal with the person building your system.",
+    text: "Founder-led, hands-on, and personally invested in every client's results. You deal with the person building your system.",
   },
 ];
 
@@ -388,7 +397,7 @@ function FoundingClients() {
             </a>
           </Button>
           <p className="text-sm text-muted-foreground/60 mt-5">
-            30 minutes. No obligation. No sales pitch — just an honest conversation about what can be automated in your business.
+            30 minutes. No obligation. Fixed price. No deposit until scope is signed.
           </p>
         </motion.div>
       </div>

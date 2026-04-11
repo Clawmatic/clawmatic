@@ -14,7 +14,7 @@ const faqs = [
   },
   {
     q: "How long does it take?",
-    a: "A typical business automation is scoped, built, and live within 1–2 weeks. For DIY users, the install guide gets most people running in under 15 minutes.",
+    a: "A typical business automation is scoped, built, and live within 2–3 weeks. For DIY users, the install guide gets most people running in under 15 minutes.",
   },
   {
     q: "Is this expensive?",
@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: "What kind of businesses do you work with?",
-    a: "Small and mid-sized businesses that are drowning in repetitive manual work — typically 2–50 people. Industry doesn't matter. If your team does the same tasks every day by hand, we can help.",
+    a: "Small and mid-sized businesses that are drowning in repetitive manual work — typically 2–50 people. We are especially well suited to legal, healthcare, finance, and professional services teams in the EU.",
   },
 ];
 
